@@ -113,7 +113,7 @@ namespace Finbourne.Luminesce.Sdk.Client
         {
             Proxy = null;
             UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/2.0.0/csharp");
-            BasePath = "https://fbn-ci.lusid.com/honeycomb";
+            BasePath = "https://fbn-prd.lusid.com/honeycomb";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -121,7 +121,7 @@ namespace Finbourne.Luminesce.Sdk.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "https://fbn-ci.lusid.com/honeycomb"},
+                        {"url", "https://fbn-prd.lusid.com/honeycomb"},
                         {"description", "No description provided"},
                     }
                 }
@@ -142,7 +142,7 @@ namespace Finbourne.Luminesce.Sdk.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://fbn-ci.lusid.com/honeycomb") : this()
+            string basePath = "https://fbn-prd.lusid.com/honeycomb") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -543,7 +543,7 @@ namespace Finbourne.Luminesce.Sdk.Client
             string report = "C# SDK (Finbourne.Luminesce.Sdk) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
-            report += "    Version of the API: 1.13.843\n";
+            report += "    Version of the API: 1.13.854\n";
             report += "    SDK Package Version: 2.0.0\n";
 
             return report;
