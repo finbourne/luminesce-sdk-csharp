@@ -530,11 +530,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// SQL to attempt to create a Design object from
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">SQL query to generate the file read design object from</param>
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
+        /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string PutSqlToFileReadDesign(string body, bool? determineAvailableSources = default(bool?), int operationIndex = 0);
+        string PutSqlToFileReadDesign(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible.
@@ -543,11 +543,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// SQL to attempt to create a Design object from
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">SQL query to generate the file read design object from</param>
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
+        /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PutSqlToFileReadDesignWithHttpInfo(string body, bool? determineAvailableSources = default(bool?), int operationIndex = 0);
+        ApiResponse<string> PutSqlToFileReadDesignWithHttpInfo(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToQueryDesign: Generates a SQL-design object from SQL string, if possible.
         /// </summary>
@@ -1145,12 +1145,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// SQL to attempt to create a Design object from
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">SQL query to generate the file read design object from</param>
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
+        /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutSqlToFileReadDesignAsync(string body, bool? determineAvailableSources = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> PutSqlToFileReadDesignAsync(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible.
@@ -1159,12 +1159,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// SQL to attempt to create a Design object from
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">SQL query to generate the file read design object from</param>
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
+        /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PutSqlToFileReadDesignWithHttpInfoAsync(string body, bool? determineAvailableSources = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> PutSqlToFileReadDesignWithHttpInfoAsync(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToQueryDesign: Generates a SQL-design object from SQL string, if possible.
         /// </summary>
@@ -5078,13 +5078,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible. SQL to attempt to create a Design object from
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">SQL query to generate the file read design object from</param>
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
+        /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string PutSqlToFileReadDesign(string body, bool? determineAvailableSources = default(bool?), int operationIndex = 0)
+        public string PutSqlToFileReadDesign(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutSqlToFileReadDesignWithHttpInfo(body, determineAvailableSources);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutSqlToFileReadDesignWithHttpInfo(determineAvailableSources, body);
             return localVarResponse.Data;
         }
 
@@ -5092,18 +5092,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible. SQL to attempt to create a Design object from
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">SQL query to generate the file read design object from</param>
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
+        /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutSqlToFileReadDesignWithHttpInfo(string body, bool? determineAvailableSources = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutSqlToFileReadDesignWithHttpInfo(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-            {
-                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'body' when calling SqlExecutionApi->PutSqlToFileReadDesign");
-            }
-
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -5173,14 +5167,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible. SQL to attempt to create a Design object from
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">SQL query to generate the file read design object from</param>
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
+        /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutSqlToFileReadDesignAsync(string body, bool? determineAvailableSources = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> PutSqlToFileReadDesignAsync(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutSqlToFileReadDesignWithHttpInfoAsync(body, determineAvailableSources, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutSqlToFileReadDesignWithHttpInfoAsync(determineAvailableSources, body, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5188,19 +5182,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible. SQL to attempt to create a Design object from
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">SQL query to generate the file read design object from</param>
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
+        /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutSqlToFileReadDesignWithHttpInfoAsync(string body, bool? determineAvailableSources = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutSqlToFileReadDesignWithHttpInfoAsync(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-            {
-                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'body' when calling SqlExecutionApi->PutSqlToFileReadDesign");
-            }
-
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
 

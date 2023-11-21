@@ -43,7 +43,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="skipPreHeader">Number of rows to ignore before the header row.</param>
         /// <param name="skipPostHeader">Number of rows to ignore after the header row.</param>
         /// <param name="skipInvalidRows">Skip invalid data rows (totally invalid ones),   This also allows for potentially wrong data if it can be handled somewhat e.g. embedded quotes misused (and still returns such rows).  In either case a warning will show in the progress feedback..</param>
-        public OptionsCsv(string columnNames = default(string), string columnNamesWanted = default(string), string columnTypes = default(string), int inferTypeRowCount = default(int), bool noHeader = default(bool), string delimiter = default(string), string escape = default(string), string quote = default(string), string valuesToMakeNull = default(string), bool skipPreHeader = default(bool), bool skipPostHeader = default(bool), bool skipInvalidRows = default(bool))
+        public OptionsCsv(string columnNames = default(string), string columnNamesWanted = default(string), string columnTypes = default(string), int inferTypeRowCount = default(int), bool noHeader = default(bool), string delimiter = default(string), string escape = default(string), string quote = default(string), string valuesToMakeNull = default(string), int skipPreHeader = default(int), int skipPostHeader = default(int), bool skipInvalidRows = default(bool))
         {
             this.ColumnNames = columnNames;
             this.ColumnNamesWanted = columnNamesWanted;
@@ -126,15 +126,15 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Number of rows to ignore before the header row
         /// </summary>
         /// <value>Number of rows to ignore before the header row</value>
-        [DataMember(Name = "skipPreHeader", EmitDefaultValue = true)]
-        public bool SkipPreHeader { get; set; }
+        [DataMember(Name = "skipPreHeader", EmitDefaultValue = false)]
+        public int SkipPreHeader { get; set; }
 
         /// <summary>
         /// Number of rows to ignore after the header row
         /// </summary>
         /// <value>Number of rows to ignore after the header row</value>
-        [DataMember(Name = "skipPostHeader", EmitDefaultValue = true)]
-        public bool SkipPostHeader { get; set; }
+        [DataMember(Name = "skipPostHeader", EmitDefaultValue = false)]
+        public int SkipPostHeader { get; set; }
 
         /// <summary>
         /// Skip invalid data rows (totally invalid ones),   This also allows for potentially wrong data if it can be handled somewhat e.g. embedded quotes misused (and still returns such rows).  In either case a warning will show in the progress feedback.

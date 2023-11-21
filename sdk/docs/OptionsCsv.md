@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **Escape** | **string** | Character used to escape the &#39;Quote&#39; character when within a value | [optional] 
 **Quote** | **string** | Character used around any field containing the &#39;delimiter&#39; or a line break. | [optional] 
 **ValuesToMakeNull** | **string** | Regex of values to map to &#39;null&#39; in the returned data. | [optional] 
-**SkipPreHeader** | **bool** | Number of rows to ignore before the header row | [optional] 
-**SkipPostHeader** | **bool** | Number of rows to ignore after the header row | [optional] 
+**SkipPreHeader** | **int** | Number of rows to ignore before the header row | [optional] 
+**SkipPostHeader** | **int** | Number of rows to ignore after the header row | [optional] 
 **SkipInvalidRows** | **bool** | Skip invalid data rows (totally invalid ones),   This also allows for potentially wrong data if it can be handled somewhat e.g. embedded quotes misused (and still returns such rows).  In either case a warning will show in the progress feedback. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

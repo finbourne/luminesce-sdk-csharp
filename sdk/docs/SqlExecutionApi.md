@@ -1750,7 +1750,7 @@ catch (ApiException e)
 
 <a id="putsqltofilereaddesign"></a>
 # **PutSqlToFileReadDesign**
-> string PutSqlToFileReadDesign (string body, bool? determineAvailableSources = null)
+> string PutSqlToFileReadDesign (bool? determineAvailableSources = null, string? body = null)
 
 [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible.
 
@@ -1776,18 +1776,18 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SqlExecutionApi(config);
+            var determineAvailableSources = true;  // bool? | Should the available sources be determined from `Sys.Registration` (optional)  (default to true)
             var body = @x = 
 use Drive.Csv
   --file=/some/folder/somefile.csv
 enduse;
 
-select * from @x;;  // string | SQL query to generate the file read design object from
-            var determineAvailableSources = true;  // bool? | Should the available sources be determined from `Sys.Registration` (optional)  (default to true)
+select * from @x;;  // string? | SQL query to generate the file read design object from (optional) 
 
             try
             {
                 // [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible.
-                string result = apiInstance.PutSqlToFileReadDesign(body, determineAvailableSources);
+                string result = apiInstance.PutSqlToFileReadDesign(determineAvailableSources, body);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1808,7 +1808,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible.
-    ApiResponse<string> response = apiInstance.PutSqlToFileReadDesignWithHttpInfo(body, determineAvailableSources);
+    ApiResponse<string> response = apiInstance.PutSqlToFileReadDesignWithHttpInfo(determineAvailableSources, body);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1825,8 +1825,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **string** | SQL query to generate the file read design object from |  |
 | **determineAvailableSources** | **bool?** | Should the available sources be determined from &#x60;Sys.Registration&#x60; | [optional] [default to true] |
+| **body** | **string?** | SQL query to generate the file read design object from | [optional]  |
 
 ### Return type
 
