@@ -18,54 +18,6 @@ namespace Finbourne.Luminesce.Sdk.Extensions
     public static class ApiExceptionExtensions
     {
         /// <summary>
-        /// Identify whether the API exception was caused by a request validation problem
-        /// </summary>
-        /// <returns>true if the API exception was caused by a request validation problem, <see cref="TryGetValidationProblemDetails"/> or <see cref="ValidationProblemDetails"/> for further details</returns>
-        public static bool IsValidationProblem(this ApiException ex)
-        {
-            return ex.ErrorCode == (int) HttpStatusCode.BadRequest;
-        }
-
-        /// <summary>
-        /// Try and get the details of a validation problem, if there are any
-        /// </summary>
-        /// <param name="ex">The API exception</param>
-        /// <param name="details">Further details of the validation problem</param>
-        /// <returns>true if further details of the validation problem could be extracted from the API exception</returns>
-        public static bool TryGetValidationProblemDetails(this ApiException ex,
-            out LusidValidationProblemDetails details)
-        {
-            if (IsValidationProblem(ex))
-            {
-                details = ValidationProblemDetails(ex);
-                return true;
-            }
-
-            details = null;
-            return false;
-        }
-
-        /// <summary>
-        /// Return the details of a validation problem
-        /// </summary>
-        /// <param name="ex">The API exception</param>
-        /// <returns>Further details of the validation problem</returns>
-        public static LusidValidationProblemDetails ValidationProblemDetails(this ApiException ex)
-        {
-            if (ex.ErrorContent == null)
-            {
-                return null;
-            }
-
-            //    ApiException.ErrorContent contains a JSON serialized ValidationProblemDetails
-            return JsonConvert.DeserializeObject<LusidValidationProblemDetails> (ex.ErrorContent.ToString(), 
-                new JsonConverter[]
-                {
-                    new PropertyBasedConverter(),
-                });
-        }
-
-        /// <summary>
         /// Return the details of a problem
         /// In case the ErrorContent object that gets returned is not a valid deserializable LusidProblemDetails JSON, a null be returned
         /// </summary>
