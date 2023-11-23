@@ -41,7 +41,9 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="description">Description of view.</param>
         /// <param name="documentationLink">Documentation link.</param>
         /// <param name="viewParameters">View parameters.</param>
-        public ConvertToViewData(string query = default(string), string name = default(string), string description = default(string), string documentationLink = default(string), List<ViewParameter> viewParameters = default(List<ViewParameter>))
+        /// <param name="otherParameters">Other parameters not explicitly handled by the ConvertToView generation.  These will be populated by the \&quot;From SQL\&quot; and should simply be returned by  the web GUI should the user edit / update / regenerate.</param>
+        /// <param name="startingVariableName">Which variable the this start with, null if not started from a full Create View Sql Statement..</param>
+        public ConvertToViewData(string query = default(string), string name = default(string), string description = default(string), string documentationLink = default(string), List<ViewParameter> viewParameters = default(List<ViewParameter>), Dictionary<string, string> otherParameters = default(Dictionary<string, string>), string startingVariableName = default(string))
         {
             // to ensure "query" is required (not null)
             if (query == null)
@@ -58,6 +60,8 @@ namespace Finbourne.Luminesce.Sdk.Model
             this.Description = description;
             this.DocumentationLink = documentationLink;
             this.ViewParameters = viewParameters;
+            this.OtherParameters = otherParameters;
+            this.StartingVariableName = startingVariableName;
         }
 
         /// <summary>
@@ -96,6 +100,20 @@ namespace Finbourne.Luminesce.Sdk.Model
         public List<ViewParameter> ViewParameters { get; set; }
 
         /// <summary>
+        /// Other parameters not explicitly handled by the ConvertToView generation.  These will be populated by the \&quot;From SQL\&quot; and should simply be returned by  the web GUI should the user edit / update / regenerate
+        /// </summary>
+        /// <value>Other parameters not explicitly handled by the ConvertToView generation.  These will be populated by the \&quot;From SQL\&quot; and should simply be returned by  the web GUI should the user edit / update / regenerate</value>
+        [DataMember(Name = "otherParameters", EmitDefaultValue = true)]
+        public Dictionary<string, string> OtherParameters { get; set; }
+
+        /// <summary>
+        /// Which variable the this start with, null if not started from a full Create View Sql Statement.
+        /// </summary>
+        /// <value>Which variable the this start with, null if not started from a full Create View Sql Statement.</value>
+        [DataMember(Name = "startingVariableName", EmitDefaultValue = true)]
+        public string StartingVariableName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -108,6 +126,8 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  DocumentationLink: ").Append(DocumentationLink).Append("\n");
             sb.Append("  ViewParameters: ").Append(ViewParameters).Append("\n");
+            sb.Append("  OtherParameters: ").Append(OtherParameters).Append("\n");
+            sb.Append("  StartingVariableName: ").Append(StartingVariableName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -168,6 +188,17 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.ViewParameters != null &&
                     input.ViewParameters != null &&
                     this.ViewParameters.SequenceEqual(input.ViewParameters)
+                ) && 
+                (
+                    this.OtherParameters == input.OtherParameters ||
+                    this.OtherParameters != null &&
+                    input.OtherParameters != null &&
+                    this.OtherParameters.SequenceEqual(input.OtherParameters)
+                ) && 
+                (
+                    this.StartingVariableName == input.StartingVariableName ||
+                    (this.StartingVariableName != null &&
+                    this.StartingVariableName.Equals(input.StartingVariableName))
                 );
         }
 
@@ -199,6 +230,14 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.ViewParameters != null)
                 {
                     hashCode = (hashCode * 59) + this.ViewParameters.GetHashCode();
+                }
+                if (this.OtherParameters != null)
+                {
+                    hashCode = (hashCode * 59) + this.OtherParameters.GetHashCode();
+                }
+                if (this.StartingVariableName != null)
+                {
+                    hashCode = (hashCode * 59) + this.StartingVariableName.GetHashCode();
                 }
                 return hashCode;
             }
