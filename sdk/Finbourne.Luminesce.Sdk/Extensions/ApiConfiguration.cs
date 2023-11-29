@@ -6,6 +6,7 @@
  */
 
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 
 namespace Finbourne.Luminesce.Sdk.Extensions
 {
@@ -42,6 +43,7 @@ namespace Finbourne.Luminesce.Sdk.Extensions
         /// <summary>
         /// Finbourne-luminesce Api Url
         /// </summary>
+        [ConfigurationKeyName("finbourne-luminesceUrl")]
         public string BaseUrl { get; set; }
 
         /// <summary>
