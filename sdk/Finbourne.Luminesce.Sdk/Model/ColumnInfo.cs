@@ -40,11 +40,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="select">Should the column be used/selected?.</param>
         /// <param name="type">type.</param>
         /// <param name="name">The name of the column.</param>
-        public ColumnInfo(bool select = default(bool), DataType? type = default(DataType?), string name = default(string))
+        /// <param name="xPath">Xpath for the column (only applicable to XML defined columns).</param>
+        public ColumnInfo(bool select = default(bool), DataType? type = default(DataType?), string name = default(string), string xPath = default(string))
         {
             this.Select = select;
             this.Type = type;
             this.Name = name;
+            this.XPath = xPath;
         }
 
         /// <summary>
@@ -62,6 +64,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Xpath for the column (only applicable to XML defined columns)
+        /// </summary>
+        /// <value>Xpath for the column (only applicable to XML defined columns)</value>
+        [DataMember(Name = "xPath", EmitDefaultValue = true)]
+        public string XPath { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +81,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  Select: ").Append(Select).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  XPath: ").Append(XPath).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,6 +129,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.XPath == input.XPath ||
+                    (this.XPath != null &&
+                    this.XPath.Equals(input.XPath))
                 );
         }
 
@@ -136,6 +151,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.XPath != null)
+                {
+                    hashCode = (hashCode * 59) + this.XPath.GetHashCode();
                 }
                 return hashCode;
             }
@@ -158,6 +177,18 @@ namespace Finbourne.Luminesce.Sdk.Model
             if (this.Name != null && this.Name.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
+            }
+
+            // XPath (string) maxLength
+            if (this.XPath != null && this.XPath.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for XPath, length must be less than 256.", new [] { "XPath" });
+            }
+
+            // XPath (string) minLength
+            if (this.XPath != null && this.XPath.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for XPath, length must be greater than 0.", new [] { "XPath" });
             }
 
             yield break;
