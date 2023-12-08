@@ -98,7 +98,7 @@ This endpoint does not need any parameter.
 
 <a id="managecertificate"></a>
 # **ManageCertificate**
-> CertificateState ManageCertificate (CertificateAction? action = null, CertificateType? type = null, int? version = null, DateTimeOffset? validityStart = null, DateTimeOffset? validityEnd = null, bool? dryRun = null, CertificateStatus? skipSystems = null)
+> CertificateState ManageCertificate (CertificateAction? action = null, CertificateType? type = null, int? version = null, DateTimeOffset? validityStart = null, DateTimeOffset? validityEnd = null, bool? dryRun = null)
 
 [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
 
@@ -130,12 +130,11 @@ namespace Example
             var validityStart = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | When should the cert first be valid (defaults to the current time in UTC) (optional) 
             var validityEnd = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | When should the cert no longer be valid (defaults to 13 months from now) (optional) 
             var dryRun = true;  // bool? | True will just validate the request, but perform no changes to any system (optional)  (default to true)
-            var skipSystems = new CertificateStatus?(); // CertificateStatus? | Any systems that should be skipped  (if any are the certificate will not function, but can be useful for certain forms of validation) (optional) 
 
             try
             {
                 // [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
-                CertificateState result = apiInstance.ManageCertificate(action, type, version, validityStart, validityEnd, dryRun, skipSystems);
+                CertificateState result = apiInstance.ManageCertificate(action, type, version, validityStart, validityEnd, dryRun);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -156,7 +155,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
-    ApiResponse<CertificateState> response = apiInstance.ManageCertificateWithHttpInfo(action, type, version, validityStart, validityEnd, dryRun, skipSystems);
+    ApiResponse<CertificateState> response = apiInstance.ManageCertificateWithHttpInfo(action, type, version, validityStart, validityEnd, dryRun);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -179,7 +178,6 @@ catch (ApiException e)
 | **validityStart** | **DateTimeOffset?** | When should the cert first be valid (defaults to the current time in UTC) | [optional]  |
 | **validityEnd** | **DateTimeOffset?** | When should the cert no longer be valid (defaults to 13 months from now) | [optional]  |
 | **dryRun** | **bool?** | True will just validate the request, but perform no changes to any system | [optional] [default to true] |
-| **skipSystems** | [**CertificateStatus?**](CertificateStatus?.md) | Any systems that should be skipped  (if any are the certificate will not function, but can be useful for certain forms of validation) | [optional]  |
 
 ### Return type
 

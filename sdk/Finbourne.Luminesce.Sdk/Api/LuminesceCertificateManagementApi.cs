@@ -58,10 +58,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validityStart">When should the cert first be valid (defaults to the current time in UTC) (optional)</param>
         /// <param name="validityEnd">When should the cert no longer be valid (defaults to 13 months from now) (optional)</param>
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
-        /// <param name="skipSystems">Any systems that should be skipped  (if any are the certificate will not function, but can be useful for certain forms of validation) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CertificateState</returns>
-        CertificateState ManageCertificate(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), CertificateStatus? skipSystems = default(CertificateStatus?), int operationIndex = 0);
+        CertificateState ManageCertificate(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
@@ -76,10 +75,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validityStart">When should the cert first be valid (defaults to the current time in UTC) (optional)</param>
         /// <param name="validityEnd">When should the cert no longer be valid (defaults to 13 months from now) (optional)</param>
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
-        /// <param name="skipSystems">Any systems that should be skipped  (if any are the certificate will not function, but can be useful for certain forms of validation) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CertificateState</returns>
-        ApiResponse<CertificateState> ManageCertificateWithHttpInfo(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), CertificateStatus? skipSystems = default(CertificateStatus?), int operationIndex = 0);
+        ApiResponse<CertificateState> ManageCertificateWithHttpInfo(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -125,11 +123,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validityStart">When should the cert first be valid (defaults to the current time in UTC) (optional)</param>
         /// <param name="validityEnd">When should the cert no longer be valid (defaults to 13 months from now) (optional)</param>
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
-        /// <param name="skipSystems">Any systems that should be skipped  (if any are the certificate will not function, but can be useful for certain forms of validation) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CertificateState</returns>
-        System.Threading.Tasks.Task<CertificateState> ManageCertificateAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), CertificateStatus? skipSystems = default(CertificateStatus?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CertificateState> ManageCertificateAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
@@ -144,11 +141,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validityStart">When should the cert first be valid (defaults to the current time in UTC) (optional)</param>
         /// <param name="validityEnd">When should the cert no longer be valid (defaults to 13 months from now) (optional)</param>
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
-        /// <param name="skipSystems">Any systems that should be skipped  (if any are the certificate will not function, but can be useful for certain forms of validation) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CertificateState)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CertificateState>> ManageCertificateWithHttpInfoAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), CertificateStatus? skipSystems = default(CertificateStatus?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CertificateState>> ManageCertificateWithHttpInfoAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -438,12 +434,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validityStart">When should the cert first be valid (defaults to the current time in UTC) (optional)</param>
         /// <param name="validityEnd">When should the cert no longer be valid (defaults to 13 months from now) (optional)</param>
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
-        /// <param name="skipSystems">Any systems that should be skipped  (if any are the certificate will not function, but can be useful for certain forms of validation) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CertificateState</returns>
-        public CertificateState ManageCertificate(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), CertificateStatus? skipSystems = default(CertificateStatus?), int operationIndex = 0)
+        public CertificateState ManageCertificate(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState> localVarResponse = ManageCertificateWithHttpInfo(action, type, version, validityStart, validityEnd, dryRun, skipSystems);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState> localVarResponse = ManageCertificateWithHttpInfo(action, type, version, validityStart, validityEnd, dryRun);
             return localVarResponse.Data;
         }
 
@@ -457,10 +452,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validityStart">When should the cert first be valid (defaults to the current time in UTC) (optional)</param>
         /// <param name="validityEnd">When should the cert no longer be valid (defaults to 13 months from now) (optional)</param>
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
-        /// <param name="skipSystems">Any systems that should be skipped  (if any are the certificate will not function, but can be useful for certain forms of validation) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CertificateState</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState> ManageCertificateWithHttpInfo(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), CertificateStatus? skipSystems = default(CertificateStatus?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState> ManageCertificateWithHttpInfo(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
 
@@ -509,10 +503,6 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (dryRun != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dryRun", dryRun));
-            }
-            if (skipSystems != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "skipSystems", skipSystems));
             }
 
             localVarRequestOptions.Operation = "LuminesceCertificateManagementApi.ManageCertificate";
@@ -559,13 +549,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validityStart">When should the cert first be valid (defaults to the current time in UTC) (optional)</param>
         /// <param name="validityEnd">When should the cert no longer be valid (defaults to 13 months from now) (optional)</param>
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
-        /// <param name="skipSystems">Any systems that should be skipped  (if any are the certificate will not function, but can be useful for certain forms of validation) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CertificateState</returns>
-        public async System.Threading.Tasks.Task<CertificateState> ManageCertificateAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), CertificateStatus? skipSystems = default(CertificateStatus?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CertificateState> ManageCertificateAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState> localVarResponse = await ManageCertificateWithHttpInfoAsync(action, type, version, validityStart, validityEnd, dryRun, skipSystems, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState> localVarResponse = await ManageCertificateWithHttpInfoAsync(action, type, version, validityStart, validityEnd, dryRun, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -579,11 +568,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validityStart">When should the cert first be valid (defaults to the current time in UTC) (optional)</param>
         /// <param name="validityEnd">When should the cert no longer be valid (defaults to 13 months from now) (optional)</param>
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
-        /// <param name="skipSystems">Any systems that should be skipped  (if any are the certificate will not function, but can be useful for certain forms of validation) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CertificateState)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState>> ManageCertificateWithHttpInfoAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), CertificateStatus? skipSystems = default(CertificateStatus?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState>> ManageCertificateWithHttpInfoAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
@@ -633,10 +621,6 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (dryRun != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dryRun", dryRun));
-            }
-            if (skipSystems != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "skipSystems", skipSystems));
             }
 
             localVarRequestOptions.Operation = "LuminesceCertificateManagementApi.ManageCertificate";
