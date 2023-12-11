@@ -1,17 +1,115 @@
-# Finbourne.Luminesce.Sdk.Api.LuminesceCertificateManagementApi
+# Finbourne.Luminesce.Sdk.Api.CertificateManagementApi
 
 All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetCertificates**](LuminesceCertificateManagementApi.md#getcertificates) | **GET** /api/Certificate/certificates | [EXPERIMENTAL] GetCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format) |
-| [**ManageCertificate**](LuminesceCertificateManagementApi.md#managecertificate) | **PUT** /api/Certificate/manage | [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke) |
+| [**DownloadCertificate**](CertificateManagementApi.md#downloadcertificate) | **GET** /api/Certificate/certificate | [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate&#39;s public or private key - if any. |
+| [**ListCertificates**](CertificateManagementApi.md#listcertificates) | **GET** /api/Certificate/certificates | [EXPERIMENTAL] ListCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format) |
+| [**ManageCertificate**](CertificateManagementApi.md#managecertificate) | **PUT** /api/Certificate/manage | [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke) |
 
-<a id="getcertificates"></a>
-# **GetCertificates**
-> List&lt;CertificateState&gt; GetCertificates ()
+<a id="downloadcertificate"></a>
+# **DownloadCertificate**
+> System.IO.Stream DownloadCertificate (CertificateType? type = null, CertificateFileType? fileType = null)
 
-[EXPERIMENTAL] GetCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
+[EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate's public or private key - if any.
+
+ Downloads your latest Domain or User certificate's public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Luminesce.Sdk.Api;
+using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Model;
+
+namespace Example
+{
+    public class DownloadCertificateExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CertificateManagementApi(config);
+            var type = new CertificateType?(); // CertificateType? | User or Domain level cert (Domain level requires additional entitlements) (optional) 
+            var fileType = new CertificateFileType?(); // CertificateFileType? | Should the public key or private key be downloaded? (both must be in place to run providers) (optional) 
+
+            try
+            {
+                // [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate's public or private key - if any.
+                System.IO.Stream result = apiInstance.DownloadCertificate(type, fileType);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CertificateManagementApi.DownloadCertificate: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DownloadCertificateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate's public or private key - if any.
+    ApiResponse<System.IO.Stream> response = apiInstance.DownloadCertificateWithHttpInfo(type, fileType);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CertificateManagementApi.DownloadCertificateWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **type** | [**CertificateType?**](CertificateType?.md) | User or Domain level cert (Domain level requires additional entitlements) | [optional]  |
+| **fileType** | [**CertificateFileType?**](CertificateFileType?.md) | Should the public key or private key be downloaded? (both must be in place to run providers) | [optional]  |
+
+### Return type
+
+**System.IO.Stream**
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="listcertificates"></a>
+# **ListCertificates**
+> List&lt;CertificateState&gt; ListCertificates ()
+
+[EXPERIMENTAL] ListCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
 
  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized 
 
@@ -25,7 +123,7 @@ using Finbourne.Luminesce.Sdk.Model;
 
 namespace Example
 {
-    public class GetCertificatesExample
+    public class ListCertificatesExample
     {
         public static void Main()
         {
@@ -34,17 +132,17 @@ namespace Example
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new LuminesceCertificateManagementApi(config);
+            var apiInstance = new CertificateManagementApi(config);
 
             try
             {
-                // [EXPERIMENTAL] GetCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
-                List<CertificateState> result = apiInstance.GetCertificates();
+                // [EXPERIMENTAL] ListCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
+                List<CertificateState> result = apiInstance.ListCertificates();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling LuminesceCertificateManagementApi.GetCertificates: " + e.Message);
+                Debug.Print("Exception when calling CertificateManagementApi.ListCertificates: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -53,21 +151,21 @@ namespace Example
 }
 ```
 
-#### Using the GetCertificatesWithHttpInfo variant
+#### Using the ListCertificatesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
-    ApiResponse<List<CertificateState>> response = apiInstance.GetCertificatesWithHttpInfo();
+    // [EXPERIMENTAL] ListCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
+    ApiResponse<List<CertificateState>> response = apiInstance.ListCertificatesWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling LuminesceCertificateManagementApi.GetCertificatesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CertificateManagementApi.ListCertificatesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -93,6 +191,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -123,7 +222,7 @@ namespace Example
             // Configure OAuth2 access token for authorization: oauth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-            var apiInstance = new LuminesceCertificateManagementApi(config);
+            var apiInstance = new CertificateManagementApi(config);
             var action = new CertificateAction?(); // CertificateAction? | The Action to perform, e.g. Create / Renew / Revoke (optional) 
             var type = new CertificateType?(); // CertificateType? | User or Domain level cert (Domain level requires additional entitlements) (optional) 
             var version = 1;  // int? | Version number of the cert, the request will fail to validate if incorrect (optional)  (default to 1)
@@ -139,7 +238,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling LuminesceCertificateManagementApi.ManageCertificate: " + e.Message);
+                Debug.Print("Exception when calling CertificateManagementApi.ManageCertificate: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -162,7 +261,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling LuminesceCertificateManagementApi.ManageCertificateWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CertificateManagementApi.ManageCertificateWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -197,6 +296,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

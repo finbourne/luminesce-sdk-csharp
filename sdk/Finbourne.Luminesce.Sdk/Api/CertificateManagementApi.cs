@@ -21,11 +21,36 @@ namespace Finbourne.Luminesce.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ILuminesceCertificateManagementApiSync : IApiAccessor
+    public interface ICertificateManagementApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] GetCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
+        /// [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate&#39;s public or private key - if any.
+        /// </summary>
+        /// <remarks>
+        ///  Downloads your latest Domain or User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
+        /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream DownloadCertificate(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate&#39;s public or private key - if any.
+        /// </summary>
+        /// <remarks>
+        ///  Downloads your latest Domain or User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
+        /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> DownloadCertificateWithHttpInfo(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] ListCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
         /// </summary>
         /// <remarks>
         ///  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized 
@@ -33,10 +58,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;CertificateState&gt;</returns>
-        List<CertificateState> GetCertificates(int operationIndex = 0);
+        List<CertificateState> ListCertificates(int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
+        /// [EXPERIMENTAL] ListCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
         /// </summary>
         /// <remarks>
         ///  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized 
@@ -44,7 +69,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;CertificateState&gt;</returns>
-        ApiResponse<List<CertificateState>> GetCertificatesWithHttpInfo(int operationIndex = 0);
+        ApiResponse<List<CertificateState>> ListCertificatesWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
         /// </summary>
@@ -84,11 +109,38 @@ namespace Finbourne.Luminesce.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ILuminesceCertificateManagementApiAsync : IApiAccessor
+    public interface ICertificateManagementApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] GetCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
+        /// [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate&#39;s public or private key - if any.
+        /// </summary>
+        /// <remarks>
+        ///  Downloads your latest Domain or User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
+        /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> DownloadCertificateAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate&#39;s public or private key - if any.
+        /// </summary>
+        /// <remarks>
+        ///  Downloads your latest Domain or User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
+        /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> DownloadCertificateWithHttpInfoAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] ListCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
         /// </summary>
         /// <remarks>
         ///  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized 
@@ -97,10 +149,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;CertificateState&gt;</returns>
-        System.Threading.Tasks.Task<List<CertificateState>> GetCertificatesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<CertificateState>> ListCertificatesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
+        /// [EXPERIMENTAL] ListCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
         /// </summary>
         /// <remarks>
         ///  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized 
@@ -109,7 +161,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;CertificateState&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<CertificateState>>> GetCertificatesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<CertificateState>>> ListCertificatesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
         /// </summary>
@@ -151,7 +203,7 @@ namespace Finbourne.Luminesce.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ILuminesceCertificateManagementApi : ILuminesceCertificateManagementApiSync, ILuminesceCertificateManagementApiAsync
+    public interface ICertificateManagementApi : ICertificateManagementApiSync, ICertificateManagementApiAsync
     {
 
     }
@@ -159,23 +211,23 @@ namespace Finbourne.Luminesce.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class LuminesceCertificateManagementApi : ILuminesceCertificateManagementApi
+    public partial class CertificateManagementApi : ICertificateManagementApi
     {
         private Finbourne.Luminesce.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LuminesceCertificateManagementApi"/> class.
+        /// Initializes a new instance of the <see cref="CertificateManagementApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public LuminesceCertificateManagementApi() : this((string)null)
+        public CertificateManagementApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LuminesceCertificateManagementApi"/> class.
+        /// Initializes a new instance of the <see cref="CertificateManagementApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public LuminesceCertificateManagementApi(string basePath)
+        public CertificateManagementApi(string basePath)
         {
             this.Configuration = Finbourne.Luminesce.Sdk.Client.Configuration.MergeConfigurations(
                 Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance,
@@ -187,12 +239,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LuminesceCertificateManagementApi"/> class
+        /// Initializes a new instance of the <see cref="CertificateManagementApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public LuminesceCertificateManagementApi(Finbourne.Luminesce.Sdk.Client.Configuration configuration)
+        public CertificateManagementApi(Finbourne.Luminesce.Sdk.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -203,13 +255,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LuminesceCertificateManagementApi"/> class
+        /// Initializes a new instance of the <see cref="CertificateManagementApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public LuminesceCertificateManagementApi(Finbourne.Luminesce.Sdk.Client.ISynchronousClient client, Finbourne.Luminesce.Sdk.Client.IAsynchronousClient asyncClient, Finbourne.Luminesce.Sdk.Client.IReadableConfiguration configuration)
+        public CertificateManagementApi(Finbourne.Luminesce.Sdk.Client.ISynchronousClient client, Finbourne.Luminesce.Sdk.Client.IAsynchronousClient asyncClient, Finbourne.Luminesce.Sdk.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -263,24 +315,210 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized 
+        /// [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate&#39;s public or private key - if any.  Downloads your latest Domain or User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
+        /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;CertificateState&gt;</returns>
-        public List<CertificateState> GetCertificates(int operationIndex = 0)
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream DownloadCertificate(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>> localVarResponse = GetCertificatesWithHttpInfo();
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = DownloadCertificateWithHttpInfo(type, fileType);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized 
+        /// [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate&#39;s public or private key - if any.  Downloads your latest Domain or User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
+        /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> DownloadCertificateWithHttpInfo(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0)
+        {
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
+            }
+            if (fileType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "fileType", fileType));
+            }
+
+            localVarRequestOptions.Operation = "CertificateManagementApi.DownloadCertificate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<System.IO.Stream>("/api/Certificate/certificate", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DownloadCertificate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate&#39;s public or private key - if any.  Downloads your latest Domain or User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
+        /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> DownloadCertificateAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await DownloadCertificateWithHttpInfoAsync(type, fileType, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate&#39;s public or private key - if any.  Downloads your latest Domain or User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
+        /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> DownloadCertificateWithHttpInfoAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
+            }
+            if (fileType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "fileType", fileType));
+            }
+
+            localVarRequestOptions.Operation = "CertificateManagementApi.DownloadCertificate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/api/Certificate/certificate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DownloadCertificate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>List&lt;CertificateState&gt;</returns>
+        public List<CertificateState> ListCertificates(int operationIndex = 0)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>> localVarResponse = ListCertificatesWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;CertificateState&gt;</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>> GetCertificatesWithHttpInfo(int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>> ListCertificatesWithHttpInfo(int operationIndex = 0)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
 
@@ -307,7 +545,7 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
 
-            localVarRequestOptions.Operation = "LuminesceCertificateManagementApi.GetCertificates";
+            localVarRequestOptions.Operation = "CertificateManagementApi.ListCertificates";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -331,7 +569,7 @@ namespace Finbourne.Luminesce.Sdk.Api
             var localVarResponse = this.Client.Get<List<CertificateState>>("/api/Certificate/certificates", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetCertificates", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListCertificates", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -342,26 +580,26 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized 
+        /// [EXPERIMENTAL] ListCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;CertificateState&gt;</returns>
-        public async System.Threading.Tasks.Task<List<CertificateState>> GetCertificatesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<CertificateState>> ListCertificatesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>> localVarResponse = await GetCertificatesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>> localVarResponse = await ListCertificatesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized 
+        /// [EXPERIMENTAL] ListCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;CertificateState&gt;)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>>> GetCertificatesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>>> ListCertificatesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
@@ -389,7 +627,7 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
 
-            localVarRequestOptions.Operation = "LuminesceCertificateManagementApi.GetCertificates";
+            localVarRequestOptions.Operation = "CertificateManagementApi.ListCertificates";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -414,7 +652,7 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetCertificates", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListCertificates", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -505,7 +743,7 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dryRun", dryRun));
             }
 
-            localVarRequestOptions.Operation = "LuminesceCertificateManagementApi.ManageCertificate";
+            localVarRequestOptions.Operation = "CertificateManagementApi.ManageCertificate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -623,7 +861,7 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dryRun", dryRun));
             }
 
-            localVarRequestOptions.Operation = "LuminesceCertificateManagementApi.ManageCertificate";
+            localVarRequestOptions.Operation = "CertificateManagementApi.ManageCertificate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
