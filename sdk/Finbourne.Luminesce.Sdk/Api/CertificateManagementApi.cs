@@ -33,9 +33,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
         /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream DownloadCertificate(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0);
+        System.IO.Stream DownloadCertificate(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate&#39;s public or private key - if any.
@@ -46,9 +47,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
         /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> DownloadCertificateWithHttpInfo(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> DownloadCertificateWithHttpInfo(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] ListCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
         /// </summary>
@@ -121,10 +123,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
         /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> DownloadCertificateAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> DownloadCertificateAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate&#39;s public or private key - if any.
@@ -135,10 +138,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
         /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> DownloadCertificateWithHttpInfoAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> DownloadCertificateWithHttpInfoAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] ListCertificates: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
         /// </summary>
@@ -320,11 +324,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
         /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream DownloadCertificate(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0)
+        public System.IO.Stream DownloadCertificate(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = DownloadCertificateWithHttpInfo(type, fileType);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = DownloadCertificateWithHttpInfo(type, fileType, mayAutoCreate);
             return localVarResponse.Data;
         }
 
@@ -334,9 +339,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
         /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> DownloadCertificateWithHttpInfo(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> DownloadCertificateWithHttpInfo(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
 
@@ -369,6 +375,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (fileType != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "fileType", fileType));
+            }
+            if (mayAutoCreate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "mayAutoCreate", mayAutoCreate));
             }
 
             localVarRequestOptions.Operation = "CertificateManagementApi.DownloadCertificate";
@@ -411,12 +421,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
         /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> DownloadCertificateAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> DownloadCertificateAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await DownloadCertificateWithHttpInfoAsync(type, fileType, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await DownloadCertificateWithHttpInfoAsync(type, fileType, mayAutoCreate, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -426,10 +437,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
         /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
+        /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> DownloadCertificateWithHttpInfoAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> DownloadCertificateWithHttpInfoAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
@@ -463,6 +475,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (fileType != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "fileType", fileType));
+            }
+            if (mayAutoCreate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "mayAutoCreate", mayAutoCreate));
             }
 
             localVarRequestOptions.Operation = "CertificateManagementApi.DownloadCertificate";

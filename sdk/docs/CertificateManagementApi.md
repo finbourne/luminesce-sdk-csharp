@@ -10,7 +10,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 
 <a id="downloadcertificate"></a>
 # **DownloadCertificate**
-> System.IO.Stream DownloadCertificate (CertificateType? type = null, CertificateFileType? fileType = null)
+> System.IO.Stream DownloadCertificate (CertificateType? type = null, CertificateFileType? fileType = null, bool? mayAutoCreate = null)
 
 [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate's public or private key - if any.
 
@@ -38,11 +38,12 @@ namespace Example
             var apiInstance = new CertificateManagementApi(config);
             var type = new CertificateType?(); // CertificateType? | User or Domain level cert (Domain level requires additional entitlements) (optional) 
             var fileType = new CertificateFileType?(); // CertificateFileType? | Should the public key or private key be downloaded? (both must be in place to run providers) (optional) 
+            var mayAutoCreate = false;  // bool? | If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional)  (default to false)
 
             try
             {
                 // [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate's public or private key - if any.
-                System.IO.Stream result = apiInstance.DownloadCertificate(type, fileType);
+                System.IO.Stream result = apiInstance.DownloadCertificate(type, fileType, mayAutoCreate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -63,7 +64,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate's public or private key - if any.
-    ApiResponse<System.IO.Stream> response = apiInstance.DownloadCertificateWithHttpInfo(type, fileType);
+    ApiResponse<System.IO.Stream> response = apiInstance.DownloadCertificateWithHttpInfo(type, fileType, mayAutoCreate);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -82,6 +83,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **type** | [**CertificateType?**](CertificateType?.md) | User or Domain level cert (Domain level requires additional entitlements) | [optional]  |
 | **fileType** | [**CertificateFileType?**](CertificateFileType?.md) | Should the public key or private key be downloaded? (both must be in place to run providers) | [optional]  |
+| **mayAutoCreate** | **bool?** | If no matching cert is available, should an attempt be made to Create/Renew it with default options? | [optional] [default to false] |
 
 ### Return type
 
