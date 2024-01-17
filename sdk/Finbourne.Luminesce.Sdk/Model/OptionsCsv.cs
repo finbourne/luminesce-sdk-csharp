@@ -84,7 +84,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// If non-zero and &#39;types&#39; is not specified (or not specified for some columns) this will look through N rows to attempt to work out the column types for columns not pre-specified
         /// </summary>
         /// <value>If non-zero and &#39;types&#39; is not specified (or not specified for some columns) this will look through N rows to attempt to work out the column types for columns not pre-specified</value>
-        [DataMember(Name = "inferTypeRowCount", EmitDefaultValue = false)]
+        [DataMember(Name = "inferTypeRowCount", EmitDefaultValue = true)]
         public int InferTypeRowCount { get; set; }
 
         /// <summary>
@@ -126,14 +126,14 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Number of rows to ignore before the header row
         /// </summary>
         /// <value>Number of rows to ignore before the header row</value>
-        [DataMember(Name = "skipPreHeader", EmitDefaultValue = false)]
+        [DataMember(Name = "skipPreHeader", EmitDefaultValue = true)]
         public int SkipPreHeader { get; set; }
 
         /// <summary>
         /// Number of rows to ignore after the header row
         /// </summary>
         /// <value>Number of rows to ignore after the header row</value>
-        [DataMember(Name = "skipPostHeader", EmitDefaultValue = false)]
+        [DataMember(Name = "skipPostHeader", EmitDefaultValue = true)]
         public int SkipPostHeader { get; set; }
 
         /// <summary>

@@ -82,7 +82,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// What limit be added to the load query?  Less than or equal to zero means none
         /// </summary>
         /// <value>What limit be added to the load query?  Less than or equal to zero means none</value>
-        [DataMember(Name = "limit", EmitDefaultValue = false)]
+        [DataMember(Name = "limit", EmitDefaultValue = true)]
         public int Limit { get; set; }
 
         /// <summary>

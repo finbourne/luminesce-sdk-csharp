@@ -92,7 +92,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// The version of this certificate
         /// </summary>
         /// <value>The version of this certificate</value>
-        [DataMember(Name = "version", EmitDefaultValue = false)]
+        [DataMember(Name = "version", EmitDefaultValue = true)]
         public int _Version { get; set; }
 
         /// <summary>

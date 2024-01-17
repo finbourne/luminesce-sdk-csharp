@@ -50,7 +50,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <summary>
         /// Gets or Sets Index
         /// </summary>
-        [DataMember(Name = "index", EmitDefaultValue = false)]
+        [DataMember(Name = "index", EmitDefaultValue = true)]
         public int Index { get; set; }
 
         /// <summary>

@@ -76,7 +76,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Number of rows of data held. -1 if none as yet.
         /// </summary>
         /// <value>Number of rows of data held. -1 if none as yet.</value>
-        [DataMember(Name = "rowCount", EmitDefaultValue = false)]
+        [DataMember(Name = "rowCount", EmitDefaultValue = true)]
         public int RowCount { get; set; }
 
         /// <summary>

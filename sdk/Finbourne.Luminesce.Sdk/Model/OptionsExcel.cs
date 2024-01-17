@@ -73,7 +73,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// If non-zero and &#39;types&#39; is not specified (or not specified for some columns) this will look through N rows to attempt to work out the column types for columns not pre-specified
         /// </summary>
         /// <value>If non-zero and &#39;types&#39; is not specified (or not specified for some columns) this will look through N rows to attempt to work out the column types for columns not pre-specified</value>
-        [DataMember(Name = "inferTypeRowCount", EmitDefaultValue = false)]
+        [DataMember(Name = "inferTypeRowCount", EmitDefaultValue = true)]
         public int InferTypeRowCount { get; set; }
 
         /// <summary>
