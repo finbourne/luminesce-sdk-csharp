@@ -105,7 +105,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Enum SqlDbProvidersSybaseAse for value: SqlDb_Providers_SybaseAse
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_SybaseAse")]
-        SqlDbProvidersSybaseAse = 13
+        SqlDbProvidersSybaseAse = 13,
+
+        /// <summary>
+        /// Enum JdbcDriver for value: Jdbc_Driver
+        /// </summary>
+        [EnumMember(Value = "Jdbc_Driver")]
+        JdbcDriver = 14
 
     }
 
