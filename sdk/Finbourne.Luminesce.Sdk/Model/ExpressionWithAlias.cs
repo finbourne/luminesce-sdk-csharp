@@ -148,28 +148,10 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Expression (string) maxLength
-            if (this.Expression != null && this.Expression.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Expression, length must be less than 256.", new [] { "Expression" });
-            }
-
             // Expression (string) minLength
-            if (this.Expression != null && this.Expression.Length < 0)
+            if (this.Expression != null && this.Expression.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Expression, length must be greater than 0.", new [] { "Expression" });
-            }
-
-            // Alias (string) maxLength
-            if (this.Alias != null && this.Alias.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Alias, length must be less than 256.", new [] { "Alias" });
-            }
-
-            // Alias (string) minLength
-            if (this.Alias != null && this.Alias.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Alias, length must be greater than 0.", new [] { "Alias" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Expression, length must be greater than 1.", new [] { "Expression" });
             }
 
             yield break;

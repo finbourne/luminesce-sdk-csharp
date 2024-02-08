@@ -39,7 +39,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="sql">Original SQL that started this off (required).</param>
         /// <param name="availableToMapFrom">The data able to be mapped from as derived from the Sql.</param>
         /// <param name="_parameter">_parameter.</param>
-        /// <param name="availableParameters">availableParameters.</param>
+        /// <param name="availableParameters">All the parameter the user may wish to design.</param>
         public WriterDesign(string sql = default(string), List<ExpressionWithAlias> availableToMapFrom = default(List<ExpressionWithAlias>), AvailableParameter _parameter = default(AvailableParameter), List<AvailableParameter> availableParameters = default(List<AvailableParameter>))
         {
             // to ensure "sql" is required (not null)
@@ -74,8 +74,9 @@ namespace Finbourne.Luminesce.Sdk.Model
         public AvailableParameter Parameter { get; set; }
 
         /// <summary>
-        /// Gets or Sets AvailableParameters
+        /// All the parameter the user may wish to design
         /// </summary>
+        /// <value>All the parameter the user may wish to design</value>
         [DataMember(Name = "availableParameters", EmitDefaultValue = true)]
         public List<AvailableParameter> AvailableParameters { get; set; }
 
@@ -186,16 +187,10 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Sql (string) maxLength
-            if (this.Sql != null && this.Sql.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sql, length must be less than 256.", new [] { "Sql" });
-            }
-
             // Sql (string) minLength
-            if (this.Sql != null && this.Sql.Length < 0)
+            if (this.Sql != null && this.Sql.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sql, length must be greater than 0.", new [] { "Sql" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sql, length must be greater than 1.", new [] { "Sql" });
             }
 
             yield break;

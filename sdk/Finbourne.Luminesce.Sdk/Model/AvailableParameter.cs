@@ -178,28 +178,16 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ProviderName (string) maxLength
-            if (this.ProviderName != null && this.ProviderName.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProviderName, length must be less than 256.", new [] { "ProviderName" });
-            }
-
             // ProviderName (string) minLength
-            if (this.ProviderName != null && this.ProviderName.Length < 0)
+            if (this.ProviderName != null && this.ProviderName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProviderName, length must be greater than 0.", new [] { "ProviderName" });
-            }
-
-            // ParameterName (string) maxLength
-            if (this.ParameterName != null && this.ParameterName.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ParameterName, length must be less than 256.", new [] { "ParameterName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProviderName, length must be greater than 1.", new [] { "ProviderName" });
             }
 
             // ParameterName (string) minLength
-            if (this.ParameterName != null && this.ParameterName.Length < 0)
+            if (this.ParameterName != null && this.ParameterName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ParameterName, length must be greater than 0.", new [] { "ParameterName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ParameterName, length must be greater than 1.", new [] { "ParameterName" });
             }
 
             yield break;
