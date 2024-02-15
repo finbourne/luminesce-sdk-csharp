@@ -202,9 +202,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the writer design object from</param>
+        /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string PutSqlToWriterDesign(string body, int operationIndex = 0);
+        string PutSqlToWriterDesign(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToWriterDesign: Generates a SQL-writer-design object from SQL string, if possible.
@@ -214,9 +215,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the writer design object from</param>
+        /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PutSqlToWriterDesignWithHttpInfo(string body, int operationIndex = 0);
+        ApiResponse<string> PutSqlToWriterDesignWithHttpInfo(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] PutViewDesignToSql: Generates view creation sql from a structured view creation design
         /// </summary>
@@ -462,10 +464,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the writer design object from</param>
+        /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutSqlToWriterDesignAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> PutSqlToWriterDesignAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToWriterDesign: Generates a SQL-writer-design object from SQL string, if possible.
@@ -475,10 +478,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the writer design object from</param>
+        /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PutSqlToWriterDesignWithHttpInfoAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> PutSqlToWriterDesignWithHttpInfoAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] PutViewDesignToSql: Generates view creation sql from a structured view creation design
         /// </summary>
@@ -1935,11 +1939,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the writer design object from</param>
+        /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string PutSqlToWriterDesign(string body, int operationIndex = 0)
+        public string PutSqlToWriterDesign(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutSqlToWriterDesignWithHttpInfo(body);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutSqlToWriterDesignWithHttpInfo(body, mergeAdditionalMappingFields);
             return localVarResponse.Data;
         }
 
@@ -1948,9 +1953,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the writer design object from</param>
+        /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutSqlToWriterDesignWithHttpInfo(string body, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutSqlToWriterDesignWithHttpInfo(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1983,6 +1989,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (mergeAdditionalMappingFields != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "mergeAdditionalMappingFields", mergeAdditionalMappingFields));
+            }
             localVarRequestOptions.Data = body;
 
             localVarRequestOptions.Operation = "SqlDesignApi.PutSqlToWriterDesign";
@@ -2024,12 +2034,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the writer design object from</param>
+        /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutSqlToWriterDesignAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> PutSqlToWriterDesignAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutSqlToWriterDesignWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutSqlToWriterDesignWithHttpInfoAsync(body, mergeAdditionalMappingFields, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2038,10 +2049,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the writer design object from</param>
+        /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutSqlToWriterDesignWithHttpInfoAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutSqlToWriterDesignWithHttpInfoAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -2075,6 +2087,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (mergeAdditionalMappingFields != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "mergeAdditionalMappingFields", mergeAdditionalMappingFields));
+            }
             localVarRequestOptions.Data = body;
 
             localVarRequestOptions.Operation = "SqlDesignApi.PutSqlToWriterDesign";

@@ -28,6 +28,12 @@ namespace Finbourne.Luminesce.Sdk.Model
     [DataContract(Name = "ExpressionWithAlias")]
     public partial class ExpressionWithAlias : IEquatable<ExpressionWithAlias>, IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets Flags
+        /// </summary>
+        [DataMember(Name = "flags", EmitDefaultValue = false)]
+        public MappingFlags? Flags { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ExpressionWithAlias" /> class.
         /// </summary>
@@ -38,7 +44,8 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         /// <param name="expression">Expression (column name, constant, complex expression, etc.) (required).</param>
         /// <param name="alias">Column Alias for the expression.</param>
-        public ExpressionWithAlias(string expression = default(string), string alias = default(string))
+        /// <param name="flags">flags.</param>
+        public ExpressionWithAlias(string expression = default(string), string alias = default(string), MappingFlags? flags = default(MappingFlags?))
         {
             // to ensure "expression" is required (not null)
             if (expression == null)
@@ -47,6 +54,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             }
             this.Expression = expression;
             this.Alias = alias;
+            this.Flags = flags;
         }
 
         /// <summary>
@@ -73,6 +81,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("class ExpressionWithAlias {\n");
             sb.Append("  Expression: ").Append(Expression).Append("\n");
             sb.Append("  Alias: ").Append(Alias).Append("\n");
+            sb.Append("  Flags: ").Append(Flags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,6 +126,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Alias == input.Alias ||
                     (this.Alias != null &&
                     this.Alias.Equals(input.Alias))
+                ) && 
+                (
+                    this.Flags == input.Flags ||
+                    this.Flags.Equals(input.Flags)
                 );
         }
 
@@ -137,6 +150,7 @@ namespace Finbourne.Luminesce.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Alias.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Flags.GetHashCode();
                 return hashCode;
             }
         }

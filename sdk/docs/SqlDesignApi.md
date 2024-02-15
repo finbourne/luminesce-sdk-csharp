@@ -641,7 +641,7 @@ catch (ApiException e)
 
 <a id="putsqltowriterdesign"></a>
 # **PutSqlToWriterDesign**
-> string PutSqlToWriterDesign (string body)
+> string PutSqlToWriterDesign (string body, bool? mergeAdditionalMappingFields = null)
 
 [EXPERIMENTAL] PutSqlToWriterDesign: Generates a SQL-writer-design object from SQL string, if possible.
 
@@ -668,11 +668,12 @@ namespace Example
 
             var apiInstance = new SqlDesignApi(config);
             var body = Select abc from xyz;  // string | SQL query to generate the writer design object from
+            var mergeAdditionalMappingFields = false;  // bool? | Should `Sys.Field` be used to find additional potential fields to map from? (not always possible) (optional)  (default to false)
 
             try
             {
                 // [EXPERIMENTAL] PutSqlToWriterDesign: Generates a SQL-writer-design object from SQL string, if possible.
-                string result = apiInstance.PutSqlToWriterDesign(body);
+                string result = apiInstance.PutSqlToWriterDesign(body, mergeAdditionalMappingFields);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -693,7 +694,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] PutSqlToWriterDesign: Generates a SQL-writer-design object from SQL string, if possible.
-    ApiResponse<string> response = apiInstance.PutSqlToWriterDesignWithHttpInfo(body);
+    ApiResponse<string> response = apiInstance.PutSqlToWriterDesignWithHttpInfo(body, mergeAdditionalMappingFields);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -711,6 +712,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **body** | **string** | SQL query to generate the writer design object from |  |
+| **mergeAdditionalMappingFields** | **bool?** | Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) | [optional] [default to false] |
 
 ### Return type
 

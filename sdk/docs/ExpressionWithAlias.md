@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Expression** | **string** | Expression (column name, constant, complex expression, etc.) | 
 **Alias** | **string** | Column Alias for the expression | [optional] 
+**Flags** | **MappingFlags** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
