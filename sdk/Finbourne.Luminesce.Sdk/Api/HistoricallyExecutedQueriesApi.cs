@@ -124,9 +124,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BackgroundQueryResponse</returns>
-        BackgroundQueryResponse GetHistory(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), int operationIndex = 0);
+        BackgroundQueryResponse GetHistory(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// GetHistory: Shows queries executed in a given historical time window (in Json format).
@@ -139,9 +140,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
-        ApiResponse<BackgroundQueryResponse> GetHistoryWithHttpInfo(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), int operationIndex = 0);
+        ApiResponse<BackgroundQueryResponse> GetHistoryWithHttpInfo(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0);
         /// <summary>
         /// GetProgressOfHistory: View progress information (up until this point) of a history query
         /// </summary>
@@ -280,10 +282,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BackgroundQueryResponse</returns>
-        System.Threading.Tasks.Task<BackgroundQueryResponse> GetHistoryAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BackgroundQueryResponse> GetHistoryAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// GetHistory: Shows queries executed in a given historical time window (in Json format).
@@ -296,10 +299,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryResponse>> GetHistoryWithHttpInfoAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryResponse>> GetHistoryWithHttpInfoAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetProgressOfHistory: View progress information (up until this point) of a history query
         /// </summary>
@@ -1110,11 +1114,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BackgroundQueryResponse</returns>
-        public BackgroundQueryResponse GetHistory(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), int operationIndex = 0)
+        public BackgroundQueryResponse GetHistory(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = GetHistoryWithHttpInfo(startAt, endAt, freeTextSearch, showAll);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = GetHistoryWithHttpInfo(startAt, endAt, freeTextSearch, showAll, mayUseNativeStore);
             return localVarResponse.Data;
         }
 
@@ -1126,9 +1131,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> GetHistoryWithHttpInfo(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> GetHistoryWithHttpInfo(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
 
@@ -1169,6 +1175,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (showAll != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "showAll", showAll));
+            }
+            if (mayUseNativeStore != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "mayUseNativeStore", mayUseNativeStore));
             }
 
             localVarRequestOptions.Operation = "HistoricallyExecutedQueriesApi.GetHistory";
@@ -1213,12 +1223,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BackgroundQueryResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundQueryResponse> GetHistoryAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BackgroundQueryResponse> GetHistoryAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = await GetHistoryWithHttpInfoAsync(startAt, endAt, freeTextSearch, showAll, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = await GetHistoryWithHttpInfoAsync(startAt, endAt, freeTextSearch, showAll, mayUseNativeStore, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1230,10 +1241,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> GetHistoryWithHttpInfoAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> GetHistoryWithHttpInfoAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
@@ -1275,6 +1287,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (showAll != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "showAll", showAll));
+            }
+            if (mayUseNativeStore != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "mayUseNativeStore", mayUseNativeStore));
             }
 
             localVarRequestOptions.Operation = "HistoricallyExecutedQueriesApi.GetHistory";
