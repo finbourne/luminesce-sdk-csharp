@@ -46,9 +46,9 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="value">The value to substitute in (required).</param>
         /// <param name="meta">The light-grey text shown to the right of the Caption in the popup.</param>
         /// <param name="score">How important is this.  Bigger is more important..</param>
-        /// <param name="docHtml">Popup further info (as in a whole documentation article!).</param>
+        /// <param name="docHTML">Popup further info (as in a whole documentation article!).</param>
         /// <param name="type">type.</param>
-        public IntellisenseItem(string caption = default(string), string value = default(string), string meta = default(string), int score = default(int), string docHtml = default(string), IntellisenseType? type = default(IntellisenseType?))
+        public IntellisenseItem(string caption = default(string), string value = default(string), string meta = default(string), int score = default(int), string docHTML = default(string), IntellisenseType? type = default(IntellisenseType?))
         {
             // to ensure "caption" is required (not null)
             if (caption == null)
@@ -64,7 +64,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             this.Value = value;
             this.Meta = meta;
             this.Score = score;
-            this.DocHtml = docHtml;
+            this.DocHTML = docHTML;
             this.Type = type;
         }
 
@@ -100,8 +100,8 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Popup further info (as in a whole documentation article!)
         /// </summary>
         /// <value>Popup further info (as in a whole documentation article!)</value>
-        [DataMember(Name = "docHtml", EmitDefaultValue = true)]
-        public string DocHtml { get; set; }
+        [DataMember(Name = "docHTML", EmitDefaultValue = true)]
+        public string DocHTML { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -115,7 +115,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("  Score: ").Append(Score).Append("\n");
-            sb.Append("  DocHtml: ").Append(DocHtml).Append("\n");
+            sb.Append("  DocHTML: ").Append(DocHTML).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -172,9 +172,9 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Score.Equals(input.Score)
                 ) && 
                 (
-                    this.DocHtml == input.DocHtml ||
-                    (this.DocHtml != null &&
-                    this.DocHtml.Equals(input.DocHtml))
+                    this.DocHTML == input.DocHTML ||
+                    (this.DocHTML != null &&
+                    this.DocHTML.Equals(input.DocHTML))
                 ) && 
                 (
                     this.Type == input.Type ||
@@ -204,9 +204,9 @@ namespace Finbourne.Luminesce.Sdk.Model
                     hashCode = (hashCode * 59) + this.Meta.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Score.GetHashCode();
-                if (this.DocHtml != null)
+                if (this.DocHTML != null)
                 {
-                    hashCode = (hashCode * 59) + this.DocHtml.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DocHTML.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 return hashCode;

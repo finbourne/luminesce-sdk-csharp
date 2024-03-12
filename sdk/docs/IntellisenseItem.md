@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Value** | **string** | The value to substitute in | 
 **Meta** | **string** | The light-grey text shown to the right of the Caption in the popup | [optional] 
 **Score** | **int** | How important is this.  Bigger is more important. | [optional] 
-**DocHtml** | **string** | Popup further info (as in a whole documentation article!) | [optional] 
+**DocHTML** | **string** | Popup further info (as in a whole documentation article!) | [optional] 
 **Type** | **IntellisenseType** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
