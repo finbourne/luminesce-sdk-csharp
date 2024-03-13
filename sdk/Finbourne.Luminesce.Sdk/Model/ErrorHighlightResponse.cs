@@ -23,57 +23,48 @@ using OpenAPIDateConverter = Finbourne.Luminesce.Sdk.Client.OpenAPIDateConverter
 namespace Finbourne.Luminesce.Sdk.Model
 {
     /// <summary>
-    /// IntellisenseResponse
+    /// ErrorHighlightResponse
     /// </summary>
-    [DataContract(Name = "IntellisenseResponse")]
-    public partial class IntellisenseResponse : IEquatable<IntellisenseResponse>, IValidatableObject
+    [DataContract(Name = "ErrorHighlightResponse")]
+    public partial class ErrorHighlightResponse : IEquatable<ErrorHighlightResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="IntellisenseResponse" /> class.
+        /// Initializes a new instance of the <see cref="ErrorHighlightResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected IntellisenseResponse() { }
+        protected ErrorHighlightResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="IntellisenseResponse" /> class.
+        /// Initializes a new instance of the <see cref="ErrorHighlightResponse" /> class.
         /// </summary>
-        /// <param name="autoCompleteList">The available items at this point (required).</param>
-        /// <param name="tryAgainSoonForMore">Should the caller try again soon? (true means a cache is being built and this is a preliminary response!) (required).</param>
-        /// <param name="sqlWithMarker">The SQL this is for with characters indicating the location the pop-up is for (required).</param>
-        public IntellisenseResponse(List<IntellisenseItem> autoCompleteList = default(List<IntellisenseItem>), bool tryAgainSoonForMore = default(bool), string sqlWithMarker = default(string))
+        /// <param name="errors">The errors within the Sql (required).</param>
+        /// <param name="sqlWithMarker">The SQL this is for, with characters indicating the error locations (required).</param>
+        public ErrorHighlightResponse(List<ErrorHighlightItem> errors = default(List<ErrorHighlightItem>), string sqlWithMarker = default(string))
         {
-            // to ensure "autoCompleteList" is required (not null)
-            if (autoCompleteList == null)
+            // to ensure "errors" is required (not null)
+            if (errors == null)
             {
-                throw new ArgumentNullException("autoCompleteList is a required property for IntellisenseResponse and cannot be null");
+                throw new ArgumentNullException("errors is a required property for ErrorHighlightResponse and cannot be null");
             }
-            this.AutoCompleteList = autoCompleteList;
-            this.TryAgainSoonForMore = tryAgainSoonForMore;
+            this.Errors = errors;
             // to ensure "sqlWithMarker" is required (not null)
             if (sqlWithMarker == null)
             {
-                throw new ArgumentNullException("sqlWithMarker is a required property for IntellisenseResponse and cannot be null");
+                throw new ArgumentNullException("sqlWithMarker is a required property for ErrorHighlightResponse and cannot be null");
             }
             this.SqlWithMarker = sqlWithMarker;
         }
 
         /// <summary>
-        /// The available items at this point
+        /// The errors within the Sql
         /// </summary>
-        /// <value>The available items at this point</value>
-        [DataMember(Name = "autoCompleteList", IsRequired = true, EmitDefaultValue = true)]
-        public List<IntellisenseItem> AutoCompleteList { get; set; }
+        /// <value>The errors within the Sql</value>
+        [DataMember(Name = "errors", IsRequired = true, EmitDefaultValue = true)]
+        public List<ErrorHighlightItem> Errors { get; set; }
 
         /// <summary>
-        /// Should the caller try again soon? (true means a cache is being built and this is a preliminary response!)
+        /// The SQL this is for, with characters indicating the error locations
         /// </summary>
-        /// <value>Should the caller try again soon? (true means a cache is being built and this is a preliminary response!)</value>
-        [DataMember(Name = "tryAgainSoonForMore", IsRequired = true, EmitDefaultValue = true)]
-        public bool TryAgainSoonForMore { get; set; }
-
-        /// <summary>
-        /// The SQL this is for with characters indicating the location the pop-up is for
-        /// </summary>
-        /// <value>The SQL this is for with characters indicating the location the pop-up is for</value>
+        /// <value>The SQL this is for, with characters indicating the error locations</value>
         [DataMember(Name = "sqlWithMarker", IsRequired = true, EmitDefaultValue = true)]
         public string SqlWithMarker { get; set; }
 
@@ -84,9 +75,8 @@ namespace Finbourne.Luminesce.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class IntellisenseResponse {\n");
-            sb.Append("  AutoCompleteList: ").Append(AutoCompleteList).Append("\n");
-            sb.Append("  TryAgainSoonForMore: ").Append(TryAgainSoonForMore).Append("\n");
+            sb.Append("class ErrorHighlightResponse {\n");
+            sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("  SqlWithMarker: ").Append(SqlWithMarker).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -108,15 +98,15 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as IntellisenseResponse);
+            return this.Equals(input as ErrorHighlightResponse);
         }
 
         /// <summary>
-        /// Returns true if IntellisenseResponse instances are equal
+        /// Returns true if ErrorHighlightResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of IntellisenseResponse to be compared</param>
+        /// <param name="input">Instance of ErrorHighlightResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(IntellisenseResponse input)
+        public bool Equals(ErrorHighlightResponse input)
         {
             if (input == null)
             {
@@ -124,14 +114,10 @@ namespace Finbourne.Luminesce.Sdk.Model
             }
             return 
                 (
-                    this.AutoCompleteList == input.AutoCompleteList ||
-                    this.AutoCompleteList != null &&
-                    input.AutoCompleteList != null &&
-                    this.AutoCompleteList.SequenceEqual(input.AutoCompleteList)
-                ) && 
-                (
-                    this.TryAgainSoonForMore == input.TryAgainSoonForMore ||
-                    this.TryAgainSoonForMore.Equals(input.TryAgainSoonForMore)
+                    this.Errors == input.Errors ||
+                    this.Errors != null &&
+                    input.Errors != null &&
+                    this.Errors.SequenceEqual(input.Errors)
                 ) && 
                 (
                     this.SqlWithMarker == input.SqlWithMarker ||
@@ -149,11 +135,10 @@ namespace Finbourne.Luminesce.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AutoCompleteList != null)
+                if (this.Errors != null)
                 {
-                    hashCode = (hashCode * 59) + this.AutoCompleteList.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Errors.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.TryAgainSoonForMore.GetHashCode();
                 if (this.SqlWithMarker != null)
                 {
                     hashCode = (hashCode * 59) + this.SqlWithMarker.GetHashCode();

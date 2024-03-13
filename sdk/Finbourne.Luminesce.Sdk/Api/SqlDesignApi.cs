@@ -50,7 +50,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of FileReaderBuilderResponse</returns>
         ApiResponse<FileReaderBuilderResponse> PutFileReadDesignToSqlWithHttpInfo(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snipit (in need not yet be valid) and cursor location
+        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
         /// </summary>
         /// <remarks>
         /// SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
@@ -62,7 +62,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         IntellisenseResponse PutIntellisense(IntellisenseRequest intellisenseRequest, int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snipit (in need not yet be valid) and cursor location
+        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
         /// </summary>
         /// <remarks>
         /// SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
@@ -72,6 +72,29 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of IntellisenseResponse</returns>
         ApiResponse<IntellisenseResponse> PutIntellisenseWithHttpInfo(IntellisenseRequest intellisenseRequest, int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
+        /// </summary>
+        /// <remarks>
+        /// SQL (by line) to syntax check and return error ranges from within, if any.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="errorHighlightRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ErrorHighlightResponse</returns>
+        ErrorHighlightResponse PutIntellisenseError(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
+        /// </summary>
+        /// <remarks>
+        /// SQL (by line) to syntax check and return error ranges from within, if any.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="errorHighlightRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ErrorHighlightResponse</returns>
+        ApiResponse<ErrorHighlightResponse> PutIntellisenseErrorWithHttpInfo(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] PutQueryDesignToSql: Generates SQL from a structured query design
         /// </summary>
@@ -325,7 +348,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (FileReaderBuilderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<FileReaderBuilderResponse>> PutFileReadDesignToSqlWithHttpInfoAsync(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snipit (in need not yet be valid) and cursor location
+        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
         /// </summary>
         /// <remarks>
         /// SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
@@ -338,7 +361,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<IntellisenseResponse> PutIntellisenseAsync(IntellisenseRequest intellisenseRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snipit (in need not yet be valid) and cursor location
+        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
         /// </summary>
         /// <remarks>
         /// SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
@@ -349,6 +372,31 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IntellisenseResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<IntellisenseResponse>> PutIntellisenseWithHttpInfoAsync(IntellisenseRequest intellisenseRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
+        /// </summary>
+        /// <remarks>
+        /// SQL (by line) to syntax check and return error ranges from within, if any.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="errorHighlightRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ErrorHighlightResponse</returns>
+        System.Threading.Tasks.Task<ErrorHighlightResponse> PutIntellisenseErrorAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
+        /// </summary>
+        /// <remarks>
+        /// SQL (by line) to syntax check and return error ranges from within, if any.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="errorHighlightRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ErrorHighlightResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ErrorHighlightResponse>> PutIntellisenseErrorWithHttpInfoAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] PutQueryDesignToSql: Generates SQL from a structured query design
         /// </summary>
@@ -899,7 +947,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snipit (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
+        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest"></param>
@@ -912,7 +960,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snipit (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
+        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest"></param>
@@ -991,7 +1039,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snipit (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
+        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest"></param>
@@ -1005,7 +1053,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snipit (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
+        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest"></param>
@@ -1077,6 +1125,194 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PutIntellisense", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines) SQL (by line) to syntax check and return error ranges from within, if any.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="errorHighlightRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ErrorHighlightResponse</returns>
+        public ErrorHighlightResponse PutIntellisenseError(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<ErrorHighlightResponse> localVarResponse = PutIntellisenseErrorWithHttpInfo(errorHighlightRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines) SQL (by line) to syntax check and return error ranges from within, if any.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="errorHighlightRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of ErrorHighlightResponse</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<ErrorHighlightResponse> PutIntellisenseErrorWithHttpInfo(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'errorHighlightRequest' is set
+            if (errorHighlightRequest == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'errorHighlightRequest' when calling SqlDesignApi->PutIntellisenseError");
+            }
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = errorHighlightRequest;
+
+            localVarRequestOptions.Operation = "SqlDesignApi.PutIntellisenseError";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<ErrorHighlightResponse>("/api/Sql/intellisenseError", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PutIntellisenseError", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines) SQL (by line) to syntax check and return error ranges from within, if any.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="errorHighlightRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ErrorHighlightResponse</returns>
+        public async System.Threading.Tasks.Task<ErrorHighlightResponse> PutIntellisenseErrorAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<ErrorHighlightResponse> localVarResponse = await PutIntellisenseErrorWithHttpInfoAsync(errorHighlightRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines) SQL (by line) to syntax check and return error ranges from within, if any.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="errorHighlightRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ErrorHighlightResponse)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<ErrorHighlightResponse>> PutIntellisenseErrorWithHttpInfoAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'errorHighlightRequest' is set
+            if (errorHighlightRequest == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'errorHighlightRequest' when calling SqlDesignApi->PutIntellisenseError");
+            }
+
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = errorHighlightRequest;
+
+            localVarRequestOptions.Operation = "SqlDesignApi.PutIntellisenseError";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<ErrorHighlightResponse>("/api/Sql/intellisenseError", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PutIntellisenseError", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
