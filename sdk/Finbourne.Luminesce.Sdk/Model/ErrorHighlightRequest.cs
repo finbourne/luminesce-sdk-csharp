@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Luminesce.Sdk.Client.OpenAPIDateConverter
 namespace Finbourne.Luminesce.Sdk.Model
 {
     /// <summary>
-    /// ErrorHighlightRequest
+    /// Request for Error highlighting
     /// </summary>
     [DataContract(Name = "ErrorHighlightRequest")]
     public partial class ErrorHighlightRequest : IEquatable<ErrorHighlightRequest>, IValidatableObject
@@ -37,7 +37,8 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Initializes a new instance of the <see cref="ErrorHighlightRequest" /> class.
         /// </summary>
         /// <param name="lines">The lines of text the user currently has in the editor (required).</param>
-        public ErrorHighlightRequest(List<string> lines = default(List<string>))
+        /// <param name="ensureSomeTextIsSelected">If an editor requires some selection of non-whitespace this can be set to true to force  at least one visible character to be selected..</param>
+        public ErrorHighlightRequest(List<string> lines = default(List<string>), bool ensureSomeTextIsSelected = default(bool))
         {
             // to ensure "lines" is required (not null)
             if (lines == null)
@@ -45,6 +46,7 @@ namespace Finbourne.Luminesce.Sdk.Model
                 throw new ArgumentNullException("lines is a required property for ErrorHighlightRequest and cannot be null");
             }
             this.Lines = lines;
+            this.EnsureSomeTextIsSelected = ensureSomeTextIsSelected;
         }
 
         /// <summary>
@@ -55,6 +57,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         public List<string> Lines { get; set; }
 
         /// <summary>
+        /// If an editor requires some selection of non-whitespace this can be set to true to force  at least one visible character to be selected.
+        /// </summary>
+        /// <value>If an editor requires some selection of non-whitespace this can be set to true to force  at least one visible character to be selected.</value>
+        [DataMember(Name = "ensureSomeTextIsSelected", EmitDefaultValue = true)]
+        public bool EnsureSomeTextIsSelected { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +72,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ErrorHighlightRequest {\n");
             sb.Append("  Lines: ").Append(Lines).Append("\n");
+            sb.Append("  EnsureSomeTextIsSelected: ").Append(EnsureSomeTextIsSelected).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -103,6 +113,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Lines != null &&
                     input.Lines != null &&
                     this.Lines.SequenceEqual(input.Lines)
+                ) && 
+                (
+                    this.EnsureSomeTextIsSelected == input.EnsureSomeTextIsSelected ||
+                    this.EnsureSomeTextIsSelected.Equals(input.EnsureSomeTextIsSelected)
                 );
         }
 
@@ -119,6 +133,7 @@ namespace Finbourne.Luminesce.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Lines.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.EnsureSomeTextIsSelected.GetHashCode();
                 return hashCode;
             }
         }

@@ -1,4 +1,5 @@
 # Finbourne.Luminesce.Sdk.Model.IntellisenseResponse
+Available intellisense response information
 
 ## Properties
 

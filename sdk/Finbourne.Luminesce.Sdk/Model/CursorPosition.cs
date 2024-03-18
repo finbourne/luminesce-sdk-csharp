@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Luminesce.Sdk.Client.OpenAPIDateConverter
 namespace Finbourne.Luminesce.Sdk.Model
 {
     /// <summary>
-    /// CursorPosition
+    /// Represents a cursor location
     /// </summary>
     [DataContract(Name = "CursorPosition")]
     public partial class CursorPosition : IEquatable<CursorPosition>, IValidatableObject

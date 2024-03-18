@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Luminesce.Sdk.Client.OpenAPIDateConverter
 namespace Finbourne.Luminesce.Sdk.Model
 {
     /// <summary>
-    /// IntellisenseResponse
+    /// Available intellisense response information
     /// </summary>
     [DataContract(Name = "IntellisenseResponse")]
     public partial class IntellisenseResponse : IEquatable<IntellisenseResponse>, IValidatableObject

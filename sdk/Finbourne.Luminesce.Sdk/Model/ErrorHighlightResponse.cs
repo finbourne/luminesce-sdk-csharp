@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Luminesce.Sdk.Client.OpenAPIDateConverter
 namespace Finbourne.Luminesce.Sdk.Model
 {
     /// <summary>
-    /// ErrorHighlightResponse
+    /// Response for error highlighting
     /// </summary>
     [DataContract(Name = "ErrorHighlightResponse")]
     public partial class ErrorHighlightResponse : IEquatable<ErrorHighlightResponse>, IValidatableObject

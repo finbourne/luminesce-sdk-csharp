@@ -1,4 +1,5 @@
 # Finbourne.Luminesce.Sdk.Model.CursorPosition
+Represents a cursor location
 
 ## Properties
 

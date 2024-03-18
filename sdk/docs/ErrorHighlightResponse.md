@@ -1,4 +1,5 @@
 # Finbourne.Luminesce.Sdk.Model.ErrorHighlightResponse
+Response for error highlighting
 
 ## Properties
 
