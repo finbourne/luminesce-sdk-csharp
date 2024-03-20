@@ -129,7 +129,19 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Enum JdbcDriver for value: Jdbc_Driver
         /// </summary>
         [EnumMember(Value = "Jdbc_Driver")]
-        JdbcDriver = 17
+        JdbcDriver = 17,
+
+        /// <summary>
+        /// Enum PowerBiConnector for value: PowerBi_Connector
+        /// </summary>
+        [EnumMember(Value = "PowerBi_Connector")]
+        PowerBiConnector = 18,
+
+        /// <summary>
+        /// Enum OdbcWin64Driver for value: Odbc_Win64_Driver
+        /// </summary>
+        [EnumMember(Value = "Odbc_Win64_Driver")]
+        OdbcWin64Driver = 19
 
     }
 
