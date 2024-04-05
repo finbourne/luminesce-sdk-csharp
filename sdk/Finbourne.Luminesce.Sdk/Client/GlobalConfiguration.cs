@@ -6,6 +6,7 @@
  */
 
 using System.Collections.Generic;
+using Finbourne.Luminesce.Sdk.Extensions;
 
 namespace Finbourne.Luminesce.Sdk.Client
 {
