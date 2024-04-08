@@ -38,9 +38,10 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         /// <param name="start">start (required).</param>
         /// <param name="stop">stop (required).</param>
+        /// <param name="noViableAlternativeStart">noViableAlternativeStart.</param>
         /// <param name="length">The length of the error token counting line breaks if any (required).</param>
         /// <param name="message">The error message (required).</param>
-        public ErrorHighlightItem(CursorPosition start = default(CursorPosition), CursorPosition stop = default(CursorPosition), int length = default(int), string message = default(string))
+        public ErrorHighlightItem(CursorPosition start = default(CursorPosition), CursorPosition stop = default(CursorPosition), CursorPosition noViableAlternativeStart = default(CursorPosition), int length = default(int), string message = default(string))
         {
             // to ensure "start" is required (not null)
             if (start == null)
@@ -61,6 +62,7 @@ namespace Finbourne.Luminesce.Sdk.Model
                 throw new ArgumentNullException("message is a required property for ErrorHighlightItem and cannot be null");
             }
             this.Message = message;
+            this.NoViableAlternativeStart = noViableAlternativeStart;
         }
 
         /// <summary>
@@ -74,6 +76,12 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [DataMember(Name = "stop", IsRequired = true, EmitDefaultValue = true)]
         public CursorPosition Stop { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NoViableAlternativeStart
+        /// </summary>
+        [DataMember(Name = "noViableAlternativeStart", EmitDefaultValue = false)]
+        public CursorPosition NoViableAlternativeStart { get; set; }
 
         /// <summary>
         /// The length of the error token counting line breaks if any
@@ -99,6 +107,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("class ErrorHighlightItem {\n");
             sb.Append("  Start: ").Append(Start).Append("\n");
             sb.Append("  Stop: ").Append(Stop).Append("\n");
+            sb.Append("  NoViableAlternativeStart: ").Append(NoViableAlternativeStart).Append("\n");
             sb.Append("  Length: ").Append(Length).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
@@ -147,6 +156,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Stop.Equals(input.Stop))
                 ) && 
                 (
+                    this.NoViableAlternativeStart == input.NoViableAlternativeStart ||
+                    (this.NoViableAlternativeStart != null &&
+                    this.NoViableAlternativeStart.Equals(input.NoViableAlternativeStart))
+                ) && 
+                (
                     this.Length == input.Length ||
                     this.Length.Equals(input.Length)
                 ) && 
@@ -173,6 +187,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.Stop != null)
                 {
                     hashCode = (hashCode * 59) + this.Stop.GetHashCode();
+                }
+                if (this.NoViableAlternativeStart != null)
+                {
+                    hashCode = (hashCode * 59) + this.NoViableAlternativeStart.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Length.GetHashCode();
                 if (this.Message != null)
