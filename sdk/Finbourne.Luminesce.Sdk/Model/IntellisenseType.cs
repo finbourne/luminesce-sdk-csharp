@@ -68,7 +68,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Enum Parameter for value: Parameter
         /// </summary>
         [EnumMember(Value = "Parameter")]
-        Parameter = 7
+        Parameter = 7,
+
+        /// <summary>
+        /// Enum ScalarVariable for value: ScalarVariable
+        /// </summary>
+        [EnumMember(Value = "ScalarVariable")]
+        ScalarVariable = 8
 
     }
 
