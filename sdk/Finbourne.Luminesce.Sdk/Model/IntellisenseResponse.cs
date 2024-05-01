@@ -39,7 +39,9 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="autoCompleteList">The available items at this point (required).</param>
         /// <param name="tryAgainSoonForMore">Should the caller try again soon? (true means a cache is being built and this is a preliminary response!) (required).</param>
         /// <param name="sqlWithMarker">The SQL this is for with characters indicating the location the pop-up is for (required).</param>
-        public IntellisenseResponse(List<IntellisenseItem> autoCompleteList = default(List<IntellisenseItem>), bool tryAgainSoonForMore = default(bool), string sqlWithMarker = default(string))
+        /// <param name="startReplacementPosition">startReplacementPosition (required).</param>
+        /// <param name="endReplacementPosition">endReplacementPosition (required).</param>
+        public IntellisenseResponse(List<IntellisenseItem> autoCompleteList = default(List<IntellisenseItem>), bool tryAgainSoonForMore = default(bool), string sqlWithMarker = default(string), CursorPosition startReplacementPosition = default(CursorPosition), CursorPosition endReplacementPosition = default(CursorPosition))
         {
             // to ensure "autoCompleteList" is required (not null)
             if (autoCompleteList == null)
@@ -54,6 +56,18 @@ namespace Finbourne.Luminesce.Sdk.Model
                 throw new ArgumentNullException("sqlWithMarker is a required property for IntellisenseResponse and cannot be null");
             }
             this.SqlWithMarker = sqlWithMarker;
+            // to ensure "startReplacementPosition" is required (not null)
+            if (startReplacementPosition == null)
+            {
+                throw new ArgumentNullException("startReplacementPosition is a required property for IntellisenseResponse and cannot be null");
+            }
+            this.StartReplacementPosition = startReplacementPosition;
+            // to ensure "endReplacementPosition" is required (not null)
+            if (endReplacementPosition == null)
+            {
+                throw new ArgumentNullException("endReplacementPosition is a required property for IntellisenseResponse and cannot be null");
+            }
+            this.EndReplacementPosition = endReplacementPosition;
         }
 
         /// <summary>
@@ -78,6 +92,18 @@ namespace Finbourne.Luminesce.Sdk.Model
         public string SqlWithMarker { get; set; }
 
         /// <summary>
+        /// Gets or Sets StartReplacementPosition
+        /// </summary>
+        [DataMember(Name = "startReplacementPosition", IsRequired = true, EmitDefaultValue = true)]
+        public CursorPosition StartReplacementPosition { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EndReplacementPosition
+        /// </summary>
+        [DataMember(Name = "endReplacementPosition", IsRequired = true, EmitDefaultValue = true)]
+        public CursorPosition EndReplacementPosition { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -88,6 +114,8 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  AutoCompleteList: ").Append(AutoCompleteList).Append("\n");
             sb.Append("  TryAgainSoonForMore: ").Append(TryAgainSoonForMore).Append("\n");
             sb.Append("  SqlWithMarker: ").Append(SqlWithMarker).Append("\n");
+            sb.Append("  StartReplacementPosition: ").Append(StartReplacementPosition).Append("\n");
+            sb.Append("  EndReplacementPosition: ").Append(EndReplacementPosition).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,6 +165,16 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.SqlWithMarker == input.SqlWithMarker ||
                     (this.SqlWithMarker != null &&
                     this.SqlWithMarker.Equals(input.SqlWithMarker))
+                ) && 
+                (
+                    this.StartReplacementPosition == input.StartReplacementPosition ||
+                    (this.StartReplacementPosition != null &&
+                    this.StartReplacementPosition.Equals(input.StartReplacementPosition))
+                ) && 
+                (
+                    this.EndReplacementPosition == input.EndReplacementPosition ||
+                    (this.EndReplacementPosition != null &&
+                    this.EndReplacementPosition.Equals(input.EndReplacementPosition))
                 );
         }
 
@@ -157,6 +195,14 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.SqlWithMarker != null)
                 {
                     hashCode = (hashCode * 59) + this.SqlWithMarker.GetHashCode();
+                }
+                if (this.StartReplacementPosition != null)
+                {
+                    hashCode = (hashCode * 59) + this.StartReplacementPosition.GetHashCode();
+                }
+                if (this.EndReplacementPosition != null)
+                {
+                    hashCode = (hashCode * 59) + this.EndReplacementPosition.GetHashCode();
                 }
                 return hashCode;
             }
