@@ -54,6 +54,29 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> DownloadBinaryWithHttpInfo(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus
+        /// </summary>
+        /// <remarks>
+        ///  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">Type of binary to fetch available versions of (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>List&lt;string&gt;</returns>
+        List<string> GetBinaryVersions(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus
+        /// </summary>
+        /// <remarks>
+        ///  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">Type of binary to fetch available versions of (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of List&lt;string&gt;</returns>
+        ApiResponse<List<string>> GetBinaryVersionsWithHttpInfo(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -90,6 +113,31 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> DownloadBinaryWithHttpInfoAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus
+        /// </summary>
+        /// <remarks>
+        ///  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">Type of binary to fetch available versions of (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;string&gt;</returns>
+        System.Threading.Tasks.Task<List<string>> GetBinaryVersionsAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus
+        /// </summary>
+        /// <remarks>
+        ///  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">Type of binary to fetch available versions of (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<string>>> GetBinaryVersionsWithHttpInfoAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -386,6 +434,180 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DownloadBinary", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">Type of binary to fetch available versions of (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>List&lt;string&gt;</returns>
+        public List<string> GetBinaryVersions(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<string>> localVarResponse = GetBinaryVersionsWithHttpInfo(type);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">Type of binary to fetch available versions of (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of List&lt;string&gt;</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<List<string>> GetBinaryVersionsWithHttpInfo(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0)
+        {
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
+            }
+
+            localVarRequestOptions.Operation = "BinaryDownloadingApi.GetBinaryVersions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<string>>("/api/Download/versions", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetBinaryVersions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">Type of binary to fetch available versions of (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;string&gt;</returns>
+        public async System.Threading.Tasks.Task<List<string>> GetBinaryVersionsAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<string>> localVarResponse = await GetBinaryVersionsWithHttpInfoAsync(type, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="type">Type of binary to fetch available versions of (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<string>>> GetBinaryVersionsWithHttpInfoAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (type != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
+            }
+
+            localVarRequestOptions.Operation = "BinaryDownloadingApi.GetBinaryVersions";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<string>>("/api/Download/versions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetBinaryVersions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
