@@ -55,6 +55,29 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of FileReaderBuilderResponse</returns>
         ApiResponse<FileReaderBuilderResponse> PutFileReadDesignToSqlWithHttpInfo(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0);
         /// <summary>
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible.
+        /// </summary>
+        /// <remarks>
+        /// SQL to attempt to create an inlined properties Design object from
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>InlinedPropertyDesign</returns>
+        InlinedPropertyDesign PutInlinedPropertiesDesignSqlToDesign(string? body = default(string?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible.
+        /// </summary>
+        /// <remarks>
+        /// SQL to attempt to create an inlined properties Design object from
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of InlinedPropertyDesign</returns>
+        ApiResponse<InlinedPropertyDesign> PutInlinedPropertiesDesignSqlToDesignWithHttpInfo(string? body = default(string?), int operationIndex = 0);
+        /// <summary>
         /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Generates inlined properties SQL from a structured design
         /// </summary>
         /// <remarks>
@@ -375,6 +398,31 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileReaderBuilderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<FileReaderBuilderResponse>> PutFileReadDesignToSqlWithHttpInfoAsync(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible.
+        /// </summary>
+        /// <remarks>
+        /// SQL to attempt to create an inlined properties Design object from
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlinedPropertyDesign</returns>
+        System.Threading.Tasks.Task<InlinedPropertyDesign> PutInlinedPropertiesDesignSqlToDesignAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible.
+        /// </summary>
+        /// <remarks>
+        /// SQL to attempt to create an inlined properties Design object from
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlinedPropertyDesign)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlinedPropertyDesign>> PutInlinedPropertiesDesignSqlToDesignWithHttpInfoAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Generates inlined properties SQL from a structured design
         /// </summary>
@@ -990,6 +1038,176 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PutFileReadDesignToSql", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible. SQL to attempt to create an inlined properties Design object from
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>InlinedPropertyDesign</returns>
+        public InlinedPropertyDesign PutInlinedPropertiesDesignSqlToDesign(string? body = default(string?), int operationIndex = 0)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<InlinedPropertyDesign> localVarResponse = PutInlinedPropertiesDesignSqlToDesignWithHttpInfo(body);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible. SQL to attempt to create an inlined properties Design object from
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of InlinedPropertyDesign</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<InlinedPropertyDesign> PutInlinedPropertiesDesignSqlToDesignWithHttpInfo(string? body = default(string?), int operationIndex = 0)
+        {
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "text/plain"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "SqlDesignApi.PutInlinedPropertiesDesignSqlToDesign";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<InlinedPropertyDesign>("/api/Sql/toinlinedpropertiesdesign", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PutInlinedPropertiesDesignSqlToDesign", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible. SQL to attempt to create an inlined properties Design object from
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlinedPropertyDesign</returns>
+        public async System.Threading.Tasks.Task<InlinedPropertyDesign> PutInlinedPropertiesDesignSqlToDesignAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<InlinedPropertyDesign> localVarResponse = await PutInlinedPropertiesDesignSqlToDesignWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible. SQL to attempt to create an inlined properties Design object from
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlinedPropertyDesign)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<InlinedPropertyDesign>> PutInlinedPropertiesDesignSqlToDesignWithHttpInfoAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "text/plain"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "SqlDesignApi.PutInlinedPropertiesDesignSqlToDesign";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<InlinedPropertyDesign>("/api/Sql/toinlinedpropertiesdesign", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PutInlinedPropertiesDesignSqlToDesign", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
