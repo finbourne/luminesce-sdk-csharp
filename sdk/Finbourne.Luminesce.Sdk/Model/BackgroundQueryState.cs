@@ -98,7 +98,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Enum Disposed for value: Disposed
         /// </summary>
         [EnumMember(Value = "Disposed")]
-        Disposed = 12
+        Disposed = 12,
+
+        /// <summary>
+        /// Enum OwnerTerminated for value: OwnerTerminated
+        /// </summary>
+        [EnumMember(Value = "OwnerTerminated")]
+        OwnerTerminated = 13
 
     }
 
