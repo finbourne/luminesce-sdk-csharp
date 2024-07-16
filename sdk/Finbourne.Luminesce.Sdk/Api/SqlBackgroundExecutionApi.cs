@@ -398,12 +398,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">The LuminesceSql query to kick off.</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BackgroundQueryResponse</returns>
-        BackgroundQueryResponse StartQuery(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0);
+        BackgroundQueryResponse StartQuery(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// StartQuery: Starts to Execute LuminesceSql in the background.
@@ -413,12 +414,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">The LuminesceSql query to kick off.</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
-        ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0);
+        ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -819,13 +821,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">The LuminesceSql query to kick off.</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BackgroundQueryResponse</returns>
-        System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// StartQuery: Starts to Execute LuminesceSql in the background.
@@ -835,13 +838,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">The LuminesceSql query to kick off.</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -3598,14 +3602,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">The LuminesceSql query to kick off.</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BackgroundQueryResponse</returns>
-        public BackgroundQueryResponse StartQuery(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0)
+        public BackgroundQueryResponse StartQuery(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = StartQueryWithHttpInfo(body, queryName, timeoutSeconds, keepForSeconds);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = StartQueryWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds);
             return localVarResponse.Data;
         }
 
@@ -3614,12 +3619,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">The LuminesceSql query to kick off.</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3652,6 +3658,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -3705,15 +3715,16 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">The LuminesceSql query to kick off.</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BackgroundQueryResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = await StartQueryWithHttpInfoAsync(body, queryName, timeoutSeconds, keepForSeconds, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = await StartQueryWithHttpInfoAsync(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3722,13 +3733,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">The LuminesceSql query to kick off.</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3762,6 +3774,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));

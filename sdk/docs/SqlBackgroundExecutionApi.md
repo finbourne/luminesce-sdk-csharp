@@ -1179,7 +1179,7 @@ catch (ApiException e)
 
 <a id="startquery"></a>
 # **StartQuery**
-> BackgroundQueryResponse StartQuery (string body, string? queryName = null, int? timeoutSeconds = null, int? keepForSeconds = null)
+> BackgroundQueryResponse StartQuery (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeoutSeconds = null, int? keepForSeconds = null)
 
 StartQuery: Starts to Execute LuminesceSql in the background.
 
@@ -1206,6 +1206,7 @@ namespace Example
 
             var apiInstance = new SqlBackgroundExecutionApi(config);
             var body = select Str, Takes500Ms from Testing1K where UseLinq = true and [Int] <= 120;  // string | The LuminesceSql query to kick off.
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Intentionally slow test query;  // string? | A name for this query.  This goes into logs and is available in `Sys.Logs.HcQueryStart`. (optional) 
             var timeoutSeconds = 1200;  // int? | Maximum time the query may run for, in seconds: <0 → ∞, 0 → 7200 (2h) (optional)  (default to 0)
             var keepForSeconds = 7200;  // int? | Maximum time the result may be kept for, in seconds: <0 → 1200 (20m), 0 → 28800 (8h), max = 2,678,400 (31d) (optional)  (default to 0)
@@ -1213,7 +1214,7 @@ namespace Example
             try
             {
                 // StartQuery: Starts to Execute LuminesceSql in the background.
-                BackgroundQueryResponse result = apiInstance.StartQuery(body, queryName, timeoutSeconds, keepForSeconds);
+                BackgroundQueryResponse result = apiInstance.StartQuery(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1234,7 +1235,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // StartQuery: Starts to Execute LuminesceSql in the background.
-    ApiResponse<BackgroundQueryResponse> response = apiInstance.StartQueryWithHttpInfo(body, queryName, timeoutSeconds, keepForSeconds);
+    ApiResponse<BackgroundQueryResponse> response = apiInstance.StartQueryWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1252,6 +1253,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **body** | **string** | The LuminesceSql query to kick off. |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. | [optional]  |
 | **timeoutSeconds** | **int?** | Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) | [optional] [default to 0] |
 | **keepForSeconds** | **int?** | Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) | [optional] [default to 0] |
