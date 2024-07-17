@@ -21,7 +21,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 
 <a id="getbyquerycsv"></a>
 # **GetByQueryCsv**
-> string GetByQueryCsv (string query, string? queryName = null, bool? download = null, int? timeout = null, string? delimiter = null, string? escape = null)
+> string GetByQueryCsv (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, bool? download = null, int? timeout = null, string? delimiter = null, string? escape = null)
 
 GetByQueryCsv: Executes Sql, returned in CSV format, where the sql is simply in the url.
 
@@ -48,6 +48,7 @@ namespace Example
 
             var apiInstance = new SqlExecutionApi(config);
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
             var timeout = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
@@ -57,7 +58,7 @@ namespace Example
             try
             {
                 // GetByQueryCsv: Executes Sql, returned in CSV format, where the sql is simply in the url.
-                string result = apiInstance.GetByQueryCsv(query, queryName, download, timeout, delimiter, escape);
+                string result = apiInstance.GetByQueryCsv(query, scalarParameters, queryName, download, timeout, delimiter, escape);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -78,7 +79,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetByQueryCsv: Executes Sql, returned in CSV format, where the sql is simply in the url.
-    ApiResponse<string> response = apiInstance.GetByQueryCsvWithHttpInfo(query, queryName, download, timeout, delimiter, escape);
+    ApiResponse<string> response = apiInstance.GetByQueryCsvWithHttpInfo(query, scalarParameters, queryName, download, timeout, delimiter, escape);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -96,6 +97,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **query** | **string** | LuminesceSql to Execute (must be one line only) |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **download** | **bool?** | Makes this a file-download request (as opposed to returning the data in the response-body) | [optional] [default to false] |
 | **timeout** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
@@ -127,7 +129,7 @@ catch (ApiException e)
 
 <a id="getbyqueryexcel"></a>
 # **GetByQueryExcel**
-> System.IO.Stream GetByQueryExcel (string query, string? queryName = null, int? timeout = null)
+> System.IO.Stream GetByQueryExcel (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeout = null)
 
 GetByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded) format, where the sql is simply in the url.
 
@@ -154,13 +156,14 @@ namespace Example
 
             var apiInstance = new SqlExecutionApi(config);
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var timeout = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
 
             try
             {
                 // GetByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded) format, where the sql is simply in the url.
-                System.IO.Stream result = apiInstance.GetByQueryExcel(query, queryName, timeout);
+                System.IO.Stream result = apiInstance.GetByQueryExcel(query, scalarParameters, queryName, timeout);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -181,7 +184,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded) format, where the sql is simply in the url.
-    ApiResponse<System.IO.Stream> response = apiInstance.GetByQueryExcelWithHttpInfo(query, queryName, timeout);
+    ApiResponse<System.IO.Stream> response = apiInstance.GetByQueryExcelWithHttpInfo(query, scalarParameters, queryName, timeout);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -199,6 +202,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **query** | **string** | LuminesceSql to Execute (must be one line only) |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **timeout** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
 
@@ -227,7 +231,7 @@ catch (ApiException e)
 
 <a id="getbyqueryjson"></a>
 # **GetByQueryJson**
-> string GetByQueryJson (string query, string? queryName = null, int? timeout = null, bool? jsonProper = null)
+> string GetByQueryJson (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeout = null, bool? jsonProper = null)
 
 GetByQueryJson: Executes Sql, returned in JSON format, where the sql is simply in the url.
 
@@ -254,6 +258,7 @@ namespace Example
 
             var apiInstance = new SqlExecutionApi(config);
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var timeout = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
             var jsonProper = false;  // bool? | Should this be text/json (not json-encoded-as-a-string) (optional)  (default to false)
@@ -261,7 +266,7 @@ namespace Example
             try
             {
                 // GetByQueryJson: Executes Sql, returned in JSON format, where the sql is simply in the url.
-                string result = apiInstance.GetByQueryJson(query, queryName, timeout, jsonProper);
+                string result = apiInstance.GetByQueryJson(query, scalarParameters, queryName, timeout, jsonProper);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -282,7 +287,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetByQueryJson: Executes Sql, returned in JSON format, where the sql is simply in the url.
-    ApiResponse<string> response = apiInstance.GetByQueryJsonWithHttpInfo(query, queryName, timeout, jsonProper);
+    ApiResponse<string> response = apiInstance.GetByQueryJsonWithHttpInfo(query, scalarParameters, queryName, timeout, jsonProper);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -300,6 +305,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **query** | **string** | LuminesceSql to Execute (must be one line only) |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **timeout** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
 | **jsonProper** | **bool?** | Should this be text/json (not json-encoded-as-a-string) | [optional] [default to false] |
@@ -329,7 +335,7 @@ catch (ApiException e)
 
 <a id="getbyqueryparquet"></a>
 # **GetByQueryParquet**
-> System.IO.Stream GetByQueryParquet (string query, string? queryName = null, int? timeout = null)
+> System.IO.Stream GetByQueryParquet (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeout = null)
 
 GetByQueryParquet: Executes Sql, returned in Parquet (.parquet) format (as a file to be downloaded) format, where the sql is simply in the url.
 
@@ -356,13 +362,14 @@ namespace Example
 
             var apiInstance = new SqlExecutionApi(config);
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var timeout = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
 
             try
             {
                 // GetByQueryParquet: Executes Sql, returned in Parquet (.parquet) format (as a file to be downloaded) format, where the sql is simply in the url.
-                System.IO.Stream result = apiInstance.GetByQueryParquet(query, queryName, timeout);
+                System.IO.Stream result = apiInstance.GetByQueryParquet(query, scalarParameters, queryName, timeout);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -383,7 +390,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetByQueryParquet: Executes Sql, returned in Parquet (.parquet) format (as a file to be downloaded) format, where the sql is simply in the url.
-    ApiResponse<System.IO.Stream> response = apiInstance.GetByQueryParquetWithHttpInfo(query, queryName, timeout);
+    ApiResponse<System.IO.Stream> response = apiInstance.GetByQueryParquetWithHttpInfo(query, scalarParameters, queryName, timeout);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -401,6 +408,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **query** | **string** | LuminesceSql to Execute (must be one line only) |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **timeout** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
 
@@ -429,7 +437,7 @@ catch (ApiException e)
 
 <a id="getbyquerypipe"></a>
 # **GetByQueryPipe**
-> string GetByQueryPipe (string query, string? queryName = null, bool? download = null, int? timeout = null)
+> string GetByQueryPipe (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, bool? download = null, int? timeout = null)
 
 GetByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is simply in the url.
 
@@ -456,6 +464,7 @@ namespace Example
 
             var apiInstance = new SqlExecutionApi(config);
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
             var timeout = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
@@ -463,7 +472,7 @@ namespace Example
             try
             {
                 // GetByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is simply in the url.
-                string result = apiInstance.GetByQueryPipe(query, queryName, download, timeout);
+                string result = apiInstance.GetByQueryPipe(query, scalarParameters, queryName, download, timeout);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -484,7 +493,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is simply in the url.
-    ApiResponse<string> response = apiInstance.GetByQueryPipeWithHttpInfo(query, queryName, download, timeout);
+    ApiResponse<string> response = apiInstance.GetByQueryPipeWithHttpInfo(query, scalarParameters, queryName, download, timeout);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -502,6 +511,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **query** | **string** | LuminesceSql to Execute (must be one line only) |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **download** | **bool?** | Makes this a file-download request (as opposed to returning the data in the response-body) | [optional] [default to false] |
 | **timeout** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
@@ -531,7 +541,7 @@ catch (ApiException e)
 
 <a id="getbyquerysqlite"></a>
 # **GetByQuerySqlite**
-> System.IO.Stream GetByQuerySqlite (string query, string? queryName = null, int? timeout = null)
+> System.IO.Stream GetByQuerySqlite (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeout = null)
 
 GetByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded) format, where the sql is simply in the url.
 
@@ -558,13 +568,14 @@ namespace Example
 
             var apiInstance = new SqlExecutionApi(config);
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var timeout = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
 
             try
             {
                 // GetByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded) format, where the sql is simply in the url.
-                System.IO.Stream result = apiInstance.GetByQuerySqlite(query, queryName, timeout);
+                System.IO.Stream result = apiInstance.GetByQuerySqlite(query, scalarParameters, queryName, timeout);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -585,7 +596,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded) format, where the sql is simply in the url.
-    ApiResponse<System.IO.Stream> response = apiInstance.GetByQuerySqliteWithHttpInfo(query, queryName, timeout);
+    ApiResponse<System.IO.Stream> response = apiInstance.GetByQuerySqliteWithHttpInfo(query, scalarParameters, queryName, timeout);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -603,6 +614,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **query** | **string** | LuminesceSql to Execute (must be one line only) |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **timeout** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
 
@@ -631,7 +643,7 @@ catch (ApiException e)
 
 <a id="getbyqueryxml"></a>
 # **GetByQueryXml**
-> string GetByQueryXml (string query, string? queryName = null, bool? download = null, int? timeout = null)
+> string GetByQueryXml (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, bool? download = null, int? timeout = null)
 
 GetByQueryXml: Executes Sql, returned in Xml format, where the sql is simply in the url.
 
@@ -658,6 +670,7 @@ namespace Example
 
             var apiInstance = new SqlExecutionApi(config);
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
             var timeout = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
@@ -665,7 +678,7 @@ namespace Example
             try
             {
                 // GetByQueryXml: Executes Sql, returned in Xml format, where the sql is simply in the url.
-                string result = apiInstance.GetByQueryXml(query, queryName, download, timeout);
+                string result = apiInstance.GetByQueryXml(query, scalarParameters, queryName, download, timeout);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -686,7 +699,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetByQueryXml: Executes Sql, returned in Xml format, where the sql is simply in the url.
-    ApiResponse<string> response = apiInstance.GetByQueryXmlWithHttpInfo(query, queryName, download, timeout);
+    ApiResponse<string> response = apiInstance.GetByQueryXmlWithHttpInfo(query, scalarParameters, queryName, download, timeout);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -704,6 +717,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **query** | **string** | LuminesceSql to Execute (must be one line only) |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **download** | **bool?** | Makes this a file-download request (as opposed to returning the data in the response-body) | [optional] [default to false] |
 | **timeout** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
@@ -733,7 +747,7 @@ catch (ApiException e)
 
 <a id="putbyquerycsv"></a>
 # **PutByQueryCsv**
-> string PutByQueryCsv (string body, string? queryName = null, bool? download = null, int? timeoutSeconds = null, string? delimiter = null, string? escape = null)
+> string PutByQueryCsv (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, bool? download = null, int? timeoutSeconds = null, string? delimiter = null, string? escape = null)
 
 PutByQueryCsv: Executes Sql, returned in CSV format, where the sql is the post-body url.
 
@@ -760,6 +774,7 @@ namespace Example
 
             var apiInstance = new SqlExecutionApi(config);
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
             var timeoutSeconds = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
@@ -769,7 +784,7 @@ namespace Example
             try
             {
                 // PutByQueryCsv: Executes Sql, returned in CSV format, where the sql is the post-body url.
-                string result = apiInstance.PutByQueryCsv(body, queryName, download, timeoutSeconds, delimiter, escape);
+                string result = apiInstance.PutByQueryCsv(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -790,7 +805,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // PutByQueryCsv: Executes Sql, returned in CSV format, where the sql is the post-body url.
-    ApiResponse<string> response = apiInstance.PutByQueryCsvWithHttpInfo(body, queryName, download, timeoutSeconds, delimiter, escape);
+    ApiResponse<string> response = apiInstance.PutByQueryCsvWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -808,6 +823,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **body** | **string** | LuminesceSql to Execute (may be multi-line) |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **download** | **bool?** | Makes this a file-download request (as opposed to returning the data in the response-body) | [optional] [default to false] |
 | **timeoutSeconds** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
@@ -839,7 +855,7 @@ catch (ApiException e)
 
 <a id="putbyqueryexcel"></a>
 # **PutByQueryExcel**
-> System.IO.Stream PutByQueryExcel (string body, string? queryName = null, int? timeoutSeconds = null)
+> System.IO.Stream PutByQueryExcel (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeoutSeconds = null)
 
 PutByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded), where the sql is the post-body url.
 
@@ -866,13 +882,14 @@ namespace Example
 
             var apiInstance = new SqlExecutionApi(config);
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var timeoutSeconds = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
 
             try
             {
                 // PutByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded), where the sql is the post-body url.
-                System.IO.Stream result = apiInstance.PutByQueryExcel(body, queryName, timeoutSeconds);
+                System.IO.Stream result = apiInstance.PutByQueryExcel(body, scalarParameters, queryName, timeoutSeconds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -893,7 +910,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // PutByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded), where the sql is the post-body url.
-    ApiResponse<System.IO.Stream> response = apiInstance.PutByQueryExcelWithHttpInfo(body, queryName, timeoutSeconds);
+    ApiResponse<System.IO.Stream> response = apiInstance.PutByQueryExcelWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -911,6 +928,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **body** | **string** | LuminesceSql to Execute (may be multi-line) |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **timeoutSeconds** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
 
@@ -939,7 +957,7 @@ catch (ApiException e)
 
 <a id="putbyqueryjson"></a>
 # **PutByQueryJson**
-> string PutByQueryJson (string body, string? queryName = null, int? timeoutSeconds = null, bool? jsonProper = null)
+> string PutByQueryJson (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeoutSeconds = null, bool? jsonProper = null)
 
 PutByQueryJson: Executes Sql, returned in JSON format, where the sql is the post-body url.
 
@@ -966,6 +984,7 @@ namespace Example
 
             var apiInstance = new SqlExecutionApi(config);
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var timeoutSeconds = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
             var jsonProper = false;  // bool? | Should this be text/json (not json-encoded-as-a-string) (optional)  (default to false)
@@ -973,7 +992,7 @@ namespace Example
             try
             {
                 // PutByQueryJson: Executes Sql, returned in JSON format, where the sql is the post-body url.
-                string result = apiInstance.PutByQueryJson(body, queryName, timeoutSeconds, jsonProper);
+                string result = apiInstance.PutByQueryJson(body, scalarParameters, queryName, timeoutSeconds, jsonProper);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -994,7 +1013,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // PutByQueryJson: Executes Sql, returned in JSON format, where the sql is the post-body url.
-    ApiResponse<string> response = apiInstance.PutByQueryJsonWithHttpInfo(body, queryName, timeoutSeconds, jsonProper);
+    ApiResponse<string> response = apiInstance.PutByQueryJsonWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds, jsonProper);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1012,6 +1031,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **body** | **string** | LuminesceSql to Execute (may be multi-line) |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **timeoutSeconds** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
 | **jsonProper** | **bool?** | Should this be text/json (not json-encoded-as-a-string) | [optional] [default to false] |
@@ -1041,7 +1061,7 @@ catch (ApiException e)
 
 <a id="putbyqueryparquet"></a>
 # **PutByQueryParquet**
-> System.IO.Stream PutByQueryParquet (string body, string? queryName = null, int? timeoutSeconds = null)
+> System.IO.Stream PutByQueryParquet (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeoutSeconds = null)
 
 PutByQueryParquet: Executes Sql, returned in Parquet format, where the sql is the post-body url.
 
@@ -1068,13 +1088,14 @@ namespace Example
 
             var apiInstance = new SqlExecutionApi(config);
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var timeoutSeconds = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
 
             try
             {
                 // PutByQueryParquet: Executes Sql, returned in Parquet format, where the sql is the post-body url.
-                System.IO.Stream result = apiInstance.PutByQueryParquet(body, queryName, timeoutSeconds);
+                System.IO.Stream result = apiInstance.PutByQueryParquet(body, scalarParameters, queryName, timeoutSeconds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1095,7 +1116,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // PutByQueryParquet: Executes Sql, returned in Parquet format, where the sql is the post-body url.
-    ApiResponse<System.IO.Stream> response = apiInstance.PutByQueryParquetWithHttpInfo(body, queryName, timeoutSeconds);
+    ApiResponse<System.IO.Stream> response = apiInstance.PutByQueryParquetWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1113,6 +1134,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **body** | **string** | LuminesceSql to Execute (may be multi-line) |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **timeoutSeconds** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
 
@@ -1141,7 +1163,7 @@ catch (ApiException e)
 
 <a id="putbyquerypipe"></a>
 # **PutByQueryPipe**
-> string PutByQueryPipe (string body, string? queryName = null, bool? download = null, int? timeoutSeconds = null)
+> string PutByQueryPipe (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, bool? download = null, int? timeoutSeconds = null)
 
 PutByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is the post-body url.
 
@@ -1168,6 +1190,7 @@ namespace Example
 
             var apiInstance = new SqlExecutionApi(config);
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
             var timeoutSeconds = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
@@ -1175,7 +1198,7 @@ namespace Example
             try
             {
                 // PutByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is the post-body url.
-                string result = apiInstance.PutByQueryPipe(body, queryName, download, timeoutSeconds);
+                string result = apiInstance.PutByQueryPipe(body, scalarParameters, queryName, download, timeoutSeconds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1196,7 +1219,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // PutByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is the post-body url.
-    ApiResponse<string> response = apiInstance.PutByQueryPipeWithHttpInfo(body, queryName, download, timeoutSeconds);
+    ApiResponse<string> response = apiInstance.PutByQueryPipeWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1214,6 +1237,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **body** | **string** | LuminesceSql to Execute (may be multi-line) |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **download** | **bool?** | Makes this a file-download request (as opposed to returning the data in the response-body) | [optional] [default to false] |
 | **timeoutSeconds** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
@@ -1243,7 +1267,7 @@ catch (ApiException e)
 
 <a id="putbyquerysqlite"></a>
 # **PutByQuerySqlite**
-> System.IO.Stream PutByQuerySqlite (string body, string? queryName = null, int? timeoutSeconds = null)
+> System.IO.Stream PutByQuerySqlite (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeoutSeconds = null)
 
 PutByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded), where the sql is the post-body url.
 
@@ -1270,13 +1294,14 @@ namespace Example
 
             var apiInstance = new SqlExecutionApi(config);
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var timeoutSeconds = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
 
             try
             {
                 // PutByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded), where the sql is the post-body url.
-                System.IO.Stream result = apiInstance.PutByQuerySqlite(body, queryName, timeoutSeconds);
+                System.IO.Stream result = apiInstance.PutByQuerySqlite(body, scalarParameters, queryName, timeoutSeconds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1297,7 +1322,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // PutByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded), where the sql is the post-body url.
-    ApiResponse<System.IO.Stream> response = apiInstance.PutByQuerySqliteWithHttpInfo(body, queryName, timeoutSeconds);
+    ApiResponse<System.IO.Stream> response = apiInstance.PutByQuerySqliteWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1315,6 +1340,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **body** | **string** | LuminesceSql to Execute (may be multi-line) |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **timeoutSeconds** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
 
@@ -1343,7 +1369,7 @@ catch (ApiException e)
 
 <a id="putbyqueryxml"></a>
 # **PutByQueryXml**
-> string PutByQueryXml (string body, string? queryName = null, bool? download = null, int? timeoutSeconds = null)
+> string PutByQueryXml (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, bool? download = null, int? timeoutSeconds = null)
 
 PutByQueryXml: Executes Sql, returned in Xml format, where the sql is the post-body url.
 
@@ -1370,6 +1396,7 @@ namespace Example
 
             var apiInstance = new SqlExecutionApi(config);
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
+            var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
             var timeoutSeconds = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
@@ -1377,7 +1404,7 @@ namespace Example
             try
             {
                 // PutByQueryXml: Executes Sql, returned in Xml format, where the sql is the post-body url.
-                string result = apiInstance.PutByQueryXml(body, queryName, download, timeoutSeconds);
+                string result = apiInstance.PutByQueryXml(body, scalarParameters, queryName, download, timeoutSeconds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1398,7 +1425,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // PutByQueryXml: Executes Sql, returned in Xml format, where the sql is the post-body url.
-    ApiResponse<string> response = apiInstance.PutByQueryXmlWithHttpInfo(body, queryName, download, timeoutSeconds);
+    ApiResponse<string> response = apiInstance.PutByQueryXmlWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1416,6 +1443,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **body** | **string** | LuminesceSql to Execute (may be multi-line) |  |
+| **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **download** | **bool?** | Makes this a file-download request (as opposed to returning the data in the response-body) | [optional] [default to false] |
 | **timeoutSeconds** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |

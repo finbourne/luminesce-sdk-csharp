@@ -11,6 +11,7 @@ using Exception = System.Exception;
 using ArgumentNullException = System.ArgumentNullException;
 using SystemEventHandler = System.EventHandler;
 using DateTimeOffset = System.DateTimeOffset;
+using Guid = System.Guid;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -37,6 +38,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -44,7 +46,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string GetByQueryCsv(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0);
+        string GetByQueryCsv(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// GetByQueryCsv: Executes Sql, returned in CSV format, where the sql is simply in the url.
@@ -54,6 +56,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -61,7 +64,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> GetByQueryCsvWithHttpInfo(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0);
+        ApiResponse<string> GetByQueryCsvWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0);
         /// <summary>
         /// GetByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded) format, where the sql is simply in the url.
         /// </summary>
@@ -70,11 +73,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream GetByQueryExcel(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0);
+        System.IO.Stream GetByQueryExcel(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// GetByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded) format, where the sql is simply in the url.
@@ -84,11 +88,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> GetByQueryExcelWithHttpInfo(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> GetByQueryExcelWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0);
         /// <summary>
         /// GetByQueryJson: Executes Sql, returned in JSON format, where the sql is simply in the url.
         /// </summary>
@@ -97,12 +102,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string GetByQueryJson(string query, string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0);
+        string GetByQueryJson(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// GetByQueryJson: Executes Sql, returned in JSON format, where the sql is simply in the url.
@@ -112,12 +118,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> GetByQueryJsonWithHttpInfo(string query, string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0);
+        ApiResponse<string> GetByQueryJsonWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0);
         /// <summary>
         /// GetByQueryParquet: Executes Sql, returned in Parquet (.parquet) format (as a file to be downloaded) format, where the sql is simply in the url.
         /// </summary>
@@ -126,11 +133,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream GetByQueryParquet(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0);
+        System.IO.Stream GetByQueryParquet(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// GetByQueryParquet: Executes Sql, returned in Parquet (.parquet) format (as a file to be downloaded) format, where the sql is simply in the url.
@@ -140,11 +148,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> GetByQueryParquetWithHttpInfo(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> GetByQueryParquetWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0);
         /// <summary>
         /// GetByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is simply in the url.
         /// </summary>
@@ -153,12 +162,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string GetByQueryPipe(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0);
+        string GetByQueryPipe(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// GetByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is simply in the url.
@@ -168,12 +178,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> GetByQueryPipeWithHttpInfo(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0);
+        ApiResponse<string> GetByQueryPipeWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0);
         /// <summary>
         /// GetByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded) format, where the sql is simply in the url.
         /// </summary>
@@ -182,11 +193,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream GetByQuerySqlite(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0);
+        System.IO.Stream GetByQuerySqlite(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// GetByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded) format, where the sql is simply in the url.
@@ -196,11 +208,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> GetByQuerySqliteWithHttpInfo(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> GetByQuerySqliteWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0);
         /// <summary>
         /// GetByQueryXml: Executes Sql, returned in Xml format, where the sql is simply in the url.
         /// </summary>
@@ -209,12 +222,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string GetByQueryXml(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0);
+        string GetByQueryXml(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// GetByQueryXml: Executes Sql, returned in Xml format, where the sql is simply in the url.
@@ -224,12 +238,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> GetByQueryXmlWithHttpInfo(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0);
+        ApiResponse<string> GetByQueryXmlWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0);
         /// <summary>
         /// PutByQueryCsv: Executes Sql, returned in CSV format, where the sql is the post-body url.
         /// </summary>
@@ -238,6 +253,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -245,7 +261,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string PutByQueryCsv(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0);
+        string PutByQueryCsv(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// PutByQueryCsv: Executes Sql, returned in CSV format, where the sql is the post-body url.
@@ -255,6 +271,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -262,7 +279,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PutByQueryCsvWithHttpInfo(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0);
+        ApiResponse<string> PutByQueryCsvWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0);
         /// <summary>
         /// PutByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded), where the sql is the post-body url.
         /// </summary>
@@ -271,11 +288,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream PutByQueryExcel(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0);
+        System.IO.Stream PutByQueryExcel(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// PutByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded), where the sql is the post-body url.
@@ -285,11 +303,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> PutByQueryExcelWithHttpInfo(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> PutByQueryExcelWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0);
         /// <summary>
         /// PutByQueryJson: Executes Sql, returned in JSON format, where the sql is the post-body url.
         /// </summary>
@@ -298,12 +317,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string PutByQueryJson(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0);
+        string PutByQueryJson(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// PutByQueryJson: Executes Sql, returned in JSON format, where the sql is the post-body url.
@@ -313,12 +333,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PutByQueryJsonWithHttpInfo(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0);
+        ApiResponse<string> PutByQueryJsonWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0);
         /// <summary>
         /// PutByQueryParquet: Executes Sql, returned in Parquet format, where the sql is the post-body url.
         /// </summary>
@@ -327,11 +348,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream PutByQueryParquet(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0);
+        System.IO.Stream PutByQueryParquet(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// PutByQueryParquet: Executes Sql, returned in Parquet format, where the sql is the post-body url.
@@ -341,11 +363,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> PutByQueryParquetWithHttpInfo(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> PutByQueryParquetWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0);
         /// <summary>
         /// PutByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is the post-body url.
         /// </summary>
@@ -354,12 +377,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string PutByQueryPipe(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0);
+        string PutByQueryPipe(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// PutByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is the post-body url.
@@ -369,12 +393,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PutByQueryPipeWithHttpInfo(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0);
+        ApiResponse<string> PutByQueryPipeWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0);
         /// <summary>
         /// PutByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded), where the sql is the post-body url.
         /// </summary>
@@ -383,11 +408,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream PutByQuerySqlite(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0);
+        System.IO.Stream PutByQuerySqlite(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// PutByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded), where the sql is the post-body url.
@@ -397,11 +423,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> PutByQuerySqliteWithHttpInfo(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> PutByQuerySqliteWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0);
         /// <summary>
         /// PutByQueryXml: Executes Sql, returned in Xml format, where the sql is the post-body url.
         /// </summary>
@@ -410,12 +437,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string PutByQueryXml(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0);
+        string PutByQueryXml(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// PutByQueryXml: Executes Sql, returned in Xml format, where the sql is the post-body url.
@@ -425,12 +453,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PutByQueryXmlWithHttpInfo(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0);
+        ApiResponse<string> PutByQueryXmlWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -448,6 +477,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -456,7 +486,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetByQueryCsvAsync(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> GetByQueryCsvAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// GetByQueryCsv: Executes Sql, returned in CSV format, where the sql is simply in the url.
@@ -466,6 +496,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -474,7 +505,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> GetByQueryCsvWithHttpInfoAsync(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> GetByQueryCsvWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded) format, where the sql is simply in the url.
         /// </summary>
@@ -483,12 +514,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> GetByQueryExcelAsync(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> GetByQueryExcelAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// GetByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded) format, where the sql is simply in the url.
@@ -498,12 +530,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetByQueryExcelWithHttpInfoAsync(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetByQueryExcelWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetByQueryJson: Executes Sql, returned in JSON format, where the sql is simply in the url.
         /// </summary>
@@ -512,13 +545,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetByQueryJsonAsync(string query, string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> GetByQueryJsonAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// GetByQueryJson: Executes Sql, returned in JSON format, where the sql is simply in the url.
@@ -528,13 +562,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> GetByQueryJsonWithHttpInfoAsync(string query, string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> GetByQueryJsonWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetByQueryParquet: Executes Sql, returned in Parquet (.parquet) format (as a file to be downloaded) format, where the sql is simply in the url.
         /// </summary>
@@ -543,12 +578,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> GetByQueryParquetAsync(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> GetByQueryParquetAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// GetByQueryParquet: Executes Sql, returned in Parquet (.parquet) format (as a file to be downloaded) format, where the sql is simply in the url.
@@ -558,12 +594,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetByQueryParquetWithHttpInfoAsync(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetByQueryParquetWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is simply in the url.
         /// </summary>
@@ -572,13 +609,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetByQueryPipeAsync(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> GetByQueryPipeAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// GetByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is simply in the url.
@@ -588,13 +626,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> GetByQueryPipeWithHttpInfoAsync(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> GetByQueryPipeWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded) format, where the sql is simply in the url.
         /// </summary>
@@ -603,12 +642,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> GetByQuerySqliteAsync(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> GetByQuerySqliteAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// GetByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded) format, where the sql is simply in the url.
@@ -618,12 +658,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetByQuerySqliteWithHttpInfoAsync(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetByQuerySqliteWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// GetByQueryXml: Executes Sql, returned in Xml format, where the sql is simply in the url.
         /// </summary>
@@ -632,13 +673,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetByQueryXmlAsync(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> GetByQueryXmlAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// GetByQueryXml: Executes Sql, returned in Xml format, where the sql is simply in the url.
@@ -648,13 +690,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> GetByQueryXmlWithHttpInfoAsync(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> GetByQueryXmlWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// PutByQueryCsv: Executes Sql, returned in CSV format, where the sql is the post-body url.
         /// </summary>
@@ -663,6 +706,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -671,7 +715,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutByQueryCsvAsync(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> PutByQueryCsvAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// PutByQueryCsv: Executes Sql, returned in CSV format, where the sql is the post-body url.
@@ -681,6 +725,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -689,7 +734,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PutByQueryCsvWithHttpInfoAsync(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> PutByQueryCsvWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// PutByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded), where the sql is the post-body url.
         /// </summary>
@@ -698,12 +743,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> PutByQueryExcelAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> PutByQueryExcelAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// PutByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded), where the sql is the post-body url.
@@ -713,12 +759,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> PutByQueryExcelWithHttpInfoAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> PutByQueryExcelWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// PutByQueryJson: Executes Sql, returned in JSON format, where the sql is the post-body url.
         /// </summary>
@@ -727,13 +774,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutByQueryJsonAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> PutByQueryJsonAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// PutByQueryJson: Executes Sql, returned in JSON format, where the sql is the post-body url.
@@ -743,13 +791,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PutByQueryJsonWithHttpInfoAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> PutByQueryJsonWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// PutByQueryParquet: Executes Sql, returned in Parquet format, where the sql is the post-body url.
         /// </summary>
@@ -758,12 +807,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> PutByQueryParquetAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> PutByQueryParquetAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// PutByQueryParquet: Executes Sql, returned in Parquet format, where the sql is the post-body url.
@@ -773,12 +823,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> PutByQueryParquetWithHttpInfoAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> PutByQueryParquetWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// PutByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is the post-body url.
         /// </summary>
@@ -787,13 +838,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutByQueryPipeAsync(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> PutByQueryPipeAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// PutByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is the post-body url.
@@ -803,13 +855,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PutByQueryPipeWithHttpInfoAsync(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> PutByQueryPipeWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// PutByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded), where the sql is the post-body url.
         /// </summary>
@@ -818,12 +871,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> PutByQuerySqliteAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> PutByQuerySqliteAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// PutByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded), where the sql is the post-body url.
@@ -833,12 +887,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> PutByQuerySqliteWithHttpInfoAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> PutByQuerySqliteWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// PutByQueryXml: Executes Sql, returned in Xml format, where the sql is the post-body url.
         /// </summary>
@@ -847,13 +902,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutByQueryXmlAsync(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> PutByQueryXmlAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// PutByQueryXml: Executes Sql, returned in Xml format, where the sql is the post-body url.
@@ -863,13 +919,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PutByQueryXmlWithHttpInfoAsync(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> PutByQueryXmlWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -992,6 +1049,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -999,9 +1057,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string GetByQueryCsv(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0)
+        public string GetByQueryCsv(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetByQueryCsvWithHttpInfo(query, queryName, download, timeout, delimiter, escape);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetByQueryCsvWithHttpInfo(query, scalarParameters, queryName, download, timeout, delimiter, escape);
             return localVarResponse.Data;
         }
 
@@ -1010,6 +1068,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -1017,7 +1076,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryCsvWithHttpInfo(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryCsvWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1050,6 +1109,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -1110,6 +1173,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -1118,9 +1182,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetByQueryCsvAsync(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> GetByQueryCsvAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetByQueryCsvWithHttpInfoAsync(query, queryName, download, timeout, delimiter, escape, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetByQueryCsvWithHttpInfoAsync(query, scalarParameters, queryName, download, timeout, delimiter, escape, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1129,6 +1193,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -1137,7 +1202,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryCsvWithHttpInfoAsync(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryCsvWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1171,6 +1236,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -1232,13 +1301,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream GetByQueryExcel(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0)
+        public System.IO.Stream GetByQueryExcel(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = GetByQueryExcelWithHttpInfo(query, queryName, timeout);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = GetByQueryExcelWithHttpInfo(query, scalarParameters, queryName, timeout);
             return localVarResponse.Data;
         }
 
@@ -1247,11 +1317,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> GetByQueryExcelWithHttpInfo(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> GetByQueryExcelWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1284,6 +1355,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -1332,14 +1407,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> GetByQueryExcelAsync(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> GetByQueryExcelAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await GetByQueryExcelWithHttpInfoAsync(query, queryName, timeout, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await GetByQueryExcelWithHttpInfoAsync(query, scalarParameters, queryName, timeout, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1348,12 +1424,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> GetByQueryExcelWithHttpInfoAsync(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> GetByQueryExcelWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1387,6 +1464,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -1436,14 +1517,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string GetByQueryJson(string query, string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0)
+        public string GetByQueryJson(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetByQueryJsonWithHttpInfo(query, queryName, timeout, jsonProper);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetByQueryJsonWithHttpInfo(query, scalarParameters, queryName, timeout, jsonProper);
             return localVarResponse.Data;
         }
 
@@ -1452,12 +1534,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryJsonWithHttpInfo(string query, string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryJsonWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1490,6 +1573,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -1542,15 +1629,16 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetByQueryJsonAsync(string query, string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> GetByQueryJsonAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetByQueryJsonWithHttpInfoAsync(query, queryName, timeout, jsonProper, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetByQueryJsonWithHttpInfoAsync(query, scalarParameters, queryName, timeout, jsonProper, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1559,13 +1647,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryJsonWithHttpInfoAsync(string query, string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryJsonWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1599,6 +1688,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -1652,13 +1745,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream GetByQueryParquet(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0)
+        public System.IO.Stream GetByQueryParquet(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = GetByQueryParquetWithHttpInfo(query, queryName, timeout);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = GetByQueryParquetWithHttpInfo(query, scalarParameters, queryName, timeout);
             return localVarResponse.Data;
         }
 
@@ -1667,11 +1761,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> GetByQueryParquetWithHttpInfo(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> GetByQueryParquetWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1704,6 +1799,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -1752,14 +1851,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> GetByQueryParquetAsync(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> GetByQueryParquetAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await GetByQueryParquetWithHttpInfoAsync(query, queryName, timeout, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await GetByQueryParquetWithHttpInfoAsync(query, scalarParameters, queryName, timeout, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1768,12 +1868,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> GetByQueryParquetWithHttpInfoAsync(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> GetByQueryParquetWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1807,6 +1908,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -1856,14 +1961,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string GetByQueryPipe(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0)
+        public string GetByQueryPipe(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetByQueryPipeWithHttpInfo(query, queryName, download, timeout);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetByQueryPipeWithHttpInfo(query, scalarParameters, queryName, download, timeout);
             return localVarResponse.Data;
         }
 
@@ -1872,12 +1978,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryPipeWithHttpInfo(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryPipeWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1910,6 +2017,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -1962,15 +2073,16 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetByQueryPipeAsync(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> GetByQueryPipeAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetByQueryPipeWithHttpInfoAsync(query, queryName, download, timeout, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetByQueryPipeWithHttpInfoAsync(query, scalarParameters, queryName, download, timeout, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1979,13 +2091,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryPipeWithHttpInfoAsync(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryPipeWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -2019,6 +2132,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -2072,13 +2189,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream GetByQuerySqlite(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0)
+        public System.IO.Stream GetByQuerySqlite(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = GetByQuerySqliteWithHttpInfo(query, queryName, timeout);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = GetByQuerySqliteWithHttpInfo(query, scalarParameters, queryName, timeout);
             return localVarResponse.Data;
         }
 
@@ -2087,11 +2205,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> GetByQuerySqliteWithHttpInfo(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> GetByQuerySqliteWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -2124,6 +2243,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -2172,14 +2295,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> GetByQuerySqliteAsync(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> GetByQuerySqliteAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await GetByQuerySqliteWithHttpInfoAsync(query, queryName, timeout, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await GetByQuerySqliteWithHttpInfoAsync(query, scalarParameters, queryName, timeout, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2188,12 +2312,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> GetByQuerySqliteWithHttpInfoAsync(string query, string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> GetByQuerySqliteWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -2227,6 +2352,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -2276,14 +2405,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string GetByQueryXml(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0)
+        public string GetByQueryXml(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetByQueryXmlWithHttpInfo(query, queryName, download, timeout);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetByQueryXmlWithHttpInfo(query, scalarParameters, queryName, download, timeout);
             return localVarResponse.Data;
         }
 
@@ -2292,12 +2422,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryXmlWithHttpInfo(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryXmlWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -2330,6 +2461,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -2382,15 +2517,16 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetByQueryXmlAsync(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> GetByQueryXmlAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetByQueryXmlWithHttpInfoAsync(query, queryName, download, timeout, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetByQueryXmlWithHttpInfoAsync(query, scalarParameters, queryName, download, timeout, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2399,13 +2535,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryXmlWithHttpInfoAsync(string query, string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryXmlWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -2439,6 +2576,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -2492,6 +2633,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -2499,9 +2641,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string PutByQueryCsv(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0)
+        public string PutByQueryCsv(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutByQueryCsvWithHttpInfo(body, queryName, download, timeoutSeconds, delimiter, escape);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutByQueryCsvWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape);
             return localVarResponse.Data;
         }
 
@@ -2510,6 +2652,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -2517,7 +2660,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryCsvWithHttpInfo(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryCsvWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -2550,6 +2693,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -2611,6 +2758,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -2619,9 +2767,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutByQueryCsvAsync(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> PutByQueryCsvAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutByQueryCsvWithHttpInfoAsync(body, queryName, download, timeoutSeconds, delimiter, escape, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutByQueryCsvWithHttpInfoAsync(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2630,6 +2778,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
@@ -2638,7 +2787,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryCsvWithHttpInfoAsync(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryCsvWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -2672,6 +2821,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -2734,13 +2887,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream PutByQueryExcel(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0)
+        public System.IO.Stream PutByQueryExcel(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = PutByQueryExcelWithHttpInfo(body, queryName, timeoutSeconds);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = PutByQueryExcelWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds);
             return localVarResponse.Data;
         }
 
@@ -2749,11 +2903,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> PutByQueryExcelWithHttpInfo(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> PutByQueryExcelWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -2786,6 +2941,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -2835,14 +2994,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> PutByQueryExcelAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> PutByQueryExcelAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await PutByQueryExcelWithHttpInfoAsync(body, queryName, timeoutSeconds, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await PutByQueryExcelWithHttpInfoAsync(body, scalarParameters, queryName, timeoutSeconds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2851,12 +3011,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> PutByQueryExcelWithHttpInfoAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> PutByQueryExcelWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -2890,6 +3051,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -2940,14 +3105,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string PutByQueryJson(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0)
+        public string PutByQueryJson(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutByQueryJsonWithHttpInfo(body, queryName, timeoutSeconds, jsonProper);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutByQueryJsonWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds, jsonProper);
             return localVarResponse.Data;
         }
 
@@ -2956,12 +3122,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryJsonWithHttpInfo(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryJsonWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -2994,6 +3161,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -3047,15 +3218,16 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutByQueryJsonAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> PutByQueryJsonAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutByQueryJsonWithHttpInfoAsync(body, queryName, timeoutSeconds, jsonProper, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutByQueryJsonWithHttpInfoAsync(body, scalarParameters, queryName, timeoutSeconds, jsonProper, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3064,13 +3236,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryJsonWithHttpInfoAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryJsonWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3104,6 +3277,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -3158,13 +3335,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream PutByQueryParquet(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0)
+        public System.IO.Stream PutByQueryParquet(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = PutByQueryParquetWithHttpInfo(body, queryName, timeoutSeconds);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = PutByQueryParquetWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds);
             return localVarResponse.Data;
         }
 
@@ -3173,11 +3351,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> PutByQueryParquetWithHttpInfo(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> PutByQueryParquetWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3210,6 +3389,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -3259,14 +3442,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> PutByQueryParquetAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> PutByQueryParquetAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await PutByQueryParquetWithHttpInfoAsync(body, queryName, timeoutSeconds, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await PutByQueryParquetWithHttpInfoAsync(body, scalarParameters, queryName, timeoutSeconds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3275,12 +3459,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> PutByQueryParquetWithHttpInfoAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> PutByQueryParquetWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3314,6 +3499,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -3364,14 +3553,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string PutByQueryPipe(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0)
+        public string PutByQueryPipe(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutByQueryPipeWithHttpInfo(body, queryName, download, timeoutSeconds);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutByQueryPipeWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds);
             return localVarResponse.Data;
         }
 
@@ -3380,12 +3570,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryPipeWithHttpInfo(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryPipeWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3418,6 +3609,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -3471,15 +3666,16 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutByQueryPipeAsync(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> PutByQueryPipeAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutByQueryPipeWithHttpInfoAsync(body, queryName, download, timeoutSeconds, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutByQueryPipeWithHttpInfoAsync(body, scalarParameters, queryName, download, timeoutSeconds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3488,13 +3684,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryPipeWithHttpInfoAsync(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryPipeWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3528,6 +3725,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -3582,13 +3783,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream PutByQuerySqlite(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0)
+        public System.IO.Stream PutByQuerySqlite(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = PutByQuerySqliteWithHttpInfo(body, queryName, timeoutSeconds);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = PutByQuerySqliteWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds);
             return localVarResponse.Data;
         }
 
@@ -3597,11 +3799,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> PutByQuerySqliteWithHttpInfo(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> PutByQuerySqliteWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3634,6 +3837,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -3683,14 +3890,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> PutByQuerySqliteAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> PutByQuerySqliteAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await PutByQuerySqliteWithHttpInfoAsync(body, queryName, timeoutSeconds, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await PutByQuerySqliteWithHttpInfoAsync(body, scalarParameters, queryName, timeoutSeconds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3699,12 +3907,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> PutByQuerySqliteWithHttpInfoAsync(string body, string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> PutByQuerySqliteWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3738,6 +3947,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -3788,14 +4001,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string PutByQueryXml(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0)
+        public string PutByQueryXml(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutByQueryXmlWithHttpInfo(body, queryName, download, timeoutSeconds);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutByQueryXmlWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds);
             return localVarResponse.Data;
         }
 
@@ -3804,12 +4018,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryXmlWithHttpInfo(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryXmlWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3842,6 +4057,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
@@ -3895,15 +4114,16 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutByQueryXmlAsync(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> PutByQueryXmlAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutByQueryXmlWithHttpInfoAsync(body, queryName, download, timeoutSeconds, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutByQueryXmlWithHttpInfoAsync(body, scalarParameters, queryName, download, timeoutSeconds, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3912,13 +4132,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
+        /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryXmlWithHttpInfoAsync(string body, string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryXmlWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3952,6 +4173,10 @@ namespace Finbourne.Luminesce.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            if (scalarParameters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+            }
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
