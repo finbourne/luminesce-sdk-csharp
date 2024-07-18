@@ -126,22 +126,34 @@ namespace Finbourne.Luminesce.Sdk.Model
         SqlDbProvidersDuckDb = 16,
 
         /// <summary>
+        /// Enum SqlDbProvidersAwsDynamoDb for value: SqlDb_Providers_AwsDynamoDb
+        /// </summary>
+        [EnumMember(Value = "SqlDb_Providers_AwsDynamoDb")]
+        SqlDbProvidersAwsDynamoDb = 17,
+
+        /// <summary>
+        /// Enum SqlDbProvidersSqlServerOracle for value: SqlDb_Providers_SqlServer_Oracle
+        /// </summary>
+        [EnumMember(Value = "SqlDb_Providers_SqlServer_Oracle")]
+        SqlDbProvidersSqlServerOracle = 18,
+
+        /// <summary>
         /// Enum JdbcDriver for value: Jdbc_Driver
         /// </summary>
         [EnumMember(Value = "Jdbc_Driver")]
-        JdbcDriver = 17,
+        JdbcDriver = 19,
 
         /// <summary>
         /// Enum PowerBiConnector for value: PowerBi_Connector
         /// </summary>
         [EnumMember(Value = "PowerBi_Connector")]
-        PowerBiConnector = 18,
+        PowerBiConnector = 20,
 
         /// <summary>
         /// Enum OdbcWin64Driver for value: Odbc_Win64_Driver
         /// </summary>
         [EnumMember(Value = "Odbc_Win64_Driver")]
-        OdbcWin64Driver = 19
+        OdbcWin64Driver = 21
 
     }
 
