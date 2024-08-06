@@ -28,36 +28,47 @@ Cancel the query (if still running) / clear the data (if already returned) The f
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class CancelQueryExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlBackgroundExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
 
             try
             {
                 // CancelQuery: Cancels (if running) or clears the data from (if completed) a previously started query
                 BackgroundQueryCancelResponse result = apiInstance.CancelQuery(executionId);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlBackgroundExecutionApi.CancelQuery: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.CancelQuery: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -72,15 +83,15 @@ try
 {
     // CancelQuery: Cancels (if running) or clears the data from (if completed) a previously started query
     ApiResponse<BackgroundQueryCancelResponse> response = apiInstance.CancelQueryWithHttpInfo(executionId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlBackgroundExecutionApi.CancelQueryWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.CancelQueryWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -94,10 +105,6 @@ catch (ApiException e)
 
 [**BackgroundQueryCancelResponse**](BackgroundQueryCancelResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -109,7 +116,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="fetchqueryresultcsv"></a>
 # **FetchQueryResultCsv**
@@ -122,23 +129,34 @@ Fetch the data in various formats (if available, or if not simply being informed
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class FetchQueryResultCsvExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlBackgroundExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
             var sortBy = "sortBy_example";  // string? | Order the results by these fields.              Use the `-` sign to denote descending order, e.g. `-MyFieldName`.  Numeric indexes may be used also, e.g. `2,-3`.              Multiple fields can be denoted by a comma e.g. `-MyFieldName,AnotherFieldName,-AFurtherFieldName`.              Default is null, the sort order specified in the query itself. (optional) 
@@ -154,13 +172,13 @@ namespace Example
             {
                 // FetchQueryResultCsv: Fetches the result from a previously started query, in CSV format.
                 string result = apiInstance.FetchQueryResultCsv(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultCsv: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultCsv: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -175,15 +193,15 @@ try
 {
     // FetchQueryResultCsv: Fetches the result from a previously started query, in CSV format.
     ApiResponse<string> response = apiInstance.FetchQueryResultCsvWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultCsvWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultCsvWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -206,10 +224,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -223,7 +237,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="fetchqueryresultexcel"></a>
 # **FetchQueryResultExcel**
@@ -236,23 +250,34 @@ Fetch the data in various formats (if available, or if not simply being informed
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class FetchQueryResultExcelExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlBackgroundExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var sortBy = "sortBy_example";  // string? | Order the results by these fields.              Use the `-` sign to denote descending order, e.g. `-MyFieldName`.  Numeric indexes may be used also, e.g. `2,-3`.              Multiple fields can be denoted by a comma e.g. `-MyFieldName,AnotherFieldName,-AFurtherFieldName`.              Default is null, the sort order specified in the query itself. (optional) 
             var filter = "filter_example";  // string? | An ODATA filter per Finbourne.Filtering syntax. (optional) 
@@ -263,13 +288,13 @@ namespace Example
             {
                 // FetchQueryResultExcel: Fetches the result from a previously started query, in Excel format.
                 System.IO.Stream result = apiInstance.FetchQueryResultExcel(executionId, sortBy, filter, select, groupBy);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultExcel: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultExcel: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -284,15 +309,15 @@ try
 {
     // FetchQueryResultExcel: Fetches the result from a previously started query, in Excel format.
     ApiResponse<System.IO.Stream> response = apiInstance.FetchQueryResultExcelWithHttpInfo(executionId, sortBy, filter, select, groupBy);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultExcelWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultExcelWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -310,10 +335,6 @@ catch (ApiException e)
 
 **System.IO.Stream**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -327,7 +348,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="fetchqueryresulthistogram"></a>
 # **FetchQueryResultHistogram**
@@ -340,23 +361,34 @@ Fetch the histogram in Json format (if available, or if not simply being informe
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class FetchQueryResultHistogramExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlBackgroundExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var timestampFieldName = "timestampFieldName_example";  // string | Name of the timestamp field used in building the histogram
             var startAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Start point (of the timestampFieldName field) for the histogram (optional) 
@@ -369,13 +401,13 @@ namespace Example
             {
                 // FetchQueryResultHistogram: Fetches the result from a previously started query, converts it to a histogram (counts in buckets).
                 string result = apiInstance.FetchQueryResultHistogram(executionId, timestampFieldName, startAt, endAt, bucketSize, filter, jsonProper);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultHistogram: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultHistogram: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -390,15 +422,15 @@ try
 {
     // FetchQueryResultHistogram: Fetches the result from a previously started query, converts it to a histogram (counts in buckets).
     ApiResponse<string> response = apiInstance.FetchQueryResultHistogramWithHttpInfo(executionId, timestampFieldName, startAt, endAt, bucketSize, filter, jsonProper);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultHistogramWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultHistogramWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -418,10 +450,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -435,7 +463,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="fetchqueryresultjson"></a>
 # **FetchQueryResultJson**
@@ -448,23 +476,34 @@ Fetch the data in various formats (if available, or if not simply being informed
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class FetchQueryResultJsonExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlBackgroundExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var sortBy = "sortBy_example";  // string? | Order the results by these fields.              Use the `-` sign to denote descending order, e.g. `-MyFieldName`.  Numeric indexes may be used also, e.g. `2,-3`.              Multiple fields can be denoted by a comma e.g. `-MyFieldName,AnotherFieldName,-AFurtherFieldName`.              Default is null, the sort order specified in the query itself. (optional) 
             var filter = "filter_example";  // string? | An ODATA filter per Finbourne.Filtering syntax. (optional) 
@@ -477,13 +516,13 @@ namespace Example
             {
                 // FetchQueryResultJson: Fetches the result from a previously started query, in JSON string format.  Please move to '/jsonProper' instead.  This may be marked as Deprecated in the future.
                 string result = apiInstance.FetchQueryResultJson(executionId, sortBy, filter, select, groupBy, limit, page);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultJson: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultJson: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -498,15 +537,15 @@ try
 {
     // FetchQueryResultJson: Fetches the result from a previously started query, in JSON string format.  Please move to '/jsonProper' instead.  This may be marked as Deprecated in the future.
     ApiResponse<string> response = apiInstance.FetchQueryResultJsonWithHttpInfo(executionId, sortBy, filter, select, groupBy, limit, page);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultJsonWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultJsonWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -526,10 +565,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -543,7 +578,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="fetchqueryresultjsonproper"></a>
 # **FetchQueryResultJsonProper**
@@ -556,23 +591,34 @@ Fetch the data in various formats (if available, or if not simply being informed
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class FetchQueryResultJsonProperExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlBackgroundExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
             var sortBy = "sortBy_example";  // string? | Order the results by these fields.              Use the `-` sign to denote descending order, e.g. `-MyFieldName`.  Numeric indexes may be used also, e.g. `2,-3`.              Multiple fields can be denoted by a comma e.g. `-MyFieldName,AnotherFieldName,-AFurtherFieldName`.              Default is null, the sort order specified in the query itself. (optional) 
@@ -586,13 +632,13 @@ namespace Example
             {
                 // FetchQueryResultJsonProper: Fetches the result from a previously started query, in JSON format.
                 string result = apiInstance.FetchQueryResultJsonProper(executionId, download, sortBy, filter, select, groupBy, limit, page);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultJsonProper: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultJsonProper: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -607,15 +653,15 @@ try
 {
     // FetchQueryResultJsonProper: Fetches the result from a previously started query, in JSON format.
     ApiResponse<string> response = apiInstance.FetchQueryResultJsonProperWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultJsonProperWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultJsonProperWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -636,10 +682,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -653,7 +695,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="fetchqueryresultparquet"></a>
 # **FetchQueryResultParquet**
@@ -666,23 +708,34 @@ Fetch the data in various formats (if available, or if not simply being informed
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class FetchQueryResultParquetExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlBackgroundExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var sortBy = "sortBy_example";  // string? | Order the results by these fields.              Use the `-` sign to denote descending order, e.g. `-MyFieldName`.  Numeric indexes may be used also, e.g. `2,-3`.              Multiple fields can be denoted by a comma e.g. `-MyFieldName,AnotherFieldName,-AFurtherFieldName`.              Default is null, the sort order specified in the query itself. (optional) 
             var filter = "filter_example";  // string? | An ODATA filter per Finbourne.Filtering syntax. (optional) 
@@ -693,13 +746,13 @@ namespace Example
             {
                 // FetchQueryResultParquet: Fetches the result from a previously started query, in Parquet format.
                 System.IO.Stream result = apiInstance.FetchQueryResultParquet(executionId, sortBy, filter, select, groupBy);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultParquet: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultParquet: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -714,15 +767,15 @@ try
 {
     // FetchQueryResultParquet: Fetches the result from a previously started query, in Parquet format.
     ApiResponse<System.IO.Stream> response = apiInstance.FetchQueryResultParquetWithHttpInfo(executionId, sortBy, filter, select, groupBy);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultParquetWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultParquetWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -740,10 +793,6 @@ catch (ApiException e)
 
 **System.IO.Stream**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -757,7 +806,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="fetchqueryresultpipe"></a>
 # **FetchQueryResultPipe**
@@ -770,23 +819,34 @@ Fetch the data in various formats (if available, or if not simply being informed
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class FetchQueryResultPipeExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlBackgroundExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
             var sortBy = "sortBy_example";  // string? | Order the results by these fields.              Use the `-` sign to denote descending order, e.g. `-MyFieldName`.  Numeric indexes may be used also, e.g. `2,-3`.              Multiple fields can be denoted by a comma e.g. `-MyFieldName,AnotherFieldName,-AFurtherFieldName`.              Default is null, the sort order specified in the query itself. (optional) 
@@ -800,13 +860,13 @@ namespace Example
             {
                 // FetchQueryResultPipe: Fetches the result from a previously started query, in pipe-delimited format.
                 string result = apiInstance.FetchQueryResultPipe(executionId, download, sortBy, filter, select, groupBy, limit, page);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultPipe: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultPipe: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -821,15 +881,15 @@ try
 {
     // FetchQueryResultPipe: Fetches the result from a previously started query, in pipe-delimited format.
     ApiResponse<string> response = apiInstance.FetchQueryResultPipeWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultPipeWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultPipeWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -850,10 +910,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -867,7 +923,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="fetchqueryresultsqlite"></a>
 # **FetchQueryResultSqlite**
@@ -880,23 +936,34 @@ Fetch the data in various formats (if available, or if not simply being informed
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class FetchQueryResultSqliteExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlBackgroundExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var sortBy = "sortBy_example";  // string? | Order the results by these fields.              Use the `-` sign to denote descending order, e.g. `-MyFieldName`.  Numeric indexes may be used also, e.g. `2,-3`.              Multiple fields can be denoted by a comma e.g. `-MyFieldName,AnotherFieldName,-AFurtherFieldName`.              Default is null, the sort order specified in the query itself. (optional) 
             var filter = "filter_example";  // string? | An ODATA filter per Finbourne.Filtering syntax. (optional) 
@@ -907,13 +974,13 @@ namespace Example
             {
                 // FetchQueryResultSqlite: Fetches the result from a previously started query, in SqLite format.
                 System.IO.Stream result = apiInstance.FetchQueryResultSqlite(executionId, sortBy, filter, select, groupBy);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultSqlite: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultSqlite: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -928,15 +995,15 @@ try
 {
     // FetchQueryResultSqlite: Fetches the result from a previously started query, in SqLite format.
     ApiResponse<System.IO.Stream> response = apiInstance.FetchQueryResultSqliteWithHttpInfo(executionId, sortBy, filter, select, groupBy);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultSqliteWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultSqliteWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -954,10 +1021,6 @@ catch (ApiException e)
 
 **System.IO.Stream**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -971,7 +1034,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="fetchqueryresultxml"></a>
 # **FetchQueryResultXml**
@@ -984,23 +1047,34 @@ Fetch the data in various formats (if available, or if not simply being informed
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class FetchQueryResultXmlExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlBackgroundExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
             var sortBy = "sortBy_example";  // string? | Order the results by these fields.              Use the `-` sign to denote descending order, e.g. `-MyFieldName`.  Numeric indexes may be used also, e.g. `2,-3`.              Multiple fields can be denoted by a comma e.g. `-MyFieldName,AnotherFieldName,-AFurtherFieldName`.              Default is null, the sort order specified in the query itself. (optional) 
@@ -1014,13 +1088,13 @@ namespace Example
             {
                 // FetchQueryResultXml: Fetches the result from a previously started query, in Xml format.
                 string result = apiInstance.FetchQueryResultXml(executionId, download, sortBy, filter, select, groupBy, limit, page);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultXml: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultXml: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1035,15 +1109,15 @@ try
 {
     // FetchQueryResultXml: Fetches the result from a previously started query, in Xml format.
     ApiResponse<string> response = apiInstance.FetchQueryResultXmlWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultXmlWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultXmlWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1064,10 +1138,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1081,7 +1151,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getprogressof"></a>
 # **GetProgressOf**
@@ -1094,23 +1164,34 @@ View progress information (up until this point) The following error codes are to
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetProgressOfExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlBackgroundExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var buildFromLogs = true;  // bool | Should the response state be build from query logs if missing from the shared-db-state?  False will mean `404 Not Found` in cases where it was a real query but has passed its `keepForSeconds`  since the query completed (as well as 'this was not a query at all' of course) (default to true)
 
@@ -1118,13 +1199,13 @@ namespace Example
             {
                 // GetProgressOf: View progress information (up until this point)
                 BackgroundQueryProgressResponse result = apiInstance.GetProgressOf(executionId, buildFromLogs);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlBackgroundExecutionApi.GetProgressOf: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.GetProgressOf: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1139,15 +1220,15 @@ try
 {
     // GetProgressOf: View progress information (up until this point)
     ApiResponse<BackgroundQueryProgressResponse> response = apiInstance.GetProgressOfWithHttpInfo(executionId, buildFromLogs);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlBackgroundExecutionApi.GetProgressOfWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.GetProgressOfWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1162,10 +1243,6 @@ catch (ApiException e)
 
 [**BackgroundQueryProgressResponse**](BackgroundQueryProgressResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -1177,7 +1254,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="startquery"></a>
 # **StartQuery**
@@ -1190,23 +1267,34 @@ StartQuery: Starts to Execute LuminesceSql in the background.
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class StartQueryExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlBackgroundExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var body = select Str, Takes500Ms from Testing1K where UseLinq = true and [Int] <= 120;  // string | The LuminesceSql query to kick off.
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Intentionally slow test query;  // string? | A name for this query.  This goes into logs and is available in `Sys.Logs.HcQueryStart`. (optional) 
@@ -1217,13 +1305,13 @@ namespace Example
             {
                 // StartQuery: Starts to Execute LuminesceSql in the background.
                 BackgroundQueryResponse result = apiInstance.StartQuery(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlBackgroundExecutionApi.StartQuery: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.StartQuery: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1238,15 +1326,15 @@ try
 {
     // StartQuery: Starts to Execute LuminesceSql in the background.
     ApiResponse<BackgroundQueryResponse> response = apiInstance.StartQueryWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlBackgroundExecutionApi.StartQueryWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.StartQueryWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1264,10 +1352,6 @@ catch (ApiException e)
 
 [**BackgroundQueryResponse**](BackgroundQueryResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: text/plain
@@ -1281,5 +1365,5 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 

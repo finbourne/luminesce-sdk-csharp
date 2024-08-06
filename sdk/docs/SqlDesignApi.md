@@ -30,23 +30,34 @@ SQL Designer specification to generate SQL from
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutFileReadDesignToSqlExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlDesignApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var fileReaderBuilderDef = new FileReaderBuilderDef(); // FileReaderBuilderDef | Structured file read design object to generate SQL from
             var executeQuery = true;  // bool? | Should the generated query be executed to build preview data or determine errors.> (optional)  (default to true)
 
@@ -54,13 +65,13 @@ namespace Example
             {
                 // [EXPERIMENTAL] PutFileReadDesignToSql: Generates file read SQL from a structured query design
                 FileReaderBuilderResponse result = apiInstance.PutFileReadDesignToSql(fileReaderBuilderDef, executeQuery);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlDesignApi.PutFileReadDesignToSql: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlDesignApi.PutFileReadDesignToSql: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -75,15 +86,15 @@ try
 {
     // [EXPERIMENTAL] PutFileReadDesignToSql: Generates file read SQL from a structured query design
     ApiResponse<FileReaderBuilderResponse> response = apiInstance.PutFileReadDesignToSqlWithHttpInfo(fileReaderBuilderDef, executeQuery);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlDesignApi.PutFileReadDesignToSqlWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlDesignApi.PutFileReadDesignToSqlWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -98,10 +109,6 @@ catch (ApiException e)
 
 [**FileReaderBuilderResponse**](FileReaderBuilderResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
@@ -115,7 +122,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putinlinedpropertiesdesignsqltodesign"></a>
 # **PutInlinedPropertiesDesignSqlToDesign**
@@ -128,23 +135,34 @@ SQL to attempt to create an inlined properties Design object from
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutInlinedPropertiesDesignSqlToDesignExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlDesignApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = @keysToCatalog = values('Portfolio/3897-78d4-e91c-26/location', 'PortfolioLocation', false, '');
  @config = select column1 as [Key], column2 as Name, column3 as IsMain, column4 as Description from @keysToCatalog; 
  select * from Sys.Admin.Lusid.Provider.Configure where Provider = 'Lusid.Portfolio' and Configuration = @config;;  // string? | SQL query to generate the inlined properties design object from (optional) 
@@ -153,13 +171,13 @@ namespace Example
             {
                 // [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible.
                 InlinedPropertyDesign result = apiInstance.PutInlinedPropertiesDesignSqlToDesign(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlDesignApi.PutInlinedPropertiesDesignSqlToDesign: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlDesignApi.PutInlinedPropertiesDesignSqlToDesign: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -174,15 +192,15 @@ try
 {
     // [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible.
     ApiResponse<InlinedPropertyDesign> response = apiInstance.PutInlinedPropertiesDesignSqlToDesignWithHttpInfo(body);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlDesignApi.PutInlinedPropertiesDesignSqlToDesignWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlDesignApi.PutInlinedPropertiesDesignSqlToDesignWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -195,10 +213,6 @@ catch (ApiException e)
 ### Return type
 
 [**InlinedPropertyDesign**](InlinedPropertyDesign.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -213,7 +227,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putinlinedpropertiesdesigntosql"></a>
 # **PutInlinedPropertiesDesignToSql**
@@ -226,36 +240,47 @@ Inlined properties Designer specification to generate SQL from
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutInlinedPropertiesDesignToSqlExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlDesignApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var inlinedPropertyDesign = new InlinedPropertyDesign(); // InlinedPropertyDesign | Structured file read design object to generate SQL from
 
             try
             {
                 // [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Generates inlined properties SQL from a structured design
                 string result = apiInstance.PutInlinedPropertiesDesignToSql(inlinedPropertyDesign);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlDesignApi.PutInlinedPropertiesDesignToSql: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlDesignApi.PutInlinedPropertiesDesignToSql: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -270,15 +295,15 @@ try
 {
     // [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Generates inlined properties SQL from a structured design
     ApiResponse<string> response = apiInstance.PutInlinedPropertiesDesignToSqlWithHttpInfo(inlinedPropertyDesign);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlDesignApi.PutInlinedPropertiesDesignToSqlWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlDesignApi.PutInlinedPropertiesDesignToSqlWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -291,10 +316,6 @@ catch (ApiException e)
 ### Return type
 
 **string**
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -309,7 +330,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putintellisense"></a>
 # **PutIntellisense**
@@ -322,36 +343,47 @@ SQL and a row/colum position within it from which to determine intellisense opti
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutIntellisenseExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlDesignApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var intellisenseRequest = new IntellisenseRequest(); // IntellisenseRequest | 
 
             try
             {
                 // [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
                 IntellisenseResponse result = apiInstance.PutIntellisense(intellisenseRequest);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlDesignApi.PutIntellisense: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlDesignApi.PutIntellisense: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -366,15 +398,15 @@ try
 {
     // [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
     ApiResponse<IntellisenseResponse> response = apiInstance.PutIntellisenseWithHttpInfo(intellisenseRequest);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlDesignApi.PutIntellisenseWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlDesignApi.PutIntellisenseWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -387,10 +419,6 @@ catch (ApiException e)
 ### Return type
 
 [**IntellisenseResponse**](IntellisenseResponse.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -405,7 +433,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putintellisenseerror"></a>
 # **PutIntellisenseError**
@@ -418,36 +446,47 @@ SQL (by line) to syntax check and return error ranges from within, if any.
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutIntellisenseErrorExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlDesignApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var errorHighlightRequest = new ErrorHighlightRequest(); // ErrorHighlightRequest | 
 
             try
             {
                 // [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
                 ErrorHighlightResponse result = apiInstance.PutIntellisenseError(errorHighlightRequest);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlDesignApi.PutIntellisenseError: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlDesignApi.PutIntellisenseError: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -462,15 +501,15 @@ try
 {
     // [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
     ApiResponse<ErrorHighlightResponse> response = apiInstance.PutIntellisenseErrorWithHttpInfo(errorHighlightRequest);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlDesignApi.PutIntellisenseErrorWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlDesignApi.PutIntellisenseErrorWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -483,10 +522,6 @@ catch (ApiException e)
 ### Return type
 
 [**ErrorHighlightResponse**](ErrorHighlightResponse.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -501,7 +536,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putquerydesigntosql"></a>
 # **PutQueryDesignToSql**
@@ -514,36 +549,47 @@ SQL Designer specification to generate SQL from
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutQueryDesignToSqlExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlDesignApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var queryDesign = new QueryDesign(); // QueryDesign | Structured Query design object to generate SQL from
 
             try
             {
                 // [EXPERIMENTAL] PutQueryDesignToSql: Generates SQL from a structured query design
                 string result = apiInstance.PutQueryDesignToSql(queryDesign);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlDesignApi.PutQueryDesignToSql: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlDesignApi.PutQueryDesignToSql: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -558,15 +604,15 @@ try
 {
     // [EXPERIMENTAL] PutQueryDesignToSql: Generates SQL from a structured query design
     ApiResponse<string> response = apiInstance.PutQueryDesignToSqlWithHttpInfo(queryDesign);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlDesignApi.PutQueryDesignToSqlWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlDesignApi.PutQueryDesignToSqlWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -579,10 +625,6 @@ catch (ApiException e)
 ### Return type
 
 **string**
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -597,7 +639,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putquerytoformat"></a>
 # **PutQueryToFormat**
@@ -610,23 +652,34 @@ PutQueryToFormat: Formats SQL into a more readable form, a.k.a. Pretty-Print the
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutQueryToFormatExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlDesignApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Pretty-Print. Even if it doesn't parse an attempt will be made to format it
             var trailingCommas = true;  // bool? | Should commas be after an expression (as opposed to before) (optional)  (default to true)
             var uppercaseKeywords = false;  // bool? | Should key words be capitalized (optional)  (default to false)
@@ -646,13 +699,13 @@ namespace Example
             {
                 // PutQueryToFormat: Formats SQL into a more readable form, a.k.a. Pretty-Print the SQL.
                 string result = apiInstance.PutQueryToFormat(body, trailingCommas, uppercaseKeywords, breakJoinOnSections, spaceAfterExpandedComma, keywordStandardization, expandCommaLists, expandInLists, expandBooleanExpressions, expandBetweenConditions, expandCaseStatements, maxLineWidth, spaceBeforeTrailingSingleLineComments, multilineCommentExtraLineBreak);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlDesignApi.PutQueryToFormat: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlDesignApi.PutQueryToFormat: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -667,15 +720,15 @@ try
 {
     // PutQueryToFormat: Formats SQL into a more readable form, a.k.a. Pretty-Print the SQL.
     ApiResponse<string> response = apiInstance.PutQueryToFormatWithHttpInfo(body, trailingCommas, uppercaseKeywords, breakJoinOnSections, spaceAfterExpandedComma, keywordStandardization, expandCommaLists, expandInLists, expandBooleanExpressions, expandBetweenConditions, expandCaseStatements, maxLineWidth, spaceBeforeTrailingSingleLineComments, multilineCommentExtraLineBreak);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlDesignApi.PutQueryToFormatWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlDesignApi.PutQueryToFormatWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -702,10 +755,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: text/plain
@@ -719,7 +768,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putsqltoextractscalarparameters"></a>
 # **PutSqlToExtractScalarParameters**
@@ -732,36 +781,47 @@ SQL to extract scalar parameters from
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutSqlToExtractScalarParametersExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlDesignApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = select abc, :p1:'this' as c1 from xxx where abc = :abcP:123 or xyz in (:p2:, 'zzz');  // string | SQL query to generate the design object from
 
             try
             {
                 // [EXPERIMENTAL] PutSqlToExtractScalarParameters: Generates information about all the scalar parameters defined in the given SQL statement
                 List<ScalarParameter> result = apiInstance.PutSqlToExtractScalarParameters(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlDesignApi.PutSqlToExtractScalarParameters: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlDesignApi.PutSqlToExtractScalarParameters: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -776,15 +836,15 @@ try
 {
     // [EXPERIMENTAL] PutSqlToExtractScalarParameters: Generates information about all the scalar parameters defined in the given SQL statement
     ApiResponse<List<ScalarParameter>> response = apiInstance.PutSqlToExtractScalarParametersWithHttpInfo(body);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlDesignApi.PutSqlToExtractScalarParametersWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlDesignApi.PutSqlToExtractScalarParametersWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -797,10 +857,6 @@ catch (ApiException e)
 ### Return type
 
 [**List&lt;ScalarParameter&gt;**](ScalarParameter.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -815,7 +871,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putsqltofilereaddesign"></a>
 # **PutSqlToFileReadDesign**
@@ -828,23 +884,34 @@ SQL to attempt to create a Design object from
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutSqlToFileReadDesignExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlDesignApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var determineAvailableSources = true;  // bool? | Should the available sources be determined from `Sys.Registration` (optional)  (default to true)
             var body = @x = 
 use Drive.Csv
@@ -857,13 +924,13 @@ select * from @x;;  // string? | SQL query to generate the file read design obje
             {
                 // [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible.
                 FileReaderBuilderDef result = apiInstance.PutSqlToFileReadDesign(determineAvailableSources, body);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlDesignApi.PutSqlToFileReadDesign: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlDesignApi.PutSqlToFileReadDesign: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -878,15 +945,15 @@ try
 {
     // [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible.
     ApiResponse<FileReaderBuilderDef> response = apiInstance.PutSqlToFileReadDesignWithHttpInfo(determineAvailableSources, body);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlDesignApi.PutSqlToFileReadDesignWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlDesignApi.PutSqlToFileReadDesignWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -901,10 +968,6 @@ catch (ApiException e)
 
 [**FileReaderBuilderDef**](FileReaderBuilderDef.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: text/plain
@@ -918,7 +981,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putsqltoquerydesign"></a>
 # **PutSqlToQueryDesign**
@@ -931,23 +994,34 @@ SQL to attempt to create a Design object from
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutSqlToQueryDesignExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlDesignApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = SELECT
     [TableName],
     Count(distinct [FieldName]) as [NumberOfFields]
@@ -966,13 +1040,13 @@ LIMIT 42;  // string | SQL query to generate the design object from
             {
                 // [EXPERIMENTAL] PutSqlToQueryDesign: Generates a SQL-design object from SQL string, if possible.
                 QueryDesign result = apiInstance.PutSqlToQueryDesign(body, validateWithMetadata);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlDesignApi.PutSqlToQueryDesign: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlDesignApi.PutSqlToQueryDesign: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -987,15 +1061,15 @@ try
 {
     // [EXPERIMENTAL] PutSqlToQueryDesign: Generates a SQL-design object from SQL string, if possible.
     ApiResponse<QueryDesign> response = apiInstance.PutSqlToQueryDesignWithHttpInfo(body, validateWithMetadata);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlDesignApi.PutSqlToQueryDesignWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlDesignApi.PutSqlToQueryDesignWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1010,10 +1084,6 @@ catch (ApiException e)
 
 [**QueryDesign**](QueryDesign.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: text/plain
@@ -1027,7 +1097,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putsqltoviewdesign"></a>
 # **PutSqlToViewDesign**
@@ -1040,23 +1110,34 @@ SQL which creates a view into a structured ConvertToViewData object
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutSqlToViewDesignExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlDesignApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = @x = 
 use Sys.Admin.SetupView
   --provider=YourView
@@ -1070,13 +1151,13 @@ select * from @x;;  // string | SQL Query to generate the ConvertToViewData obje
             {
                 // [EXPERIMENTAL] PutSqlToViewDesign: Generates a structured view creation design from existing view creation SQL.
                 ConvertToViewData result = apiInstance.PutSqlToViewDesign(body);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlDesignApi.PutSqlToViewDesign: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlDesignApi.PutSqlToViewDesign: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1091,15 +1172,15 @@ try
 {
     // [EXPERIMENTAL] PutSqlToViewDesign: Generates a structured view creation design from existing view creation SQL.
     ApiResponse<ConvertToViewData> response = apiInstance.PutSqlToViewDesignWithHttpInfo(body);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlDesignApi.PutSqlToViewDesignWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlDesignApi.PutSqlToViewDesignWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1112,10 +1193,6 @@ catch (ApiException e)
 ### Return type
 
 [**ConvertToViewData**](ConvertToViewData.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1130,7 +1207,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putsqltowriterdesign"></a>
 # **PutSqlToWriterDesign**
@@ -1143,23 +1220,34 @@ SQL to attempt to create a Writer Design object from
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutSqlToWriterDesignExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlDesignApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = Select abc from xyz;  // string | SQL query to generate the writer design object from
             var mergeAdditionalMappingFields = false;  // bool? | Should `Sys.Field` be used to find additional potential fields to map from? (not always possible) (optional)  (default to false)
 
@@ -1167,13 +1255,13 @@ namespace Example
             {
                 // [EXPERIMENTAL] PutSqlToWriterDesign: Generates a SQL-writer-design object from SQL string, if possible.
                 WriterDesign result = apiInstance.PutSqlToWriterDesign(body, mergeAdditionalMappingFields);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlDesignApi.PutSqlToWriterDesign: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlDesignApi.PutSqlToWriterDesign: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1188,15 +1276,15 @@ try
 {
     // [EXPERIMENTAL] PutSqlToWriterDesign: Generates a SQL-writer-design object from SQL string, if possible.
     ApiResponse<WriterDesign> response = apiInstance.PutSqlToWriterDesignWithHttpInfo(body, mergeAdditionalMappingFields);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlDesignApi.PutSqlToWriterDesignWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlDesignApi.PutSqlToWriterDesignWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1211,10 +1299,6 @@ catch (ApiException e)
 
 [**WriterDesign**](WriterDesign.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: text/plain
@@ -1228,7 +1312,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putviewdesigntosql"></a>
 # **PutViewDesignToSql**
@@ -1241,36 +1325,47 @@ Converts a ConvertToView specification into SQL that creates a view
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutViewDesignToSqlExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlDesignApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var convertToViewData = new ConvertToViewData(); // ConvertToViewData | Structured Query design object to generate SQL from
 
             try
             {
                 // [EXPERIMENTAL] PutViewDesignToSql: Generates view creation sql from a structured view creation design
                 string result = apiInstance.PutViewDesignToSql(convertToViewData);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlDesignApi.PutViewDesignToSql: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlDesignApi.PutViewDesignToSql: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1285,15 +1380,15 @@ try
 {
     // [EXPERIMENTAL] PutViewDesignToSql: Generates view creation sql from a structured view creation design
     ApiResponse<string> response = apiInstance.PutViewDesignToSqlWithHttpInfo(convertToViewData);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlDesignApi.PutViewDesignToSqlWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlDesignApi.PutViewDesignToSqlWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1306,10 +1401,6 @@ catch (ApiException e)
 ### Return type
 
 **string**
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1324,7 +1415,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putwriterdesigntosql"></a>
 # **PutWriterDesignToSql**
@@ -1337,36 +1428,47 @@ SQL Writer Design specification to generate Writer SQL from
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutWriterDesignToSqlExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlDesignApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var writerDesign = new WriterDesign(); // WriterDesign | Structured Writer Design design object to generate Writer SQL from
 
             try
             {
                 // [EXPERIMENTAL] PutWriterDesignToSql: Generates writer SQL from a valid writer-design structure
                 string result = apiInstance.PutWriterDesignToSql(writerDesign);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlDesignApi.PutWriterDesignToSql: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlDesignApi.PutWriterDesignToSql: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1381,15 +1483,15 @@ try
 {
     // [EXPERIMENTAL] PutWriterDesignToSql: Generates writer SQL from a valid writer-design structure
     ApiResponse<string> response = apiInstance.PutWriterDesignToSqlWithHttpInfo(writerDesign);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlDesignApi.PutWriterDesignToSqlWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlDesignApi.PutWriterDesignToSqlWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1402,10 +1504,6 @@ catch (ApiException e)
 ### Return type
 
 **string**
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -1420,5 +1518,5 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 

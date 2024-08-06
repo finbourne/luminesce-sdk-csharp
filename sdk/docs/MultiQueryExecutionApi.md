@@ -19,36 +19,47 @@ Cancel the query-set (if still running) / clear the data (if already returned) T
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class CancelMultiQueryExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new MultiQueryExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<MultiQueryExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
 
             try
             {
                 // CancelMultiQuery: Cancels (if running) or clears the data from (if completed) a previously started query-set
                 BackgroundQueryCancelResponse result = apiInstance.CancelMultiQuery(executionId);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling MultiQueryExecutionApi.CancelMultiQuery: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling MultiQueryExecutionApi.CancelMultiQuery: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -63,15 +74,15 @@ try
 {
     // CancelMultiQuery: Cancels (if running) or clears the data from (if completed) a previously started query-set
     ApiResponse<BackgroundQueryCancelResponse> response = apiInstance.CancelMultiQueryWithHttpInfo(executionId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling MultiQueryExecutionApi.CancelMultiQueryWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling MultiQueryExecutionApi.CancelMultiQueryWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -85,10 +96,6 @@ catch (ApiException e)
 
 [**BackgroundQueryCancelResponse**](BackgroundQueryCancelResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -100,7 +107,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getprogressofmultiquery"></a>
 # **GetProgressOfMultiQuery**
@@ -113,36 +120,47 @@ View progress information (up until this point) for the entire query-set The fol
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetProgressOfMultiQueryExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new MultiQueryExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<MultiQueryExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
 
             try
             {
                 // GetProgressOfMultiQuery: View progress information (up until this point) for the entire query-set
                 BackgroundMultiQueryProgressResponse result = apiInstance.GetProgressOfMultiQuery(executionId);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling MultiQueryExecutionApi.GetProgressOfMultiQuery: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling MultiQueryExecutionApi.GetProgressOfMultiQuery: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -157,15 +175,15 @@ try
 {
     // GetProgressOfMultiQuery: View progress information (up until this point) for the entire query-set
     ApiResponse<BackgroundMultiQueryProgressResponse> response = apiInstance.GetProgressOfMultiQueryWithHttpInfo(executionId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling MultiQueryExecutionApi.GetProgressOfMultiQueryWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling MultiQueryExecutionApi.GetProgressOfMultiQueryWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -179,10 +197,6 @@ catch (ApiException e)
 
 [**BackgroundMultiQueryProgressResponse**](BackgroundMultiQueryProgressResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -194,7 +208,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="startqueries"></a>
 # **StartQueries**
@@ -207,23 +221,34 @@ StartQueries: Starts to Execute the LuminesceSql statements in the background.
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class StartQueriesExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new MultiQueryExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<MultiQueryExecutionApi>();
             var type = Instrument;  // MultiQueryDefinitionType | An enum value defining the set of statements being executed
             var body = Apple;  // string | A \"search\" value (e.g. 'Apple' on an instrument search, a `Finbourne.Filtering` expression of Insights, etc.)  In the cases where \"Nothing\" is valid for a `Finbourne.Filtering` expression, pass `True`.
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt time used by any bitemporal provider in the queries. (optional) 
@@ -240,13 +265,13 @@ namespace Example
             {
                 // StartQueries: Starts to Execute the LuminesceSql statements in the background.
                 BackgroundMultiQueryResponse result = apiInstance.StartQueries(type, body, asAt, effectiveAt, limit1, limit2, input1, input2, input3, timeoutSeconds, keepForSeconds);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling MultiQueryExecutionApi.StartQueries: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling MultiQueryExecutionApi.StartQueries: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -261,15 +286,15 @@ try
 {
     // StartQueries: Starts to Execute the LuminesceSql statements in the background.
     ApiResponse<BackgroundMultiQueryResponse> response = apiInstance.StartQueriesWithHttpInfo(type, body, asAt, effectiveAt, limit1, limit2, input1, input2, input3, timeoutSeconds, keepForSeconds);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling MultiQueryExecutionApi.StartQueriesWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling MultiQueryExecutionApi.StartQueriesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -293,10 +318,6 @@ catch (ApiException e)
 
 [**BackgroundMultiQueryResponse**](BackgroundMultiQueryResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: text/plain
@@ -310,5 +331,5 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 

@@ -65,7 +65,7 @@ namespace Finbourne.Luminesce.Sdk.Extensions
                 if (string.IsNullOrWhiteSpace(apiConfiguration.BaseUrl))
                     throw new ArgumentNullException(
                         nameof(apiConfiguration.BaseUrl),
-                        $"BaseUrl Uri missing. Please specify either FBN_FINBOURNE-LUMINESCE_API_URL environment variable or finbourne-luminesceUrl in secrets.json.");
+                        $"BaseUrl Uri missing. Please specify either FBN_LUMINESCE_URL environment variable or luminesceUrl in secrets.json.");
 
                 throw new UriFormatException($"Invalid Uri: {apiConfiguration.BaseUrl}");
             }

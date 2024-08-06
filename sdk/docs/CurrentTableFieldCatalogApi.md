@@ -19,23 +19,34 @@ GetCatalog: Shows Table and Field level information on Providers that are curren
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetCatalogExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new CurrentTableFieldCatalogApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CurrentTableFieldCatalogApi>();
             var freeTextSearch = "freeTextSearch_example";  // string? | Limit the catalog to only things in some way dealing with the passed in text string (optional) 
             var jsonProper = false;  // bool? | Should this be text/json (not json-encoded-as-a-string) (optional)  (default to false)
             var useCache = false;  // bool? | Should the available cache be used? false is effectively to pick up a change in the catalog (optional)  (default to false)
@@ -44,13 +55,13 @@ namespace Example
             {
                 // GetCatalog: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
                 string result = apiInstance.GetCatalog(freeTextSearch, jsonProper, useCache);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling CurrentTableFieldCatalogApi.GetCatalog: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling CurrentTableFieldCatalogApi.GetCatalog: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -65,15 +76,15 @@ try
 {
     // GetCatalog: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
     ApiResponse<string> response = apiInstance.GetCatalogWithHttpInfo(freeTextSearch, jsonProper, useCache);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling CurrentTableFieldCatalogApi.GetCatalogWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling CurrentTableFieldCatalogApi.GetCatalogWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -89,10 +100,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -104,7 +111,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getfields"></a>
 # **GetFields**
@@ -117,36 +124,47 @@ GetFields: Shows Table level information on Providers that are currently running
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetFieldsExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new CurrentTableFieldCatalogApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CurrentTableFieldCatalogApi>();
             var tableLike = "\"%\"";  // string? |  (optional)  (default to "%")
 
             try
             {
                 // GetFields: Shows Table level information on Providers that are currently running that you have access to (in Json format)
                 string result = apiInstance.GetFields(tableLike);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling CurrentTableFieldCatalogApi.GetFields: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling CurrentTableFieldCatalogApi.GetFields: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -161,15 +179,15 @@ try
 {
     // GetFields: Shows Table level information on Providers that are currently running that you have access to (in Json format)
     ApiResponse<string> response = apiInstance.GetFieldsWithHttpInfo(tableLike);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling CurrentTableFieldCatalogApi.GetFieldsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling CurrentTableFieldCatalogApi.GetFieldsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -183,10 +201,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -198,7 +212,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getproviders"></a>
 # **GetProviders**
@@ -211,23 +225,34 @@ GetProviders: Shows Table level information on Providers that are currently runn
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetProvidersExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new CurrentTableFieldCatalogApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CurrentTableFieldCatalogApi>();
             var freeTextSearch = "freeTextSearch_example";  // string? | Limit the catalog to only things in some way dealing with the passed in text string (optional) 
             var useCache = true;  // bool? | Should the available cache be used? false is effectively to pick up a change in the catalog (optional)  (default to true)
 
@@ -235,13 +260,13 @@ namespace Example
             {
                 // GetProviders: Shows Table level information on Providers that are currently running that you have access to (in Json format)
                 string result = apiInstance.GetProviders(freeTextSearch, useCache);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling CurrentTableFieldCatalogApi.GetProviders: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling CurrentTableFieldCatalogApi.GetProviders: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -256,15 +281,15 @@ try
 {
     // GetProviders: Shows Table level information on Providers that are currently running that you have access to (in Json format)
     ApiResponse<string> response = apiInstance.GetProvidersWithHttpInfo(freeTextSearch, useCache);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling CurrentTableFieldCatalogApi.GetProvidersWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling CurrentTableFieldCatalogApi.GetProvidersWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -279,10 +304,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -294,5 +315,5 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 

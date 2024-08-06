@@ -30,23 +30,34 @@ GetByQueryCsv: Executes Sql, returned in CSV format, where the sql is simply in 
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetByQueryCsvExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
@@ -59,13 +70,13 @@ namespace Example
             {
                 // GetByQueryCsv: Executes Sql, returned in CSV format, where the sql is simply in the url.
                 string result = apiInstance.GetByQueryCsv(query, scalarParameters, queryName, download, timeout, delimiter, escape);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlExecutionApi.GetByQueryCsv: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlExecutionApi.GetByQueryCsv: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -80,15 +91,15 @@ try
 {
     // GetByQueryCsv: Executes Sql, returned in CSV format, where the sql is simply in the url.
     ApiResponse<string> response = apiInstance.GetByQueryCsvWithHttpInfo(query, scalarParameters, queryName, download, timeout, delimiter, escape);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlExecutionApi.GetByQueryCsvWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlExecutionApi.GetByQueryCsvWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -108,10 +119,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -125,7 +132,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getbyqueryexcel"></a>
 # **GetByQueryExcel**
@@ -138,23 +145,34 @@ GetByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be 
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetByQueryExcelExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
@@ -164,13 +182,13 @@ namespace Example
             {
                 // GetByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded) format, where the sql is simply in the url.
                 System.IO.Stream result = apiInstance.GetByQueryExcel(query, scalarParameters, queryName, timeout);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlExecutionApi.GetByQueryExcel: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlExecutionApi.GetByQueryExcel: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -185,15 +203,15 @@ try
 {
     // GetByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded) format, where the sql is simply in the url.
     ApiResponse<System.IO.Stream> response = apiInstance.GetByQueryExcelWithHttpInfo(query, scalarParameters, queryName, timeout);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlExecutionApi.GetByQueryExcelWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlExecutionApi.GetByQueryExcelWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -210,10 +228,6 @@ catch (ApiException e)
 
 **System.IO.Stream**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -227,7 +241,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getbyqueryjson"></a>
 # **GetByQueryJson**
@@ -240,23 +254,34 @@ GetByQueryJson: Executes Sql, returned in JSON format, where the sql is simply i
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetByQueryJsonExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
@@ -267,13 +292,13 @@ namespace Example
             {
                 // GetByQueryJson: Executes Sql, returned in JSON format, where the sql is simply in the url.
                 string result = apiInstance.GetByQueryJson(query, scalarParameters, queryName, timeout, jsonProper);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlExecutionApi.GetByQueryJson: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlExecutionApi.GetByQueryJson: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -288,15 +313,15 @@ try
 {
     // GetByQueryJson: Executes Sql, returned in JSON format, where the sql is simply in the url.
     ApiResponse<string> response = apiInstance.GetByQueryJsonWithHttpInfo(query, scalarParameters, queryName, timeout, jsonProper);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlExecutionApi.GetByQueryJsonWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlExecutionApi.GetByQueryJsonWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -314,10 +339,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -331,7 +352,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getbyqueryparquet"></a>
 # **GetByQueryParquet**
@@ -344,23 +365,34 @@ GetByQueryParquet: Executes Sql, returned in Parquet (.parquet) format (as a fil
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetByQueryParquetExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
@@ -370,13 +402,13 @@ namespace Example
             {
                 // GetByQueryParquet: Executes Sql, returned in Parquet (.parquet) format (as a file to be downloaded) format, where the sql is simply in the url.
                 System.IO.Stream result = apiInstance.GetByQueryParquet(query, scalarParameters, queryName, timeout);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlExecutionApi.GetByQueryParquet: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlExecutionApi.GetByQueryParquet: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -391,15 +423,15 @@ try
 {
     // GetByQueryParquet: Executes Sql, returned in Parquet (.parquet) format (as a file to be downloaded) format, where the sql is simply in the url.
     ApiResponse<System.IO.Stream> response = apiInstance.GetByQueryParquetWithHttpInfo(query, scalarParameters, queryName, timeout);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlExecutionApi.GetByQueryParquetWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlExecutionApi.GetByQueryParquetWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -416,10 +448,6 @@ catch (ApiException e)
 
 **System.IO.Stream**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -433,7 +461,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getbyquerypipe"></a>
 # **GetByQueryPipe**
@@ -446,23 +474,34 @@ GetByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql i
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetByQueryPipeExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
@@ -473,13 +512,13 @@ namespace Example
             {
                 // GetByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is simply in the url.
                 string result = apiInstance.GetByQueryPipe(query, scalarParameters, queryName, download, timeout);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlExecutionApi.GetByQueryPipe: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlExecutionApi.GetByQueryPipe: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -494,15 +533,15 @@ try
 {
     // GetByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is simply in the url.
     ApiResponse<string> response = apiInstance.GetByQueryPipeWithHttpInfo(query, scalarParameters, queryName, download, timeout);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlExecutionApi.GetByQueryPipeWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlExecutionApi.GetByQueryPipeWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -520,10 +559,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -537,7 +572,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getbyquerysqlite"></a>
 # **GetByQuerySqlite**
@@ -550,23 +585,34 @@ GetByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a fil
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetByQuerySqliteExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
@@ -576,13 +622,13 @@ namespace Example
             {
                 // GetByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded) format, where the sql is simply in the url.
                 System.IO.Stream result = apiInstance.GetByQuerySqlite(query, scalarParameters, queryName, timeout);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlExecutionApi.GetByQuerySqlite: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlExecutionApi.GetByQuerySqlite: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -597,15 +643,15 @@ try
 {
     // GetByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded) format, where the sql is simply in the url.
     ApiResponse<System.IO.Stream> response = apiInstance.GetByQuerySqliteWithHttpInfo(query, scalarParameters, queryName, timeout);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlExecutionApi.GetByQuerySqliteWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlExecutionApi.GetByQuerySqliteWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -622,10 +668,6 @@ catch (ApiException e)
 
 **System.IO.Stream**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -639,7 +681,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getbyqueryxml"></a>
 # **GetByQueryXml**
@@ -652,23 +694,34 @@ GetByQueryXml: Executes Sql, returned in Xml format, where the sql is simply in 
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetByQueryXmlExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
@@ -679,13 +732,13 @@ namespace Example
             {
                 // GetByQueryXml: Executes Sql, returned in Xml format, where the sql is simply in the url.
                 string result = apiInstance.GetByQueryXml(query, scalarParameters, queryName, download, timeout);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlExecutionApi.GetByQueryXml: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlExecutionApi.GetByQueryXml: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -700,15 +753,15 @@ try
 {
     // GetByQueryXml: Executes Sql, returned in Xml format, where the sql is simply in the url.
     ApiResponse<string> response = apiInstance.GetByQueryXmlWithHttpInfo(query, scalarParameters, queryName, download, timeout);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlExecutionApi.GetByQueryXmlWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlExecutionApi.GetByQueryXmlWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -726,10 +779,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -743,7 +792,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putbyquerycsv"></a>
 # **PutByQueryCsv**
@@ -756,23 +805,34 @@ PutByQueryCsv: Executes Sql, returned in CSV format, where the sql is the post-b
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutByQueryCsvExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
@@ -785,13 +845,13 @@ namespace Example
             {
                 // PutByQueryCsv: Executes Sql, returned in CSV format, where the sql is the post-body url.
                 string result = apiInstance.PutByQueryCsv(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlExecutionApi.PutByQueryCsv: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlExecutionApi.PutByQueryCsv: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -806,15 +866,15 @@ try
 {
     // PutByQueryCsv: Executes Sql, returned in CSV format, where the sql is the post-body url.
     ApiResponse<string> response = apiInstance.PutByQueryCsvWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlExecutionApi.PutByQueryCsvWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlExecutionApi.PutByQueryCsvWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -834,10 +894,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: text/plain
@@ -851,7 +907,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putbyqueryexcel"></a>
 # **PutByQueryExcel**
@@ -864,23 +920,34 @@ PutByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be 
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutByQueryExcelExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
@@ -890,13 +957,13 @@ namespace Example
             {
                 // PutByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded), where the sql is the post-body url.
                 System.IO.Stream result = apiInstance.PutByQueryExcel(body, scalarParameters, queryName, timeoutSeconds);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlExecutionApi.PutByQueryExcel: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlExecutionApi.PutByQueryExcel: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -911,15 +978,15 @@ try
 {
     // PutByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded), where the sql is the post-body url.
     ApiResponse<System.IO.Stream> response = apiInstance.PutByQueryExcelWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlExecutionApi.PutByQueryExcelWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlExecutionApi.PutByQueryExcelWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -936,10 +1003,6 @@ catch (ApiException e)
 
 **System.IO.Stream**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: text/plain
@@ -953,7 +1016,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putbyqueryjson"></a>
 # **PutByQueryJson**
@@ -966,23 +1029,34 @@ PutByQueryJson: Executes Sql, returned in JSON format, where the sql is the post
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutByQueryJsonExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
@@ -993,13 +1067,13 @@ namespace Example
             {
                 // PutByQueryJson: Executes Sql, returned in JSON format, where the sql is the post-body url.
                 string result = apiInstance.PutByQueryJson(body, scalarParameters, queryName, timeoutSeconds, jsonProper);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlExecutionApi.PutByQueryJson: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlExecutionApi.PutByQueryJson: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1014,15 +1088,15 @@ try
 {
     // PutByQueryJson: Executes Sql, returned in JSON format, where the sql is the post-body url.
     ApiResponse<string> response = apiInstance.PutByQueryJsonWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds, jsonProper);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlExecutionApi.PutByQueryJsonWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlExecutionApi.PutByQueryJsonWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1040,10 +1114,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: text/plain
@@ -1057,7 +1127,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putbyqueryparquet"></a>
 # **PutByQueryParquet**
@@ -1070,23 +1140,34 @@ PutByQueryParquet: Executes Sql, returned in Parquet format, where the sql is th
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutByQueryParquetExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
@@ -1096,13 +1177,13 @@ namespace Example
             {
                 // PutByQueryParquet: Executes Sql, returned in Parquet format, where the sql is the post-body url.
                 System.IO.Stream result = apiInstance.PutByQueryParquet(body, scalarParameters, queryName, timeoutSeconds);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlExecutionApi.PutByQueryParquet: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlExecutionApi.PutByQueryParquet: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1117,15 +1198,15 @@ try
 {
     // PutByQueryParquet: Executes Sql, returned in Parquet format, where the sql is the post-body url.
     ApiResponse<System.IO.Stream> response = apiInstance.PutByQueryParquetWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlExecutionApi.PutByQueryParquetWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlExecutionApi.PutByQueryParquetWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1142,10 +1223,6 @@ catch (ApiException e)
 
 **System.IO.Stream**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: text/plain
@@ -1159,7 +1236,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putbyquerypipe"></a>
 # **PutByQueryPipe**
@@ -1172,23 +1249,34 @@ PutByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql i
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutByQueryPipeExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
@@ -1199,13 +1287,13 @@ namespace Example
             {
                 // PutByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is the post-body url.
                 string result = apiInstance.PutByQueryPipe(body, scalarParameters, queryName, download, timeoutSeconds);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlExecutionApi.PutByQueryPipe: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlExecutionApi.PutByQueryPipe: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1220,15 +1308,15 @@ try
 {
     // PutByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is the post-body url.
     ApiResponse<string> response = apiInstance.PutByQueryPipeWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlExecutionApi.PutByQueryPipeWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlExecutionApi.PutByQueryPipeWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1246,10 +1334,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: text/plain
@@ -1263,7 +1347,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putbyquerysqlite"></a>
 # **PutByQuerySqlite**
@@ -1276,23 +1360,34 @@ PutByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a fil
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutByQuerySqliteExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
@@ -1302,13 +1397,13 @@ namespace Example
             {
                 // PutByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded), where the sql is the post-body url.
                 System.IO.Stream result = apiInstance.PutByQuerySqlite(body, scalarParameters, queryName, timeoutSeconds);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlExecutionApi.PutByQuerySqlite: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlExecutionApi.PutByQuerySqlite: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1323,15 +1418,15 @@ try
 {
     // PutByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded), where the sql is the post-body url.
     ApiResponse<System.IO.Stream> response = apiInstance.PutByQuerySqliteWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlExecutionApi.PutByQuerySqliteWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlExecutionApi.PutByQuerySqliteWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1348,10 +1443,6 @@ catch (ApiException e)
 
 **System.IO.Stream**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: text/plain
@@ -1365,7 +1456,7 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="putbyqueryxml"></a>
 # **PutByQueryXml**
@@ -1378,23 +1469,34 @@ PutByQueryXml: Executes Sql, returned in Xml format, where the sql is the post-b
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Luminesce.Sdk.Api;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class PutByQueryXmlExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/honeycomb";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new SqlExecutionApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
@@ -1405,13 +1507,13 @@ namespace Example
             {
                 // PutByQueryXml: Executes Sql, returned in Xml format, where the sql is the post-body url.
                 string result = apiInstance.PutByQueryXml(body, scalarParameters, queryName, download, timeoutSeconds);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling SqlExecutionApi.PutByQueryXml: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling SqlExecutionApi.PutByQueryXml: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -1426,15 +1528,15 @@ try
 {
     // PutByQueryXml: Executes Sql, returned in Xml format, where the sql is the post-body url.
     ApiResponse<string> response = apiInstance.PutByQueryXmlWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SqlExecutionApi.PutByQueryXmlWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling SqlExecutionApi.PutByQueryXmlWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -1452,10 +1554,6 @@ catch (ApiException e)
 
 **string**
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: text/plain
@@ -1469,5 +1567,5 @@ catch (ApiException e)
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 

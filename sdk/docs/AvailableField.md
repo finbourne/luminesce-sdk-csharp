@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **IsMain** | **bool?** | Is this a Main Field within the Provider | [optional] 
 **IsPrimaryKey** | **bool?** | Is this a member of the PrimaryKey of the Provider | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

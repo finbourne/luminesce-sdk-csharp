@@ -17,5 +17,5 @@ Name | Type | Description | Notes
 **FetchSqlite** | [**List&lt;Link&gt;**](Link.md) | SqLite DB data request links for all of the child queries | [optional] [readonly] 
 **Histogram** | [**List&lt;Link&gt;**](Link.md) | Histogram links for all of the child queries | [optional] [readonly] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

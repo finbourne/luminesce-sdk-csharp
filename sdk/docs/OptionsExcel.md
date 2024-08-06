@@ -16,5 +16,5 @@ Name | Type | Description | Notes
 **IgnoreInvalidCells** | **bool** | If specified cells which can not be successfully converted to the target type will be ignored | [optional] 
 **IgnoreBlankRows** | **bool** | If the entire rows has only blank cells it will be ignored will be ignored | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

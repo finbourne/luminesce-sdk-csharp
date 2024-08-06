@@ -20,5 +20,5 @@ Name | Type | Description | Notes
 **SerialNumber** | **string** | The Vault-issued serial number of the certificate, if any - used for revocation | [optional] 
 **Links** | [**List&lt;Link&gt;**](Link.md) | The location within Configuration Store that this is saved to | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

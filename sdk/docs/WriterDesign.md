@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **Parameter** | [**AvailableParameter**](AvailableParameter.md) |  | [optional] 
 **AvailableParameters** | [**List&lt;AvailableParameter&gt;**](AvailableParameter.md) | All the parameter the user may wish to design | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
