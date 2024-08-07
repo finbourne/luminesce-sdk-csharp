@@ -102,7 +102,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> PutInlinedPropertiesDesignToSqlWithHttpInfo(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
+        /// PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
         /// </summary>
         /// <remarks>
         /// SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
@@ -114,7 +114,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         IntellisenseResponse PutIntellisense(IntellisenseRequest intellisenseRequest, int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
+        /// PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
         /// </summary>
         /// <remarks>
         /// SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
@@ -125,7 +125,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of IntellisenseResponse</returns>
         ApiResponse<IntellisenseResponse> PutIntellisenseWithHttpInfo(IntellisenseRequest intellisenseRequest, int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
+        /// PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
         /// </summary>
         /// <remarks>
         /// SQL (by line) to syntax check and return error ranges from within, if any.
@@ -137,7 +137,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         ErrorHighlightResponse PutIntellisenseError(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
+        /// PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
         /// </summary>
         /// <remarks>
         /// SQL (by line) to syntax check and return error ranges from within, if any.
@@ -473,7 +473,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> PutInlinedPropertiesDesignToSqlWithHttpInfoAsync(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
+        /// PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
         /// </summary>
         /// <remarks>
         /// SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
@@ -486,7 +486,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<IntellisenseResponse> PutIntellisenseAsync(IntellisenseRequest intellisenseRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
+        /// PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
         /// </summary>
         /// <remarks>
         /// SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
@@ -498,7 +498,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (IntellisenseResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<IntellisenseResponse>> PutIntellisenseWithHttpInfoAsync(IntellisenseRequest intellisenseRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
+        /// PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
         /// </summary>
         /// <remarks>
         /// SQL (by line) to syntax check and return error ranges from within, if any.
@@ -511,7 +511,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<ErrorHighlightResponse> PutIntellisenseErrorAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
+        /// PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
         /// </summary>
         /// <remarks>
         /// SQL (by line) to syntax check and return error ranges from within, if any.
@@ -1455,7 +1455,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
+        /// PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest"></param>
@@ -1468,7 +1468,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
+        /// PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest"></param>
@@ -1547,7 +1547,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
+        /// PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest"></param>
@@ -1561,7 +1561,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
+        /// PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest"></param>
@@ -1643,7 +1643,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines) SQL (by line) to syntax check and return error ranges from within, if any.
+        /// PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines) SQL (by line) to syntax check and return error ranges from within, if any.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="errorHighlightRequest"></param>
@@ -1656,7 +1656,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines) SQL (by line) to syntax check and return error ranges from within, if any.
+        /// PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines) SQL (by line) to syntax check and return error ranges from within, if any.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="errorHighlightRequest"></param>
@@ -1735,7 +1735,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines) SQL (by line) to syntax check and return error ranges from within, if any.
+        /// PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines) SQL (by line) to syntax check and return error ranges from within, if any.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="errorHighlightRequest"></param>
@@ -1749,7 +1749,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines) SQL (by line) to syntax check and return error ranges from within, if any.
+        /// PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines) SQL (by line) to syntax check and return error ranges from within, if any.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="errorHighlightRequest"></param>
