@@ -376,10 +376,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BackgroundQueryProgressResponse</returns>
-        BackgroundQueryProgressResponse GetProgressOf(string executionId, bool buildFromLogs, int operationIndex = 0);
+        BackgroundQueryProgressResponse GetProgressOf(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// GetProgressOf: View progress information (up until this point)
@@ -389,10 +389,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BackgroundQueryProgressResponse</returns>
-        ApiResponse<BackgroundQueryProgressResponse> GetProgressOfWithHttpInfo(string executionId, bool buildFromLogs, int operationIndex = 0);
+        ApiResponse<BackgroundQueryProgressResponse> GetProgressOfWithHttpInfo(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0);
         /// <summary>
         /// StartQuery: Starts to Execute LuminesceSql in the background.
         /// </summary>
@@ -799,11 +799,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BackgroundQueryProgressResponse</returns>
-        System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetProgressOfAsync(string executionId, bool buildFromLogs, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetProgressOfAsync(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// GetProgressOf: View progress information (up until this point)
@@ -813,11 +813,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryProgressResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryProgressResponse>> GetProgressOfWithHttpInfoAsync(string executionId, bool buildFromLogs, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryProgressResponse>> GetProgressOfWithHttpInfoAsync(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// StartQuery: Starts to Execute LuminesceSql in the background.
         /// </summary>
@@ -3427,10 +3427,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>BackgroundQueryProgressResponse</returns>
-        public BackgroundQueryProgressResponse GetProgressOf(string executionId, bool buildFromLogs, int operationIndex = 0)
+        public BackgroundQueryProgressResponse GetProgressOf(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0)
         {
             Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> localVarResponse = GetProgressOfWithHttpInfo(executionId, buildFromLogs);
             return localVarResponse.Data;
@@ -3441,10 +3441,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of BackgroundQueryProgressResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> GetProgressOfWithHttpInfo(string executionId, bool buildFromLogs, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> GetProgressOfWithHttpInfo(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -3477,7 +3477,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("executionId", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(executionId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("buildFromLogs", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(buildFromLogs)); // path parameter
+            if (buildFromLogs != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "buildFromLogs", buildFromLogs));
+            }
 
             localVarRequestOptions.Operation = "SqlBackgroundExecutionApi.GetProgressOf";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3518,11 +3521,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BackgroundQueryProgressResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetProgressOfAsync(string executionId, bool buildFromLogs, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetProgressOfAsync(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> localVarResponse = await GetProgressOfWithHttpInfoAsync(executionId, buildFromLogs, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3533,11 +3536,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryProgressResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse>> GetProgressOfWithHttpInfoAsync(string executionId, bool buildFromLogs, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse>> GetProgressOfWithHttpInfoAsync(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -3571,7 +3574,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("executionId", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(executionId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("buildFromLogs", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(buildFromLogs)); // path parameter
+            if (buildFromLogs != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "buildFromLogs", buildFromLogs));
+            }
 
             localVarRequestOptions.Operation = "SqlBackgroundExecutionApi.GetProgressOf";
             localVarRequestOptions.OperationIndex = operationIndex;
