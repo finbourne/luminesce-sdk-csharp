@@ -106,7 +106,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The .nupkg file of the requested binary |  -  |
+| **200** | The .nupkg or .msi file of the requested binary |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 
