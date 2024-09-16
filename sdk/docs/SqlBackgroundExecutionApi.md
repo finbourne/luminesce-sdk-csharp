@@ -55,11 +55,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlBackgroundExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BackgroundQueryCancelResponse result = apiInstance.CancelQuery(executionId, opts: opts);
+
                 // CancelQuery: Cancels (if running) or clears the data from (if completed) a previously started query
                 BackgroundQueryCancelResponse result = apiInstance.CancelQuery(executionId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -156,6 +167,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlBackgroundExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
@@ -170,6 +189,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.FetchQueryResultCsv(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape, opts: opts);
+
                 // FetchQueryResultCsv: Fetches the result from a previously started query, in CSV format.
                 string result = apiInstance.FetchQueryResultCsv(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -277,6 +299,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlBackgroundExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var sortBy = "sortBy_example";  // string? | Order the results by these fields.              Use the `-` sign to denote descending order, e.g. `-MyFieldName`.  Numeric indexes may be used also, e.g. `2,-3`.              Multiple fields can be denoted by a comma e.g. `-MyFieldName,AnotherFieldName,-AFurtherFieldName`.              Default is null, the sort order specified in the query itself. (optional) 
@@ -286,6 +316,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // System.IO.Stream result = apiInstance.FetchQueryResultExcel(executionId, sortBy, filter, select, groupBy, opts: opts);
+
                 // FetchQueryResultExcel: Fetches the result from a previously started query, in Excel format.
                 System.IO.Stream result = apiInstance.FetchQueryResultExcel(executionId, sortBy, filter, select, groupBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -388,6 +421,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlBackgroundExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var timestampFieldName = "timestampFieldName_example";  // string | Name of the timestamp field used in building the histogram
@@ -399,6 +440,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.FetchQueryResultHistogram(executionId, timestampFieldName, startAt, endAt, bucketSize, filter, jsonProper, opts: opts);
+
                 // FetchQueryResultHistogram: Fetches the result from a previously started query, converts it to a histogram (counts in buckets).
                 string result = apiInstance.FetchQueryResultHistogram(executionId, timestampFieldName, startAt, endAt, bucketSize, filter, jsonProper);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -503,6 +547,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlBackgroundExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var sortBy = "sortBy_example";  // string? | Order the results by these fields.              Use the `-` sign to denote descending order, e.g. `-MyFieldName`.  Numeric indexes may be used also, e.g. `2,-3`.              Multiple fields can be denoted by a comma e.g. `-MyFieldName,AnotherFieldName,-AFurtherFieldName`.              Default is null, the sort order specified in the query itself. (optional) 
@@ -514,6 +566,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.FetchQueryResultJson(executionId, sortBy, filter, select, groupBy, limit, page, opts: opts);
+
                 // FetchQueryResultJson: Fetches the result from a previously started query, in JSON string format.  Please move to '/jsonProper' instead.  This may be marked as Deprecated in the future.
                 string result = apiInstance.FetchQueryResultJson(executionId, sortBy, filter, select, groupBy, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -618,6 +673,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlBackgroundExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
@@ -630,6 +693,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.FetchQueryResultJsonProper(executionId, download, sortBy, filter, select, groupBy, limit, page, opts: opts);
+
                 // FetchQueryResultJsonProper: Fetches the result from a previously started query, in JSON format.
                 string result = apiInstance.FetchQueryResultJsonProper(executionId, download, sortBy, filter, select, groupBy, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -735,6 +801,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlBackgroundExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var sortBy = "sortBy_example";  // string? | Order the results by these fields.              Use the `-` sign to denote descending order, e.g. `-MyFieldName`.  Numeric indexes may be used also, e.g. `2,-3`.              Multiple fields can be denoted by a comma e.g. `-MyFieldName,AnotherFieldName,-AFurtherFieldName`.              Default is null, the sort order specified in the query itself. (optional) 
@@ -744,6 +818,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // System.IO.Stream result = apiInstance.FetchQueryResultParquet(executionId, sortBy, filter, select, groupBy, opts: opts);
+
                 // FetchQueryResultParquet: Fetches the result from a previously started query, in Parquet format.
                 System.IO.Stream result = apiInstance.FetchQueryResultParquet(executionId, sortBy, filter, select, groupBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -846,6 +923,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlBackgroundExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
@@ -858,6 +943,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.FetchQueryResultPipe(executionId, download, sortBy, filter, select, groupBy, limit, page, opts: opts);
+
                 // FetchQueryResultPipe: Fetches the result from a previously started query, in pipe-delimited format.
                 string result = apiInstance.FetchQueryResultPipe(executionId, download, sortBy, filter, select, groupBy, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -963,6 +1051,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlBackgroundExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var sortBy = "sortBy_example";  // string? | Order the results by these fields.              Use the `-` sign to denote descending order, e.g. `-MyFieldName`.  Numeric indexes may be used also, e.g. `2,-3`.              Multiple fields can be denoted by a comma e.g. `-MyFieldName,AnotherFieldName,-AFurtherFieldName`.              Default is null, the sort order specified in the query itself. (optional) 
@@ -972,6 +1068,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // System.IO.Stream result = apiInstance.FetchQueryResultSqlite(executionId, sortBy, filter, select, groupBy, opts: opts);
+
                 // FetchQueryResultSqlite: Fetches the result from a previously started query, in SqLite format.
                 System.IO.Stream result = apiInstance.FetchQueryResultSqlite(executionId, sortBy, filter, select, groupBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1074,6 +1173,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlBackgroundExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
@@ -1086,6 +1193,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.FetchQueryResultXml(executionId, download, sortBy, filter, select, groupBy, limit, page, opts: opts);
+
                 // FetchQueryResultXml: Fetches the result from a previously started query, in Xml format.
                 string result = apiInstance.FetchQueryResultXml(executionId, download, sortBy, filter, select, groupBy, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1191,12 +1301,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlBackgroundExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var buildFromLogs = true;  // bool? | Should the response state be build from query logs if missing from the shared-db-state?  False will mean `404 Not Found` in cases where it was a real query but has passed its `keepForSeconds`  since the query completed (as well as 'this was not a query at all' of course) (optional)  (default to true)
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BackgroundQueryProgressResponse result = apiInstance.GetProgressOf(executionId, buildFromLogs, opts: opts);
+
                 // GetProgressOf: View progress information (up until this point)
                 BackgroundQueryProgressResponse result = apiInstance.GetProgressOf(executionId, buildFromLogs);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1294,6 +1415,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlBackgroundExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var body = select Str, Takes500Ms from Testing1K where UseLinq = true and [Int] <= 120;  // string | The LuminesceSql query to kick off.
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -1303,6 +1432,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BackgroundQueryResponse result = apiInstance.StartQuery(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds, opts: opts);
+
                 // StartQuery: Starts to Execute LuminesceSql in the background.
                 BackgroundQueryResponse result = apiInstance.StartQuery(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

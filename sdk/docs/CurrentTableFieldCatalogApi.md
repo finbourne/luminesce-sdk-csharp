@@ -46,6 +46,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CurrentTableFieldCatalogApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CurrentTableFieldCatalogApi>();
             var freeTextSearch = "freeTextSearch_example";  // string? | Limit the catalog to only things in some way dealing with the passed in text string (optional) 
             var jsonProper = false;  // bool? | Should this be text/json (not json-encoded-as-a-string) (optional)  (default to false)
@@ -53,6 +61,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.GetCatalog(freeTextSearch, jsonProper, useCache, opts: opts);
+
                 // GetCatalog: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
                 string result = apiInstance.GetCatalog(freeTextSearch, jsonProper, useCache);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -151,11 +162,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CurrentTableFieldCatalogApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CurrentTableFieldCatalogApi>();
             var tableLike = "\"%\"";  // string? |  (optional)  (default to "%")
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.GetFields(tableLike, opts: opts);
+
                 // GetFields: Shows Table level information on Providers that are currently running that you have access to (in Json format)
                 string result = apiInstance.GetFields(tableLike);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -252,12 +274,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CurrentTableFieldCatalogApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CurrentTableFieldCatalogApi>();
             var freeTextSearch = "freeTextSearch_example";  // string? | Limit the catalog to only things in some way dealing with the passed in text string (optional) 
             var useCache = true;  // bool? | Should the available cache be used? false is effectively to pick up a change in the catalog (optional)  (default to true)
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.GetProviders(freeTextSearch, useCache, opts: opts);
+
                 // GetProviders: Shows Table level information on Providers that are currently running that you have access to (in Json format)
                 string result = apiInstance.GetProviders(freeTextSearch, useCache);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

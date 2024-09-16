@@ -46,11 +46,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<MultiQueryExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<MultiQueryExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BackgroundQueryCancelResponse result = apiInstance.CancelMultiQuery(executionId, opts: opts);
+
                 // CancelMultiQuery: Cancels (if running) or clears the data from (if completed) a previously started query-set
                 BackgroundQueryCancelResponse result = apiInstance.CancelMultiQuery(executionId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -147,11 +158,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<MultiQueryExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<MultiQueryExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BackgroundMultiQueryProgressResponse result = apiInstance.GetProgressOfMultiQuery(executionId, opts: opts);
+
                 // GetProgressOfMultiQuery: View progress information (up until this point) for the entire query-set
                 BackgroundMultiQueryProgressResponse result = apiInstance.GetProgressOfMultiQuery(executionId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -248,6 +270,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<MultiQueryExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<MultiQueryExecutionApi>();
             var type = Instrument;  // MultiQueryDefinitionType | An enum value defining the set of statements being executed
             var body = Apple;  // string | A \"search\" value (e.g. 'Apple' on an instrument search, a `Finbourne.Filtering` expression of Insights, etc.)  In the cases where \"Nothing\" is valid for a `Finbourne.Filtering` expression, pass `True`.
@@ -263,6 +293,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BackgroundMultiQueryResponse result = apiInstance.StartQueries(type, body, asAt, effectiveAt, limit1, limit2, input1, input2, input3, timeoutSeconds, keepForSeconds, opts: opts);
+
                 // StartQueries: Starts to Execute the LuminesceSql statements in the background.
                 BackgroundMultiQueryResponse result = apiInstance.StartQueries(type, body, asAt, effectiveAt, limit1, limit2, input1, input2, input3, timeoutSeconds, keepForSeconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

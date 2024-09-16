@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Client.Auth;
 
 namespace Finbourne.Luminesce.Sdk.Api
@@ -40,8 +41,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string GetCatalog(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0);
+        string GetCatalog(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetCatalog: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
@@ -54,8 +56,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> GetCatalogWithHttpInfo(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0);
+        ApiResponse<string> GetCatalogWithHttpInfo(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetFields: Shows Table level information on Providers that are currently running that you have access to (in Json format)
         /// </summary>
@@ -65,8 +68,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string GetFields(string? tableLike = default(string?), int operationIndex = 0);
+        string GetFields(string? tableLike = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetFields: Shows Table level information on Providers that are currently running that you have access to (in Json format)
@@ -77,8 +81,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> GetFieldsWithHttpInfo(string? tableLike = default(string?), int operationIndex = 0);
+        ApiResponse<string> GetFieldsWithHttpInfo(string? tableLike = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetProviders: Shows Table level information on Providers that are currently running that you have access to (in Json format)
         /// </summary>
@@ -89,8 +94,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string GetProviders(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0);
+        string GetProviders(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetProviders: Shows Table level information on Providers that are currently running that you have access to (in Json format)
@@ -102,8 +108,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> GetProvidersWithHttpInfo(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0);
+        ApiResponse<string> GetProvidersWithHttpInfo(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -125,8 +132,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetCatalogAsync(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> GetCatalogAsync(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetCatalog: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
@@ -140,8 +148,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> GetCatalogWithHttpInfoAsync(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> GetCatalogWithHttpInfoAsync(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetFields: Shows Table level information on Providers that are currently running that you have access to (in Json format)
         /// </summary>
@@ -152,8 +161,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetFieldsAsync(string? tableLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> GetFieldsAsync(string? tableLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetFields: Shows Table level information on Providers that are currently running that you have access to (in Json format)
@@ -165,8 +175,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> GetFieldsWithHttpInfoAsync(string? tableLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> GetFieldsWithHttpInfoAsync(string? tableLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetProviders: Shows Table level information on Providers that are currently running that you have access to (in Json format)
         /// </summary>
@@ -178,8 +189,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetProvidersAsync(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> GetProvidersAsync(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetProviders: Shows Table level information on Providers that are currently running that you have access to (in Json format)
@@ -192,8 +204,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> GetProvidersWithHttpInfoAsync(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> GetProvidersWithHttpInfoAsync(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -226,9 +239,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns></returns>
         public CurrentTableFieldCatalogApi(string basePath)
         {
+            var globalConfiguration = Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Finbourne.Luminesce.Sdk.Client.Configuration.MergeConfigurations(
-                Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance,
-                new Finbourne.Luminesce.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Finbourne.Luminesce.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -319,10 +338,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string GetCatalog(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0)
+        public string GetCatalog(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetCatalogWithHttpInfo(freeTextSearch, jsonProper, useCache);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetCatalogWithHttpInfo(freeTextSearch, jsonProper, useCache, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -334,10 +354,21 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetCatalogWithHttpInfo(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetCatalogWithHttpInfo(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -417,10 +448,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetCatalogAsync(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> GetCatalogAsync(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetCatalogWithHttpInfoAsync(freeTextSearch, jsonProper, useCache, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetCatalogWithHttpInfoAsync(freeTextSearch, jsonProper, useCache, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -433,11 +465,22 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetCatalogWithHttpInfoAsync(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetCatalogWithHttpInfoAsync(string? freeTextSearch = default(string?), bool? jsonProper = default(bool?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -515,10 +558,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string GetFields(string? tableLike = default(string?), int operationIndex = 0)
+        public string GetFields(string? tableLike = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetFieldsWithHttpInfo(tableLike);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetFieldsWithHttpInfo(tableLike, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -528,10 +572,21 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetFieldsWithHttpInfo(string? tableLike = default(string?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetFieldsWithHttpInfo(string? tableLike = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -601,10 +656,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetFieldsAsync(string? tableLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> GetFieldsAsync(string? tableLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetFieldsWithHttpInfoAsync(tableLike, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetFieldsWithHttpInfoAsync(tableLike, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -615,11 +671,22 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetFieldsWithHttpInfoAsync(string? tableLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetFieldsWithHttpInfoAsync(string? tableLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -690,10 +757,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string GetProviders(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0)
+        public string GetProviders(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetProvidersWithHttpInfo(freeTextSearch, useCache);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetProvidersWithHttpInfo(freeTextSearch, useCache, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -704,10 +772,21 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetProvidersWithHttpInfo(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetProvidersWithHttpInfo(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -782,10 +861,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetProvidersAsync(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> GetProvidersAsync(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetProvidersWithHttpInfoAsync(freeTextSearch, useCache, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetProvidersWithHttpInfoAsync(freeTextSearch, useCache, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -797,11 +877,22 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="useCache">Should the available cache be used? false is effectively to pick up a change in the catalog (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetProvidersWithHttpInfoAsync(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetProvidersWithHttpInfoAsync(string? freeTextSearch = default(string?), bool? useCache = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

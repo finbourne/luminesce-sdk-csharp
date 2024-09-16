@@ -48,11 +48,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<HistoricallyExecutedQueriesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<HistoricallyExecutedQueriesApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BackgroundQueryCancelResponse result = apiInstance.CancelHistory(executionId, opts: opts);
+
                 // CancelHistory: Cancels (if running) or clears the data from (if completed) a previously started History query
                 BackgroundQueryCancelResponse result = apiInstance.CancelHistory(executionId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -149,6 +160,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<HistoricallyExecutedQueriesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<HistoricallyExecutedQueriesApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var bucketSize = "bucketSize_example";  // string? | Optional histogram bucket width.  If not provided a set number of buckets between start/end range will be generated. (optional) 
@@ -157,6 +176,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.FetchHistoryResultHistogram(executionId, bucketSize, filter, jsonProper, opts: opts);
+
                 // FetchHistoryResultHistogram: Fetches the result from a previously started query, converts it to a histogram (counts in buckets).
                 string result = apiInstance.FetchHistoryResultHistogram(executionId, bucketSize, filter, jsonProper);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -258,6 +280,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<HistoricallyExecutedQueriesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<HistoricallyExecutedQueriesApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var sortBy = "sortBy_example";  // string? | Order the results by these fields.              Use the `-` sign to denote descending order, e.g. `-MyFieldName`.  Numeric indexes may be used also, e.g. `2,-3`.              Multiple fields can be denoted by a comma e.g. `-MyFieldName,AnotherFieldName,-AFurtherFieldName`.              Default is null, the sort order specified in the query itself. (optional) 
@@ -270,6 +300,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.FetchHistoryResultJson(executionId, sortBy, filter, select, groupBy, limit, page, jsonProper, opts: opts);
+
                 // FetchHistoryResultJson: Fetches the result from a previously started query, in JSON format.
                 string result = apiInstance.FetchHistoryResultJson(executionId, sortBy, filter, select, groupBy, limit, page, jsonProper);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -375,6 +408,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<HistoricallyExecutedQueriesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<HistoricallyExecutedQueriesApi>();
             var startAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Date time to start the search from.  Will default to Now - 1 Day (optional) 
             var endAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Date time to end the search at.  Defaults to now. (optional) 
@@ -384,6 +425,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BackgroundQueryResponse result = apiInstance.GetHistory(startAt, endAt, freeTextSearch, showAll, mayUseNativeStore, opts: opts);
+
                 // GetHistory: Shows queries executed in a given historical time window (in Json format).
                 BackgroundQueryResponse result = apiInstance.GetHistory(startAt, endAt, freeTextSearch, showAll, mayUseNativeStore);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -484,11 +528,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<HistoricallyExecutedQueriesApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<HistoricallyExecutedQueriesApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // BackgroundQueryProgressResponse result = apiInstance.GetProgressOfHistory(executionId, opts: opts);
+
                 // GetProgressOfHistory: View progress information (up until this point) of a history query
                 BackgroundQueryProgressResponse result = apiInstance.GetProgressOfHistory(executionId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

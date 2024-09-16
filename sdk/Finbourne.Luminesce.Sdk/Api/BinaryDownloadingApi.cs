@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Client.Auth;
 using Finbourne.Luminesce.Sdk.Model;
 
@@ -40,8 +41,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="type">Type of binary to download (each requires separate licenses and entitlements) (optional)</param>
         /// <param name="version">An explicit version of the binary.  Leave blank to get the latest version (recommended) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream DownloadBinary(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0);
+        System.IO.Stream DownloadBinary(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DownloadBinary: Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.
@@ -53,8 +55,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="type">Type of binary to download (each requires separate licenses and entitlements) (optional)</param>
         /// <param name="version">An explicit version of the binary.  Leave blank to get the latest version (recommended) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> DownloadBinaryWithHttpInfo(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> DownloadBinaryWithHttpInfo(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus
         /// </summary>
@@ -64,8 +67,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Type of binary to fetch available versions of (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>List&lt;string&gt;</returns>
-        List<string> GetBinaryVersions(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0);
+        List<string> GetBinaryVersions(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus
@@ -76,8 +80,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Type of binary to fetch available versions of (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;string&gt;</returns>
-        ApiResponse<List<string>> GetBinaryVersionsWithHttpInfo(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0);
+        ApiResponse<List<string>> GetBinaryVersionsWithHttpInfo(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -98,8 +103,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="version">An explicit version of the binary.  Leave blank to get the latest version (recommended) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> DownloadBinaryAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> DownloadBinaryAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DownloadBinary: Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.
@@ -112,8 +118,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="version">An explicit version of the binary.  Leave blank to get the latest version (recommended) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> DownloadBinaryWithHttpInfoAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> DownloadBinaryWithHttpInfoAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus
         /// </summary>
@@ -124,8 +131,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="type">Type of binary to fetch available versions of (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of List&lt;string&gt;</returns>
-        System.Threading.Tasks.Task<List<string>> GetBinaryVersionsAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<string>> GetBinaryVersionsAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus
@@ -137,8 +145,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="type">Type of binary to fetch available versions of (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<string>>> GetBinaryVersionsWithHttpInfoAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<string>>> GetBinaryVersionsWithHttpInfoAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -171,9 +180,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns></returns>
         public BinaryDownloadingApi(string basePath)
         {
+            var globalConfiguration = Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Finbourne.Luminesce.Sdk.Client.Configuration.MergeConfigurations(
-                Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance,
-                new Finbourne.Luminesce.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Finbourne.Luminesce.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -263,10 +278,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="type">Type of binary to download (each requires separate licenses and entitlements) (optional)</param>
         /// <param name="version">An explicit version of the binary.  Leave blank to get the latest version (recommended) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream DownloadBinary(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0)
+        public System.IO.Stream DownloadBinary(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = DownloadBinaryWithHttpInfo(type, version);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = DownloadBinaryWithHttpInfo(type, version, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -277,10 +293,21 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="type">Type of binary to download (each requires separate licenses and entitlements) (optional)</param>
         /// <param name="version">An explicit version of the binary.  Leave blank to get the latest version (recommended) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> DownloadBinaryWithHttpInfo(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> DownloadBinaryWithHttpInfo(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -356,10 +383,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="version">An explicit version of the binary.  Leave blank to get the latest version (recommended) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> DownloadBinaryAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> DownloadBinaryAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await DownloadBinaryWithHttpInfoAsync(type, version, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await DownloadBinaryWithHttpInfoAsync(type, version, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -371,11 +399,22 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="version">An explicit version of the binary.  Leave blank to get the latest version (recommended) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> DownloadBinaryWithHttpInfoAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> DownloadBinaryWithHttpInfoAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -450,10 +489,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Type of binary to fetch available versions of (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>List&lt;string&gt;</returns>
-        public List<string> GetBinaryVersions(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0)
+        public List<string> GetBinaryVersions(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<string>> localVarResponse = GetBinaryVersionsWithHttpInfo(type);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<string>> localVarResponse = GetBinaryVersionsWithHttpInfo(type, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -463,10 +503,21 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Type of binary to fetch available versions of (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;string&gt;</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<List<string>> GetBinaryVersionsWithHttpInfo(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<List<string>> GetBinaryVersionsWithHttpInfo(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -536,10 +587,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="type">Type of binary to fetch available versions of (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of List&lt;string&gt;</returns>
-        public async System.Threading.Tasks.Task<List<string>> GetBinaryVersionsAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<string>> GetBinaryVersionsAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<string>> localVarResponse = await GetBinaryVersionsWithHttpInfoAsync(type, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<string>> localVarResponse = await GetBinaryVersionsWithHttpInfoAsync(type, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -550,11 +602,22 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="type">Type of binary to fetch available versions of (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<string>>> GetBinaryVersionsWithHttpInfoAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<string>>> GetBinaryVersionsWithHttpInfoAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

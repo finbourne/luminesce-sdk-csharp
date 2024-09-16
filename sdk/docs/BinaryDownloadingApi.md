@@ -45,12 +45,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<BinaryDownloadingApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<BinaryDownloadingApi>();
             var type = new LuminesceBinaryType?(); // LuminesceBinaryType? | Type of binary to download (each requires separate licenses and entitlements) (optional) 
             var version = "version_example";  // string? | An explicit version of the binary.  Leave blank to get the latest version (recommended) (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // System.IO.Stream result = apiInstance.DownloadBinary(type, version, opts: opts);
+
                 // [EXPERIMENTAL] DownloadBinary: Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.
                 System.IO.Stream result = apiInstance.DownloadBinary(type, version);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -150,11 +161,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<BinaryDownloadingApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<BinaryDownloadingApi>();
             var type = new LuminesceBinaryType?(); // LuminesceBinaryType? | Type of binary to fetch available versions of (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<string> result = apiInstance.GetBinaryVersions(type, opts: opts);
+
                 // [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus
                 List<string> result = apiInstance.GetBinaryVersions(type);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

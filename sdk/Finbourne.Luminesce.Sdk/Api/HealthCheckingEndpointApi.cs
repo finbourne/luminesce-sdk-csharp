@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Client.Auth;
 
 namespace Finbourne.Luminesce.Sdk.Api
@@ -38,8 +39,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Object</returns>
-        Object FakeNodeReclaim(int? secondsUntilReclaim = default(int?), int operationIndex = 0);
+        Object FakeNodeReclaim(int? secondsUntilReclaim = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [INTERNAL] FakeNodeReclaim: An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place.
@@ -50,8 +52,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> FakeNodeReclaimWithHttpInfo(int? secondsUntilReclaim = default(int?), int operationIndex = 0);
+        ApiResponse<Object> FakeNodeReclaimWithHttpInfo(int? secondsUntilReclaim = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -71,8 +74,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> FakeNodeReclaimAsync(int? secondsUntilReclaim = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> FakeNodeReclaimAsync(int? secondsUntilReclaim = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [INTERNAL] FakeNodeReclaim: An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place.
@@ -84,8 +88,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> FakeNodeReclaimWithHttpInfoAsync(int? secondsUntilReclaim = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> FakeNodeReclaimWithHttpInfoAsync(int? secondsUntilReclaim = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -118,9 +123,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns></returns>
         public HealthCheckingEndpointApi(string basePath)
         {
+            var globalConfiguration = Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Finbourne.Luminesce.Sdk.Client.Configuration.MergeConfigurations(
-                Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance,
-                new Finbourne.Luminesce.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Finbourne.Luminesce.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -209,10 +220,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Object</returns>
-        public Object FakeNodeReclaim(int? secondsUntilReclaim = default(int?), int operationIndex = 0)
+        public Object FakeNodeReclaim(int? secondsUntilReclaim = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<Object> localVarResponse = FakeNodeReclaimWithHttpInfo(secondsUntilReclaim);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<Object> localVarResponse = FakeNodeReclaimWithHttpInfo(secondsUntilReclaim, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -222,10 +234,21 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<Object> FakeNodeReclaimWithHttpInfo(int? secondsUntilReclaim = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<Object> FakeNodeReclaimWithHttpInfo(int? secondsUntilReclaim = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -295,10 +318,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> FakeNodeReclaimAsync(int? secondsUntilReclaim = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> FakeNodeReclaimAsync(int? secondsUntilReclaim = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<Object> localVarResponse = await FakeNodeReclaimWithHttpInfoAsync(secondsUntilReclaim, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<Object> localVarResponse = await FakeNodeReclaimWithHttpInfoAsync(secondsUntilReclaim, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -309,11 +333,22 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<Object>> FakeNodeReclaimWithHttpInfoAsync(int? secondsUntilReclaim = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<Object>> FakeNodeReclaimWithHttpInfoAsync(int? secondsUntilReclaim = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

@@ -44,10 +44,21 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ApplicationMetadataApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ApplicationMetadataApi>();
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfAccessControlledResource result = apiInstance.GetServicesAsAccessControlledResources(opts: opts);
+
                 // GetServicesAsAccessControlledResources: Get resources available for access control
                 ResourceListOfAccessControlledResource result = apiInstance.GetServicesAsAccessControlledResources();
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

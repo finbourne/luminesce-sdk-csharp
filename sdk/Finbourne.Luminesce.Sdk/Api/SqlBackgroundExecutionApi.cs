@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Client.Auth;
 using Finbourne.Luminesce.Sdk.Model;
 
@@ -39,8 +40,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryCancelResponse</returns>
-        BackgroundQueryCancelResponse CancelQuery(string executionId, int operationIndex = 0);
+        BackgroundQueryCancelResponse CancelQuery(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CancelQuery: Cancels (if running) or clears the data from (if completed) a previously started query
@@ -51,8 +53,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryCancelResponse</returns>
-        ApiResponse<BackgroundQueryCancelResponse> CancelQueryWithHttpInfo(string executionId, int operationIndex = 0);
+        ApiResponse<BackgroundQueryCancelResponse> CancelQueryWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultCsv: Fetches the result from a previously started query, in CSV format.
         /// </summary>
@@ -71,8 +74,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string FetchQueryResultCsv(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0);
+        string FetchQueryResultCsv(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultCsv: Fetches the result from a previously started query, in CSV format.
@@ -92,8 +96,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> FetchQueryResultCsvWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0);
+        ApiResponse<string> FetchQueryResultCsvWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultExcel: Fetches the result from a previously started query, in Excel format.
         /// </summary>
@@ -107,8 +112,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream FetchQueryResultExcel(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0);
+        System.IO.Stream FetchQueryResultExcel(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultExcel: Fetches the result from a previously started query, in Excel format.
@@ -123,8 +129,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> FetchQueryResultExcelWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> FetchQueryResultExcelWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultHistogram: Fetches the result from a previously started query, converts it to a histogram (counts in buckets).
         /// </summary>
@@ -140,8 +147,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string FetchQueryResultHistogram(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0);
+        string FetchQueryResultHistogram(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultHistogram: Fetches the result from a previously started query, converts it to a histogram (counts in buckets).
@@ -158,8 +166,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> FetchQueryResultHistogramWithHttpInfo(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0);
+        ApiResponse<string> FetchQueryResultHistogramWithHttpInfo(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultJson: Fetches the result from a previously started query, in JSON string format.  Please move to &#39;/jsonProper&#39; instead.  This may be marked as Deprecated in the future.
         /// </summary>
@@ -175,8 +184,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string FetchQueryResultJson(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0);
+        string FetchQueryResultJson(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultJson: Fetches the result from a previously started query, in JSON string format.  Please move to &#39;/jsonProper&#39; instead.  This may be marked as Deprecated in the future.
@@ -193,8 +203,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> FetchQueryResultJsonWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0);
+        ApiResponse<string> FetchQueryResultJsonWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultJsonProper: Fetches the result from a previously started query, in JSON format.
         /// </summary>
@@ -211,8 +222,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string FetchQueryResultJsonProper(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0);
+        string FetchQueryResultJsonProper(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultJsonProper: Fetches the result from a previously started query, in JSON format.
@@ -230,8 +242,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> FetchQueryResultJsonProperWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0);
+        ApiResponse<string> FetchQueryResultJsonProperWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultParquet: Fetches the result from a previously started query, in Parquet format.
         /// </summary>
@@ -245,8 +258,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream FetchQueryResultParquet(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0);
+        System.IO.Stream FetchQueryResultParquet(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultParquet: Fetches the result from a previously started query, in Parquet format.
@@ -261,8 +275,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> FetchQueryResultParquetWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> FetchQueryResultParquetWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultPipe: Fetches the result from a previously started query, in pipe-delimited format.
         /// </summary>
@@ -279,8 +294,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string FetchQueryResultPipe(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0);
+        string FetchQueryResultPipe(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultPipe: Fetches the result from a previously started query, in pipe-delimited format.
@@ -298,8 +314,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> FetchQueryResultPipeWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0);
+        ApiResponse<string> FetchQueryResultPipeWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultSqlite: Fetches the result from a previously started query, in SqLite format.
         /// </summary>
@@ -313,8 +330,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream FetchQueryResultSqlite(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0);
+        System.IO.Stream FetchQueryResultSqlite(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultSqlite: Fetches the result from a previously started query, in SqLite format.
@@ -329,8 +347,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> FetchQueryResultSqliteWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> FetchQueryResultSqliteWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultXml: Fetches the result from a previously started query, in Xml format.
         /// </summary>
@@ -347,8 +366,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string FetchQueryResultXml(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0);
+        string FetchQueryResultXml(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultXml: Fetches the result from a previously started query, in Xml format.
@@ -366,8 +386,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> FetchQueryResultXmlWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0);
+        ApiResponse<string> FetchQueryResultXmlWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetProgressOf: View progress information (up until this point)
         /// </summary>
@@ -378,8 +399,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryProgressResponse</returns>
-        BackgroundQueryProgressResponse GetProgressOf(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0);
+        BackgroundQueryProgressResponse GetProgressOf(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetProgressOf: View progress information (up until this point)
@@ -391,8 +413,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryProgressResponse</returns>
-        ApiResponse<BackgroundQueryProgressResponse> GetProgressOfWithHttpInfo(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0);
+        ApiResponse<BackgroundQueryProgressResponse> GetProgressOfWithHttpInfo(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// StartQuery: Starts to Execute LuminesceSql in the background.
         /// </summary>
@@ -406,8 +429,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryResponse</returns>
-        BackgroundQueryResponse StartQuery(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0);
+        BackgroundQueryResponse StartQuery(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// StartQuery: Starts to Execute LuminesceSql in the background.
@@ -422,8 +446,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
-        ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0);
+        ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -443,8 +468,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryCancelResponse</returns>
-        System.Threading.Tasks.Task<BackgroundQueryCancelResponse> CancelQueryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BackgroundQueryCancelResponse> CancelQueryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CancelQuery: Cancels (if running) or clears the data from (if completed) a previously started query
@@ -456,8 +482,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryCancelResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryCancelResponse>> CancelQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryCancelResponse>> CancelQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultCsv: Fetches the result from a previously started query, in CSV format.
         /// </summary>
@@ -477,8 +504,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> FetchQueryResultCsvAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> FetchQueryResultCsvAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultCsv: Fetches the result from a previously started query, in CSV format.
@@ -499,8 +527,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> FetchQueryResultCsvWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> FetchQueryResultCsvWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultExcel: Fetches the result from a previously started query, in Excel format.
         /// </summary>
@@ -515,8 +544,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultExcelAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultExcelAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultExcel: Fetches the result from a previously started query, in Excel format.
@@ -532,8 +562,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> FetchQueryResultExcelWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> FetchQueryResultExcelWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultHistogram: Fetches the result from a previously started query, converts it to a histogram (counts in buckets).
         /// </summary>
@@ -550,8 +581,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> FetchQueryResultHistogramAsync(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> FetchQueryResultHistogramAsync(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultHistogram: Fetches the result from a previously started query, converts it to a histogram (counts in buckets).
@@ -569,8 +601,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> FetchQueryResultHistogramWithHttpInfoAsync(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> FetchQueryResultHistogramWithHttpInfoAsync(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultJson: Fetches the result from a previously started query, in JSON string format.  Please move to &#39;/jsonProper&#39; instead.  This may be marked as Deprecated in the future.
         /// </summary>
@@ -587,8 +620,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> FetchQueryResultJsonAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> FetchQueryResultJsonAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultJson: Fetches the result from a previously started query, in JSON string format.  Please move to &#39;/jsonProper&#39; instead.  This may be marked as Deprecated in the future.
@@ -606,8 +640,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> FetchQueryResultJsonWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> FetchQueryResultJsonWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultJsonProper: Fetches the result from a previously started query, in JSON format.
         /// </summary>
@@ -625,8 +660,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> FetchQueryResultJsonProperAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> FetchQueryResultJsonProperAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultJsonProper: Fetches the result from a previously started query, in JSON format.
@@ -645,8 +681,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> FetchQueryResultJsonProperWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> FetchQueryResultJsonProperWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultParquet: Fetches the result from a previously started query, in Parquet format.
         /// </summary>
@@ -661,8 +698,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultParquetAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultParquetAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultParquet: Fetches the result from a previously started query, in Parquet format.
@@ -678,8 +716,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> FetchQueryResultParquetWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> FetchQueryResultParquetWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultPipe: Fetches the result from a previously started query, in pipe-delimited format.
         /// </summary>
@@ -697,8 +736,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> FetchQueryResultPipeAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> FetchQueryResultPipeAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultPipe: Fetches the result from a previously started query, in pipe-delimited format.
@@ -717,8 +757,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> FetchQueryResultPipeWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> FetchQueryResultPipeWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultSqlite: Fetches the result from a previously started query, in SqLite format.
         /// </summary>
@@ -733,8 +774,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultSqliteAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultSqliteAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultSqlite: Fetches the result from a previously started query, in SqLite format.
@@ -750,8 +792,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> FetchQueryResultSqliteWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> FetchQueryResultSqliteWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultXml: Fetches the result from a previously started query, in Xml format.
         /// </summary>
@@ -769,8 +812,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> FetchQueryResultXmlAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> FetchQueryResultXmlAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultXml: Fetches the result from a previously started query, in Xml format.
@@ -789,8 +833,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> FetchQueryResultXmlWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> FetchQueryResultXmlWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetProgressOf: View progress information (up until this point)
         /// </summary>
@@ -802,8 +847,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryProgressResponse</returns>
-        System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetProgressOfAsync(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetProgressOfAsync(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetProgressOf: View progress information (up until this point)
@@ -816,8 +862,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryProgressResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryProgressResponse>> GetProgressOfWithHttpInfoAsync(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryProgressResponse>> GetProgressOfWithHttpInfoAsync(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// StartQuery: Starts to Execute LuminesceSql in the background.
         /// </summary>
@@ -832,8 +879,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryResponse</returns>
-        System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// StartQuery: Starts to Execute LuminesceSql in the background.
@@ -849,8 +897,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -883,9 +932,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns></returns>
         public SqlBackgroundExecutionApi(string basePath)
         {
+            var globalConfiguration = Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Finbourne.Luminesce.Sdk.Client.Configuration.MergeConfigurations(
-                Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance,
-                new Finbourne.Luminesce.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Finbourne.Luminesce.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -974,10 +1029,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryCancelResponse</returns>
-        public BackgroundQueryCancelResponse CancelQuery(string executionId, int operationIndex = 0)
+        public BackgroundQueryCancelResponse CancelQuery(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> localVarResponse = CancelQueryWithHttpInfo(executionId);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> localVarResponse = CancelQueryWithHttpInfo(executionId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -987,8 +1043,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryCancelResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> CancelQueryWithHttpInfo(string executionId, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> CancelQueryWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -997,6 +1054,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1063,10 +1130,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryCancelResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundQueryCancelResponse> CancelQueryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BackgroundQueryCancelResponse> CancelQueryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> localVarResponse = await CancelQueryWithHttpInfoAsync(executionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> localVarResponse = await CancelQueryWithHttpInfoAsync(executionId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1077,8 +1145,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryCancelResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse>> CancelQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse>> CancelQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1088,6 +1157,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1163,10 +1242,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string FetchQueryResultCsv(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0)
+        public string FetchQueryResultCsv(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultCsvWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultCsvWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1185,8 +1265,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultCsvWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultCsvWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1195,6 +1276,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1306,10 +1397,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> FetchQueryResultCsvAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> FetchQueryResultCsvAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultCsvWithHttpInfoAsync(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultCsvWithHttpInfoAsync(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1329,8 +1421,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultCsvWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultCsvWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1340,6 +1433,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1446,10 +1549,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream FetchQueryResultExcel(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0)
+        public System.IO.Stream FetchQueryResultExcel(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = FetchQueryResultExcelWithHttpInfo(executionId, sortBy, filter, select, groupBy);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = FetchQueryResultExcelWithHttpInfo(executionId, sortBy, filter, select, groupBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1463,8 +1567,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> FetchQueryResultExcelWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> FetchQueryResultExcelWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1473,6 +1578,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1559,10 +1674,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultExcelAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultExcelAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await FetchQueryResultExcelWithHttpInfoAsync(executionId, sortBy, filter, select, groupBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await FetchQueryResultExcelWithHttpInfoAsync(executionId, sortBy, filter, select, groupBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1577,8 +1693,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> FetchQueryResultExcelWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> FetchQueryResultExcelWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1588,6 +1705,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1676,10 +1803,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string FetchQueryResultHistogram(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0)
+        public string FetchQueryResultHistogram(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultHistogramWithHttpInfo(executionId, timestampFieldName, startAt, endAt, bucketSize, filter, jsonProper);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultHistogramWithHttpInfo(executionId, timestampFieldName, startAt, endAt, bucketSize, filter, jsonProper, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1695,8 +1823,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultHistogramWithHttpInfo(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultHistogramWithHttpInfo(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1711,6 +1840,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1804,10 +1943,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> FetchQueryResultHistogramAsync(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> FetchQueryResultHistogramAsync(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultHistogramWithHttpInfoAsync(executionId, timestampFieldName, startAt, endAt, bucketSize, filter, jsonProper, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultHistogramWithHttpInfoAsync(executionId, timestampFieldName, startAt, endAt, bucketSize, filter, jsonProper, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1824,8 +1964,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultHistogramWithHttpInfoAsync(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultHistogramWithHttpInfoAsync(string executionId, string timestampFieldName, DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1841,6 +1982,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1934,10 +2085,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string FetchQueryResultJson(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0)
+        public string FetchQueryResultJson(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultJsonWithHttpInfo(executionId, sortBy, filter, select, groupBy, limit, page);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultJsonWithHttpInfo(executionId, sortBy, filter, select, groupBy, limit, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1953,8 +2105,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultJsonWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultJsonWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1963,6 +2116,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2059,10 +2222,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> FetchQueryResultJsonAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> FetchQueryResultJsonAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultJsonWithHttpInfoAsync(executionId, sortBy, filter, select, groupBy, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultJsonWithHttpInfoAsync(executionId, sortBy, filter, select, groupBy, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2079,8 +2243,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultJsonWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultJsonWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -2090,6 +2255,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2187,10 +2362,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string FetchQueryResultJsonProper(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0)
+        public string FetchQueryResultJsonProper(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultJsonProperWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultJsonProperWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2207,8 +2383,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultJsonProperWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultJsonProperWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -2217,6 +2394,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2318,10 +2505,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> FetchQueryResultJsonProperAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> FetchQueryResultJsonProperAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultJsonProperWithHttpInfoAsync(executionId, download, sortBy, filter, select, groupBy, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultJsonProperWithHttpInfoAsync(executionId, download, sortBy, filter, select, groupBy, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2339,8 +2527,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultJsonProperWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultJsonProperWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -2350,6 +2539,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2448,10 +2647,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream FetchQueryResultParquet(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0)
+        public System.IO.Stream FetchQueryResultParquet(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = FetchQueryResultParquetWithHttpInfo(executionId, sortBy, filter, select, groupBy);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = FetchQueryResultParquetWithHttpInfo(executionId, sortBy, filter, select, groupBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2465,8 +2665,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> FetchQueryResultParquetWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> FetchQueryResultParquetWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -2475,6 +2676,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2561,10 +2772,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultParquetAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultParquetAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await FetchQueryResultParquetWithHttpInfoAsync(executionId, sortBy, filter, select, groupBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await FetchQueryResultParquetWithHttpInfoAsync(executionId, sortBy, filter, select, groupBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2579,8 +2791,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> FetchQueryResultParquetWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> FetchQueryResultParquetWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -2590,6 +2803,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2679,10 +2902,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string FetchQueryResultPipe(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0)
+        public string FetchQueryResultPipe(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultPipeWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultPipeWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2699,8 +2923,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultPipeWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultPipeWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -2709,6 +2934,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2810,10 +3045,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> FetchQueryResultPipeAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> FetchQueryResultPipeAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultPipeWithHttpInfoAsync(executionId, download, sortBy, filter, select, groupBy, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultPipeWithHttpInfoAsync(executionId, download, sortBy, filter, select, groupBy, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2831,8 +3067,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultPipeWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultPipeWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -2842,6 +3079,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -2940,10 +3187,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream FetchQueryResultSqlite(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0)
+        public System.IO.Stream FetchQueryResultSqlite(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = FetchQueryResultSqliteWithHttpInfo(executionId, sortBy, filter, select, groupBy);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = FetchQueryResultSqliteWithHttpInfo(executionId, sortBy, filter, select, groupBy, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2957,8 +3205,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> FetchQueryResultSqliteWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> FetchQueryResultSqliteWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -2967,6 +3216,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3053,10 +3312,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultSqliteAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultSqliteAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await FetchQueryResultSqliteWithHttpInfoAsync(executionId, sortBy, filter, select, groupBy, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await FetchQueryResultSqliteWithHttpInfoAsync(executionId, sortBy, filter, select, groupBy, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3071,8 +3331,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> FetchQueryResultSqliteWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> FetchQueryResultSqliteWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -3082,6 +3343,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3171,10 +3442,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string FetchQueryResultXml(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0)
+        public string FetchQueryResultXml(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultXmlWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultXmlWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3191,8 +3463,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultXmlWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultXmlWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -3201,6 +3474,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3302,10 +3585,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> FetchQueryResultXmlAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> FetchQueryResultXmlAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultXmlWithHttpInfoAsync(executionId, download, sortBy, filter, select, groupBy, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultXmlWithHttpInfoAsync(executionId, download, sortBy, filter, select, groupBy, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3323,8 +3607,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultXmlWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultXmlWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -3334,6 +3619,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3429,10 +3724,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryProgressResponse</returns>
-        public BackgroundQueryProgressResponse GetProgressOf(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0)
+        public BackgroundQueryProgressResponse GetProgressOf(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> localVarResponse = GetProgressOfWithHttpInfo(executionId, buildFromLogs);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> localVarResponse = GetProgressOfWithHttpInfo(executionId, buildFromLogs, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3443,8 +3739,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryProgressResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> GetProgressOfWithHttpInfo(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> GetProgressOfWithHttpInfo(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -3453,6 +3750,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3524,10 +3831,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryProgressResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetProgressOfAsync(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetProgressOfAsync(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> localVarResponse = await GetProgressOfWithHttpInfoAsync(executionId, buildFromLogs, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> localVarResponse = await GetProgressOfWithHttpInfoAsync(executionId, buildFromLogs, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3539,8 +3847,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryProgressResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse>> GetProgressOfWithHttpInfoAsync(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse>> GetProgressOfWithHttpInfoAsync(string executionId, bool? buildFromLogs = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -3550,6 +3859,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -3624,10 +3943,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryResponse</returns>
-        public BackgroundQueryResponse StartQuery(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0)
+        public BackgroundQueryResponse StartQuery(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = StartQueryWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = StartQueryWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3641,8 +3961,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3651,6 +3972,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -3738,10 +4069,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = await StartQueryWithHttpInfoAsync(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = await StartQueryWithHttpInfoAsync(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3756,8 +4088,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3767,6 +4100,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"

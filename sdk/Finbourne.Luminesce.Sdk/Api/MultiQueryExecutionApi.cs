@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Client.Auth;
 using Finbourne.Luminesce.Sdk.Model;
 
@@ -39,8 +40,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryCancelResponse</returns>
-        BackgroundQueryCancelResponse CancelMultiQuery(string executionId, int operationIndex = 0);
+        BackgroundQueryCancelResponse CancelMultiQuery(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CancelMultiQuery: Cancels (if running) or clears the data from (if completed) a previously started query-set
@@ -51,8 +53,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryCancelResponse</returns>
-        ApiResponse<BackgroundQueryCancelResponse> CancelMultiQueryWithHttpInfo(string executionId, int operationIndex = 0);
+        ApiResponse<BackgroundQueryCancelResponse> CancelMultiQueryWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetProgressOfMultiQuery: View progress information (up until this point) for the entire query-set
         /// </summary>
@@ -62,8 +65,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundMultiQueryProgressResponse</returns>
-        BackgroundMultiQueryProgressResponse GetProgressOfMultiQuery(string executionId, int operationIndex = 0);
+        BackgroundMultiQueryProgressResponse GetProgressOfMultiQuery(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetProgressOfMultiQuery: View progress information (up until this point) for the entire query-set
@@ -74,8 +78,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundMultiQueryProgressResponse</returns>
-        ApiResponse<BackgroundMultiQueryProgressResponse> GetProgressOfMultiQueryWithHttpInfo(string executionId, int operationIndex = 0);
+        ApiResponse<BackgroundMultiQueryProgressResponse> GetProgressOfMultiQueryWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// StartQueries: Starts to Execute the LuminesceSql statements in the background.
         /// </summary>
@@ -95,8 +100,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 1200s (20m) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundMultiQueryResponse</returns>
-        BackgroundMultiQueryResponse StartQueries(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0);
+        BackgroundMultiQueryResponse StartQueries(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// StartQueries: Starts to Execute the LuminesceSql statements in the background.
@@ -117,8 +123,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 1200s (20m) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundMultiQueryResponse</returns>
-        ApiResponse<BackgroundMultiQueryResponse> StartQueriesWithHttpInfo(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0);
+        ApiResponse<BackgroundMultiQueryResponse> StartQueriesWithHttpInfo(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -138,8 +145,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryCancelResponse</returns>
-        System.Threading.Tasks.Task<BackgroundQueryCancelResponse> CancelMultiQueryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BackgroundQueryCancelResponse> CancelMultiQueryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CancelMultiQuery: Cancels (if running) or clears the data from (if completed) a previously started query-set
@@ -151,8 +159,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryCancelResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryCancelResponse>> CancelMultiQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryCancelResponse>> CancelMultiQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetProgressOfMultiQuery: View progress information (up until this point) for the entire query-set
         /// </summary>
@@ -163,8 +172,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundMultiQueryProgressResponse</returns>
-        System.Threading.Tasks.Task<BackgroundMultiQueryProgressResponse> GetProgressOfMultiQueryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BackgroundMultiQueryProgressResponse> GetProgressOfMultiQueryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetProgressOfMultiQuery: View progress information (up until this point) for the entire query-set
@@ -176,8 +186,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundMultiQueryProgressResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BackgroundMultiQueryProgressResponse>> GetProgressOfMultiQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BackgroundMultiQueryProgressResponse>> GetProgressOfMultiQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// StartQueries: Starts to Execute the LuminesceSql statements in the background.
         /// </summary>
@@ -198,8 +209,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundMultiQueryResponse</returns>
-        System.Threading.Tasks.Task<BackgroundMultiQueryResponse> StartQueriesAsync(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BackgroundMultiQueryResponse> StartQueriesAsync(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// StartQueries: Starts to Execute the LuminesceSql statements in the background.
@@ -221,8 +233,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundMultiQueryResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BackgroundMultiQueryResponse>> StartQueriesWithHttpInfoAsync(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BackgroundMultiQueryResponse>> StartQueriesWithHttpInfoAsync(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -255,9 +268,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns></returns>
         public MultiQueryExecutionApi(string basePath)
         {
+            var globalConfiguration = Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Finbourne.Luminesce.Sdk.Client.Configuration.MergeConfigurations(
-                Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance,
-                new Finbourne.Luminesce.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Finbourne.Luminesce.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -346,10 +365,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryCancelResponse</returns>
-        public BackgroundQueryCancelResponse CancelMultiQuery(string executionId, int operationIndex = 0)
+        public BackgroundQueryCancelResponse CancelMultiQuery(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> localVarResponse = CancelMultiQueryWithHttpInfo(executionId);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> localVarResponse = CancelMultiQueryWithHttpInfo(executionId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -359,8 +379,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryCancelResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> CancelMultiQueryWithHttpInfo(string executionId, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> CancelMultiQueryWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -369,6 +390,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -435,10 +466,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryCancelResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundQueryCancelResponse> CancelMultiQueryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BackgroundQueryCancelResponse> CancelMultiQueryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> localVarResponse = await CancelMultiQueryWithHttpInfoAsync(executionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> localVarResponse = await CancelMultiQueryWithHttpInfoAsync(executionId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -449,8 +481,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryCancelResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse>> CancelMultiQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse>> CancelMultiQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -460,6 +493,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -526,10 +569,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundMultiQueryProgressResponse</returns>
-        public BackgroundMultiQueryProgressResponse GetProgressOfMultiQuery(string executionId, int operationIndex = 0)
+        public BackgroundMultiQueryProgressResponse GetProgressOfMultiQuery(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryProgressResponse> localVarResponse = GetProgressOfMultiQueryWithHttpInfo(executionId);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryProgressResponse> localVarResponse = GetProgressOfMultiQueryWithHttpInfo(executionId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -539,8 +583,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundMultiQueryProgressResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryProgressResponse> GetProgressOfMultiQueryWithHttpInfo(string executionId, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryProgressResponse> GetProgressOfMultiQueryWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -549,6 +594,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -615,10 +670,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundMultiQueryProgressResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundMultiQueryProgressResponse> GetProgressOfMultiQueryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BackgroundMultiQueryProgressResponse> GetProgressOfMultiQueryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryProgressResponse> localVarResponse = await GetProgressOfMultiQueryWithHttpInfoAsync(executionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryProgressResponse> localVarResponse = await GetProgressOfMultiQueryWithHttpInfoAsync(executionId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -629,8 +685,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundMultiQueryProgressResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryProgressResponse>> GetProgressOfMultiQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryProgressResponse>> GetProgressOfMultiQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -640,6 +697,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -716,10 +783,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 1200s (20m) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundMultiQueryResponse</returns>
-        public BackgroundMultiQueryResponse StartQueries(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0)
+        public BackgroundMultiQueryResponse StartQueries(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryResponse> localVarResponse = StartQueriesWithHttpInfo(type, body, asAt, effectiveAt, limit1, limit2, input1, input2, input3, timeoutSeconds, keepForSeconds);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryResponse> localVarResponse = StartQueriesWithHttpInfo(type, body, asAt, effectiveAt, limit1, limit2, input1, input2, input3, timeoutSeconds, keepForSeconds, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -739,8 +807,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 1200s (20m) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundMultiQueryResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryResponse> StartQueriesWithHttpInfo(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryResponse> StartQueriesWithHttpInfo(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -749,6 +818,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -863,10 +942,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundMultiQueryResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundMultiQueryResponse> StartQueriesAsync(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BackgroundMultiQueryResponse> StartQueriesAsync(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryResponse> localVarResponse = await StartQueriesWithHttpInfoAsync(type, body, asAt, effectiveAt, limit1, limit2, input1, input2, input3, timeoutSeconds, keepForSeconds, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryResponse> localVarResponse = await StartQueriesWithHttpInfoAsync(type, body, asAt, effectiveAt, limit1, limit2, input1, input2, input3, timeoutSeconds, keepForSeconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -887,8 +967,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundMultiQueryResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryResponse>> StartQueriesWithHttpInfoAsync(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryResponse>> StartQueriesWithHttpInfoAsync(MultiQueryDefinitionType type, string body, DateTimeOffset? asAt = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), int? limit1 = default(int?), int? limit2 = default(int?), string? input1 = default(string?), string? input2 = default(string?), string? input3 = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -898,6 +979,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"

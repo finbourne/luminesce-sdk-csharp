@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Client.Auth;
 using Finbourne.Luminesce.Sdk.Model;
 
@@ -39,8 +40,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the case statement design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CaseStatementDesign</returns>
-        CaseStatementDesign PutCaseStatementDesignSqlToDesign(string? body = default(string?), int operationIndex = 0);
+        CaseStatementDesign PutCaseStatementDesignSqlToDesign(string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL queries to a CaseStatementDesign object.
@@ -51,8 +53,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the case statement design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CaseStatementDesign</returns>
-        ApiResponse<CaseStatementDesign> PutCaseStatementDesignSqlToDesignWithHttpInfo(string? body = default(string?), int operationIndex = 0);
+        ApiResponse<CaseStatementDesign> PutCaseStatementDesignSqlToDesignWithHttpInfo(string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Generates SQL case statement queries from a structured design
         /// </summary>
@@ -62,8 +65,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="caseStatementDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string PutCaseStatementDesignToSql(CaseStatementDesign caseStatementDesign, int operationIndex = 0);
+        string PutCaseStatementDesignToSql(CaseStatementDesign caseStatementDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Generates SQL case statement queries from a structured design
@@ -74,8 +78,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="caseStatementDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PutCaseStatementDesignToSqlWithHttpInfo(CaseStatementDesign caseStatementDesign, int operationIndex = 0);
+        ApiResponse<string> PutCaseStatementDesignToSqlWithHttpInfo(CaseStatementDesign caseStatementDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutFileReadDesignToSql: Generates file read SQL from a structured query design
         /// </summary>
@@ -86,8 +91,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="fileReaderBuilderDef">Structured file read design object to generate SQL from</param>
         /// <param name="executeQuery">Should the generated query be executed to build preview data or determine errors.&gt; (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>FileReaderBuilderResponse</returns>
-        FileReaderBuilderResponse PutFileReadDesignToSql(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0);
+        FileReaderBuilderResponse PutFileReadDesignToSql(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutFileReadDesignToSql: Generates file read SQL from a structured query design
@@ -99,8 +105,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="fileReaderBuilderDef">Structured file read design object to generate SQL from</param>
         /// <param name="executeQuery">Should the generated query be executed to build preview data or determine errors.&gt; (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of FileReaderBuilderResponse</returns>
-        ApiResponse<FileReaderBuilderResponse> PutFileReadDesignToSqlWithHttpInfo(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0);
+        ApiResponse<FileReaderBuilderResponse> PutFileReadDesignToSqlWithHttpInfo(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible.
         /// </summary>
@@ -110,8 +117,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>InlinedPropertyDesign</returns>
-        InlinedPropertyDesign PutInlinedPropertiesDesignSqlToDesign(string? body = default(string?), int operationIndex = 0);
+        InlinedPropertyDesign PutInlinedPropertiesDesignSqlToDesign(string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible.
@@ -122,8 +130,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of InlinedPropertyDesign</returns>
-        ApiResponse<InlinedPropertyDesign> PutInlinedPropertiesDesignSqlToDesignWithHttpInfo(string? body = default(string?), int operationIndex = 0);
+        ApiResponse<InlinedPropertyDesign> PutInlinedPropertiesDesignSqlToDesignWithHttpInfo(string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Generates inlined properties SQL from a structured design
         /// </summary>
@@ -133,8 +142,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlinedPropertyDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string PutInlinedPropertiesDesignToSql(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0);
+        string PutInlinedPropertiesDesignToSql(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Generates inlined properties SQL from a structured design
@@ -145,8 +155,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlinedPropertyDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PutInlinedPropertiesDesignToSqlWithHttpInfo(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0);
+        ApiResponse<string> PutInlinedPropertiesDesignToSqlWithHttpInfo(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
         /// </summary>
@@ -156,8 +167,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>IntellisenseResponse</returns>
-        IntellisenseResponse PutIntellisense(IntellisenseRequest intellisenseRequest, int operationIndex = 0);
+        IntellisenseResponse PutIntellisense(IntellisenseRequest intellisenseRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
@@ -168,8 +180,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of IntellisenseResponse</returns>
-        ApiResponse<IntellisenseResponse> PutIntellisenseWithHttpInfo(IntellisenseRequest intellisenseRequest, int operationIndex = 0);
+        ApiResponse<IntellisenseResponse> PutIntellisenseWithHttpInfo(IntellisenseRequest intellisenseRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
         /// </summary>
@@ -179,8 +192,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="errorHighlightRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ErrorHighlightResponse</returns>
-        ErrorHighlightResponse PutIntellisenseError(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0);
+        ErrorHighlightResponse PutIntellisenseError(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
@@ -191,8 +205,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="errorHighlightRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ErrorHighlightResponse</returns>
-        ApiResponse<ErrorHighlightResponse> PutIntellisenseErrorWithHttpInfo(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0);
+        ApiResponse<ErrorHighlightResponse> PutIntellisenseErrorWithHttpInfo(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutQueryDesignToSql: Generates SQL from a structured query design
         /// </summary>
@@ -202,8 +217,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryDesign">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string PutQueryDesignToSql(QueryDesign queryDesign, int operationIndex = 0);
+        string PutQueryDesignToSql(QueryDesign queryDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutQueryDesignToSql: Generates SQL from a structured query design
@@ -214,8 +230,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryDesign">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PutQueryDesignToSqlWithHttpInfo(QueryDesign queryDesign, int operationIndex = 0);
+        ApiResponse<string> PutQueryDesignToSqlWithHttpInfo(QueryDesign queryDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// PutQueryToFormat: Formats SQL into a more readable form, a.k.a. Pretty-Print the SQL.
         /// </summary>
@@ -238,8 +255,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="spaceBeforeTrailingSingleLineComments">Should the be a space before trailing single line comments? (optional, default to true)</param>
         /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string PutQueryToFormat(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0);
+        string PutQueryToFormat(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutQueryToFormat: Formats SQL into a more readable form, a.k.a. Pretty-Print the SQL.
@@ -263,8 +281,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="spaceBeforeTrailingSingleLineComments">Should the be a space before trailing single line comments? (optional, default to true)</param>
         /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PutQueryToFormatWithHttpInfo(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0);
+        ApiResponse<string> PutQueryToFormatWithHttpInfo(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Generates information about all the scalar parameters defined in the given SQL statement
         /// </summary>
@@ -274,8 +293,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>List&lt;ScalarParameter&gt;</returns>
-        List<ScalarParameter> PutSqlToExtractScalarParameters(string body, int operationIndex = 0);
+        List<ScalarParameter> PutSqlToExtractScalarParameters(string body, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Generates information about all the scalar parameters defined in the given SQL statement
@@ -286,8 +306,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;ScalarParameter&gt;</returns>
-        ApiResponse<List<ScalarParameter>> PutSqlToExtractScalarParametersWithHttpInfo(string body, int operationIndex = 0);
+        ApiResponse<List<ScalarParameter>> PutSqlToExtractScalarParametersWithHttpInfo(string body, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible.
         /// </summary>
@@ -298,8 +319,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
         /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>FileReaderBuilderDef</returns>
-        FileReaderBuilderDef PutSqlToFileReadDesign(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0);
+        FileReaderBuilderDef PutSqlToFileReadDesign(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible.
@@ -311,8 +333,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
         /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of FileReaderBuilderDef</returns>
-        ApiResponse<FileReaderBuilderDef> PutSqlToFileReadDesignWithHttpInfo(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0);
+        ApiResponse<FileReaderBuilderDef> PutSqlToFileReadDesignWithHttpInfo(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToQueryDesign: Generates a SQL-design object from SQL string, if possible.
         /// </summary>
@@ -323,8 +346,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>QueryDesign</returns>
-        QueryDesign PutSqlToQueryDesign(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0);
+        QueryDesign PutSqlToQueryDesign(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToQueryDesign: Generates a SQL-design object from SQL string, if possible.
@@ -336,8 +360,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of QueryDesign</returns>
-        ApiResponse<QueryDesign> PutSqlToQueryDesignWithHttpInfo(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0);
+        ApiResponse<QueryDesign> PutSqlToQueryDesignWithHttpInfo(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToViewDesign: Generates a structured view creation design from existing view creation SQL.
         /// </summary>
@@ -347,8 +372,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL Query to generate the ConvertToViewData object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConvertToViewData</returns>
-        ConvertToViewData PutSqlToViewDesign(string body, int operationIndex = 0);
+        ConvertToViewData PutSqlToViewDesign(string body, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToViewDesign: Generates a structured view creation design from existing view creation SQL.
@@ -359,8 +385,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL Query to generate the ConvertToViewData object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConvertToViewData</returns>
-        ApiResponse<ConvertToViewData> PutSqlToViewDesignWithHttpInfo(string body, int operationIndex = 0);
+        ApiResponse<ConvertToViewData> PutSqlToViewDesignWithHttpInfo(string body, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToWriterDesign: Generates a SQL-writer-design object from SQL string, if possible.
         /// </summary>
@@ -371,8 +398,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the writer design object from</param>
         /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>WriterDesign</returns>
-        WriterDesign PutSqlToWriterDesign(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0);
+        WriterDesign PutSqlToWriterDesign(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToWriterDesign: Generates a SQL-writer-design object from SQL string, if possible.
@@ -384,8 +412,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the writer design object from</param>
         /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of WriterDesign</returns>
-        ApiResponse<WriterDesign> PutSqlToWriterDesignWithHttpInfo(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0);
+        ApiResponse<WriterDesign> PutSqlToWriterDesignWithHttpInfo(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutViewDesignToSql: Generates view creation sql from a structured view creation design
         /// </summary>
@@ -395,8 +424,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="convertToViewData">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string PutViewDesignToSql(ConvertToViewData convertToViewData, int operationIndex = 0);
+        string PutViewDesignToSql(ConvertToViewData convertToViewData, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutViewDesignToSql: Generates view creation sql from a structured view creation design
@@ -407,8 +437,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="convertToViewData">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PutViewDesignToSqlWithHttpInfo(ConvertToViewData convertToViewData, int operationIndex = 0);
+        ApiResponse<string> PutViewDesignToSqlWithHttpInfo(ConvertToViewData convertToViewData, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutWriterDesignToSql: Generates writer SQL from a valid writer-design structure
         /// </summary>
@@ -418,8 +449,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="writerDesign">Structured Writer Design design object to generate Writer SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string PutWriterDesignToSql(WriterDesign writerDesign, int operationIndex = 0);
+        string PutWriterDesignToSql(WriterDesign writerDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutWriterDesignToSql: Generates writer SQL from a valid writer-design structure
@@ -430,8 +462,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="writerDesign">Structured Writer Design design object to generate Writer SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> PutWriterDesignToSqlWithHttpInfo(WriterDesign writerDesign, int operationIndex = 0);
+        ApiResponse<string> PutWriterDesignToSqlWithHttpInfo(WriterDesign writerDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -451,8 +484,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the case statement design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CaseStatementDesign</returns>
-        System.Threading.Tasks.Task<CaseStatementDesign> PutCaseStatementDesignSqlToDesignAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CaseStatementDesign> PutCaseStatementDesignSqlToDesignAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL queries to a CaseStatementDesign object.
@@ -464,8 +498,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the case statement design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CaseStatementDesign)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CaseStatementDesign>> PutCaseStatementDesignSqlToDesignWithHttpInfoAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CaseStatementDesign>> PutCaseStatementDesignSqlToDesignWithHttpInfoAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Generates SQL case statement queries from a structured design
         /// </summary>
@@ -476,8 +511,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="caseStatementDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutCaseStatementDesignToSqlAsync(CaseStatementDesign caseStatementDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> PutCaseStatementDesignToSqlAsync(CaseStatementDesign caseStatementDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Generates SQL case statement queries from a structured design
@@ -489,8 +525,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="caseStatementDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PutCaseStatementDesignToSqlWithHttpInfoAsync(CaseStatementDesign caseStatementDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> PutCaseStatementDesignToSqlWithHttpInfoAsync(CaseStatementDesign caseStatementDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutFileReadDesignToSql: Generates file read SQL from a structured query design
         /// </summary>
@@ -502,8 +539,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executeQuery">Should the generated query be executed to build preview data or determine errors.&gt; (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of FileReaderBuilderResponse</returns>
-        System.Threading.Tasks.Task<FileReaderBuilderResponse> PutFileReadDesignToSqlAsync(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileReaderBuilderResponse> PutFileReadDesignToSqlAsync(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutFileReadDesignToSql: Generates file read SQL from a structured query design
@@ -516,8 +554,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executeQuery">Should the generated query be executed to build preview data or determine errors.&gt; (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (FileReaderBuilderResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileReaderBuilderResponse>> PutFileReadDesignToSqlWithHttpInfoAsync(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileReaderBuilderResponse>> PutFileReadDesignToSqlWithHttpInfoAsync(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible.
         /// </summary>
@@ -528,8 +567,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of InlinedPropertyDesign</returns>
-        System.Threading.Tasks.Task<InlinedPropertyDesign> PutInlinedPropertiesDesignSqlToDesignAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlinedPropertyDesign> PutInlinedPropertiesDesignSqlToDesignAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible.
@@ -541,8 +581,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (InlinedPropertyDesign)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlinedPropertyDesign>> PutInlinedPropertiesDesignSqlToDesignWithHttpInfoAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlinedPropertyDesign>> PutInlinedPropertiesDesignSqlToDesignWithHttpInfoAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Generates inlined properties SQL from a structured design
         /// </summary>
@@ -553,8 +594,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="inlinedPropertyDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutInlinedPropertiesDesignToSqlAsync(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> PutInlinedPropertiesDesignToSqlAsync(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Generates inlined properties SQL from a structured design
@@ -566,8 +608,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="inlinedPropertyDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PutInlinedPropertiesDesignToSqlWithHttpInfoAsync(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> PutInlinedPropertiesDesignToSqlWithHttpInfoAsync(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
         /// </summary>
@@ -578,8 +621,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="intellisenseRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of IntellisenseResponse</returns>
-        System.Threading.Tasks.Task<IntellisenseResponse> PutIntellisenseAsync(IntellisenseRequest intellisenseRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IntellisenseResponse> PutIntellisenseAsync(IntellisenseRequest intellisenseRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
@@ -591,8 +635,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="intellisenseRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (IntellisenseResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntellisenseResponse>> PutIntellisenseWithHttpInfoAsync(IntellisenseRequest intellisenseRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IntellisenseResponse>> PutIntellisenseWithHttpInfoAsync(IntellisenseRequest intellisenseRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
         /// </summary>
@@ -603,8 +648,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="errorHighlightRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ErrorHighlightResponse</returns>
-        System.Threading.Tasks.Task<ErrorHighlightResponse> PutIntellisenseErrorAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ErrorHighlightResponse> PutIntellisenseErrorAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
@@ -616,8 +662,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="errorHighlightRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ErrorHighlightResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ErrorHighlightResponse>> PutIntellisenseErrorWithHttpInfoAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ErrorHighlightResponse>> PutIntellisenseErrorWithHttpInfoAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutQueryDesignToSql: Generates SQL from a structured query design
         /// </summary>
@@ -628,8 +675,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryDesign">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutQueryDesignToSqlAsync(QueryDesign queryDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> PutQueryDesignToSqlAsync(QueryDesign queryDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutQueryDesignToSql: Generates SQL from a structured query design
@@ -641,8 +689,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryDesign">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PutQueryDesignToSqlWithHttpInfoAsync(QueryDesign queryDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> PutQueryDesignToSqlWithHttpInfoAsync(QueryDesign queryDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// PutQueryToFormat: Formats SQL into a more readable form, a.k.a. Pretty-Print the SQL.
         /// </summary>
@@ -666,8 +715,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutQueryToFormatAsync(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> PutQueryToFormatAsync(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutQueryToFormat: Formats SQL into a more readable form, a.k.a. Pretty-Print the SQL.
@@ -692,8 +742,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PutQueryToFormatWithHttpInfoAsync(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> PutQueryToFormatWithHttpInfoAsync(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Generates information about all the scalar parameters defined in the given SQL statement
         /// </summary>
@@ -704,8 +755,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of List&lt;ScalarParameter&gt;</returns>
-        System.Threading.Tasks.Task<List<ScalarParameter>> PutSqlToExtractScalarParametersAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ScalarParameter>> PutSqlToExtractScalarParametersAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Generates information about all the scalar parameters defined in the given SQL statement
@@ -717,8 +769,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;ScalarParameter&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ScalarParameter>>> PutSqlToExtractScalarParametersWithHttpInfoAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ScalarParameter>>> PutSqlToExtractScalarParametersWithHttpInfoAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible.
         /// </summary>
@@ -730,8 +783,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of FileReaderBuilderDef</returns>
-        System.Threading.Tasks.Task<FileReaderBuilderDef> PutSqlToFileReadDesignAsync(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileReaderBuilderDef> PutSqlToFileReadDesignAsync(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible.
@@ -744,8 +798,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (FileReaderBuilderDef)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileReaderBuilderDef>> PutSqlToFileReadDesignWithHttpInfoAsync(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileReaderBuilderDef>> PutSqlToFileReadDesignWithHttpInfoAsync(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToQueryDesign: Generates a SQL-design object from SQL string, if possible.
         /// </summary>
@@ -757,8 +812,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of QueryDesign</returns>
-        System.Threading.Tasks.Task<QueryDesign> PutSqlToQueryDesignAsync(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<QueryDesign> PutSqlToQueryDesignAsync(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToQueryDesign: Generates a SQL-design object from SQL string, if possible.
@@ -771,8 +827,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (QueryDesign)</returns>
-        System.Threading.Tasks.Task<ApiResponse<QueryDesign>> PutSqlToQueryDesignWithHttpInfoAsync(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<QueryDesign>> PutSqlToQueryDesignWithHttpInfoAsync(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToViewDesign: Generates a structured view creation design from existing view creation SQL.
         /// </summary>
@@ -783,8 +840,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL Query to generate the ConvertToViewData object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConvertToViewData</returns>
-        System.Threading.Tasks.Task<ConvertToViewData> PutSqlToViewDesignAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ConvertToViewData> PutSqlToViewDesignAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToViewDesign: Generates a structured view creation design from existing view creation SQL.
@@ -796,8 +854,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL Query to generate the ConvertToViewData object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConvertToViewData)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConvertToViewData>> PutSqlToViewDesignWithHttpInfoAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ConvertToViewData>> PutSqlToViewDesignWithHttpInfoAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToWriterDesign: Generates a SQL-writer-design object from SQL string, if possible.
         /// </summary>
@@ -809,8 +868,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of WriterDesign</returns>
-        System.Threading.Tasks.Task<WriterDesign> PutSqlToWriterDesignAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<WriterDesign> PutSqlToWriterDesignAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutSqlToWriterDesign: Generates a SQL-writer-design object from SQL string, if possible.
@@ -823,8 +883,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (WriterDesign)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WriterDesign>> PutSqlToWriterDesignWithHttpInfoAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<WriterDesign>> PutSqlToWriterDesignWithHttpInfoAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutViewDesignToSql: Generates view creation sql from a structured view creation design
         /// </summary>
@@ -835,8 +896,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="convertToViewData">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutViewDesignToSqlAsync(ConvertToViewData convertToViewData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> PutViewDesignToSqlAsync(ConvertToViewData convertToViewData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutViewDesignToSql: Generates view creation sql from a structured view creation design
@@ -848,8 +910,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="convertToViewData">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PutViewDesignToSqlWithHttpInfoAsync(ConvertToViewData convertToViewData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> PutViewDesignToSqlWithHttpInfoAsync(ConvertToViewData convertToViewData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] PutWriterDesignToSql: Generates writer SQL from a valid writer-design structure
         /// </summary>
@@ -860,8 +923,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="writerDesign">Structured Writer Design design object to generate Writer SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutWriterDesignToSqlAsync(WriterDesign writerDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> PutWriterDesignToSqlAsync(WriterDesign writerDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] PutWriterDesignToSql: Generates writer SQL from a valid writer-design structure
@@ -873,8 +937,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="writerDesign">Structured Writer Design design object to generate Writer SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> PutWriterDesignToSqlWithHttpInfoAsync(WriterDesign writerDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> PutWriterDesignToSqlWithHttpInfoAsync(WriterDesign writerDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -907,9 +972,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns></returns>
         public SqlDesignApi(string basePath)
         {
+            var globalConfiguration = Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Finbourne.Luminesce.Sdk.Client.Configuration.MergeConfigurations(
-                Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance,
-                new Finbourne.Luminesce.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Finbourne.Luminesce.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -998,10 +1069,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the case statement design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CaseStatementDesign</returns>
-        public CaseStatementDesign PutCaseStatementDesignSqlToDesign(string? body = default(string?), int operationIndex = 0)
+        public CaseStatementDesign PutCaseStatementDesignSqlToDesign(string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<CaseStatementDesign> localVarResponse = PutCaseStatementDesignSqlToDesignWithHttpInfo(body);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<CaseStatementDesign> localVarResponse = PutCaseStatementDesignSqlToDesignWithHttpInfo(body, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1011,10 +1083,21 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the case statement design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CaseStatementDesign</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<CaseStatementDesign> PutCaseStatementDesignSqlToDesignWithHttpInfo(string? body = default(string?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<CaseStatementDesign> PutCaseStatementDesignSqlToDesignWithHttpInfo(string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -1082,10 +1165,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the case statement design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CaseStatementDesign</returns>
-        public async System.Threading.Tasks.Task<CaseStatementDesign> PutCaseStatementDesignSqlToDesignAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CaseStatementDesign> PutCaseStatementDesignSqlToDesignAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<CaseStatementDesign> localVarResponse = await PutCaseStatementDesignSqlToDesignWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<CaseStatementDesign> localVarResponse = await PutCaseStatementDesignSqlToDesignWithHttpInfoAsync(body, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1096,11 +1180,22 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the case statement design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CaseStatementDesign)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<CaseStatementDesign>> PutCaseStatementDesignSqlToDesignWithHttpInfoAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<CaseStatementDesign>> PutCaseStatementDesignSqlToDesignWithHttpInfoAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -1168,10 +1263,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="caseStatementDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string PutCaseStatementDesignToSql(CaseStatementDesign caseStatementDesign, int operationIndex = 0)
+        public string PutCaseStatementDesignToSql(CaseStatementDesign caseStatementDesign, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutCaseStatementDesignToSqlWithHttpInfo(caseStatementDesign);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutCaseStatementDesignToSqlWithHttpInfo(caseStatementDesign, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1181,8 +1277,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="caseStatementDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutCaseStatementDesignToSqlWithHttpInfo(CaseStatementDesign caseStatementDesign, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutCaseStatementDesignToSqlWithHttpInfo(CaseStatementDesign caseStatementDesign, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'caseStatementDesign' is set
             if (caseStatementDesign == null)
@@ -1191,6 +1288,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1261,10 +1368,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="caseStatementDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutCaseStatementDesignToSqlAsync(CaseStatementDesign caseStatementDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> PutCaseStatementDesignToSqlAsync(CaseStatementDesign caseStatementDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutCaseStatementDesignToSqlWithHttpInfoAsync(caseStatementDesign, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutCaseStatementDesignToSqlWithHttpInfoAsync(caseStatementDesign, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1275,8 +1383,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="caseStatementDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutCaseStatementDesignToSqlWithHttpInfoAsync(CaseStatementDesign caseStatementDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutCaseStatementDesignToSqlWithHttpInfoAsync(CaseStatementDesign caseStatementDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'caseStatementDesign' is set
             if (caseStatementDesign == null)
@@ -1286,6 +1395,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1357,10 +1476,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="fileReaderBuilderDef">Structured file read design object to generate SQL from</param>
         /// <param name="executeQuery">Should the generated query be executed to build preview data or determine errors.&gt; (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>FileReaderBuilderResponse</returns>
-        public FileReaderBuilderResponse PutFileReadDesignToSql(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0)
+        public FileReaderBuilderResponse PutFileReadDesignToSql(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderResponse> localVarResponse = PutFileReadDesignToSqlWithHttpInfo(fileReaderBuilderDef, executeQuery);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderResponse> localVarResponse = PutFileReadDesignToSqlWithHttpInfo(fileReaderBuilderDef, executeQuery, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1371,8 +1491,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="fileReaderBuilderDef">Structured file read design object to generate SQL from</param>
         /// <param name="executeQuery">Should the generated query be executed to build preview data or determine errors.&gt; (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of FileReaderBuilderResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderResponse> PutFileReadDesignToSqlWithHttpInfo(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderResponse> PutFileReadDesignToSqlWithHttpInfo(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'fileReaderBuilderDef' is set
             if (fileReaderBuilderDef == null)
@@ -1381,6 +1502,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1456,10 +1587,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executeQuery">Should the generated query be executed to build preview data or determine errors.&gt; (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of FileReaderBuilderResponse</returns>
-        public async System.Threading.Tasks.Task<FileReaderBuilderResponse> PutFileReadDesignToSqlAsync(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileReaderBuilderResponse> PutFileReadDesignToSqlAsync(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderResponse> localVarResponse = await PutFileReadDesignToSqlWithHttpInfoAsync(fileReaderBuilderDef, executeQuery, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderResponse> localVarResponse = await PutFileReadDesignToSqlWithHttpInfoAsync(fileReaderBuilderDef, executeQuery, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1471,8 +1603,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executeQuery">Should the generated query be executed to build preview data or determine errors.&gt; (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (FileReaderBuilderResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderResponse>> PutFileReadDesignToSqlWithHttpInfoAsync(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderResponse>> PutFileReadDesignToSqlWithHttpInfoAsync(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'fileReaderBuilderDef' is set
             if (fileReaderBuilderDef == null)
@@ -1482,6 +1615,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1556,10 +1699,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>InlinedPropertyDesign</returns>
-        public InlinedPropertyDesign PutInlinedPropertiesDesignSqlToDesign(string? body = default(string?), int operationIndex = 0)
+        public InlinedPropertyDesign PutInlinedPropertiesDesignSqlToDesign(string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<InlinedPropertyDesign> localVarResponse = PutInlinedPropertiesDesignSqlToDesignWithHttpInfo(body);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<InlinedPropertyDesign> localVarResponse = PutInlinedPropertiesDesignSqlToDesignWithHttpInfo(body, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1569,10 +1713,21 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of InlinedPropertyDesign</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<InlinedPropertyDesign> PutInlinedPropertiesDesignSqlToDesignWithHttpInfo(string? body = default(string?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<InlinedPropertyDesign> PutInlinedPropertiesDesignSqlToDesignWithHttpInfo(string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -1640,10 +1795,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of InlinedPropertyDesign</returns>
-        public async System.Threading.Tasks.Task<InlinedPropertyDesign> PutInlinedPropertiesDesignSqlToDesignAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlinedPropertyDesign> PutInlinedPropertiesDesignSqlToDesignAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<InlinedPropertyDesign> localVarResponse = await PutInlinedPropertiesDesignSqlToDesignWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<InlinedPropertyDesign> localVarResponse = await PutInlinedPropertiesDesignSqlToDesignWithHttpInfoAsync(body, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1654,11 +1810,22 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the inlined properties design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (InlinedPropertyDesign)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<InlinedPropertyDesign>> PutInlinedPropertiesDesignSqlToDesignWithHttpInfoAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<InlinedPropertyDesign>> PutInlinedPropertiesDesignSqlToDesignWithHttpInfoAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -1726,10 +1893,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlinedPropertyDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string PutInlinedPropertiesDesignToSql(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0)
+        public string PutInlinedPropertiesDesignToSql(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutInlinedPropertiesDesignToSqlWithHttpInfo(inlinedPropertyDesign);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutInlinedPropertiesDesignToSqlWithHttpInfo(inlinedPropertyDesign, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1739,8 +1907,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlinedPropertyDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutInlinedPropertiesDesignToSqlWithHttpInfo(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutInlinedPropertiesDesignToSqlWithHttpInfo(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'inlinedPropertyDesign' is set
             if (inlinedPropertyDesign == null)
@@ -1749,6 +1918,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1819,10 +1998,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="inlinedPropertyDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutInlinedPropertiesDesignToSqlAsync(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> PutInlinedPropertiesDesignToSqlAsync(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutInlinedPropertiesDesignToSqlWithHttpInfoAsync(inlinedPropertyDesign, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutInlinedPropertiesDesignToSqlWithHttpInfoAsync(inlinedPropertyDesign, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1833,8 +2013,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="inlinedPropertyDesign">Structured file read design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutInlinedPropertiesDesignToSqlWithHttpInfoAsync(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutInlinedPropertiesDesignToSqlWithHttpInfoAsync(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'inlinedPropertyDesign' is set
             if (inlinedPropertyDesign == null)
@@ -1844,6 +2025,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1914,10 +2105,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>IntellisenseResponse</returns>
-        public IntellisenseResponse PutIntellisense(IntellisenseRequest intellisenseRequest, int operationIndex = 0)
+        public IntellisenseResponse PutIntellisense(IntellisenseRequest intellisenseRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<IntellisenseResponse> localVarResponse = PutIntellisenseWithHttpInfo(intellisenseRequest);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<IntellisenseResponse> localVarResponse = PutIntellisenseWithHttpInfo(intellisenseRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1927,8 +2119,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of IntellisenseResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<IntellisenseResponse> PutIntellisenseWithHttpInfo(IntellisenseRequest intellisenseRequest, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<IntellisenseResponse> PutIntellisenseWithHttpInfo(IntellisenseRequest intellisenseRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'intellisenseRequest' is set
             if (intellisenseRequest == null)
@@ -1937,6 +2130,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2007,10 +2210,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="intellisenseRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of IntellisenseResponse</returns>
-        public async System.Threading.Tasks.Task<IntellisenseResponse> PutIntellisenseAsync(IntellisenseRequest intellisenseRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IntellisenseResponse> PutIntellisenseAsync(IntellisenseRequest intellisenseRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<IntellisenseResponse> localVarResponse = await PutIntellisenseWithHttpInfoAsync(intellisenseRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<IntellisenseResponse> localVarResponse = await PutIntellisenseWithHttpInfoAsync(intellisenseRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2021,8 +2225,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="intellisenseRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (IntellisenseResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<IntellisenseResponse>> PutIntellisenseWithHttpInfoAsync(IntellisenseRequest intellisenseRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<IntellisenseResponse>> PutIntellisenseWithHttpInfoAsync(IntellisenseRequest intellisenseRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'intellisenseRequest' is set
             if (intellisenseRequest == null)
@@ -2032,6 +2237,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2102,10 +2317,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="errorHighlightRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ErrorHighlightResponse</returns>
-        public ErrorHighlightResponse PutIntellisenseError(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0)
+        public ErrorHighlightResponse PutIntellisenseError(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<ErrorHighlightResponse> localVarResponse = PutIntellisenseErrorWithHttpInfo(errorHighlightRequest);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<ErrorHighlightResponse> localVarResponse = PutIntellisenseErrorWithHttpInfo(errorHighlightRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2115,8 +2331,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="errorHighlightRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ErrorHighlightResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<ErrorHighlightResponse> PutIntellisenseErrorWithHttpInfo(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<ErrorHighlightResponse> PutIntellisenseErrorWithHttpInfo(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'errorHighlightRequest' is set
             if (errorHighlightRequest == null)
@@ -2125,6 +2342,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2195,10 +2422,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="errorHighlightRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ErrorHighlightResponse</returns>
-        public async System.Threading.Tasks.Task<ErrorHighlightResponse> PutIntellisenseErrorAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ErrorHighlightResponse> PutIntellisenseErrorAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<ErrorHighlightResponse> localVarResponse = await PutIntellisenseErrorWithHttpInfoAsync(errorHighlightRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<ErrorHighlightResponse> localVarResponse = await PutIntellisenseErrorWithHttpInfoAsync(errorHighlightRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2209,8 +2437,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="errorHighlightRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ErrorHighlightResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<ErrorHighlightResponse>> PutIntellisenseErrorWithHttpInfoAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<ErrorHighlightResponse>> PutIntellisenseErrorWithHttpInfoAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'errorHighlightRequest' is set
             if (errorHighlightRequest == null)
@@ -2220,6 +2449,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2290,10 +2529,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryDesign">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string PutQueryDesignToSql(QueryDesign queryDesign, int operationIndex = 0)
+        public string PutQueryDesignToSql(QueryDesign queryDesign, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutQueryDesignToSqlWithHttpInfo(queryDesign);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutQueryDesignToSqlWithHttpInfo(queryDesign, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2303,8 +2543,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryDesign">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutQueryDesignToSqlWithHttpInfo(QueryDesign queryDesign, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutQueryDesignToSqlWithHttpInfo(QueryDesign queryDesign, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'queryDesign' is set
             if (queryDesign == null)
@@ -2313,6 +2554,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -2383,10 +2634,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryDesign">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutQueryDesignToSqlAsync(QueryDesign queryDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> PutQueryDesignToSqlAsync(QueryDesign queryDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutQueryDesignToSqlWithHttpInfoAsync(queryDesign, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutQueryDesignToSqlWithHttpInfoAsync(queryDesign, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2397,8 +2649,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryDesign">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutQueryDesignToSqlWithHttpInfoAsync(QueryDesign queryDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutQueryDesignToSqlWithHttpInfoAsync(QueryDesign queryDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'queryDesign' is set
             if (queryDesign == null)
@@ -2408,6 +2661,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -2491,10 +2754,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="spaceBeforeTrailingSingleLineComments">Should the be a space before trailing single line comments? (optional, default to true)</param>
         /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string PutQueryToFormat(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0)
+        public string PutQueryToFormat(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutQueryToFormatWithHttpInfo(body, trailingCommas, uppercaseKeywords, breakJoinOnSections, spaceAfterExpandedComma, keywordStandardization, expandCommaLists, expandInLists, expandBooleanExpressions, expandBetweenConditions, expandCaseStatements, maxLineWidth, spaceBeforeTrailingSingleLineComments, multilineCommentExtraLineBreak);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutQueryToFormatWithHttpInfo(body, trailingCommas, uppercaseKeywords, breakJoinOnSections, spaceAfterExpandedComma, keywordStandardization, expandCommaLists, expandInLists, expandBooleanExpressions, expandBetweenConditions, expandCaseStatements, maxLineWidth, spaceBeforeTrailingSingleLineComments, multilineCommentExtraLineBreak, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2517,8 +2781,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="spaceBeforeTrailingSingleLineComments">Should the be a space before trailing single line comments? (optional, default to true)</param>
         /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutQueryToFormatWithHttpInfo(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutQueryToFormatWithHttpInfo(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -2527,6 +2792,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -2659,10 +2934,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutQueryToFormatAsync(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> PutQueryToFormatAsync(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutQueryToFormatWithHttpInfoAsync(body, trailingCommas, uppercaseKeywords, breakJoinOnSections, spaceAfterExpandedComma, keywordStandardization, expandCommaLists, expandInLists, expandBooleanExpressions, expandBetweenConditions, expandCaseStatements, maxLineWidth, spaceBeforeTrailingSingleLineComments, multilineCommentExtraLineBreak, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutQueryToFormatWithHttpInfoAsync(body, trailingCommas, uppercaseKeywords, breakJoinOnSections, spaceAfterExpandedComma, keywordStandardization, expandCommaLists, expandInLists, expandBooleanExpressions, expandBetweenConditions, expandCaseStatements, maxLineWidth, spaceBeforeTrailingSingleLineComments, multilineCommentExtraLineBreak, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2686,8 +2962,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutQueryToFormatWithHttpInfoAsync(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutQueryToFormatWithHttpInfoAsync(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -2697,6 +2974,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -2816,10 +3103,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>List&lt;ScalarParameter&gt;</returns>
-        public List<ScalarParameter> PutSqlToExtractScalarParameters(string body, int operationIndex = 0)
+        public List<ScalarParameter> PutSqlToExtractScalarParameters(string body, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>> localVarResponse = PutSqlToExtractScalarParametersWithHttpInfo(body);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>> localVarResponse = PutSqlToExtractScalarParametersWithHttpInfo(body, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2829,8 +3117,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;ScalarParameter&gt;</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>> PutSqlToExtractScalarParametersWithHttpInfo(string body, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>> PutSqlToExtractScalarParametersWithHttpInfo(string body, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -2839,6 +3128,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -2906,10 +3205,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of List&lt;ScalarParameter&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ScalarParameter>> PutSqlToExtractScalarParametersAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ScalarParameter>> PutSqlToExtractScalarParametersAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>> localVarResponse = await PutSqlToExtractScalarParametersWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>> localVarResponse = await PutSqlToExtractScalarParametersWithHttpInfoAsync(body, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2920,8 +3220,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;ScalarParameter&gt;)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>>> PutSqlToExtractScalarParametersWithHttpInfoAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>>> PutSqlToExtractScalarParametersWithHttpInfoAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -2931,6 +3232,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -2999,10 +3310,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
         /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>FileReaderBuilderDef</returns>
-        public FileReaderBuilderDef PutSqlToFileReadDesign(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0)
+        public FileReaderBuilderDef PutSqlToFileReadDesign(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderDef> localVarResponse = PutSqlToFileReadDesignWithHttpInfo(determineAvailableSources, body);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderDef> localVarResponse = PutSqlToFileReadDesignWithHttpInfo(determineAvailableSources, body, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3013,10 +3325,21 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
         /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of FileReaderBuilderDef</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderDef> PutSqlToFileReadDesignWithHttpInfo(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderDef> PutSqlToFileReadDesignWithHttpInfo(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -3089,10 +3412,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of FileReaderBuilderDef</returns>
-        public async System.Threading.Tasks.Task<FileReaderBuilderDef> PutSqlToFileReadDesignAsync(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileReaderBuilderDef> PutSqlToFileReadDesignAsync(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderDef> localVarResponse = await PutSqlToFileReadDesignWithHttpInfoAsync(determineAvailableSources, body, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderDef> localVarResponse = await PutSqlToFileReadDesignWithHttpInfoAsync(determineAvailableSources, body, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3104,11 +3428,22 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the file read design object from (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (FileReaderBuilderDef)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderDef>> PutSqlToFileReadDesignWithHttpInfoAsync(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<FileReaderBuilderDef>> PutSqlToFileReadDesignWithHttpInfoAsync(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -3181,10 +3516,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>QueryDesign</returns>
-        public QueryDesign PutSqlToQueryDesign(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0)
+        public QueryDesign PutSqlToQueryDesign(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign> localVarResponse = PutSqlToQueryDesignWithHttpInfo(body, validateWithMetadata);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign> localVarResponse = PutSqlToQueryDesignWithHttpInfo(body, validateWithMetadata, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3195,8 +3531,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of QueryDesign</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign> PutSqlToQueryDesignWithHttpInfo(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign> PutSqlToQueryDesignWithHttpInfo(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3205,6 +3542,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -3277,10 +3624,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of QueryDesign</returns>
-        public async System.Threading.Tasks.Task<QueryDesign> PutSqlToQueryDesignAsync(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<QueryDesign> PutSqlToQueryDesignAsync(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign> localVarResponse = await PutSqlToQueryDesignWithHttpInfoAsync(body, validateWithMetadata, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign> localVarResponse = await PutSqlToQueryDesignWithHttpInfoAsync(body, validateWithMetadata, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3292,8 +3640,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (QueryDesign)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign>> PutSqlToQueryDesignWithHttpInfoAsync(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign>> PutSqlToQueryDesignWithHttpInfoAsync(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3303,6 +3652,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -3374,10 +3733,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL Query to generate the ConvertToViewData object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ConvertToViewData</returns>
-        public ConvertToViewData PutSqlToViewDesign(string body, int operationIndex = 0)
+        public ConvertToViewData PutSqlToViewDesign(string body, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<ConvertToViewData> localVarResponse = PutSqlToViewDesignWithHttpInfo(body);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<ConvertToViewData> localVarResponse = PutSqlToViewDesignWithHttpInfo(body, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3387,8 +3747,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL Query to generate the ConvertToViewData object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ConvertToViewData</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<ConvertToViewData> PutSqlToViewDesignWithHttpInfo(string body, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<ConvertToViewData> PutSqlToViewDesignWithHttpInfo(string body, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3397,6 +3758,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -3464,10 +3835,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL Query to generate the ConvertToViewData object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ConvertToViewData</returns>
-        public async System.Threading.Tasks.Task<ConvertToViewData> PutSqlToViewDesignAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConvertToViewData> PutSqlToViewDesignAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<ConvertToViewData> localVarResponse = await PutSqlToViewDesignWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<ConvertToViewData> localVarResponse = await PutSqlToViewDesignWithHttpInfoAsync(body, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3478,8 +3850,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL Query to generate the ConvertToViewData object from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ConvertToViewData)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<ConvertToViewData>> PutSqlToViewDesignWithHttpInfoAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<ConvertToViewData>> PutSqlToViewDesignWithHttpInfoAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3489,6 +3862,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -3557,10 +3940,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the writer design object from</param>
         /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>WriterDesign</returns>
-        public WriterDesign PutSqlToWriterDesign(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0)
+        public WriterDesign PutSqlToWriterDesign(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<WriterDesign> localVarResponse = PutSqlToWriterDesignWithHttpInfo(body, mergeAdditionalMappingFields);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<WriterDesign> localVarResponse = PutSqlToWriterDesignWithHttpInfo(body, mergeAdditionalMappingFields, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3571,8 +3955,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">SQL query to generate the writer design object from</param>
         /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of WriterDesign</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<WriterDesign> PutSqlToWriterDesignWithHttpInfo(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<WriterDesign> PutSqlToWriterDesignWithHttpInfo(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3581,6 +3966,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -3653,10 +4048,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of WriterDesign</returns>
-        public async System.Threading.Tasks.Task<WriterDesign> PutSqlToWriterDesignAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<WriterDesign> PutSqlToWriterDesignAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<WriterDesign> localVarResponse = await PutSqlToWriterDesignWithHttpInfoAsync(body, mergeAdditionalMappingFields, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<WriterDesign> localVarResponse = await PutSqlToWriterDesignWithHttpInfoAsync(body, mergeAdditionalMappingFields, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3668,8 +4064,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="mergeAdditionalMappingFields">Should &#x60;Sys.Field&#x60; be used to find additional potential fields to map from? (not always possible) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (WriterDesign)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<WriterDesign>> PutSqlToWriterDesignWithHttpInfoAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<WriterDesign>> PutSqlToWriterDesignWithHttpInfoAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3679,6 +4076,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "text/plain"
@@ -3750,10 +4157,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="convertToViewData">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string PutViewDesignToSql(ConvertToViewData convertToViewData, int operationIndex = 0)
+        public string PutViewDesignToSql(ConvertToViewData convertToViewData, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutViewDesignToSqlWithHttpInfo(convertToViewData);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutViewDesignToSqlWithHttpInfo(convertToViewData, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3763,8 +4171,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="convertToViewData">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutViewDesignToSqlWithHttpInfo(ConvertToViewData convertToViewData, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutViewDesignToSqlWithHttpInfo(ConvertToViewData convertToViewData, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'convertToViewData' is set
             if (convertToViewData == null)
@@ -3773,6 +4182,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -3843,10 +4262,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="convertToViewData">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutViewDesignToSqlAsync(ConvertToViewData convertToViewData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> PutViewDesignToSqlAsync(ConvertToViewData convertToViewData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutViewDesignToSqlWithHttpInfoAsync(convertToViewData, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutViewDesignToSqlWithHttpInfoAsync(convertToViewData, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3857,8 +4277,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="convertToViewData">Structured Query design object to generate SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutViewDesignToSqlWithHttpInfoAsync(ConvertToViewData convertToViewData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutViewDesignToSqlWithHttpInfoAsync(ConvertToViewData convertToViewData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'convertToViewData' is set
             if (convertToViewData == null)
@@ -3868,6 +4289,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -3938,10 +4369,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="writerDesign">Structured Writer Design design object to generate Writer SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string PutWriterDesignToSql(WriterDesign writerDesign, int operationIndex = 0)
+        public string PutWriterDesignToSql(WriterDesign writerDesign, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutWriterDesignToSqlWithHttpInfo(writerDesign);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutWriterDesignToSqlWithHttpInfo(writerDesign, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3951,8 +4383,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="writerDesign">Structured Writer Design design object to generate Writer SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutWriterDesignToSqlWithHttpInfo(WriterDesign writerDesign, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutWriterDesignToSqlWithHttpInfo(WriterDesign writerDesign, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'writerDesign' is set
             if (writerDesign == null)
@@ -3961,6 +4394,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -4031,10 +4474,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="writerDesign">Structured Writer Design design object to generate Writer SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutWriterDesignToSqlAsync(WriterDesign writerDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> PutWriterDesignToSqlAsync(WriterDesign writerDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutWriterDesignToSqlWithHttpInfoAsync(writerDesign, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutWriterDesignToSqlWithHttpInfoAsync(writerDesign, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4045,8 +4489,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="writerDesign">Structured Writer Design design object to generate Writer SQL from</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutWriterDesignToSqlWithHttpInfoAsync(WriterDesign writerDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutWriterDesignToSqlWithHttpInfoAsync(WriterDesign writerDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'writerDesign' is set
             if (writerDesign == null)
@@ -4056,6 +4501,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

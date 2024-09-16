@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Client.Auth;
 using Finbourne.Luminesce.Sdk.Model;
 
@@ -39,8 +40,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryCancelResponse</returns>
-        BackgroundQueryCancelResponse CancelHistory(string executionId, int operationIndex = 0);
+        BackgroundQueryCancelResponse CancelHistory(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CancelHistory: Cancels (if running) or clears the data from (if completed) a previously started History query
@@ -51,8 +53,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryCancelResponse</returns>
-        ApiResponse<BackgroundQueryCancelResponse> CancelHistoryWithHttpInfo(string executionId, int operationIndex = 0);
+        ApiResponse<BackgroundQueryCancelResponse> CancelHistoryWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchHistoryResultHistogram: Fetches the result from a previously started query, converts it to a histogram (counts in buckets).
         /// </summary>
@@ -65,8 +68,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string FetchHistoryResultHistogram(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0);
+        string FetchHistoryResultHistogram(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchHistoryResultHistogram: Fetches the result from a previously started query, converts it to a histogram (counts in buckets).
@@ -80,8 +84,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> FetchHistoryResultHistogramWithHttpInfo(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0);
+        ApiResponse<string> FetchHistoryResultHistogramWithHttpInfo(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchHistoryResultJson: Fetches the result from a previously started query, in JSON format.
         /// </summary>
@@ -98,8 +103,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string FetchHistoryResultJson(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0);
+        string FetchHistoryResultJson(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchHistoryResultJson: Fetches the result from a previously started query, in JSON format.
@@ -117,8 +123,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> FetchHistoryResultJsonWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0);
+        ApiResponse<string> FetchHistoryResultJsonWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetHistory: Shows queries executed in a given historical time window (in Json format).
         /// </summary>
@@ -132,8 +139,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
         /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryResponse</returns>
-        BackgroundQueryResponse GetHistory(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0);
+        BackgroundQueryResponse GetHistory(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetHistory: Shows queries executed in a given historical time window (in Json format).
@@ -148,8 +156,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
         /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
-        ApiResponse<BackgroundQueryResponse> GetHistoryWithHttpInfo(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0);
+        ApiResponse<BackgroundQueryResponse> GetHistoryWithHttpInfo(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetProgressOfHistory: View progress information (up until this point) of a history query
         /// </summary>
@@ -159,8 +168,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryProgressResponse</returns>
-        BackgroundQueryProgressResponse GetProgressOfHistory(string executionId, int operationIndex = 0);
+        BackgroundQueryProgressResponse GetProgressOfHistory(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetProgressOfHistory: View progress information (up until this point) of a history query
@@ -171,8 +181,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryProgressResponse</returns>
-        ApiResponse<BackgroundQueryProgressResponse> GetProgressOfHistoryWithHttpInfo(string executionId, int operationIndex = 0);
+        ApiResponse<BackgroundQueryProgressResponse> GetProgressOfHistoryWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -192,8 +203,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryCancelResponse</returns>
-        System.Threading.Tasks.Task<BackgroundQueryCancelResponse> CancelHistoryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BackgroundQueryCancelResponse> CancelHistoryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// CancelHistory: Cancels (if running) or clears the data from (if completed) a previously started History query
@@ -205,8 +217,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryCancelResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryCancelResponse>> CancelHistoryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryCancelResponse>> CancelHistoryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchHistoryResultHistogram: Fetches the result from a previously started query, converts it to a histogram (counts in buckets).
         /// </summary>
@@ -220,8 +233,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> FetchHistoryResultHistogramAsync(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> FetchHistoryResultHistogramAsync(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchHistoryResultHistogram: Fetches the result from a previously started query, converts it to a histogram (counts in buckets).
@@ -236,8 +250,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> FetchHistoryResultHistogramWithHttpInfoAsync(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> FetchHistoryResultHistogramWithHttpInfoAsync(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchHistoryResultJson: Fetches the result from a previously started query, in JSON format.
         /// </summary>
@@ -255,8 +270,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> FetchHistoryResultJsonAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> FetchHistoryResultJsonAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchHistoryResultJson: Fetches the result from a previously started query, in JSON format.
@@ -275,8 +291,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> FetchHistoryResultJsonWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> FetchHistoryResultJsonWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetHistory: Shows queries executed in a given historical time window (in Json format).
         /// </summary>
@@ -291,8 +308,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryResponse</returns>
-        System.Threading.Tasks.Task<BackgroundQueryResponse> GetHistoryAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BackgroundQueryResponse> GetHistoryAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetHistory: Shows queries executed in a given historical time window (in Json format).
@@ -308,8 +326,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryResponse>> GetHistoryWithHttpInfoAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryResponse>> GetHistoryWithHttpInfoAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetProgressOfHistory: View progress information (up until this point) of a history query
         /// </summary>
@@ -320,8 +339,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryProgressResponse</returns>
-        System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetProgressOfHistoryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetProgressOfHistoryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetProgressOfHistory: View progress information (up until this point) of a history query
@@ -333,8 +353,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryProgressResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryProgressResponse>> GetProgressOfHistoryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BackgroundQueryProgressResponse>> GetProgressOfHistoryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -367,9 +388,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns></returns>
         public HistoricallyExecutedQueriesApi(string basePath)
         {
+            var globalConfiguration = Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Finbourne.Luminesce.Sdk.Client.Configuration.MergeConfigurations(
-                Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance,
-                new Finbourne.Luminesce.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Finbourne.Luminesce.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -458,10 +485,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryCancelResponse</returns>
-        public BackgroundQueryCancelResponse CancelHistory(string executionId, int operationIndex = 0)
+        public BackgroundQueryCancelResponse CancelHistory(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> localVarResponse = CancelHistoryWithHttpInfo(executionId);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> localVarResponse = CancelHistoryWithHttpInfo(executionId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -471,8 +499,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryCancelResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> CancelHistoryWithHttpInfo(string executionId, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> CancelHistoryWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -481,6 +510,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -547,10 +586,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryCancelResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundQueryCancelResponse> CancelHistoryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BackgroundQueryCancelResponse> CancelHistoryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> localVarResponse = await CancelHistoryWithHttpInfoAsync(executionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> localVarResponse = await CancelHistoryWithHttpInfoAsync(executionId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -561,8 +601,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryCancelResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse>> CancelHistoryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse>> CancelHistoryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -572,6 +613,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -641,10 +692,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string FetchHistoryResultHistogram(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0)
+        public string FetchHistoryResultHistogram(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchHistoryResultHistogramWithHttpInfo(executionId, bucketSize, filter, jsonProper);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchHistoryResultHistogramWithHttpInfo(executionId, bucketSize, filter, jsonProper, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -657,8 +709,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchHistoryResultHistogramWithHttpInfo(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchHistoryResultHistogramWithHttpInfo(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -667,6 +720,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -748,10 +811,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> FetchHistoryResultHistogramAsync(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> FetchHistoryResultHistogramAsync(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchHistoryResultHistogramWithHttpInfoAsync(executionId, bucketSize, filter, jsonProper, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchHistoryResultHistogramWithHttpInfoAsync(executionId, bucketSize, filter, jsonProper, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -765,8 +829,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchHistoryResultHistogramWithHttpInfoAsync(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchHistoryResultHistogramWithHttpInfoAsync(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -776,6 +841,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -861,10 +936,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string FetchHistoryResultJson(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0)
+        public string FetchHistoryResultJson(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchHistoryResultJsonWithHttpInfo(executionId, sortBy, filter, select, groupBy, limit, page, jsonProper);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchHistoryResultJsonWithHttpInfo(executionId, sortBy, filter, select, groupBy, limit, page, jsonProper, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -881,8 +957,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchHistoryResultJsonWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchHistoryResultJsonWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -891,6 +968,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -992,10 +1079,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> FetchHistoryResultJsonAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> FetchHistoryResultJsonAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchHistoryResultJsonWithHttpInfoAsync(executionId, sortBy, filter, select, groupBy, limit, page, jsonProper, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchHistoryResultJsonWithHttpInfoAsync(executionId, sortBy, filter, select, groupBy, limit, page, jsonProper, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1013,8 +1101,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchHistoryResultJsonWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchHistoryResultJsonWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1024,6 +1113,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1122,10 +1221,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
         /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryResponse</returns>
-        public BackgroundQueryResponse GetHistory(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0)
+        public BackgroundQueryResponse GetHistory(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = GetHistoryWithHttpInfo(startAt, endAt, freeTextSearch, showAll, mayUseNativeStore);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = GetHistoryWithHttpInfo(startAt, endAt, freeTextSearch, showAll, mayUseNativeStore, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1139,10 +1239,21 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
         /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> GetHistoryWithHttpInfo(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> GetHistoryWithHttpInfo(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1232,10 +1343,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundQueryResponse> GetHistoryAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BackgroundQueryResponse> GetHistoryAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = await GetHistoryWithHttpInfoAsync(startAt, endAt, freeTextSearch, showAll, mayUseNativeStore, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = await GetHistoryWithHttpInfoAsync(startAt, endAt, freeTextSearch, showAll, mayUseNativeStore, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1250,11 +1362,22 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> GetHistoryWithHttpInfoAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> GetHistoryWithHttpInfoAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1340,10 +1463,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryProgressResponse</returns>
-        public BackgroundQueryProgressResponse GetProgressOfHistory(string executionId, int operationIndex = 0)
+        public BackgroundQueryProgressResponse GetProgressOfHistory(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> localVarResponse = GetProgressOfHistoryWithHttpInfo(executionId);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> localVarResponse = GetProgressOfHistoryWithHttpInfo(executionId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1353,8 +1477,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryProgressResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> GetProgressOfHistoryWithHttpInfo(string executionId, int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> GetProgressOfHistoryWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1363,6 +1488,16 @@ namespace Finbourne.Luminesce.Sdk.Api
             }
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1429,10 +1564,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryProgressResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetProgressOfHistoryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetProgressOfHistoryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> localVarResponse = await GetProgressOfHistoryWithHttpInfoAsync(executionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> localVarResponse = await GetProgressOfHistoryWithHttpInfoAsync(executionId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1443,8 +1579,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="executionId">ExecutionId returned when starting the query</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryProgressResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse>> GetProgressOfHistoryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse>> GetProgressOfHistoryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1454,6 +1591,16 @@ namespace Finbourne.Luminesce.Sdk.Api
 
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

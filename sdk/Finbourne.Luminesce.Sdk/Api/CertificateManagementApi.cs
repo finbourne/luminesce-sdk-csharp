@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Client.Auth;
 using Finbourne.Luminesce.Sdk.Model;
 
@@ -41,8 +42,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
         /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream DownloadCertificate(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0);
+        System.IO.Stream DownloadCertificate(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate&#39;s public or private key - if any
@@ -55,8 +57,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
         /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> DownloadCertificateWithHttpInfo(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> DownloadCertificateWithHttpInfo(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListCertificates: Lists all the certificates previously minted to which you have access
         /// </summary>
@@ -65,8 +68,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>List&lt;CertificateState&gt;</returns>
-        List<CertificateState> ListCertificates(int operationIndex = 0);
+        List<CertificateState> ListCertificates(int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListCertificates: Lists all the certificates previously minted to which you have access
@@ -76,8 +80,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;CertificateState&gt;</returns>
-        ApiResponse<List<CertificateState>> ListCertificatesWithHttpInfo(int operationIndex = 0);
+        ApiResponse<List<CertificateState>> ListCertificatesWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
         /// </summary>
@@ -92,8 +97,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validityEnd">When should the cert no longer be valid (defaults to 13 months from now) (optional)</param>
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CertificateState</returns>
-        CertificateState ManageCertificate(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0);
+        CertificateState ManageCertificate(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
@@ -109,8 +115,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validityEnd">When should the cert no longer be valid (defaults to 13 months from now) (optional)</param>
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CertificateState</returns>
-        ApiResponse<CertificateState> ManageCertificateWithHttpInfo(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0);
+        ApiResponse<CertificateState> ManageCertificateWithHttpInfo(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -132,8 +139,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> DownloadCertificateAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> DownloadCertificateAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate&#39;s public or private key - if any
@@ -147,8 +155,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> DownloadCertificateWithHttpInfoAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> DownloadCertificateWithHttpInfoAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListCertificates: Lists all the certificates previously minted to which you have access
         /// </summary>
@@ -158,8 +167,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of List&lt;CertificateState&gt;</returns>
-        System.Threading.Tasks.Task<List<CertificateState>> ListCertificatesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<CertificateState>> ListCertificatesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListCertificates: Lists all the certificates previously minted to which you have access
@@ -170,8 +180,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;CertificateState&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<CertificateState>>> ListCertificatesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<CertificateState>>> ListCertificatesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
         /// </summary>
@@ -187,8 +198,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CertificateState</returns>
-        System.Threading.Tasks.Task<CertificateState> ManageCertificateAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CertificateState> ManageCertificateAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
@@ -205,8 +217,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CertificateState)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CertificateState>> ManageCertificateWithHttpInfoAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CertificateState>> ManageCertificateWithHttpInfoAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -239,9 +252,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns></returns>
         public CertificateManagementApi(string basePath)
         {
+            var globalConfiguration = Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Finbourne.Luminesce.Sdk.Client.Configuration.MergeConfigurations(
-                Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance,
-                new Finbourne.Luminesce.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Finbourne.Luminesce.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -332,10 +351,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
         /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream DownloadCertificate(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0)
+        public System.IO.Stream DownloadCertificate(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = DownloadCertificateWithHttpInfo(type, fileType, mayAutoCreate);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = DownloadCertificateWithHttpInfo(type, fileType, mayAutoCreate, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -347,10 +367,21 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="fileType">Should the public key or private key be downloaded? (both must be in place to run providers) (optional)</param>
         /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> DownloadCertificateWithHttpInfo(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> DownloadCertificateWithHttpInfo(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -430,10 +461,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> DownloadCertificateAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> DownloadCertificateAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await DownloadCertificateWithHttpInfoAsync(type, fileType, mayAutoCreate, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await DownloadCertificateWithHttpInfoAsync(type, fileType, mayAutoCreate, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -446,11 +478,22 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="mayAutoCreate">If no matching cert is available, should an attempt be made to Create/Renew it with default options? (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> DownloadCertificateWithHttpInfoAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> DownloadCertificateWithHttpInfoAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -527,10 +570,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>List&lt;CertificateState&gt;</returns>
-        public List<CertificateState> ListCertificates(int operationIndex = 0)
+        public List<CertificateState> ListCertificates(int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>> localVarResponse = ListCertificatesWithHttpInfo();
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>> localVarResponse = ListCertificatesWithHttpInfo(opts: opts);
             return localVarResponse.Data;
         }
 
@@ -539,10 +583,21 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;CertificateState&gt;</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>> ListCertificatesWithHttpInfo(int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>> ListCertificatesWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -607,10 +662,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of List&lt;CertificateState&gt;</returns>
-        public async System.Threading.Tasks.Task<List<CertificateState>> ListCertificatesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<CertificateState>> ListCertificatesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>> localVarResponse = await ListCertificatesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>> localVarResponse = await ListCertificatesWithHttpInfoAsync(operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -620,11 +676,22 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;CertificateState&gt;)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>>> ListCertificatesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CertificateState>>> ListCertificatesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -695,10 +762,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validityEnd">When should the cert no longer be valid (defaults to 13 months from now) (optional)</param>
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>CertificateState</returns>
-        public CertificateState ManageCertificate(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0)
+        public CertificateState ManageCertificate(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState> localVarResponse = ManageCertificateWithHttpInfo(action, type, version, validityStart, validityEnd, dryRun);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState> localVarResponse = ManageCertificateWithHttpInfo(action, type, version, validityStart, validityEnd, dryRun, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -713,10 +781,21 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="validityEnd">When should the cert no longer be valid (defaults to 13 months from now) (optional)</param>
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of CertificateState</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState> ManageCertificateWithHttpInfo(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState> ManageCertificateWithHttpInfo(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -811,10 +890,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of CertificateState</returns>
-        public async System.Threading.Tasks.Task<CertificateState> ManageCertificateAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CertificateState> ManageCertificateAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState> localVarResponse = await ManageCertificateWithHttpInfoAsync(action, type, version, validityStart, validityEnd, dryRun, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState> localVarResponse = await ManageCertificateWithHttpInfoAsync(action, type, version, validityStart, validityEnd, dryRun, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -830,11 +910,22 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="dryRun">True will just validate the request, but perform no changes to any system (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (CertificateState)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState>> ManageCertificateWithHttpInfoAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<CertificateState>> ManageCertificateWithHttpInfoAsync(CertificateAction? action = default(CertificateAction?), CertificateType? type = default(CertificateType?), int? version = default(int?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), bool? dryRun = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

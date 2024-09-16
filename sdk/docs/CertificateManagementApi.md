@@ -46,6 +46,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CertificateManagementApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CertificateManagementApi>();
             var type = new CertificateType?(); // CertificateType? | User or Domain level cert (Domain level requires additional entitlements) (optional) 
             var fileType = new CertificateFileType?(); // CertificateFileType? | Should the public key or private key be downloaded? (both must be in place to run providers) (optional) 
@@ -53,6 +61,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // System.IO.Stream result = apiInstance.DownloadCertificate(type, fileType, mayAutoCreate, opts: opts);
+
                 // [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate's public or private key - if any
                 System.IO.Stream result = apiInstance.DownloadCertificate(type, fileType, mayAutoCreate);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -153,10 +164,21 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CertificateManagementApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CertificateManagementApi>();
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<CertificateState> result = apiInstance.ListCertificates(opts: opts);
+
                 // [EXPERIMENTAL] ListCertificates: Lists all the certificates previously minted to which you have access
                 List<CertificateState> result = apiInstance.ListCertificates();
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -251,6 +273,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CertificateManagementApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CertificateManagementApi>();
             var action = new CertificateAction?(); // CertificateAction? | The Action to perform, e.g. Create / Renew / Revoke (optional) 
             var type = new CertificateType?(); // CertificateType? | User or Domain level cert (Domain level requires additional entitlements) (optional) 
@@ -261,6 +291,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CertificateState result = apiInstance.ManageCertificate(action, type, version, validityStart, validityEnd, dryRun, opts: opts);
+
                 // [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
                 CertificateState result = apiInstance.ManageCertificate(action, type, version, validityStart, validityEnd, dryRun);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

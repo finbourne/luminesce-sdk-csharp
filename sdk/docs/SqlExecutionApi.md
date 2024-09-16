@@ -57,6 +57,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -68,6 +76,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.GetByQueryCsv(query, scalarParameters, queryName, download, timeout, delimiter, escape, opts: opts);
+
                 // GetByQueryCsv: Executes Sql, returned in CSV format, where the sql is simply in the url.
                 string result = apiInstance.GetByQueryCsv(query, scalarParameters, queryName, download, timeout, delimiter, escape);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -172,6 +183,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -180,6 +199,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // System.IO.Stream result = apiInstance.GetByQueryExcel(query, scalarParameters, queryName, timeout, opts: opts);
+
                 // GetByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded) format, where the sql is simply in the url.
                 System.IO.Stream result = apiInstance.GetByQueryExcel(query, scalarParameters, queryName, timeout);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -281,6 +303,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -290,6 +320,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.GetByQueryJson(query, scalarParameters, queryName, timeout, jsonProper, opts: opts);
+
                 // GetByQueryJson: Executes Sql, returned in JSON format, where the sql is simply in the url.
                 string result = apiInstance.GetByQueryJson(query, scalarParameters, queryName, timeout, jsonProper);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -392,6 +425,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -400,6 +441,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // System.IO.Stream result = apiInstance.GetByQueryParquet(query, scalarParameters, queryName, timeout, opts: opts);
+
                 // GetByQueryParquet: Executes Sql, returned in Parquet (.parquet) format (as a file to be downloaded) format, where the sql is simply in the url.
                 System.IO.Stream result = apiInstance.GetByQueryParquet(query, scalarParameters, queryName, timeout);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -501,6 +545,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -510,6 +562,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.GetByQueryPipe(query, scalarParameters, queryName, download, timeout, opts: opts);
+
                 // GetByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is simply in the url.
                 string result = apiInstance.GetByQueryPipe(query, scalarParameters, queryName, download, timeout);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -612,6 +667,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -620,6 +683,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // System.IO.Stream result = apiInstance.GetByQuerySqlite(query, scalarParameters, queryName, timeout, opts: opts);
+
                 // GetByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded) format, where the sql is simply in the url.
                 System.IO.Stream result = apiInstance.GetByQuerySqlite(query, scalarParameters, queryName, timeout);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -721,6 +787,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -730,6 +804,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.GetByQueryXml(query, scalarParameters, queryName, download, timeout, opts: opts);
+
                 // GetByQueryXml: Executes Sql, returned in Xml format, where the sql is simply in the url.
                 string result = apiInstance.GetByQueryXml(query, scalarParameters, queryName, download, timeout);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -832,6 +909,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -843,6 +928,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.PutByQueryCsv(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape, opts: opts);
+
                 // PutByQueryCsv: Executes Sql, returned in CSV format, where the sql is the post-body url.
                 string result = apiInstance.PutByQueryCsv(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -947,6 +1035,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -955,6 +1051,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // System.IO.Stream result = apiInstance.PutByQueryExcel(body, scalarParameters, queryName, timeoutSeconds, opts: opts);
+
                 // PutByQueryExcel: Executes Sql, returned in Excel (xlsx) format (as a file to be downloaded), where the sql is the post-body url.
                 System.IO.Stream result = apiInstance.PutByQueryExcel(body, scalarParameters, queryName, timeoutSeconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1056,6 +1155,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -1065,6 +1172,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.PutByQueryJson(body, scalarParameters, queryName, timeoutSeconds, jsonProper, opts: opts);
+
                 // PutByQueryJson: Executes Sql, returned in JSON format, where the sql is the post-body url.
                 string result = apiInstance.PutByQueryJson(body, scalarParameters, queryName, timeoutSeconds, jsonProper);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1167,6 +1277,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -1175,6 +1293,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // System.IO.Stream result = apiInstance.PutByQueryParquet(body, scalarParameters, queryName, timeoutSeconds, opts: opts);
+
                 // PutByQueryParquet: Executes Sql, returned in Parquet format, where the sql is the post-body url.
                 System.IO.Stream result = apiInstance.PutByQueryParquet(body, scalarParameters, queryName, timeoutSeconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1276,6 +1397,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -1285,6 +1414,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.PutByQueryPipe(body, scalarParameters, queryName, download, timeoutSeconds, opts: opts);
+
                 // PutByQueryPipe: Executes Sql, returned in pipe-delimited format, where the sql is the post-body url.
                 string result = apiInstance.PutByQueryPipe(body, scalarParameters, queryName, download, timeoutSeconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1387,6 +1519,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -1395,6 +1535,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // System.IO.Stream result = apiInstance.PutByQuerySqlite(body, scalarParameters, queryName, timeoutSeconds, opts: opts);
+
                 // PutByQuerySqlite: Executes Sql, returned in SqLite DB (sqlite3) format (as a file to be downloaded), where the sql is the post-body url.
                 System.IO.Stream result = apiInstance.PutByQuerySqlite(body, scalarParameters, queryName, timeoutSeconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1496,6 +1639,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlExecutionApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlExecutionApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
@@ -1505,6 +1656,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.PutByQueryXml(body, scalarParameters, queryName, download, timeoutSeconds, opts: opts);
+
                 // PutByQueryXml: Executes Sql, returned in Xml format, where the sql is the post-body url.
                 string result = apiInstance.PutByQueryXml(body, scalarParameters, queryName, download, timeoutSeconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

@@ -59,6 +59,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = CASE 
  WHEN [currency] = 'US' THEN 'USD' 
@@ -68,6 +76,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // CaseStatementDesign result = apiInstance.PutCaseStatementDesignSqlToDesign(body, opts: opts);
+
                 // [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL queries to a CaseStatementDesign object.
                 CaseStatementDesign result = apiInstance.PutCaseStatementDesignSqlToDesign(body);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -166,11 +177,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var caseStatementDesign = new CaseStatementDesign(); // CaseStatementDesign | Structured file read design object to generate SQL from
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.PutCaseStatementDesignToSql(caseStatementDesign, opts: opts);
+
                 // [EXPERIMENTAL] PutCaseStatementDesignToSql: Generates SQL case statement queries from a structured design
                 string result = apiInstance.PutCaseStatementDesignToSql(caseStatementDesign);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -269,12 +291,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var fileReaderBuilderDef = new FileReaderBuilderDef(); // FileReaderBuilderDef | Structured file read design object to generate SQL from
             var executeQuery = true;  // bool? | Should the generated query be executed to build preview data or determine errors.> (optional)  (default to true)
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // FileReaderBuilderResponse result = apiInstance.PutFileReadDesignToSql(fileReaderBuilderDef, executeQuery, opts: opts);
+
                 // [EXPERIMENTAL] PutFileReadDesignToSql: Generates file read SQL from a structured query design
                 FileReaderBuilderResponse result = apiInstance.PutFileReadDesignToSql(fileReaderBuilderDef, executeQuery);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -374,6 +407,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = @keysToCatalog = values('Portfolio/3897-78d4-e91c-26/location', 'PortfolioLocation', false, '');
  @config = select column1 as [Key], column2 as Name, column3 as IsMain, column4 as Description from @keysToCatalog; 
@@ -381,6 +422,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // InlinedPropertyDesign result = apiInstance.PutInlinedPropertiesDesignSqlToDesign(body, opts: opts);
+
                 // [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Generates a SQL-inlined-properties-design object from SQL string, if possible.
                 InlinedPropertyDesign result = apiInstance.PutInlinedPropertiesDesignSqlToDesign(body);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -479,11 +523,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var inlinedPropertyDesign = new InlinedPropertyDesign(); // InlinedPropertyDesign | Structured file read design object to generate SQL from
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.PutInlinedPropertiesDesignToSql(inlinedPropertyDesign, opts: opts);
+
                 // [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Generates inlined properties SQL from a structured design
                 string result = apiInstance.PutInlinedPropertiesDesignToSql(inlinedPropertyDesign);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -582,11 +637,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var intellisenseRequest = new IntellisenseRequest(); // IntellisenseRequest | 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // IntellisenseResponse result = apiInstance.PutIntellisense(intellisenseRequest, opts: opts);
+
                 // PutIntellisense: Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid) and cursor location
                 IntellisenseResponse result = apiInstance.PutIntellisense(intellisenseRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -685,11 +751,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var errorHighlightRequest = new ErrorHighlightRequest(); // ErrorHighlightRequest | 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ErrorHighlightResponse result = apiInstance.PutIntellisenseError(errorHighlightRequest, opts: opts);
+
                 // PutIntellisenseError: Generate a set of error ranges, if any, in the given SQL (expressed as Lines)
                 ErrorHighlightResponse result = apiInstance.PutIntellisenseError(errorHighlightRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -788,11 +865,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var queryDesign = new QueryDesign(); // QueryDesign | Structured Query design object to generate SQL from
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.PutQueryDesignToSql(queryDesign, opts: opts);
+
                 // [EXPERIMENTAL] PutQueryDesignToSql: Generates SQL from a structured query design
                 string result = apiInstance.PutQueryDesignToSql(queryDesign);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -891,6 +979,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Pretty-Print. Even if it doesn't parse an attempt will be made to format it
             var trailingCommas = true;  // bool? | Should commas be after an expression (as opposed to before) (optional)  (default to true)
@@ -909,6 +1005,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.PutQueryToFormat(body, trailingCommas, uppercaseKeywords, breakJoinOnSections, spaceAfterExpandedComma, keywordStandardization, expandCommaLists, expandInLists, expandBooleanExpressions, expandBetweenConditions, expandCaseStatements, maxLineWidth, spaceBeforeTrailingSingleLineComments, multilineCommentExtraLineBreak, opts: opts);
+
                 // PutQueryToFormat: Formats SQL into a more readable form, a.k.a. Pretty-Print the SQL.
                 string result = apiInstance.PutQueryToFormat(body, trailingCommas, uppercaseKeywords, breakJoinOnSections, spaceAfterExpandedComma, keywordStandardization, expandCommaLists, expandInLists, expandBooleanExpressions, expandBetweenConditions, expandCaseStatements, maxLineWidth, spaceBeforeTrailingSingleLineComments, multilineCommentExtraLineBreak);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1020,11 +1119,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = select abc, :p1:'this' as c1 from xxx where abc = :abcP:123 or xyz in (:p2:, 'zzz');  // string | SQL query to generate the design object from
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<ScalarParameter> result = apiInstance.PutSqlToExtractScalarParameters(body, opts: opts);
+
                 // [EXPERIMENTAL] PutSqlToExtractScalarParameters: Generates information about all the scalar parameters defined in the given SQL statement
                 List<ScalarParameter> result = apiInstance.PutSqlToExtractScalarParameters(body);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1123,6 +1233,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var determineAvailableSources = true;  // bool? | Should the available sources be determined from `Sys.Registration` (optional)  (default to true)
             var body = @x = 
@@ -1134,6 +1252,9 @@ select * from @x;;  // string? | SQL query to generate the file read design obje
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // FileReaderBuilderDef result = apiInstance.PutSqlToFileReadDesign(determineAvailableSources, body, opts: opts);
+
                 // [EXPERIMENTAL] PutSqlToFileReadDesign: Generates a SQL-file-read-design object from SQL string, if possible.
                 FileReaderBuilderDef result = apiInstance.PutSqlToFileReadDesign(determineAvailableSources, body);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1233,6 +1354,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = SELECT
     [TableName],
@@ -1250,6 +1379,9 @@ LIMIT 42;  // string | SQL query to generate the design object from
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // QueryDesign result = apiInstance.PutSqlToQueryDesign(body, validateWithMetadata, opts: opts);
+
                 // [EXPERIMENTAL] PutSqlToQueryDesign: Generates a SQL-design object from SQL string, if possible.
                 QueryDesign result = apiInstance.PutSqlToQueryDesign(body, validateWithMetadata);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1349,6 +1481,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = @x = 
 use Sys.Admin.SetupView
@@ -1361,6 +1501,9 @@ select * from @x;;  // string | SQL Query to generate the ConvertToViewData obje
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ConvertToViewData result = apiInstance.PutSqlToViewDesign(body, opts: opts);
+
                 // [EXPERIMENTAL] PutSqlToViewDesign: Generates a structured view creation design from existing view creation SQL.
                 ConvertToViewData result = apiInstance.PutSqlToViewDesign(body);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1459,12 +1602,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = Select abc from xyz;  // string | SQL query to generate the writer design object from
             var mergeAdditionalMappingFields = false;  // bool? | Should `Sys.Field` be used to find additional potential fields to map from? (not always possible) (optional)  (default to false)
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // WriterDesign result = apiInstance.PutSqlToWriterDesign(body, mergeAdditionalMappingFields, opts: opts);
+
                 // [EXPERIMENTAL] PutSqlToWriterDesign: Generates a SQL-writer-design object from SQL string, if possible.
                 WriterDesign result = apiInstance.PutSqlToWriterDesign(body, mergeAdditionalMappingFields);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1564,11 +1718,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var convertToViewData = new ConvertToViewData(); // ConvertToViewData | Structured Query design object to generate SQL from
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.PutViewDesignToSql(convertToViewData, opts: opts);
+
                 // [EXPERIMENTAL] PutViewDesignToSql: Generates view creation sql from a structured view creation design
                 string result = apiInstance.PutViewDesignToSql(convertToViewData);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1667,11 +1832,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var writerDesign = new WriterDesign(); // WriterDesign | Structured Writer Design design object to generate Writer SQL from
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.PutWriterDesignToSql(writerDesign, opts: opts);
+
                 // [EXPERIMENTAL] PutWriterDesignToSql: Generates writer SQL from a valid writer-design structure
                 string result = apiInstance.PutWriterDesignToSql(writerDesign);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

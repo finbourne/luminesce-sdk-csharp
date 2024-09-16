@@ -44,11 +44,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<HealthCheckingEndpointApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<HealthCheckingEndpointApi>();
             var secondsUntilReclaim = 119;  // int? | the number of seconds from which to assume node termination (optional)  (default to 119)
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Object result = apiInstance.FakeNodeReclaim(secondsUntilReclaim, opts: opts);
+
                 // [INTERNAL] FakeNodeReclaim: An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place.
                 Object result = apiInstance.FakeNodeReclaim(secondsUntilReclaim);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

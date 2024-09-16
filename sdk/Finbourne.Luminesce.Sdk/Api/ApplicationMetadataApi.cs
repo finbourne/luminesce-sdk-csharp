@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
 using Finbourne.Luminesce.Sdk.Client.Auth;
 using Finbourne.Luminesce.Sdk.Model;
 
@@ -38,8 +39,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfAccessControlledResource</returns>
-        ResourceListOfAccessControlledResource GetServicesAsAccessControlledResources(int operationIndex = 0);
+        ResourceListOfAccessControlledResource GetServicesAsAccessControlledResources(int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetServicesAsAccessControlledResources: Get resources available for access control
@@ -49,8 +51,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfAccessControlledResource</returns>
-        ApiResponse<ResourceListOfAccessControlledResource> GetServicesAsAccessControlledResourcesWithHttpInfo(int operationIndex = 0);
+        ApiResponse<ResourceListOfAccessControlledResource> GetServicesAsAccessControlledResourcesWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -69,8 +72,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfAccessControlledResource</returns>
-        System.Threading.Tasks.Task<ResourceListOfAccessControlledResource> GetServicesAsAccessControlledResourcesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfAccessControlledResource> GetServicesAsAccessControlledResourcesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetServicesAsAccessControlledResources: Get resources available for access control
@@ -81,8 +85,9 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfAccessControlledResource)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfAccessControlledResource>> GetServicesAsAccessControlledResourcesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfAccessControlledResource>> GetServicesAsAccessControlledResourcesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -115,9 +120,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns></returns>
         public ApplicationMetadataApi(string basePath)
         {
+            var globalConfiguration = Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Finbourne.Luminesce.Sdk.Client.Configuration.MergeConfigurations(
-                Finbourne.Luminesce.Sdk.Client.GlobalConfiguration.Instance,
-                new Finbourne.Luminesce.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Finbourne.Luminesce.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Finbourne.Luminesce.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -205,10 +216,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfAccessControlledResource</returns>
-        public ResourceListOfAccessControlledResource GetServicesAsAccessControlledResources(int operationIndex = 0)
+        public ResourceListOfAccessControlledResource GetServicesAsAccessControlledResources(int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<ResourceListOfAccessControlledResource> localVarResponse = GetServicesAsAccessControlledResourcesWithHttpInfo();
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<ResourceListOfAccessControlledResource> localVarResponse = GetServicesAsAccessControlledResourcesWithHttpInfo(opts: opts);
             return localVarResponse.Data;
         }
 
@@ -217,10 +229,21 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfAccessControlledResource</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<ResourceListOfAccessControlledResource> GetServicesAsAccessControlledResourcesWithHttpInfo(int operationIndex = 0)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<ResourceListOfAccessControlledResource> GetServicesAsAccessControlledResourcesWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -285,10 +308,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfAccessControlledResource</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfAccessControlledResource> GetServicesAsAccessControlledResourcesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfAccessControlledResource> GetServicesAsAccessControlledResourcesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<ResourceListOfAccessControlledResource> localVarResponse = await GetServicesAsAccessControlledResourcesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<ResourceListOfAccessControlledResource> localVarResponse = await GetServicesAsAccessControlledResourcesWithHttpInfoAsync(operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -298,11 +322,22 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfAccessControlledResource)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<ResourceListOfAccessControlledResource>> GetServicesAsAccessControlledResourcesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<ResourceListOfAccessControlledResource>> GetServicesAsAccessControlledResourcesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
