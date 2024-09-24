@@ -31,10 +31,10 @@ namespace Finbourne.Luminesce.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [INTERNAL] FakeNodeReclaim: An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place.
+        /// [INTERNAL] FakeNodeReclaim: Helps testing of AWS node reclaim behaviour
         /// </summary>
         /// <remarks>
-        /// Internal testing controller to simulate having received an AWS node reclaim warning, or similar.
+        ///  An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place. Simulates having received an AWS node reclaim warning, or similar.
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
@@ -44,10 +44,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         Object FakeNodeReclaim(int? secondsUntilReclaim = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [INTERNAL] FakeNodeReclaim: An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place.
+        /// [INTERNAL] FakeNodeReclaim: Helps testing of AWS node reclaim behaviour
         /// </summary>
         /// <remarks>
-        /// Internal testing controller to simulate having received an AWS node reclaim warning, or similar.
+        ///  An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place. Simulates having received an AWS node reclaim warning, or similar.
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
@@ -65,10 +65,10 @@ namespace Finbourne.Luminesce.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [INTERNAL] FakeNodeReclaim: An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place.
+        /// [INTERNAL] FakeNodeReclaim: Helps testing of AWS node reclaim behaviour
         /// </summary>
         /// <remarks>
-        /// Internal testing controller to simulate having received an AWS node reclaim warning, or similar.
+        ///  An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place. Simulates having received an AWS node reclaim warning, or similar.
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
@@ -79,10 +79,10 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<Object> FakeNodeReclaimAsync(int? secondsUntilReclaim = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [INTERNAL] FakeNodeReclaim: An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place.
+        /// [INTERNAL] FakeNodeReclaim: Helps testing of AWS node reclaim behaviour
         /// </summary>
         /// <remarks>
-        /// Internal testing controller to simulate having received an AWS node reclaim warning, or similar.
+        ///  An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place. Simulates having received an AWS node reclaim warning, or similar.
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
@@ -215,7 +215,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [INTERNAL] FakeNodeReclaim: An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place. Internal testing controller to simulate having received an AWS node reclaim warning, or similar.
+        /// [INTERNAL] FakeNodeReclaim: Helps testing of AWS node reclaim behaviour  An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place. Simulates having received an AWS node reclaim warning, or similar.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
@@ -229,7 +229,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [INTERNAL] FakeNodeReclaim: An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place. Internal testing controller to simulate having received an AWS node reclaim warning, or similar.
+        /// [INTERNAL] FakeNodeReclaim: Helps testing of AWS node reclaim behaviour  An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place. Simulates having received an AWS node reclaim warning, or similar.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
@@ -312,7 +312,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [INTERNAL] FakeNodeReclaim: An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place. Internal testing controller to simulate having received an AWS node reclaim warning, or similar.
+        /// [INTERNAL] FakeNodeReclaim: Helps testing of AWS node reclaim behaviour  An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place. Simulates having received an AWS node reclaim warning, or similar.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>
@@ -327,7 +327,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [INTERNAL] FakeNodeReclaim: An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place. Internal testing controller to simulate having received an AWS node reclaim warning, or similar.
+        /// [INTERNAL] FakeNodeReclaim: Helps testing of AWS node reclaim behaviour  An internal Method used to mark the next SIGTERM as though an Aws Node reclaim were about to take place. Simulates having received an AWS node reclaim warning, or similar.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="secondsUntilReclaim">the number of seconds from which to assume node termination (optional, default to 119)</param>

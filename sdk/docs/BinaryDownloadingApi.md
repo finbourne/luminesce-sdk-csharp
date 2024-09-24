@@ -4,16 +4,16 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DownloadBinary**](BinaryDownloadingApi.md#downloadbinary) | **GET** /api/Download/download | [EXPERIMENTAL] DownloadBinary: Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements. |
-| [**GetBinaryVersions**](BinaryDownloadingApi.md#getbinaryversions) | **GET** /api/Download/versions | [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus |
+| [**DownloadBinary**](BinaryDownloadingApi.md#downloadbinary) | **GET** /api/Download/download | [EXPERIMENTAL] DownloadBinary: Download Luminesce Binaries you may run on site |
+| [**GetBinaryVersions**](BinaryDownloadingApi.md#getbinaryversions) | **GET** /api/Download/versions | [EXPERIMENTAL] GetBinaryVersions: Lists the available versions of binaries |
 
 <a id="downloadbinary"></a>
 # **DownloadBinary**
 > System.IO.Stream DownloadBinary (LuminesceBinaryType? type = null, string? version = null)
 
-[EXPERIMENTAL] DownloadBinary: Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.
+[EXPERIMENTAL] DownloadBinary: Download Luminesce Binaries you may run on site
 
- Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.  *NOTE:* This endpoint is an alternative to time-consuming manual distribution via Drive or Email. > it relies on as underlying datastore that is not quite as \"Highly Available\" to the degree  > that FINBOURNE services generally are.   > Thus it is not subject to the same SLAs as other API endpoints are. > *If you perceive an outage, please try again later.*  Once a file has been downloaded the following steps can be used to install it (for the dotnet tools at least):  1. Open a terminal and cd to the directory you downloaded it to 2. Install / extract files from that package via: ``` dotnet tool install NameOfFileWithoutVersionNumberOrExtension -g - -add-source \".\" ``` e.g. ``` dotnet tool install Finbourne.Luminesce.DbProviders.Oracle_Snowflake -g - -add-source \".\" ``` 3. Execute them (see documentation for specific binary)...  The installed binaries can then be found in - Windows - `%USERPROFILE%\\.dotnet\\tools\\.store\\` - Linux/macOS - `$HOME/.dotnet/tools/.store/`  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - binary file is not available for some reason (e.g. permissions or invalid version) - 401 Unauthorized - 403 Forbidden 
+ Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.  > This endpoint is an alternative to time-consuming manual distribution via Drive or Email. > it relies on an underlying datastore that is not quite as \"Highly Available\" to the degree  > that FINBOURNE services generally are.   > Thus it is not subject to the same SLAs as other API endpoints are. > *If you perceive an outage, please try again later.*  Once a file has been downloaded the following steps can be used to install it (for the dotnet tools at least):  1. Open a terminal and cd to the directory you downloaded it to 2. Install / extract files from that package via: ``` dotnet tool install NameOfFileWithoutVersionNumberOrExtension -g - -add-source \".\" ``` e.g. ``` dotnet tool install Finbourne.Luminesce.DbProviders.Oracle_Snowflake -g - -add-source \".\" ``` 3. Execute them (see documentation for specific binary)...  The installed binaries can then be found in - Windows - `%USERPROFILE%\\.dotnet\\tools\\.store\\` - Linux/macOS - `$HOME/.dotnet/tools/.store/`  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - binary file is not available for some reason (e.g. permissions or invalid version) - 401 Unauthorized - 403 Forbidden 
 
 ### Example
 ```csharp
@@ -62,7 +62,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // System.IO.Stream result = apiInstance.DownloadBinary(type, version, opts: opts);
 
-                // [EXPERIMENTAL] DownloadBinary: Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.
+                // [EXPERIMENTAL] DownloadBinary: Download Luminesce Binaries you may run on site
                 System.IO.Stream result = apiInstance.DownloadBinary(type, version);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -83,7 +83,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DownloadBinary: Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.
+    // [EXPERIMENTAL] DownloadBinary: Download Luminesce Binaries you may run on site
     ApiResponse<System.IO.Stream> response = apiInstance.DownloadBinaryWithHttpInfo(type, version);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -127,7 +127,7 @@ catch (ApiException e)
 # **GetBinaryVersions**
 > List&lt;string&gt; GetBinaryVersions (LuminesceBinaryType? type = null)
 
-[EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus
+[EXPERIMENTAL] GetBinaryVersions: Lists the available versions of binaries
 
  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
 
@@ -177,7 +177,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // List<string> result = apiInstance.GetBinaryVersions(type, opts: opts);
 
-                // [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus
+                // [EXPERIMENTAL] GetBinaryVersions: Lists the available versions of binaries
                 List<string> result = apiInstance.GetBinaryVersions(type);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -198,7 +198,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetBinaryVersions: Gets the list of available versions of a user-downloadable binary from Nexus
+    // [EXPERIMENTAL] GetBinaryVersions: Lists the available versions of binaries
     ApiResponse<List<string>> response = apiInstance.GetBinaryVersionsWithHttpInfo(type);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

@@ -4,17 +4,17 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DownloadCertificate**](CertificateManagementApi.md#downloadcertificate) | **GET** /api/Certificate/certificate | [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate&#39;s public or private key - if any |
-| [**ListCertificates**](CertificateManagementApi.md#listcertificates) | **GET** /api/Certificate/certificates | [EXPERIMENTAL] ListCertificates: Lists all the certificates previously minted to which you have access |
-| [**ManageCertificate**](CertificateManagementApi.md#managecertificate) | **PUT** /api/Certificate/manage | [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke) |
+| [**DownloadCertificate**](CertificateManagementApi.md#downloadcertificate) | **GET** /api/Certificate/certificate | [EXPERIMENTAL] DownloadCertificate: Download Domain or your personal certificates |
+| [**ListCertificates**](CertificateManagementApi.md#listcertificates) | **GET** /api/Certificate/certificates | [EXPERIMENTAL] ListCertificates: Lists previously minted certificates |
+| [**ManageCertificate**](CertificateManagementApi.md#managecertificate) | **PUT** /api/Certificate/manage | [EXPERIMENTAL] ManageCertificate: Create / Renew / Revoke a certificate |
 
 <a id="downloadcertificate"></a>
 # **DownloadCertificate**
 > System.IO.Stream DownloadCertificate (CertificateType? type = null, CertificateFileType? fileType = null, bool? mayAutoCreate = null)
 
-[EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate's public or private key - if any
+[EXPERIMENTAL] DownloadCertificate: Download Domain or your personal certificates
 
- Downloads your latest Domain or User certificate's public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized - 403 Forbidden 
+ Downloads your latest Domain or your User certificate's public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized - 403 Forbidden 
 
 ### Example
 ```csharp
@@ -64,7 +64,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // System.IO.Stream result = apiInstance.DownloadCertificate(type, fileType, mayAutoCreate, opts: opts);
 
-                // [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate's public or private key - if any
+                // [EXPERIMENTAL] DownloadCertificate: Download Domain or your personal certificates
                 System.IO.Stream result = apiInstance.DownloadCertificate(type, fileType, mayAutoCreate);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -85,7 +85,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DownloadCertificate: Downloads your latest Domain or User certificate's public or private key - if any
+    // [EXPERIMENTAL] DownloadCertificate: Download Domain or your personal certificates
     ApiResponse<System.IO.Stream> response = apiInstance.DownloadCertificateWithHttpInfo(type, fileType, mayAutoCreate);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -130,7 +130,7 @@ catch (ApiException e)
 # **ListCertificates**
 > List&lt;CertificateState&gt; ListCertificates ()
 
-[EXPERIMENTAL] ListCertificates: Lists all the certificates previously minted to which you have access
+[EXPERIMENTAL] ListCertificates: Lists previously minted certificates
 
  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
 
@@ -179,7 +179,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // List<CertificateState> result = apiInstance.ListCertificates(opts: opts);
 
-                // [EXPERIMENTAL] ListCertificates: Lists all the certificates previously minted to which you have access
+                // [EXPERIMENTAL] ListCertificates: Lists previously minted certificates
                 List<CertificateState> result = apiInstance.ListCertificates();
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -200,7 +200,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListCertificates: Lists all the certificates previously minted to which you have access
+    // [EXPERIMENTAL] ListCertificates: Lists previously minted certificates
     ApiResponse<List<CertificateState>> response = apiInstance.ListCertificatesWithHttpInfo();
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -239,7 +239,7 @@ This endpoint does not need any parameter.
 # **ManageCertificate**
 > CertificateState ManageCertificate (CertificateAction? action = null, CertificateType? type = null, int? version = null, DateTimeOffset? validityStart = null, DateTimeOffset? validityEnd = null, bool? dryRun = null)
 
-[EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
+[EXPERIMENTAL] ManageCertificate: Create / Renew / Revoke a certificate
 
  Manages a certificate.  This could be creating a new one, renewing an old one or revoking one explicitly.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something about the request cannot be processed - 401 Unauthorized - 403 Forbidden 
 
@@ -294,7 +294,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // CertificateState result = apiInstance.ManageCertificate(action, type, version, validityStart, validityEnd, dryRun, opts: opts);
 
-                // [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
+                // [EXPERIMENTAL] ManageCertificate: Create / Renew / Revoke a certificate
                 CertificateState result = apiInstance.ManageCertificate(action, type, version, validityStart, validityEnd, dryRun);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -315,7 +315,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ManageCertificate: Manages a new certificate (Create / Renew / Revoke)
+    // [EXPERIMENTAL] ManageCertificate: Create / Renew / Revoke a certificate
     ApiResponse<CertificateState> response = apiInstance.ManageCertificateWithHttpInfo(action, type, version, validityStart, validityEnd, dryRun);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

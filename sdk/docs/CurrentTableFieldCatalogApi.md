@@ -4,17 +4,17 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetCatalog**](CurrentTableFieldCatalogApi.md#getcatalog) | **GET** /api/Catalog | GetCatalog: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format) |
-| [**GetFields**](CurrentTableFieldCatalogApi.md#getfields) | **GET** /api/Catalog/fields | GetFields: Shows Table level information on Providers that are currently running that you have access to (in Json format) |
-| [**GetProviders**](CurrentTableFieldCatalogApi.md#getproviders) | **GET** /api/Catalog/providers | GetProviders: Shows Table level information on Providers that are currently running that you have access to (in Json format) |
+| [**GetCatalog**](CurrentTableFieldCatalogApi.md#getcatalog) | **GET** /api/Catalog | GetCatalog: Flattened Table/Faield Catalog |
+| [**GetFields**](CurrentTableFieldCatalogApi.md#getfields) | **GET** /api/Catalog/fields | GetFields: Lists field/parameter information for providers |
+| [**GetProviders**](CurrentTableFieldCatalogApi.md#getproviders) | **GET** /api/Catalog/providers | GetProviders: Lists providers available |
 
 <a id="getcatalog"></a>
 # **GetCatalog**
 > string GetCatalog (string? freeTextSearch = null, bool? jsonProper = null, bool? useCache = null)
 
-GetCatalog: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
+GetCatalog: Flattened Table/Faield Catalog
 
- Returns the User's full version of the catalog (Providers and their fields)  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+ Returns the User's full version of the catalog (Providers, their fields and associated information) that are currently running that you have access to (in Json format).  This is the entire catalog flattened, which is often quite large and always a bit repetitive.   The internal results are cached for several minutes.  Consider using `api/Catalog/providers` and `api/Catalog/fields` for a more granular and incremental loading flow.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
 
 ### Example
 ```csharp
@@ -64,7 +64,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.GetCatalog(freeTextSearch, jsonProper, useCache, opts: opts);
 
-                // GetCatalog: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
+                // GetCatalog: Flattened Table/Faield Catalog
                 string result = apiInstance.GetCatalog(freeTextSearch, jsonProper, useCache);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -85,7 +85,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // GetCatalog: Shows Table and Field level information on Providers that are currently running that you have access to (in Json format)
+    // GetCatalog: Flattened Table/Faield Catalog
     ApiResponse<string> response = apiInstance.GetCatalogWithHttpInfo(freeTextSearch, jsonProper, useCache);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -128,9 +128,9 @@ catch (ApiException e)
 # **GetFields**
 > string GetFields (string? tableLike = null)
 
-GetFields: Shows Table level information on Providers that are currently running that you have access to (in Json format)
+GetFields: Lists field/parameter information for providers
 
- Returns the User's full version of the catalog but only the field/parameter-level information  (as well as the TableName they refer to, of course) for tables matching the `tableLike` (manually include wildcards if desired).  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+ Returns the User's full version of the catalog but only the field/parameter-level information  (as well as the TableName they refer to, of course) for tables matching the `tableLike` (manually include wildcards if desired).  The internal results are cached for several minutes.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
 
 ### Example
 ```csharp
@@ -178,7 +178,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.GetFields(tableLike, opts: opts);
 
-                // GetFields: Shows Table level information on Providers that are currently running that you have access to (in Json format)
+                // GetFields: Lists field/parameter information for providers
                 string result = apiInstance.GetFields(tableLike);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -199,7 +199,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // GetFields: Shows Table level information on Providers that are currently running that you have access to (in Json format)
+    // GetFields: Lists field/parameter information for providers
     ApiResponse<string> response = apiInstance.GetFieldsWithHttpInfo(tableLike);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -240,9 +240,9 @@ catch (ApiException e)
 # **GetProviders**
 > string GetProviders (string? freeTextSearch = null, bool? useCache = null)
 
-GetProviders: Shows Table level information on Providers that are currently running that you have access to (in Json format)
+GetProviders: Lists providers available
 
- Returns the User's full version of the catalog but only the table/provider-level information  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+ Returns the User's full version of the catalog but only the table/provider-level information they have access to.  The internal results are cached for several minutes.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
 
 ### Example
 ```csharp
@@ -291,7 +291,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.GetProviders(freeTextSearch, useCache, opts: opts);
 
-                // GetProviders: Shows Table level information on Providers that are currently running that you have access to (in Json format)
+                // GetProviders: Lists providers available
                 string result = apiInstance.GetProviders(freeTextSearch, useCache);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -312,7 +312,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // GetProviders: Shows Table level information on Providers that are currently running that you have access to (in Json format)
+    // GetProviders: Lists providers available
     ApiResponse<string> response = apiInstance.GetProvidersWithHttpInfo(freeTextSearch, useCache);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
