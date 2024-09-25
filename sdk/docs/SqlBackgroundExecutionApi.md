@@ -4,24 +4,24 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CancelQuery**](SqlBackgroundExecutionApi.md#cancelquery) | **DELETE** /api/SqlBackground/{executionId} | CancelQuery: Cancels / Clears data from a previously run query |
-| [**FetchQueryResultCsv**](SqlBackgroundExecutionApi.md#fetchqueryresultcsv) | **GET** /api/SqlBackground/{executionId}/csv | FetchQueryResultCsv: Fetches the result of a query as CSV |
-| [**FetchQueryResultExcel**](SqlBackgroundExecutionApi.md#fetchqueryresultexcel) | **GET** /api/SqlBackground/{executionId}/excel | FetchQueryResultExcel: Fetches the result of a query as an Excel file |
-| [**FetchQueryResultHistogram**](SqlBackgroundExecutionApi.md#fetchqueryresulthistogram) | **GET** /api/SqlBackground/{executionId}/histogram | FetchQueryResultHistogram: Constructs a histogram of the result of a query |
-| [**FetchQueryResultJson**](SqlBackgroundExecutionApi.md#fetchqueryresultjson) | **GET** /api/SqlBackground/{executionId}/json | FetchQueryResultJson: Fetches the result of a query as a JSON string |
-| [**FetchQueryResultJsonProper**](SqlBackgroundExecutionApi.md#fetchqueryresultjsonproper) | **GET** /api/SqlBackground/{executionId}/jsonProper | FetchQueryResultJsonProper: Fetches the result of a query as JSON |
-| [**FetchQueryResultParquet**](SqlBackgroundExecutionApi.md#fetchqueryresultparquet) | **GET** /api/SqlBackground/{executionId}/parquet | FetchQueryResultParquet: Fetches the result of a query as Parquet |
-| [**FetchQueryResultPipe**](SqlBackgroundExecutionApi.md#fetchqueryresultpipe) | **GET** /api/SqlBackground/{executionId}/pipe | FetchQueryResultPipe: Fetches the result of a query as pipe-delimited |
-| [**FetchQueryResultSqlite**](SqlBackgroundExecutionApi.md#fetchqueryresultsqlite) | **GET** /api/SqlBackground/{executionId}/sqlite | FetchQueryResultSqlite: Fetches the result of a query as SqLite |
-| [**FetchQueryResultXml**](SqlBackgroundExecutionApi.md#fetchqueryresultxml) | **GET** /api/SqlBackground/{executionId}/xml | FetchQueryResultXml: Fetches the result of a query as XML |
-| [**GetProgressOf**](SqlBackgroundExecutionApi.md#getprogressof) | **GET** /api/SqlBackground/{executionId} | GetProgressOf: View progress information up until this point |
-| [**StartQuery**](SqlBackgroundExecutionApi.md#startquery) | **PUT** /api/SqlBackground | StartQuery: Starts to Execute Sql in the background |
+| [**CancelQuery**](SqlBackgroundExecutionApi.md#cancelquery) | **DELETE** /api/SqlBackground/{executionId} | CancelQuery: Cancel / Clear data from a previously run query |
+| [**FetchQueryResultCsv**](SqlBackgroundExecutionApi.md#fetchqueryresultcsv) | **GET** /api/SqlBackground/{executionId}/csv | FetchQueryResultCsv: Fetch the result of a query as CSV |
+| [**FetchQueryResultExcel**](SqlBackgroundExecutionApi.md#fetchqueryresultexcel) | **GET** /api/SqlBackground/{executionId}/excel | FetchQueryResultExcel: Fetch the result of a query as an Excel file |
+| [**FetchQueryResultHistogram**](SqlBackgroundExecutionApi.md#fetchqueryresulthistogram) | **GET** /api/SqlBackground/{executionId}/histogram | FetchQueryResultHistogram: Construct a histogram of the result of a query |
+| [**FetchQueryResultJson**](SqlBackgroundExecutionApi.md#fetchqueryresultjson) | **GET** /api/SqlBackground/{executionId}/json | FetchQueryResultJson: Fetch the result of a query as a JSON string |
+| [**FetchQueryResultJsonProper**](SqlBackgroundExecutionApi.md#fetchqueryresultjsonproper) | **GET** /api/SqlBackground/{executionId}/jsonProper | FetchQueryResultJsonProper: Fetch the result of a query as JSON |
+| [**FetchQueryResultParquet**](SqlBackgroundExecutionApi.md#fetchqueryresultparquet) | **GET** /api/SqlBackground/{executionId}/parquet | FetchQueryResultParquet: Fetch the result of a query as Parquet |
+| [**FetchQueryResultPipe**](SqlBackgroundExecutionApi.md#fetchqueryresultpipe) | **GET** /api/SqlBackground/{executionId}/pipe | FetchQueryResultPipe: Fetch the result of a query as pipe-delimited |
+| [**FetchQueryResultSqlite**](SqlBackgroundExecutionApi.md#fetchqueryresultsqlite) | **GET** /api/SqlBackground/{executionId}/sqlite | FetchQueryResultSqlite: Fetch the result of a query as SqLite |
+| [**FetchQueryResultXml**](SqlBackgroundExecutionApi.md#fetchqueryresultxml) | **GET** /api/SqlBackground/{executionId}/xml | FetchQueryResultXml: Fetch the result of a query as XML |
+| [**GetProgressOf**](SqlBackgroundExecutionApi.md#getprogressof) | **GET** /api/SqlBackground/{executionId} | GetProgressOf: View query progress up to this point |
+| [**StartQuery**](SqlBackgroundExecutionApi.md#startquery) | **PUT** /api/SqlBackground | StartQuery: Start to Execute Sql in the background |
 
 <a id="cancelquery"></a>
 # **CancelQuery**
 > BackgroundQueryCancelResponse CancelQuery (string executionId)
 
-CancelQuery: Cancels / Clears data from a previously run query
+CancelQuery: Cancel / Clear data from a previously run query
 
 Cancel the query (if still running) / clear the data (if already returned) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't exist and is not running. 
 
@@ -71,7 +71,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BackgroundQueryCancelResponse result = apiInstance.CancelQuery(executionId, opts: opts);
 
-                // CancelQuery: Cancels / Clears data from a previously run query
+                // CancelQuery: Cancel / Clear data from a previously run query
                 BackgroundQueryCancelResponse result = apiInstance.CancelQuery(executionId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -92,7 +92,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // CancelQuery: Cancels / Clears data from a previously run query
+    // CancelQuery: Cancel / Clear data from a previously run query
     ApiResponse<BackgroundQueryCancelResponse> response = apiInstance.CancelQueryWithHttpInfo(executionId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -133,7 +133,7 @@ catch (ApiException e)
 # **FetchQueryResultCsv**
 > string FetchQueryResultCsv (string executionId, bool? download = null, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null, string? delimiter = null, string? escape = null)
 
-FetchQueryResultCsv: Fetches the result of a query as CSV
+FetchQueryResultCsv: Fetch the result of a query as CSV
 
 Fetch the data in the format of the method's name (if available, or if not simply being informed it is not yet ready).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -192,7 +192,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.FetchQueryResultCsv(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape, opts: opts);
 
-                // FetchQueryResultCsv: Fetches the result of a query as CSV
+                // FetchQueryResultCsv: Fetch the result of a query as CSV
                 string result = apiInstance.FetchQueryResultCsv(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -213,7 +213,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // FetchQueryResultCsv: Fetches the result of a query as CSV
+    // FetchQueryResultCsv: Fetch the result of a query as CSV
     ApiResponse<string> response = apiInstance.FetchQueryResultCsvWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -265,7 +265,7 @@ catch (ApiException e)
 # **FetchQueryResultExcel**
 > System.IO.Stream FetchQueryResultExcel (string executionId, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null)
 
-FetchQueryResultExcel: Fetches the result of a query as an Excel file
+FetchQueryResultExcel: Fetch the result of a query as an Excel file
 
 Fetch the data in the format of the method's name (if available, or if not simply being informed it is not yet ready).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -319,7 +319,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // System.IO.Stream result = apiInstance.FetchQueryResultExcel(executionId, sortBy, filter, select, groupBy, opts: opts);
 
-                // FetchQueryResultExcel: Fetches the result of a query as an Excel file
+                // FetchQueryResultExcel: Fetch the result of a query as an Excel file
                 System.IO.Stream result = apiInstance.FetchQueryResultExcel(executionId, sortBy, filter, select, groupBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -340,7 +340,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // FetchQueryResultExcel: Fetches the result of a query as an Excel file
+    // FetchQueryResultExcel: Fetch the result of a query as an Excel file
     ApiResponse<System.IO.Stream> response = apiInstance.FetchQueryResultExcelWithHttpInfo(executionId, sortBy, filter, select, groupBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -387,7 +387,7 @@ catch (ApiException e)
 # **FetchQueryResultHistogram**
 > string FetchQueryResultHistogram (string executionId, string timestampFieldName, DateTimeOffset? startAt = null, DateTimeOffset? endAt = null, string? bucketSize = null, string? filter = null, bool? jsonProper = null)
 
-FetchQueryResultHistogram: Constructs a histogram of the result of a query
+FetchQueryResultHistogram: Construct a histogram of the result of a query
 
 Fetch the histogram in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -443,7 +443,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.FetchQueryResultHistogram(executionId, timestampFieldName, startAt, endAt, bucketSize, filter, jsonProper, opts: opts);
 
-                // FetchQueryResultHistogram: Constructs a histogram of the result of a query
+                // FetchQueryResultHistogram: Construct a histogram of the result of a query
                 string result = apiInstance.FetchQueryResultHistogram(executionId, timestampFieldName, startAt, endAt, bucketSize, filter, jsonProper);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -464,7 +464,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // FetchQueryResultHistogram: Constructs a histogram of the result of a query
+    // FetchQueryResultHistogram: Construct a histogram of the result of a query
     ApiResponse<string> response = apiInstance.FetchQueryResultHistogramWithHttpInfo(executionId, timestampFieldName, startAt, endAt, bucketSize, filter, jsonProper);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -513,7 +513,7 @@ catch (ApiException e)
 # **FetchQueryResultJson**
 > string FetchQueryResultJson (string executionId, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null)
 
-FetchQueryResultJson: Fetches the result of a query as a JSON string
+FetchQueryResultJson: Fetch the result of a query as a JSON string
 
  *Please move to '/jsonProper' instead.  This may be marked as Deprecated in the future.*  Fetch the data in the format of the method's name (if available, or if not simply being informed it is not yet ready).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -569,7 +569,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.FetchQueryResultJson(executionId, sortBy, filter, select, groupBy, limit, page, opts: opts);
 
-                // FetchQueryResultJson: Fetches the result of a query as a JSON string
+                // FetchQueryResultJson: Fetch the result of a query as a JSON string
                 string result = apiInstance.FetchQueryResultJson(executionId, sortBy, filter, select, groupBy, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -590,7 +590,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // FetchQueryResultJson: Fetches the result of a query as a JSON string
+    // FetchQueryResultJson: Fetch the result of a query as a JSON string
     ApiResponse<string> response = apiInstance.FetchQueryResultJsonWithHttpInfo(executionId, sortBy, filter, select, groupBy, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -639,7 +639,7 @@ catch (ApiException e)
 # **FetchQueryResultJsonProper**
 > string FetchQueryResultJsonProper (string executionId, bool? download = null, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null)
 
-FetchQueryResultJsonProper: Fetches the result of a query as JSON
+FetchQueryResultJsonProper: Fetch the result of a query as JSON
 
 Fetch the data in the format of the method's name (if available, or if not simply being informed it is not yet ready).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -696,7 +696,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.FetchQueryResultJsonProper(executionId, download, sortBy, filter, select, groupBy, limit, page, opts: opts);
 
-                // FetchQueryResultJsonProper: Fetches the result of a query as JSON
+                // FetchQueryResultJsonProper: Fetch the result of a query as JSON
                 string result = apiInstance.FetchQueryResultJsonProper(executionId, download, sortBy, filter, select, groupBy, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -717,7 +717,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // FetchQueryResultJsonProper: Fetches the result of a query as JSON
+    // FetchQueryResultJsonProper: Fetch the result of a query as JSON
     ApiResponse<string> response = apiInstance.FetchQueryResultJsonProperWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -767,7 +767,7 @@ catch (ApiException e)
 # **FetchQueryResultParquet**
 > System.IO.Stream FetchQueryResultParquet (string executionId, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null)
 
-FetchQueryResultParquet: Fetches the result of a query as Parquet
+FetchQueryResultParquet: Fetch the result of a query as Parquet
 
 Fetch the data in the format of the method's name (if available, or if not simply being informed it is not yet ready).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -821,7 +821,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // System.IO.Stream result = apiInstance.FetchQueryResultParquet(executionId, sortBy, filter, select, groupBy, opts: opts);
 
-                // FetchQueryResultParquet: Fetches the result of a query as Parquet
+                // FetchQueryResultParquet: Fetch the result of a query as Parquet
                 System.IO.Stream result = apiInstance.FetchQueryResultParquet(executionId, sortBy, filter, select, groupBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -842,7 +842,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // FetchQueryResultParquet: Fetches the result of a query as Parquet
+    // FetchQueryResultParquet: Fetch the result of a query as Parquet
     ApiResponse<System.IO.Stream> response = apiInstance.FetchQueryResultParquetWithHttpInfo(executionId, sortBy, filter, select, groupBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -889,7 +889,7 @@ catch (ApiException e)
 # **FetchQueryResultPipe**
 > string FetchQueryResultPipe (string executionId, bool? download = null, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null)
 
-FetchQueryResultPipe: Fetches the result of a query as pipe-delimited
+FetchQueryResultPipe: Fetch the result of a query as pipe-delimited
 
 Fetch the data in the format of the method's name (if available, or if not simply being informed it is not yet ready).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -946,7 +946,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.FetchQueryResultPipe(executionId, download, sortBy, filter, select, groupBy, limit, page, opts: opts);
 
-                // FetchQueryResultPipe: Fetches the result of a query as pipe-delimited
+                // FetchQueryResultPipe: Fetch the result of a query as pipe-delimited
                 string result = apiInstance.FetchQueryResultPipe(executionId, download, sortBy, filter, select, groupBy, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -967,7 +967,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // FetchQueryResultPipe: Fetches the result of a query as pipe-delimited
+    // FetchQueryResultPipe: Fetch the result of a query as pipe-delimited
     ApiResponse<string> response = apiInstance.FetchQueryResultPipeWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1017,7 +1017,7 @@ catch (ApiException e)
 # **FetchQueryResultSqlite**
 > System.IO.Stream FetchQueryResultSqlite (string executionId, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null)
 
-FetchQueryResultSqlite: Fetches the result of a query as SqLite
+FetchQueryResultSqlite: Fetch the result of a query as SqLite
 
 Fetch the data in the format of the method's name (if available, or if not simply being informed it is not yet ready).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -1071,7 +1071,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // System.IO.Stream result = apiInstance.FetchQueryResultSqlite(executionId, sortBy, filter, select, groupBy, opts: opts);
 
-                // FetchQueryResultSqlite: Fetches the result of a query as SqLite
+                // FetchQueryResultSqlite: Fetch the result of a query as SqLite
                 System.IO.Stream result = apiInstance.FetchQueryResultSqlite(executionId, sortBy, filter, select, groupBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1092,7 +1092,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // FetchQueryResultSqlite: Fetches the result of a query as SqLite
+    // FetchQueryResultSqlite: Fetch the result of a query as SqLite
     ApiResponse<System.IO.Stream> response = apiInstance.FetchQueryResultSqliteWithHttpInfo(executionId, sortBy, filter, select, groupBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1139,7 +1139,7 @@ catch (ApiException e)
 # **FetchQueryResultXml**
 > string FetchQueryResultXml (string executionId, bool? download = null, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null)
 
-FetchQueryResultXml: Fetches the result of a query as XML
+FetchQueryResultXml: Fetch the result of a query as XML
 
 Fetch the data in the format of the method's name (if available, or if not simply being informed it is not yet ready).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -1196,7 +1196,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.FetchQueryResultXml(executionId, download, sortBy, filter, select, groupBy, limit, page, opts: opts);
 
-                // FetchQueryResultXml: Fetches the result of a query as XML
+                // FetchQueryResultXml: Fetch the result of a query as XML
                 string result = apiInstance.FetchQueryResultXml(executionId, download, sortBy, filter, select, groupBy, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1217,7 +1217,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // FetchQueryResultXml: Fetches the result of a query as XML
+    // FetchQueryResultXml: Fetch the result of a query as XML
     ApiResponse<string> response = apiInstance.FetchQueryResultXmlWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1267,9 +1267,9 @@ catch (ApiException e)
 # **GetProgressOf**
 > BackgroundQueryProgressResponse GetProgressOf (string executionId, bool? buildFromLogs = null)
 
-GetProgressOf: View progress information up until this point
+GetProgressOf: View query progress up to this point
 
-View progress information (up until this point) The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+View progress information (up until this point and starting from the last point requested) The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
 ### Example
 ```csharp
@@ -1318,7 +1318,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BackgroundQueryProgressResponse result = apiInstance.GetProgressOf(executionId, buildFromLogs, opts: opts);
 
-                // GetProgressOf: View progress information up until this point
+                // GetProgressOf: View query progress up to this point
                 BackgroundQueryProgressResponse result = apiInstance.GetProgressOf(executionId, buildFromLogs);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1339,7 +1339,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // GetProgressOf: View progress information up until this point
+    // GetProgressOf: View query progress up to this point
     ApiResponse<BackgroundQueryProgressResponse> response = apiInstance.GetProgressOfWithHttpInfo(executionId, buildFromLogs);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1381,7 +1381,7 @@ catch (ApiException e)
 # **StartQuery**
 > BackgroundQueryResponse StartQuery (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeoutSeconds = null, int? keepForSeconds = null)
 
-StartQuery: Starts to Execute Sql in the background
+StartQuery: Start to Execute Sql in the background
 
  Allow for starting a potentially long running query and getting back an immediate response with how to  - fetch the data in various formats (if available, or if not simply being informed it is not yet ready) - view progress information (up until this point) - cancel the query (if still running) / clear the data (if already returned)  This can still error on things like an outright syntax error, but more runtime errors (e.g. from providers) will not cause this to error (that will happen when attempting to fetch data)  Here is an example that intentionally takes one minute to run:  ```sql select Str, Takes500Ms from Testing1K where UseLinq = true and [Int] <= 120 ```  This is the only place in the Luminesce WebAPI where the following is supported. This will allow for the same user running a character-identical query not kick off a new query but simply be returned a reference  to the already running one for up to `N` seconds (where `N` should be `<=` `keepForSeconds`).  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - there was something wrong with your query syntax (the issue was detected at parse-time) - 401 Unauthorized - 403 Forbidden 
 
@@ -1435,7 +1435,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BackgroundQueryResponse result = apiInstance.StartQuery(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds, opts: opts);
 
-                // StartQuery: Starts to Execute Sql in the background
+                // StartQuery: Start to Execute Sql in the background
                 BackgroundQueryResponse result = apiInstance.StartQuery(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1456,7 +1456,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // StartQuery: Starts to Execute Sql in the background
+    // StartQuery: Start to Execute Sql in the background
     ApiResponse<BackgroundQueryResponse> response = apiInstance.StartQueryWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds, keepForSeconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

@@ -32,7 +32,7 @@ namespace Finbourne.Luminesce.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL to a case statement design object
+        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object
         /// </summary>
         /// <remarks>
         /// Converts a SQL query to a CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -45,7 +45,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         CaseStatementDesign PutCaseStatementDesignSqlToDesign(string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL to a case statement design object
+        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object
         /// </summary>
         /// <remarks>
         /// Converts a SQL query to a CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -57,7 +57,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of CaseStatementDesign</returns>
         ApiResponse<CaseStatementDesign> PutCaseStatementDesignSqlToDesignWithHttpInfo(string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Converts a case statement design object to SQL
+        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Convert a case statement design object to SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL case statement query from a structured CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -70,7 +70,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string PutCaseStatementDesignToSql(CaseStatementDesign caseStatementDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Converts a case statement design object to SQL
+        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Convert a case statement design object to SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL case statement query from a structured CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -82,7 +82,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> PutCaseStatementDesignToSqlWithHttpInfo(CaseStatementDesign caseStatementDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutFileReadDesignToSql: Makes file read SQL from a design object
+        /// [EXPERIMENTAL] PutFileReadDesignToSql: Make file read SQL from a design object
         /// </summary>
         /// <remarks>
         /// Generates SQL from a FileReaderBuilderDef object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -96,7 +96,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         FileReaderBuilderResponse PutFileReadDesignToSql(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutFileReadDesignToSql: Makes file read SQL from a design object
+        /// [EXPERIMENTAL] PutFileReadDesignToSql: Make file read SQL from a design object
         /// </summary>
         /// <remarks>
         /// Generates SQL from a FileReaderBuilderDef object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -109,7 +109,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of FileReaderBuilderResponse</returns>
         ApiResponse<FileReaderBuilderResponse> PutFileReadDesignToSqlWithHttpInfo(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Makes an inlined properties design from SQL
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL-inlined-properties-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -122,7 +122,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         InlinedPropertyDesign PutInlinedPropertiesDesignSqlToDesign(string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Makes an inlined properties design from SQL
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL-inlined-properties-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -134,7 +134,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of InlinedPropertyDesign</returns>
         ApiResponse<InlinedPropertyDesign> PutInlinedPropertiesDesignSqlToDesignWithHttpInfo(string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Makes inlined properties SQL from a design object
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object
         /// </summary>
         /// <remarks>
         /// Generates inlined properties SQL from a structured design  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -147,7 +147,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string PutInlinedPropertiesDesignToSql(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Makes inlined properties SQL from a design object
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object
         /// </summary>
         /// <remarks>
         /// Generates inlined properties SQL from a structured design  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -159,7 +159,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> PutInlinedPropertiesDesignToSqlWithHttpInfo(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutIntellisense: Makes a intellisense prompts given an SQL snip-it
+        /// PutIntellisense: Make intellisense prompts given an SQL snip-it
         /// </summary>
         /// <remarks>
         /// Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid SQL) and cursor location  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -172,7 +172,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         IntellisenseResponse PutIntellisense(IntellisenseRequest intellisenseRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutIntellisense: Makes a intellisense prompts given an SQL snip-it
+        /// PutIntellisense: Make intellisense prompts given an SQL snip-it
         /// </summary>
         /// <remarks>
         /// Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid SQL) and cursor location  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -184,7 +184,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of IntellisenseResponse</returns>
         ApiResponse<IntellisenseResponse> PutIntellisenseWithHttpInfo(IntellisenseRequest intellisenseRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutIntellisenseError: Expresses error ranges from SQL
+        /// PutIntellisenseError: Get error ranges from SQL
         /// </summary>
         /// <remarks>
         /// Generate a set of error ranges, if any, in the given SQL (expressed as Lines)  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -197,7 +197,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         ErrorHighlightResponse PutIntellisenseError(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutIntellisenseError: Expresses error ranges from SQL
+        /// PutIntellisenseError: Get error ranges from SQL
         /// </summary>
         /// <remarks>
         /// Generate a set of error ranges, if any, in the given SQL (expressed as Lines)  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -209,7 +209,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of ErrorHighlightResponse</returns>
         ApiResponse<ErrorHighlightResponse> PutIntellisenseErrorWithHttpInfo(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutQueryDesignToSql: Makes SQL from a structured query design
+        /// [EXPERIMENTAL] PutQueryDesignToSql: Make SQL from a structured query design
         /// </summary>
         /// <remarks>
         /// Generates SQL from a QueryDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -222,7 +222,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string PutQueryDesignToSql(QueryDesign queryDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutQueryDesignToSql: Makes SQL from a structured query design
+        /// [EXPERIMENTAL] PutQueryDesignToSql: Make SQL from a structured query design
         /// </summary>
         /// <remarks>
         /// Generates SQL from a QueryDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -234,7 +234,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> PutQueryDesignToSqlWithHttpInfo(QueryDesign queryDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutQueryToFormat: Formats SQL into a more readable form
+        /// PutQueryToFormat: Format SQL into a more readable form
         /// </summary>
         /// <remarks>
         ///  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
@@ -260,7 +260,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string PutQueryToFormat(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutQueryToFormat: Formats SQL into a more readable form
+        /// PutQueryToFormat: Format SQL into a more readable form
         /// </summary>
         /// <remarks>
         ///  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
@@ -285,7 +285,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> PutQueryToFormatWithHttpInfo(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extracts scalar parameter information from SQL
+        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL
         /// </summary>
         /// <remarks>
         /// Extracts information about all the scalar parameters defined in the given SQL statement  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -298,7 +298,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         List<ScalarParameter> PutSqlToExtractScalarParameters(string body, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extracts scalar parameter information from SQL
+        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL
         /// </summary>
         /// <remarks>
         /// Extracts information about all the scalar parameters defined in the given SQL statement  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -310,7 +310,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of List&lt;ScalarParameter&gt;</returns>
         ApiResponse<List<ScalarParameter>> PutSqlToExtractScalarParametersWithHttpInfo(string body, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Makes a design object from file-read SQL
+        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Make a design object from file-read SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL-file-read-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -324,7 +324,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         FileReaderBuilderDef PutSqlToFileReadDesign(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Makes a design object from file-read SQL
+        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Make a design object from file-read SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL-file-read-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -337,7 +337,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of FileReaderBuilderDef</returns>
         ApiResponse<FileReaderBuilderDef> PutSqlToFileReadDesignWithHttpInfo(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToQueryDesign: Makes a SQL-design object from SQL if possible
+        /// [EXPERIMENTAL] PutSqlToQueryDesign: Make a SQL-design object from SQL if possible
         /// </summary>
         /// <remarks>
         /// Generates a QueryDesign object from simple SQL if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -351,7 +351,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         QueryDesign PutSqlToQueryDesign(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToQueryDesign: Makes a SQL-design object from SQL if possible
+        /// [EXPERIMENTAL] PutSqlToQueryDesign: Make a SQL-design object from SQL if possible
         /// </summary>
         /// <remarks>
         /// Generates a QueryDesign object from simple SQL if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -364,7 +364,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of QueryDesign</returns>
         ApiResponse<QueryDesign> PutSqlToQueryDesignWithHttpInfo(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToViewDesign: Makes a view-design from view creation SQL
+        /// [EXPERIMENTAL] PutSqlToViewDesign: Make a view-design from view creation SQL
         /// </summary>
         /// <remarks>
         /// Converts SQL which creates a view into a structured ConvertToViewData object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -377,7 +377,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         ConvertToViewData PutSqlToViewDesign(string body, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToViewDesign: Makes a view-design from view creation SQL
+        /// [EXPERIMENTAL] PutSqlToViewDesign: Make a view-design from view creation SQL
         /// </summary>
         /// <remarks>
         /// Converts SQL which creates a view into a structured ConvertToViewData object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -389,7 +389,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of ConvertToViewData</returns>
         ApiResponse<ConvertToViewData> PutSqlToViewDesignWithHttpInfo(string body, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToWriterDesign: Makes a SQL-writer-design object from SQL
+        /// [EXPERIMENTAL] PutSqlToWriterDesign: Make a SQL-writer-design object from SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL-writer-design object (WriterDesign) from a SQL query, if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -403,7 +403,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         WriterDesign PutSqlToWriterDesign(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToWriterDesign: Makes a SQL-writer-design object from SQL
+        /// [EXPERIMENTAL] PutSqlToWriterDesign: Make a SQL-writer-design object from SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL-writer-design object (WriterDesign) from a SQL query, if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -416,7 +416,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of WriterDesign</returns>
         ApiResponse<WriterDesign> PutSqlToWriterDesignWithHttpInfo(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutViewDesignToSql: Makes view creation sql from a view-design
+        /// [EXPERIMENTAL] PutViewDesignToSql: Make view creation sql from a view-design
         /// </summary>
         /// <remarks>
         /// Converts a ConvertToView specification into SQL that creates a view  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -429,7 +429,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string PutViewDesignToSql(ConvertToViewData convertToViewData, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutViewDesignToSql: Makes view creation sql from a view-design
+        /// [EXPERIMENTAL] PutViewDesignToSql: Make view creation sql from a view-design
         /// </summary>
         /// <remarks>
         /// Converts a ConvertToView specification into SQL that creates a view  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -441,7 +441,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> PutViewDesignToSqlWithHttpInfo(ConvertToViewData convertToViewData, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutWriterDesignToSql: Makes writer SQL from a writer-design object
+        /// [EXPERIMENTAL] PutWriterDesignToSql: Make writer SQL from a writer-design object
         /// </summary>
         /// <remarks>
         /// Generates writer SQL from a valid WriterDesign structure  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -454,7 +454,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string PutWriterDesignToSql(WriterDesign writerDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutWriterDesignToSql: Makes writer SQL from a writer-design object
+        /// [EXPERIMENTAL] PutWriterDesignToSql: Make writer SQL from a writer-design object
         /// </summary>
         /// <remarks>
         /// Generates writer SQL from a valid WriterDesign structure  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -475,7 +475,7 @@ namespace Finbourne.Luminesce.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL to a case statement design object
+        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object
         /// </summary>
         /// <remarks>
         /// Converts a SQL query to a CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -489,7 +489,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<CaseStatementDesign> PutCaseStatementDesignSqlToDesignAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL to a case statement design object
+        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object
         /// </summary>
         /// <remarks>
         /// Converts a SQL query to a CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -502,7 +502,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (CaseStatementDesign)</returns>
         System.Threading.Tasks.Task<ApiResponse<CaseStatementDesign>> PutCaseStatementDesignSqlToDesignWithHttpInfoAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Converts a case statement design object to SQL
+        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Convert a case statement design object to SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL case statement query from a structured CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -516,7 +516,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> PutCaseStatementDesignToSqlAsync(CaseStatementDesign caseStatementDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Converts a case statement design object to SQL
+        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Convert a case statement design object to SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL case statement query from a structured CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -529,7 +529,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> PutCaseStatementDesignToSqlWithHttpInfoAsync(CaseStatementDesign caseStatementDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutFileReadDesignToSql: Makes file read SQL from a design object
+        /// [EXPERIMENTAL] PutFileReadDesignToSql: Make file read SQL from a design object
         /// </summary>
         /// <remarks>
         /// Generates SQL from a FileReaderBuilderDef object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -544,7 +544,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<FileReaderBuilderResponse> PutFileReadDesignToSqlAsync(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutFileReadDesignToSql: Makes file read SQL from a design object
+        /// [EXPERIMENTAL] PutFileReadDesignToSql: Make file read SQL from a design object
         /// </summary>
         /// <remarks>
         /// Generates SQL from a FileReaderBuilderDef object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -558,7 +558,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (FileReaderBuilderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<FileReaderBuilderResponse>> PutFileReadDesignToSqlWithHttpInfoAsync(FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Makes an inlined properties design from SQL
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL-inlined-properties-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -572,7 +572,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<InlinedPropertyDesign> PutInlinedPropertiesDesignSqlToDesignAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Makes an inlined properties design from SQL
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL-inlined-properties-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -585,7 +585,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (InlinedPropertyDesign)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlinedPropertyDesign>> PutInlinedPropertiesDesignSqlToDesignWithHttpInfoAsync(string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Makes inlined properties SQL from a design object
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object
         /// </summary>
         /// <remarks>
         /// Generates inlined properties SQL from a structured design  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -599,7 +599,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> PutInlinedPropertiesDesignToSqlAsync(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Makes inlined properties SQL from a design object
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object
         /// </summary>
         /// <remarks>
         /// Generates inlined properties SQL from a structured design  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -612,7 +612,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> PutInlinedPropertiesDesignToSqlWithHttpInfoAsync(InlinedPropertyDesign inlinedPropertyDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutIntellisense: Makes a intellisense prompts given an SQL snip-it
+        /// PutIntellisense: Make intellisense prompts given an SQL snip-it
         /// </summary>
         /// <remarks>
         /// Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid SQL) and cursor location  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -626,7 +626,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<IntellisenseResponse> PutIntellisenseAsync(IntellisenseRequest intellisenseRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutIntellisense: Makes a intellisense prompts given an SQL snip-it
+        /// PutIntellisense: Make intellisense prompts given an SQL snip-it
         /// </summary>
         /// <remarks>
         /// Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid SQL) and cursor location  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -639,7 +639,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (IntellisenseResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<IntellisenseResponse>> PutIntellisenseWithHttpInfoAsync(IntellisenseRequest intellisenseRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutIntellisenseError: Expresses error ranges from SQL
+        /// PutIntellisenseError: Get error ranges from SQL
         /// </summary>
         /// <remarks>
         /// Generate a set of error ranges, if any, in the given SQL (expressed as Lines)  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -653,7 +653,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<ErrorHighlightResponse> PutIntellisenseErrorAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutIntellisenseError: Expresses error ranges from SQL
+        /// PutIntellisenseError: Get error ranges from SQL
         /// </summary>
         /// <remarks>
         /// Generate a set of error ranges, if any, in the given SQL (expressed as Lines)  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -666,7 +666,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (ErrorHighlightResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ErrorHighlightResponse>> PutIntellisenseErrorWithHttpInfoAsync(ErrorHighlightRequest errorHighlightRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutQueryDesignToSql: Makes SQL from a structured query design
+        /// [EXPERIMENTAL] PutQueryDesignToSql: Make SQL from a structured query design
         /// </summary>
         /// <remarks>
         /// Generates SQL from a QueryDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -680,7 +680,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> PutQueryDesignToSqlAsync(QueryDesign queryDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutQueryDesignToSql: Makes SQL from a structured query design
+        /// [EXPERIMENTAL] PutQueryDesignToSql: Make SQL from a structured query design
         /// </summary>
         /// <remarks>
         /// Generates SQL from a QueryDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -693,7 +693,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> PutQueryDesignToSqlWithHttpInfoAsync(QueryDesign queryDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutQueryToFormat: Formats SQL into a more readable form
+        /// PutQueryToFormat: Format SQL into a more readable form
         /// </summary>
         /// <remarks>
         ///  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
@@ -720,7 +720,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> PutQueryToFormatAsync(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutQueryToFormat: Formats SQL into a more readable form
+        /// PutQueryToFormat: Format SQL into a more readable form
         /// </summary>
         /// <remarks>
         ///  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
@@ -746,7 +746,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> PutQueryToFormatWithHttpInfoAsync(string body, bool? trailingCommas = default(bool?), bool? uppercaseKeywords = default(bool?), bool? breakJoinOnSections = default(bool?), bool? spaceAfterExpandedComma = default(bool?), bool? keywordStandardization = default(bool?), bool? expandCommaLists = default(bool?), bool? expandInLists = default(bool?), bool? expandBooleanExpressions = default(bool?), bool? expandBetweenConditions = default(bool?), bool? expandCaseStatements = default(bool?), int? maxLineWidth = default(int?), bool? spaceBeforeTrailingSingleLineComments = default(bool?), bool? multilineCommentExtraLineBreak = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extracts scalar parameter information from SQL
+        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL
         /// </summary>
         /// <remarks>
         /// Extracts information about all the scalar parameters defined in the given SQL statement  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -760,7 +760,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<List<ScalarParameter>> PutSqlToExtractScalarParametersAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extracts scalar parameter information from SQL
+        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL
         /// </summary>
         /// <remarks>
         /// Extracts information about all the scalar parameters defined in the given SQL statement  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -773,7 +773,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;ScalarParameter&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<ScalarParameter>>> PutSqlToExtractScalarParametersWithHttpInfoAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Makes a design object from file-read SQL
+        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Make a design object from file-read SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL-file-read-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -788,7 +788,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<FileReaderBuilderDef> PutSqlToFileReadDesignAsync(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Makes a design object from file-read SQL
+        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Make a design object from file-read SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL-file-read-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -802,7 +802,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (FileReaderBuilderDef)</returns>
         System.Threading.Tasks.Task<ApiResponse<FileReaderBuilderDef>> PutSqlToFileReadDesignWithHttpInfoAsync(bool? determineAvailableSources = default(bool?), string? body = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToQueryDesign: Makes a SQL-design object from SQL if possible
+        /// [EXPERIMENTAL] PutSqlToQueryDesign: Make a SQL-design object from SQL if possible
         /// </summary>
         /// <remarks>
         /// Generates a QueryDesign object from simple SQL if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -817,7 +817,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<QueryDesign> PutSqlToQueryDesignAsync(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToQueryDesign: Makes a SQL-design object from SQL if possible
+        /// [EXPERIMENTAL] PutSqlToQueryDesign: Make a SQL-design object from SQL if possible
         /// </summary>
         /// <remarks>
         /// Generates a QueryDesign object from simple SQL if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -831,7 +831,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (QueryDesign)</returns>
         System.Threading.Tasks.Task<ApiResponse<QueryDesign>> PutSqlToQueryDesignWithHttpInfoAsync(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToViewDesign: Makes a view-design from view creation SQL
+        /// [EXPERIMENTAL] PutSqlToViewDesign: Make a view-design from view creation SQL
         /// </summary>
         /// <remarks>
         /// Converts SQL which creates a view into a structured ConvertToViewData object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -845,7 +845,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<ConvertToViewData> PutSqlToViewDesignAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToViewDesign: Makes a view-design from view creation SQL
+        /// [EXPERIMENTAL] PutSqlToViewDesign: Make a view-design from view creation SQL
         /// </summary>
         /// <remarks>
         /// Converts SQL which creates a view into a structured ConvertToViewData object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -858,7 +858,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (ConvertToViewData)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConvertToViewData>> PutSqlToViewDesignWithHttpInfoAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToWriterDesign: Makes a SQL-writer-design object from SQL
+        /// [EXPERIMENTAL] PutSqlToWriterDesign: Make a SQL-writer-design object from SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL-writer-design object (WriterDesign) from a SQL query, if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -873,7 +873,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<WriterDesign> PutSqlToWriterDesignAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToWriterDesign: Makes a SQL-writer-design object from SQL
+        /// [EXPERIMENTAL] PutSqlToWriterDesign: Make a SQL-writer-design object from SQL
         /// </summary>
         /// <remarks>
         /// Generates a SQL-writer-design object (WriterDesign) from a SQL query, if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -887,7 +887,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (WriterDesign)</returns>
         System.Threading.Tasks.Task<ApiResponse<WriterDesign>> PutSqlToWriterDesignWithHttpInfoAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutViewDesignToSql: Makes view creation sql from a view-design
+        /// [EXPERIMENTAL] PutViewDesignToSql: Make view creation sql from a view-design
         /// </summary>
         /// <remarks>
         /// Converts a ConvertToView specification into SQL that creates a view  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -901,7 +901,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> PutViewDesignToSqlAsync(ConvertToViewData convertToViewData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutViewDesignToSql: Makes view creation sql from a view-design
+        /// [EXPERIMENTAL] PutViewDesignToSql: Make view creation sql from a view-design
         /// </summary>
         /// <remarks>
         /// Converts a ConvertToView specification into SQL that creates a view  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -914,7 +914,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> PutViewDesignToSqlWithHttpInfoAsync(ConvertToViewData convertToViewData, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] PutWriterDesignToSql: Makes writer SQL from a writer-design object
+        /// [EXPERIMENTAL] PutWriterDesignToSql: Make writer SQL from a writer-design object
         /// </summary>
         /// <remarks>
         /// Generates writer SQL from a valid WriterDesign structure  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -928,7 +928,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> PutWriterDesignToSqlAsync(WriterDesign writerDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] PutWriterDesignToSql: Makes writer SQL from a writer-design object
+        /// [EXPERIMENTAL] PutWriterDesignToSql: Make writer SQL from a writer-design object
         /// </summary>
         /// <remarks>
         /// Generates writer SQL from a valid WriterDesign structure  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
@@ -1064,7 +1064,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL to a case statement design object Converts a SQL query to a CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object Converts a SQL query to a CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL to attempt to create an case statement Design object from (optional)</param>
@@ -1078,7 +1078,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL to a case statement design object Converts a SQL query to a CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object Converts a SQL query to a CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL to attempt to create an case statement Design object from (optional)</param>
@@ -1159,7 +1159,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL to a case statement design object Converts a SQL query to a CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object Converts a SQL query to a CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL to attempt to create an case statement Design object from (optional)</param>
@@ -1174,7 +1174,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL to a case statement design object Converts a SQL query to a CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object Converts a SQL query to a CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL to attempt to create an case statement Design object from (optional)</param>
@@ -1258,7 +1258,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Converts a case statement design object to SQL Generates a SQL case statement query from a structured CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Convert a case statement design object to SQL Generates a SQL case statement query from a structured CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="caseStatementDesign">CaseStatementDesign object to try and create a SQL query from</param>
@@ -1272,7 +1272,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Converts a case statement design object to SQL Generates a SQL case statement query from a structured CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Convert a case statement design object to SQL Generates a SQL case statement query from a structured CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="caseStatementDesign">CaseStatementDesign object to try and create a SQL query from</param>
@@ -1362,7 +1362,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Converts a case statement design object to SQL Generates a SQL case statement query from a structured CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Convert a case statement design object to SQL Generates a SQL case statement query from a structured CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="caseStatementDesign">CaseStatementDesign object to try and create a SQL query from</param>
@@ -1377,7 +1377,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Converts a case statement design object to SQL Generates a SQL case statement query from a structured CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutCaseStatementDesignToSql: Convert a case statement design object to SQL Generates a SQL case statement query from a structured CaseStatementDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="caseStatementDesign">CaseStatementDesign object to try and create a SQL query from</param>
@@ -1470,7 +1470,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutFileReadDesignToSql: Makes file read SQL from a design object Generates SQL from a FileReaderBuilderDef object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutFileReadDesignToSql: Make file read SQL from a design object Generates SQL from a FileReaderBuilderDef object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileReaderBuilderDef">Structured file read design object to generate SQL from</param>
@@ -1485,7 +1485,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutFileReadDesignToSql: Makes file read SQL from a design object Generates SQL from a FileReaderBuilderDef object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutFileReadDesignToSql: Make file read SQL from a design object Generates SQL from a FileReaderBuilderDef object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileReaderBuilderDef">Structured file read design object to generate SQL from</param>
@@ -1580,7 +1580,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutFileReadDesignToSql: Makes file read SQL from a design object Generates SQL from a FileReaderBuilderDef object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutFileReadDesignToSql: Make file read SQL from a design object Generates SQL from a FileReaderBuilderDef object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileReaderBuilderDef">Structured file read design object to generate SQL from</param>
@@ -1596,7 +1596,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutFileReadDesignToSql: Makes file read SQL from a design object Generates SQL from a FileReaderBuilderDef object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutFileReadDesignToSql: Make file read SQL from a design object Generates SQL from a FileReaderBuilderDef object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileReaderBuilderDef">Structured file read design object to generate SQL from</param>
@@ -1694,7 +1694,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Makes an inlined properties design from SQL Generates a SQL-inlined-properties-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL Generates a SQL-inlined-properties-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to attempt to generate the inlined properties design object from (optional)</param>
@@ -1708,7 +1708,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Makes an inlined properties design from SQL Generates a SQL-inlined-properties-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL Generates a SQL-inlined-properties-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to attempt to generate the inlined properties design object from (optional)</param>
@@ -1789,7 +1789,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Makes an inlined properties design from SQL Generates a SQL-inlined-properties-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL Generates a SQL-inlined-properties-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to attempt to generate the inlined properties design object from (optional)</param>
@@ -1804,7 +1804,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Makes an inlined properties design from SQL Generates a SQL-inlined-properties-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL Generates a SQL-inlined-properties-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to attempt to generate the inlined properties design object from (optional)</param>
@@ -1888,7 +1888,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Makes inlined properties SQL from a design object Generates inlined properties SQL from a structured design  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object Generates inlined properties SQL from a structured design  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlinedPropertyDesign">Inlined properties Designer specification to generate SQL from</param>
@@ -1902,7 +1902,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Makes inlined properties SQL from a design object Generates inlined properties SQL from a structured design  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object Generates inlined properties SQL from a structured design  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlinedPropertyDesign">Inlined properties Designer specification to generate SQL from</param>
@@ -1992,7 +1992,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Makes inlined properties SQL from a design object Generates inlined properties SQL from a structured design  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object Generates inlined properties SQL from a structured design  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlinedPropertyDesign">Inlined properties Designer specification to generate SQL from</param>
@@ -2007,7 +2007,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Makes inlined properties SQL from a design object Generates inlined properties SQL from a structured design  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object Generates inlined properties SQL from a structured design  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlinedPropertyDesign">Inlined properties Designer specification to generate SQL from</param>
@@ -2100,7 +2100,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutIntellisense: Makes a intellisense prompts given an SQL snip-it Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid SQL) and cursor location  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// PutIntellisense: Make intellisense prompts given an SQL snip-it Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid SQL) and cursor location  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest">SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.</param>
@@ -2114,7 +2114,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutIntellisense: Makes a intellisense prompts given an SQL snip-it Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid SQL) and cursor location  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// PutIntellisense: Make intellisense prompts given an SQL snip-it Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid SQL) and cursor location  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest">SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.</param>
@@ -2204,7 +2204,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutIntellisense: Makes a intellisense prompts given an SQL snip-it Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid SQL) and cursor location  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// PutIntellisense: Make intellisense prompts given an SQL snip-it Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid SQL) and cursor location  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest">SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.</param>
@@ -2219,7 +2219,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutIntellisense: Makes a intellisense prompts given an SQL snip-it Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid SQL) and cursor location  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// PutIntellisense: Make intellisense prompts given an SQL snip-it Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid SQL) and cursor location  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="intellisenseRequest">SQL and a row/colum position within it from which to determine intellisense options for the user to potentially choose from.</param>
@@ -2312,7 +2312,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutIntellisenseError: Expresses error ranges from SQL Generate a set of error ranges, if any, in the given SQL (expressed as Lines)  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// PutIntellisenseError: Get error ranges from SQL Generate a set of error ranges, if any, in the given SQL (expressed as Lines)  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="errorHighlightRequest">SQL (by line) to syntax check and return error ranges from within, if any.</param>
@@ -2326,7 +2326,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutIntellisenseError: Expresses error ranges from SQL Generate a set of error ranges, if any, in the given SQL (expressed as Lines)  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// PutIntellisenseError: Get error ranges from SQL Generate a set of error ranges, if any, in the given SQL (expressed as Lines)  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="errorHighlightRequest">SQL (by line) to syntax check and return error ranges from within, if any.</param>
@@ -2416,7 +2416,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutIntellisenseError: Expresses error ranges from SQL Generate a set of error ranges, if any, in the given SQL (expressed as Lines)  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// PutIntellisenseError: Get error ranges from SQL Generate a set of error ranges, if any, in the given SQL (expressed as Lines)  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="errorHighlightRequest">SQL (by line) to syntax check and return error ranges from within, if any.</param>
@@ -2431,7 +2431,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutIntellisenseError: Expresses error ranges from SQL Generate a set of error ranges, if any, in the given SQL (expressed as Lines)  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// PutIntellisenseError: Get error ranges from SQL Generate a set of error ranges, if any, in the given SQL (expressed as Lines)  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="errorHighlightRequest">SQL (by line) to syntax check and return error ranges from within, if any.</param>
@@ -2524,7 +2524,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutQueryDesignToSql: Makes SQL from a structured query design Generates SQL from a QueryDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutQueryDesignToSql: Make SQL from a structured query design Generates SQL from a QueryDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryDesign">Structured Query design object to generate SQL from</param>
@@ -2538,7 +2538,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutQueryDesignToSql: Makes SQL from a structured query design Generates SQL from a QueryDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutQueryDesignToSql: Make SQL from a structured query design Generates SQL from a QueryDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryDesign">Structured Query design object to generate SQL from</param>
@@ -2628,7 +2628,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutQueryDesignToSql: Makes SQL from a structured query design Generates SQL from a QueryDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutQueryDesignToSql: Make SQL from a structured query design Generates SQL from a QueryDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryDesign">Structured Query design object to generate SQL from</param>
@@ -2643,7 +2643,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutQueryDesignToSql: Makes SQL from a structured query design Generates SQL from a QueryDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutQueryDesignToSql: Make SQL from a structured query design Generates SQL from a QueryDesign object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="queryDesign">Structured Query design object to generate SQL from</param>
@@ -2736,7 +2736,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutQueryToFormat: Formats SQL into a more readable form  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
+        /// PutQueryToFormat: Format SQL into a more readable form  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Pretty-Print. Even if it doesn&#39;t parse an attempt will be made to format it</param>
@@ -2763,7 +2763,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutQueryToFormat: Formats SQL into a more readable form  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
+        /// PutQueryToFormat: Format SQL into a more readable form  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Pretty-Print. Even if it doesn&#39;t parse an attempt will be made to format it</param>
@@ -2915,7 +2915,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutQueryToFormat: Formats SQL into a more readable form  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
+        /// PutQueryToFormat: Format SQL into a more readable form  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Pretty-Print. Even if it doesn&#39;t parse an attempt will be made to format it</param>
@@ -2943,7 +2943,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutQueryToFormat: Formats SQL into a more readable form  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
+        /// PutQueryToFormat: Format SQL into a more readable form  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Pretty-Print. Even if it doesn&#39;t parse an attempt will be made to format it</param>
@@ -3098,7 +3098,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extracts scalar parameter information from SQL Extracts information about all the scalar parameters defined in the given SQL statement  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL Extracts information about all the scalar parameters defined in the given SQL statement  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
@@ -3112,7 +3112,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extracts scalar parameter information from SQL Extracts information about all the scalar parameters defined in the given SQL statement  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL Extracts information about all the scalar parameters defined in the given SQL statement  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
@@ -3199,7 +3199,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extracts scalar parameter information from SQL Extracts information about all the scalar parameters defined in the given SQL statement  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL Extracts information about all the scalar parameters defined in the given SQL statement  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
@@ -3214,7 +3214,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extracts scalar parameter information from SQL Extracts information about all the scalar parameters defined in the given SQL statement  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL Extracts information about all the scalar parameters defined in the given SQL statement  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
@@ -3304,7 +3304,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Makes a design object from file-read SQL Generates a SQL-file-read-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Make a design object from file-read SQL Generates a SQL-file-read-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
@@ -3319,7 +3319,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Makes a design object from file-read SQL Generates a SQL-file-read-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Make a design object from file-read SQL Generates a SQL-file-read-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
@@ -3405,7 +3405,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Makes a design object from file-read SQL Generates a SQL-file-read-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Make a design object from file-read SQL Generates a SQL-file-read-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
@@ -3421,7 +3421,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Makes a design object from file-read SQL Generates a SQL-file-read-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToFileReadDesign: Make a design object from file-read SQL Generates a SQL-file-read-design object from SQL string, if possible.  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="determineAvailableSources">Should the available sources be determined from &#x60;Sys.Registration&#x60; (optional, default to true)</param>
@@ -3510,7 +3510,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToQueryDesign: Makes a SQL-design object from SQL if possible Generates a QueryDesign object from simple SQL if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToQueryDesign: Make a SQL-design object from SQL if possible Generates a QueryDesign object from simple SQL if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
@@ -3525,7 +3525,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToQueryDesign: Makes a SQL-design object from SQL if possible Generates a QueryDesign object from simple SQL if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToQueryDesign: Make a SQL-design object from SQL if possible Generates a QueryDesign object from simple SQL if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
@@ -3617,7 +3617,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToQueryDesign: Makes a SQL-design object from SQL if possible Generates a QueryDesign object from simple SQL if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToQueryDesign: Make a SQL-design object from SQL if possible Generates a QueryDesign object from simple SQL if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
@@ -3633,7 +3633,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToQueryDesign: Makes a SQL-design object from SQL if possible Generates a QueryDesign object from simple SQL if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToQueryDesign: Make a SQL-design object from SQL if possible Generates a QueryDesign object from simple SQL if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
@@ -3728,7 +3728,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToViewDesign: Makes a view-design from view creation SQL Converts SQL which creates a view into a structured ConvertToViewData object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToViewDesign: Make a view-design from view creation SQL Converts SQL which creates a view into a structured ConvertToViewData object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL Query to generate the ConvertToViewData object from</param>
@@ -3742,7 +3742,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToViewDesign: Makes a view-design from view creation SQL Converts SQL which creates a view into a structured ConvertToViewData object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToViewDesign: Make a view-design from view creation SQL Converts SQL which creates a view into a structured ConvertToViewData object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL Query to generate the ConvertToViewData object from</param>
@@ -3829,7 +3829,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToViewDesign: Makes a view-design from view creation SQL Converts SQL which creates a view into a structured ConvertToViewData object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToViewDesign: Make a view-design from view creation SQL Converts SQL which creates a view into a structured ConvertToViewData object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL Query to generate the ConvertToViewData object from</param>
@@ -3844,7 +3844,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToViewDesign: Makes a view-design from view creation SQL Converts SQL which creates a view into a structured ConvertToViewData object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToViewDesign: Make a view-design from view creation SQL Converts SQL which creates a view into a structured ConvertToViewData object  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL Query to generate the ConvertToViewData object from</param>
@@ -3934,7 +3934,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToWriterDesign: Makes a SQL-writer-design object from SQL Generates a SQL-writer-design object (WriterDesign) from a SQL query, if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToWriterDesign: Make a SQL-writer-design object from SQL Generates a SQL-writer-design object (WriterDesign) from a SQL query, if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the writer design object from</param>
@@ -3949,7 +3949,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToWriterDesign: Makes a SQL-writer-design object from SQL Generates a SQL-writer-design object (WriterDesign) from a SQL query, if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToWriterDesign: Make a SQL-writer-design object from SQL Generates a SQL-writer-design object (WriterDesign) from a SQL query, if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the writer design object from</param>
@@ -4041,7 +4041,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToWriterDesign: Makes a SQL-writer-design object from SQL Generates a SQL-writer-design object (WriterDesign) from a SQL query, if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToWriterDesign: Make a SQL-writer-design object from SQL Generates a SQL-writer-design object (WriterDesign) from a SQL query, if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the writer design object from</param>
@@ -4057,7 +4057,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutSqlToWriterDesign: Makes a SQL-writer-design object from SQL Generates a SQL-writer-design object (WriterDesign) from a SQL query, if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutSqlToWriterDesign: Make a SQL-writer-design object from SQL Generates a SQL-writer-design object (WriterDesign) from a SQL query, if possible  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the writer design object from</param>
@@ -4152,7 +4152,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutViewDesignToSql: Makes view creation sql from a view-design Converts a ConvertToView specification into SQL that creates a view  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutViewDesignToSql: Make view creation sql from a view-design Converts a ConvertToView specification into SQL that creates a view  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="convertToViewData">Structured Query design object to generate SQL from</param>
@@ -4166,7 +4166,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutViewDesignToSql: Makes view creation sql from a view-design Converts a ConvertToView specification into SQL that creates a view  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutViewDesignToSql: Make view creation sql from a view-design Converts a ConvertToView specification into SQL that creates a view  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="convertToViewData">Structured Query design object to generate SQL from</param>
@@ -4256,7 +4256,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutViewDesignToSql: Makes view creation sql from a view-design Converts a ConvertToView specification into SQL that creates a view  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutViewDesignToSql: Make view creation sql from a view-design Converts a ConvertToView specification into SQL that creates a view  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="convertToViewData">Structured Query design object to generate SQL from</param>
@@ -4271,7 +4271,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutViewDesignToSql: Makes view creation sql from a view-design Converts a ConvertToView specification into SQL that creates a view  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutViewDesignToSql: Make view creation sql from a view-design Converts a ConvertToView specification into SQL that creates a view  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="convertToViewData">Structured Query design object to generate SQL from</param>
@@ -4364,7 +4364,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutWriterDesignToSql: Makes writer SQL from a writer-design object Generates writer SQL from a valid WriterDesign structure  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutWriterDesignToSql: Make writer SQL from a writer-design object Generates writer SQL from a valid WriterDesign structure  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="writerDesign">Structured Writer Design design object to generate Writer SQL from</param>
@@ -4378,7 +4378,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutWriterDesignToSql: Makes writer SQL from a writer-design object Generates writer SQL from a valid WriterDesign structure  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutWriterDesignToSql: Make writer SQL from a writer-design object Generates writer SQL from a valid WriterDesign structure  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="writerDesign">Structured Writer Design design object to generate Writer SQL from</param>
@@ -4468,7 +4468,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutWriterDesignToSql: Makes writer SQL from a writer-design object Generates writer SQL from a valid WriterDesign structure  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutWriterDesignToSql: Make writer SQL from a writer-design object Generates writer SQL from a valid WriterDesign structure  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="writerDesign">Structured Writer Design design object to generate Writer SQL from</param>
@@ -4483,7 +4483,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] PutWriterDesignToSql: Makes writer SQL from a writer-design object Generates writer SQL from a valid WriterDesign structure  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// [EXPERIMENTAL] PutWriterDesignToSql: Make writer SQL from a writer-design object Generates writer SQL from a valid WriterDesign structure  &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="writerDesign">Structured Writer Design design object to generate Writer SQL from</param>

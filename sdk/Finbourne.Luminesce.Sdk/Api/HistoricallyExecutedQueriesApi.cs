@@ -32,7 +32,7 @@ namespace Finbourne.Luminesce.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// CancelHistory: Cancels / Clears data from a query history search
+        /// CancelHistory: Cancel / Clear data from a history search
         /// </summary>
         /// <remarks>
         /// Cancel the query (if still running) / clear the data (if already returned) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. 
@@ -45,7 +45,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         BackgroundQueryCancelResponse CancelHistory(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// CancelHistory: Cancels / Clears data from a query history search
+        /// CancelHistory: Cancel / Clear data from a history search
         /// </summary>
         /// <remarks>
         /// Cancel the query (if still running) / clear the data (if already returned) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. 
@@ -57,7 +57,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of BackgroundQueryCancelResponse</returns>
         ApiResponse<BackgroundQueryCancelResponse> CancelHistoryWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// FetchHistoryResultHistogram: Makes a histogram of results from a query history search
+        /// FetchHistoryResultHistogram: Make a histogram of results of a history search
         /// </summary>
         /// <remarks>
         /// Fetch the histogram in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
@@ -73,7 +73,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string FetchHistoryResultHistogram(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// FetchHistoryResultHistogram: Makes a histogram of results from a query history search
+        /// FetchHistoryResultHistogram: Make a histogram of results of a history search
         /// </summary>
         /// <remarks>
         /// Fetch the histogram in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
@@ -88,7 +88,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> FetchHistoryResultHistogramWithHttpInfo(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// FetchHistoryResultJson: Fetches JSON results from a query history search
+        /// FetchHistoryResultJson: Fetch JSON results from a query history search
         /// </summary>
         /// <remarks>
         /// Fetch the data in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
@@ -108,7 +108,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string FetchHistoryResultJson(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// FetchHistoryResultJson: Fetches JSON results from a query history search
+        /// FetchHistoryResultJson: Fetch JSON results from a query history search
         /// </summary>
         /// <remarks>
         /// Fetch the data in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
@@ -127,7 +127,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> FetchHistoryResultJsonWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetHistory: Starts a background query history search
+        /// GetHistory: Start a background history search
         /// </summary>
         /// <remarks>
         ///  Starts to load the historical query logs for a certain time range, search criteria, etc.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
@@ -144,7 +144,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         BackgroundQueryResponse GetHistory(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetHistory: Starts a background query history search
+        /// GetHistory: Start a background history search
         /// </summary>
         /// <remarks>
         ///  Starts to load the historical query logs for a certain time range, search criteria, etc.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
@@ -160,7 +160,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
         ApiResponse<BackgroundQueryResponse> GetHistoryWithHttpInfo(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetProgressOfHistory: View progress of a query history search
+        /// GetProgressOfHistory: View progress of a history search
         /// </summary>
         /// <remarks>
         /// View progress information (up until this point) of previously started History query The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
@@ -173,7 +173,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         BackgroundQueryProgressResponse GetProgressOfHistory(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetProgressOfHistory: View progress of a query history search
+        /// GetProgressOfHistory: View progress of a history search
         /// </summary>
         /// <remarks>
         /// View progress information (up until this point) of previously started History query The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
@@ -194,7 +194,7 @@ namespace Finbourne.Luminesce.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// CancelHistory: Cancels / Clears data from a query history search
+        /// CancelHistory: Cancel / Clear data from a history search
         /// </summary>
         /// <remarks>
         /// Cancel the query (if still running) / clear the data (if already returned) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. 
@@ -208,7 +208,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<BackgroundQueryCancelResponse> CancelHistoryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// CancelHistory: Cancels / Clears data from a query history search
+        /// CancelHistory: Cancel / Clear data from a history search
         /// </summary>
         /// <remarks>
         /// Cancel the query (if still running) / clear the data (if already returned) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. 
@@ -221,7 +221,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (BackgroundQueryCancelResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BackgroundQueryCancelResponse>> CancelHistoryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// FetchHistoryResultHistogram: Makes a histogram of results from a query history search
+        /// FetchHistoryResultHistogram: Make a histogram of results of a history search
         /// </summary>
         /// <remarks>
         /// Fetch the histogram in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
@@ -238,7 +238,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> FetchHistoryResultHistogramAsync(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// FetchHistoryResultHistogram: Makes a histogram of results from a query history search
+        /// FetchHistoryResultHistogram: Make a histogram of results of a history search
         /// </summary>
         /// <remarks>
         /// Fetch the histogram in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
@@ -254,7 +254,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> FetchHistoryResultHistogramWithHttpInfoAsync(string executionId, string? bucketSize = default(string?), string? filter = default(string?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// FetchHistoryResultJson: Fetches JSON results from a query history search
+        /// FetchHistoryResultJson: Fetch JSON results from a query history search
         /// </summary>
         /// <remarks>
         /// Fetch the data in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
@@ -275,7 +275,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> FetchHistoryResultJsonAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// FetchHistoryResultJson: Fetches JSON results from a query history search
+        /// FetchHistoryResultJson: Fetch JSON results from a query history search
         /// </summary>
         /// <remarks>
         /// Fetch the data in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
@@ -295,7 +295,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> FetchHistoryResultJsonWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetHistory: Starts a background query history search
+        /// GetHistory: Start a background history search
         /// </summary>
         /// <remarks>
         ///  Starts to load the historical query logs for a certain time range, search criteria, etc.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
@@ -313,7 +313,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<BackgroundQueryResponse> GetHistoryAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetHistory: Starts a background query history search
+        /// GetHistory: Start a background history search
         /// </summary>
         /// <remarks>
         ///  Starts to load the historical query logs for a certain time range, search criteria, etc.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
@@ -330,7 +330,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (BackgroundQueryResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BackgroundQueryResponse>> GetHistoryWithHttpInfoAsync(DateTimeOffset? startAt = default(DateTimeOffset?), DateTimeOffset? endAt = default(DateTimeOffset?), string? freeTextSearch = default(string?), bool? showAll = default(bool?), bool? mayUseNativeStore = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetProgressOfHistory: View progress of a query history search
+        /// GetProgressOfHistory: View progress of a history search
         /// </summary>
         /// <remarks>
         /// View progress information (up until this point) of previously started History query The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
@@ -344,7 +344,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetProgressOfHistoryAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetProgressOfHistory: View progress of a query history search
+        /// GetProgressOfHistory: View progress of a history search
         /// </summary>
         /// <remarks>
         /// View progress information (up until this point) of previously started History query The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
@@ -480,7 +480,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// CancelHistory: Cancels / Clears data from a query history search Cancel the query (if still running) / clear the data (if already returned) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. 
+        /// CancelHistory: Cancel / Clear data from a history search Cancel the query (if still running) / clear the data (if already returned) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -494,7 +494,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// CancelHistory: Cancels / Clears data from a query history search Cancel the query (if still running) / clear the data (if already returned) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. 
+        /// CancelHistory: Cancel / Clear data from a history search Cancel the query (if still running) / clear the data (if already returned) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -580,7 +580,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// CancelHistory: Cancels / Clears data from a query history search Cancel the query (if still running) / clear the data (if already returned) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. 
+        /// CancelHistory: Cancel / Clear data from a history search Cancel the query (if still running) / clear the data (if already returned) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -595,7 +595,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// CancelHistory: Cancels / Clears data from a query history search Cancel the query (if still running) / clear the data (if already returned) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. 
+        /// CancelHistory: Cancel / Clear data from a history search Cancel the query (if still running) / clear the data (if already returned) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -684,7 +684,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// FetchHistoryResultHistogram: Makes a histogram of results from a query history search Fetch the histogram in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// FetchHistoryResultHistogram: Make a histogram of results of a history search Fetch the histogram in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -701,7 +701,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// FetchHistoryResultHistogram: Makes a histogram of results from a query history search Fetch the histogram in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// FetchHistoryResultHistogram: Make a histogram of results of a history search Fetch the histogram in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -802,7 +802,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// FetchHistoryResultHistogram: Makes a histogram of results from a query history search Fetch the histogram in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// FetchHistoryResultHistogram: Make a histogram of results of a history search Fetch the histogram in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -820,7 +820,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// FetchHistoryResultHistogram: Makes a histogram of results from a query history search Fetch the histogram in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// FetchHistoryResultHistogram: Make a histogram of results of a history search Fetch the histogram in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -924,7 +924,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// FetchHistoryResultJson: Fetches JSON results from a query history search Fetch the data in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// FetchHistoryResultJson: Fetch JSON results from a query history search Fetch the data in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -945,7 +945,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// FetchHistoryResultJson: Fetches JSON results from a query history search Fetch the data in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// FetchHistoryResultJson: Fetch JSON results from a query history search Fetch the data in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -1066,7 +1066,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// FetchHistoryResultJson: Fetches JSON results from a query history search Fetch the data in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// FetchHistoryResultJson: Fetch JSON results from a query history search Fetch the data in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -1088,7 +1088,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// FetchHistoryResultJson: Fetches JSON results from a query history search Fetch the data in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// FetchHistoryResultJson: Fetch JSON results from a query history search Fetch the data in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -1212,7 +1212,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetHistory: Starts a background query history search  Starts to load the historical query logs for a certain time range, search criteria, etc.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        /// GetHistory: Start a background history search  Starts to load the historical query logs for a certain time range, search criteria, etc.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startAt">Date time to start the search from.  Will default to Now - 1 Day (optional)</param>
@@ -1230,7 +1230,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetHistory: Starts a background query history search  Starts to load the historical query logs for a certain time range, search criteria, etc.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        /// GetHistory: Start a background history search  Starts to load the historical query logs for a certain time range, search criteria, etc.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startAt">Date time to start the search from.  Will default to Now - 1 Day (optional)</param>
@@ -1333,7 +1333,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetHistory: Starts a background query history search  Starts to load the historical query logs for a certain time range, search criteria, etc.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        /// GetHistory: Start a background history search  Starts to load the historical query logs for a certain time range, search criteria, etc.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startAt">Date time to start the search from.  Will default to Now - 1 Day (optional)</param>
@@ -1352,7 +1352,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetHistory: Starts a background query history search  Starts to load the historical query logs for a certain time range, search criteria, etc.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        /// GetHistory: Start a background history search  Starts to load the historical query logs for a certain time range, search criteria, etc.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startAt">Date time to start the search from.  Will default to Now - 1 Day (optional)</param>
@@ -1458,7 +1458,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetProgressOfHistory: View progress of a query history search View progress information (up until this point) of previously started History query The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// GetProgressOfHistory: View progress of a history search View progress information (up until this point) of previously started History query The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -1472,7 +1472,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetProgressOfHistory: View progress of a query history search View progress information (up until this point) of previously started History query The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// GetProgressOfHistory: View progress of a history search View progress information (up until this point) of previously started History query The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -1558,7 +1558,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetProgressOfHistory: View progress of a query history search View progress information (up until this point) of previously started History query The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// GetProgressOfHistory: View progress of a history search View progress information (up until this point) of previously started History query The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
@@ -1573,7 +1573,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetProgressOfHistory: View progress of a query history search View progress information (up until this point) of previously started History query The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// GetProgressOfHistory: View progress of a history search View progress information (up until this point) of previously started History query The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>

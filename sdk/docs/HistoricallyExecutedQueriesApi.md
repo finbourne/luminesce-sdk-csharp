@@ -4,17 +4,17 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CancelHistory**](HistoricallyExecutedQueriesApi.md#cancelhistory) | **DELETE** /api/History/{executionId} | CancelHistory: Cancels / Clears data from a query history search |
-| [**FetchHistoryResultHistogram**](HistoricallyExecutedQueriesApi.md#fetchhistoryresulthistogram) | **GET** /api/History/{executionId}/histogram | FetchHistoryResultHistogram: Makes a histogram of results from a query history search |
-| [**FetchHistoryResultJson**](HistoricallyExecutedQueriesApi.md#fetchhistoryresultjson) | **GET** /api/History/{executionId}/json | FetchHistoryResultJson: Fetches JSON results from a query history search |
-| [**GetHistory**](HistoricallyExecutedQueriesApi.md#gethistory) | **GET** /api/History | GetHistory: Starts a background query history search |
-| [**GetProgressOfHistory**](HistoricallyExecutedQueriesApi.md#getprogressofhistory) | **GET** /api/History/{executionId} | GetProgressOfHistory: View progress of a query history search |
+| [**CancelHistory**](HistoricallyExecutedQueriesApi.md#cancelhistory) | **DELETE** /api/History/{executionId} | CancelHistory: Cancel / Clear data from a history search |
+| [**FetchHistoryResultHistogram**](HistoricallyExecutedQueriesApi.md#fetchhistoryresulthistogram) | **GET** /api/History/{executionId}/histogram | FetchHistoryResultHistogram: Make a histogram of results of a history search |
+| [**FetchHistoryResultJson**](HistoricallyExecutedQueriesApi.md#fetchhistoryresultjson) | **GET** /api/History/{executionId}/json | FetchHistoryResultJson: Fetch JSON results from a query history search |
+| [**GetHistory**](HistoricallyExecutedQueriesApi.md#gethistory) | **GET** /api/History | GetHistory: Start a background history search |
+| [**GetProgressOfHistory**](HistoricallyExecutedQueriesApi.md#getprogressofhistory) | **GET** /api/History/{executionId} | GetProgressOfHistory: View progress of a history search |
 
 <a id="cancelhistory"></a>
 # **CancelHistory**
 > BackgroundQueryCancelResponse CancelHistory (string executionId)
 
-CancelHistory: Cancels / Clears data from a query history search
+CancelHistory: Cancel / Clear data from a history search
 
 Cancel the query (if still running) / clear the data (if already returned) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't exist and is not running. 
 
@@ -64,7 +64,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BackgroundQueryCancelResponse result = apiInstance.CancelHistory(executionId, opts: opts);
 
-                // CancelHistory: Cancels / Clears data from a query history search
+                // CancelHistory: Cancel / Clear data from a history search
                 BackgroundQueryCancelResponse result = apiInstance.CancelHistory(executionId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -85,7 +85,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // CancelHistory: Cancels / Clears data from a query history search
+    // CancelHistory: Cancel / Clear data from a history search
     ApiResponse<BackgroundQueryCancelResponse> response = apiInstance.CancelHistoryWithHttpInfo(executionId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -126,7 +126,7 @@ catch (ApiException e)
 # **FetchHistoryResultHistogram**
 > string FetchHistoryResultHistogram (string executionId, string? bucketSize = null, string? filter = null, bool? jsonProper = null)
 
-FetchHistoryResultHistogram: Makes a histogram of results from a query history search
+FetchHistoryResultHistogram: Make a histogram of results of a history search
 
 Fetch the histogram in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -179,7 +179,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.FetchHistoryResultHistogram(executionId, bucketSize, filter, jsonProper, opts: opts);
 
-                // FetchHistoryResultHistogram: Makes a histogram of results from a query history search
+                // FetchHistoryResultHistogram: Make a histogram of results of a history search
                 string result = apiInstance.FetchHistoryResultHistogram(executionId, bucketSize, filter, jsonProper);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -200,7 +200,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // FetchHistoryResultHistogram: Makes a histogram of results from a query history search
+    // FetchHistoryResultHistogram: Make a histogram of results of a history search
     ApiResponse<string> response = apiInstance.FetchHistoryResultHistogramWithHttpInfo(executionId, bucketSize, filter, jsonProper);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -246,7 +246,7 @@ catch (ApiException e)
 # **FetchHistoryResultJson**
 > string FetchHistoryResultJson (string executionId, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null, bool? jsonProper = null)
 
-FetchHistoryResultJson: Fetches JSON results from a query history search
+FetchHistoryResultJson: Fetch JSON results from a query history search
 
 Fetch the data in Json format (if available, or if not simply being informed it is not yet ready) The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't (yet) exist. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -303,7 +303,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.FetchHistoryResultJson(executionId, sortBy, filter, select, groupBy, limit, page, jsonProper, opts: opts);
 
-                // FetchHistoryResultJson: Fetches JSON results from a query history search
+                // FetchHistoryResultJson: Fetch JSON results from a query history search
                 string result = apiInstance.FetchHistoryResultJson(executionId, sortBy, filter, select, groupBy, limit, page, jsonProper);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -324,7 +324,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // FetchHistoryResultJson: Fetches JSON results from a query history search
+    // FetchHistoryResultJson: Fetch JSON results from a query history search
     ApiResponse<string> response = apiInstance.FetchHistoryResultJsonWithHttpInfo(executionId, sortBy, filter, select, groupBy, limit, page, jsonProper);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -374,7 +374,7 @@ catch (ApiException e)
 # **GetHistory**
 > BackgroundQueryResponse GetHistory (DateTimeOffset? startAt = null, DateTimeOffset? endAt = null, string? freeTextSearch = null, bool? showAll = null, bool? mayUseNativeStore = null)
 
-GetHistory: Starts a background query history search
+GetHistory: Start a background history search
 
  Starts to load the historical query logs for a certain time range, search criteria, etc.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
 
@@ -428,7 +428,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BackgroundQueryResponse result = apiInstance.GetHistory(startAt, endAt, freeTextSearch, showAll, mayUseNativeStore, opts: opts);
 
-                // GetHistory: Starts a background query history search
+                // GetHistory: Start a background history search
                 BackgroundQueryResponse result = apiInstance.GetHistory(startAt, endAt, freeTextSearch, showAll, mayUseNativeStore);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -449,7 +449,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // GetHistory: Starts a background query history search
+    // GetHistory: Start a background history search
     ApiResponse<BackgroundQueryResponse> response = apiInstance.GetHistoryWithHttpInfo(startAt, endAt, freeTextSearch, showAll, mayUseNativeStore);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -494,7 +494,7 @@ catch (ApiException e)
 # **GetProgressOfHistory**
 > BackgroundQueryProgressResponse GetProgressOfHistory (string executionId)
 
-GetProgressOfHistory: View progress of a query history search
+GetProgressOfHistory: View progress of a history search
 
 View progress information (up until this point) of previously started History query The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -544,7 +544,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BackgroundQueryProgressResponse result = apiInstance.GetProgressOfHistory(executionId, opts: opts);
 
-                // GetProgressOfHistory: View progress of a query history search
+                // GetProgressOfHistory: View progress of a history search
                 BackgroundQueryProgressResponse result = apiInstance.GetProgressOfHistory(executionId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -565,7 +565,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // GetProgressOfHistory: View progress of a query history search
+    // GetProgressOfHistory: View progress of a history search
     ApiResponse<BackgroundQueryProgressResponse> response = apiInstance.GetProgressOfHistoryWithHttpInfo(executionId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

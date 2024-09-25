@@ -32,7 +32,7 @@ namespace Finbourne.Luminesce.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] DownloadBinary: Download Luminesce Binaries you may run on site
+        /// [EXPERIMENTAL] DownloadBinary: Download a Luminesce Binary you may run on-site
         /// </summary>
         /// <remarks>
         ///  Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.  &gt; This endpoint is an alternative to time-consuming manual distribution via Drive or Email. &gt; it relies on an underlying datastore that is not quite as \&quot;Highly Available\&quot; to the degree  &gt; that FINBOURNE services generally are.   &gt; Thus it is not subject to the same SLAs as other API endpoints are. &gt; *If you perceive an outage, please try again later.*  Once a file has been downloaded the following steps can be used to install it (for the dotnet tools at least):  1. Open a terminal and cd to the directory you downloaded it to 2. Install / extract files from that package via: &#x60;&#x60;&#x60; dotnet tool install NameOfFileWithoutVersionNumberOrExtension -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; e.g. &#x60;&#x60;&#x60; dotnet tool install Finbourne.Luminesce.DbProviders.Oracle_Snowflake -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; 3. Execute them (see documentation for specific binary)...  The installed binaries can then be found in - Windows - &#x60;%USERPROFILE%\\.dotnet\\tools\\.store\\&#x60; - Linux/macOS - &#x60;$HOME/.dotnet/tools/.store/&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - binary file is not available for some reason (e.g. permissions or invalid version) - 401 Unauthorized - 403 Forbidden 
@@ -46,7 +46,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.IO.Stream DownloadBinary(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DownloadBinary: Download Luminesce Binaries you may run on site
+        /// [EXPERIMENTAL] DownloadBinary: Download a Luminesce Binary you may run on-site
         /// </summary>
         /// <remarks>
         ///  Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.  &gt; This endpoint is an alternative to time-consuming manual distribution via Drive or Email. &gt; it relies on an underlying datastore that is not quite as \&quot;Highly Available\&quot; to the degree  &gt; that FINBOURNE services generally are.   &gt; Thus it is not subject to the same SLAs as other API endpoints are. &gt; *If you perceive an outage, please try again later.*  Once a file has been downloaded the following steps can be used to install it (for the dotnet tools at least):  1. Open a terminal and cd to the directory you downloaded it to 2. Install / extract files from that package via: &#x60;&#x60;&#x60; dotnet tool install NameOfFileWithoutVersionNumberOrExtension -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; e.g. &#x60;&#x60;&#x60; dotnet tool install Finbourne.Luminesce.DbProviders.Oracle_Snowflake -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; 3. Execute them (see documentation for specific binary)...  The installed binaries can then be found in - Windows - &#x60;%USERPROFILE%\\.dotnet\\tools\\.store\\&#x60; - Linux/macOS - &#x60;$HOME/.dotnet/tools/.store/&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - binary file is not available for some reason (e.g. permissions or invalid version) - 401 Unauthorized - 403 Forbidden 
@@ -59,7 +59,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> DownloadBinaryWithHttpInfo(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetBinaryVersions: Lists the available versions of binaries
+        /// [EXPERIMENTAL] GetBinaryVersions: List available versions of binaries
         /// </summary>
         /// <remarks>
         ///  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
@@ -72,7 +72,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         List<string> GetBinaryVersions(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetBinaryVersions: Lists the available versions of binaries
+        /// [EXPERIMENTAL] GetBinaryVersions: List available versions of binaries
         /// </summary>
         /// <remarks>
         ///  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
@@ -93,7 +93,7 @@ namespace Finbourne.Luminesce.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] DownloadBinary: Download Luminesce Binaries you may run on site
+        /// [EXPERIMENTAL] DownloadBinary: Download a Luminesce Binary you may run on-site
         /// </summary>
         /// <remarks>
         ///  Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.  &gt; This endpoint is an alternative to time-consuming manual distribution via Drive or Email. &gt; it relies on an underlying datastore that is not quite as \&quot;Highly Available\&quot; to the degree  &gt; that FINBOURNE services generally are.   &gt; Thus it is not subject to the same SLAs as other API endpoints are. &gt; *If you perceive an outage, please try again later.*  Once a file has been downloaded the following steps can be used to install it (for the dotnet tools at least):  1. Open a terminal and cd to the directory you downloaded it to 2. Install / extract files from that package via: &#x60;&#x60;&#x60; dotnet tool install NameOfFileWithoutVersionNumberOrExtension -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; e.g. &#x60;&#x60;&#x60; dotnet tool install Finbourne.Luminesce.DbProviders.Oracle_Snowflake -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; 3. Execute them (see documentation for specific binary)...  The installed binaries can then be found in - Windows - &#x60;%USERPROFILE%\\.dotnet\\tools\\.store\\&#x60; - Linux/macOS - &#x60;$HOME/.dotnet/tools/.store/&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - binary file is not available for some reason (e.g. permissions or invalid version) - 401 Unauthorized - 403 Forbidden 
@@ -108,7 +108,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<System.IO.Stream> DownloadBinaryAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DownloadBinary: Download Luminesce Binaries you may run on site
+        /// [EXPERIMENTAL] DownloadBinary: Download a Luminesce Binary you may run on-site
         /// </summary>
         /// <remarks>
         ///  Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.  &gt; This endpoint is an alternative to time-consuming manual distribution via Drive or Email. &gt; it relies on an underlying datastore that is not quite as \&quot;Highly Available\&quot; to the degree  &gt; that FINBOURNE services generally are.   &gt; Thus it is not subject to the same SLAs as other API endpoints are. &gt; *If you perceive an outage, please try again later.*  Once a file has been downloaded the following steps can be used to install it (for the dotnet tools at least):  1. Open a terminal and cd to the directory you downloaded it to 2. Install / extract files from that package via: &#x60;&#x60;&#x60; dotnet tool install NameOfFileWithoutVersionNumberOrExtension -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; e.g. &#x60;&#x60;&#x60; dotnet tool install Finbourne.Luminesce.DbProviders.Oracle_Snowflake -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; 3. Execute them (see documentation for specific binary)...  The installed binaries can then be found in - Windows - &#x60;%USERPROFILE%\\.dotnet\\tools\\.store\\&#x60; - Linux/macOS - &#x60;$HOME/.dotnet/tools/.store/&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - binary file is not available for some reason (e.g. permissions or invalid version) - 401 Unauthorized - 403 Forbidden 
@@ -122,7 +122,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> DownloadBinaryWithHttpInfoAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), string? version = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetBinaryVersions: Lists the available versions of binaries
+        /// [EXPERIMENTAL] GetBinaryVersions: List available versions of binaries
         /// </summary>
         /// <remarks>
         ///  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
@@ -136,7 +136,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<List<string>> GetBinaryVersionsAsync(LuminesceBinaryType? type = default(LuminesceBinaryType?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetBinaryVersions: Lists the available versions of binaries
+        /// [EXPERIMENTAL] GetBinaryVersions: List available versions of binaries
         /// </summary>
         /// <remarks>
         ///  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
@@ -272,7 +272,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DownloadBinary: Download Luminesce Binaries you may run on site  Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.  &gt; This endpoint is an alternative to time-consuming manual distribution via Drive or Email. &gt; it relies on an underlying datastore that is not quite as \&quot;Highly Available\&quot; to the degree  &gt; that FINBOURNE services generally are.   &gt; Thus it is not subject to the same SLAs as other API endpoints are. &gt; *If you perceive an outage, please try again later.*  Once a file has been downloaded the following steps can be used to install it (for the dotnet tools at least):  1. Open a terminal and cd to the directory you downloaded it to 2. Install / extract files from that package via: &#x60;&#x60;&#x60; dotnet tool install NameOfFileWithoutVersionNumberOrExtension -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; e.g. &#x60;&#x60;&#x60; dotnet tool install Finbourne.Luminesce.DbProviders.Oracle_Snowflake -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; 3. Execute them (see documentation for specific binary)...  The installed binaries can then be found in - Windows - &#x60;%USERPROFILE%\\.dotnet\\tools\\.store\\&#x60; - Linux/macOS - &#x60;$HOME/.dotnet/tools/.store/&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - binary file is not available for some reason (e.g. permissions or invalid version) - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] DownloadBinary: Download a Luminesce Binary you may run on-site  Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.  &gt; This endpoint is an alternative to time-consuming manual distribution via Drive or Email. &gt; it relies on an underlying datastore that is not quite as \&quot;Highly Available\&quot; to the degree  &gt; that FINBOURNE services generally are.   &gt; Thus it is not subject to the same SLAs as other API endpoints are. &gt; *If you perceive an outage, please try again later.*  Once a file has been downloaded the following steps can be used to install it (for the dotnet tools at least):  1. Open a terminal and cd to the directory you downloaded it to 2. Install / extract files from that package via: &#x60;&#x60;&#x60; dotnet tool install NameOfFileWithoutVersionNumberOrExtension -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; e.g. &#x60;&#x60;&#x60; dotnet tool install Finbourne.Luminesce.DbProviders.Oracle_Snowflake -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; 3. Execute them (see documentation for specific binary)...  The installed binaries can then be found in - Windows - &#x60;%USERPROFILE%\\.dotnet\\tools\\.store\\&#x60; - Linux/macOS - &#x60;$HOME/.dotnet/tools/.store/&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - binary file is not available for some reason (e.g. permissions or invalid version) - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Type of binary to download (each requires separate licenses and entitlements) (optional)</param>
@@ -287,7 +287,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DownloadBinary: Download Luminesce Binaries you may run on site  Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.  &gt; This endpoint is an alternative to time-consuming manual distribution via Drive or Email. &gt; it relies on an underlying datastore that is not quite as \&quot;Highly Available\&quot; to the degree  &gt; that FINBOURNE services generally are.   &gt; Thus it is not subject to the same SLAs as other API endpoints are. &gt; *If you perceive an outage, please try again later.*  Once a file has been downloaded the following steps can be used to install it (for the dotnet tools at least):  1. Open a terminal and cd to the directory you downloaded it to 2. Install / extract files from that package via: &#x60;&#x60;&#x60; dotnet tool install NameOfFileWithoutVersionNumberOrExtension -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; e.g. &#x60;&#x60;&#x60; dotnet tool install Finbourne.Luminesce.DbProviders.Oracle_Snowflake -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; 3. Execute them (see documentation for specific binary)...  The installed binaries can then be found in - Windows - &#x60;%USERPROFILE%\\.dotnet\\tools\\.store\\&#x60; - Linux/macOS - &#x60;$HOME/.dotnet/tools/.store/&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - binary file is not available for some reason (e.g. permissions or invalid version) - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] DownloadBinary: Download a Luminesce Binary you may run on-site  Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.  &gt; This endpoint is an alternative to time-consuming manual distribution via Drive or Email. &gt; it relies on an underlying datastore that is not quite as \&quot;Highly Available\&quot; to the degree  &gt; that FINBOURNE services generally are.   &gt; Thus it is not subject to the same SLAs as other API endpoints are. &gt; *If you perceive an outage, please try again later.*  Once a file has been downloaded the following steps can be used to install it (for the dotnet tools at least):  1. Open a terminal and cd to the directory you downloaded it to 2. Install / extract files from that package via: &#x60;&#x60;&#x60; dotnet tool install NameOfFileWithoutVersionNumberOrExtension -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; e.g. &#x60;&#x60;&#x60; dotnet tool install Finbourne.Luminesce.DbProviders.Oracle_Snowflake -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; 3. Execute them (see documentation for specific binary)...  The installed binaries can then be found in - Windows - &#x60;%USERPROFILE%\\.dotnet\\tools\\.store\\&#x60; - Linux/macOS - &#x60;$HOME/.dotnet/tools/.store/&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - binary file is not available for some reason (e.g. permissions or invalid version) - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Type of binary to download (each requires separate licenses and entitlements) (optional)</param>
@@ -376,7 +376,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DownloadBinary: Download Luminesce Binaries you may run on site  Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.  &gt; This endpoint is an alternative to time-consuming manual distribution via Drive or Email. &gt; it relies on an underlying datastore that is not quite as \&quot;Highly Available\&quot; to the degree  &gt; that FINBOURNE services generally are.   &gt; Thus it is not subject to the same SLAs as other API endpoints are. &gt; *If you perceive an outage, please try again later.*  Once a file has been downloaded the following steps can be used to install it (for the dotnet tools at least):  1. Open a terminal and cd to the directory you downloaded it to 2. Install / extract files from that package via: &#x60;&#x60;&#x60; dotnet tool install NameOfFileWithoutVersionNumberOrExtension -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; e.g. &#x60;&#x60;&#x60; dotnet tool install Finbourne.Luminesce.DbProviders.Oracle_Snowflake -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; 3. Execute them (see documentation for specific binary)...  The installed binaries can then be found in - Windows - &#x60;%USERPROFILE%\\.dotnet\\tools\\.store\\&#x60; - Linux/macOS - &#x60;$HOME/.dotnet/tools/.store/&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - binary file is not available for some reason (e.g. permissions or invalid version) - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] DownloadBinary: Download a Luminesce Binary you may run on-site  Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.  &gt; This endpoint is an alternative to time-consuming manual distribution via Drive or Email. &gt; it relies on an underlying datastore that is not quite as \&quot;Highly Available\&quot; to the degree  &gt; that FINBOURNE services generally are.   &gt; Thus it is not subject to the same SLAs as other API endpoints are. &gt; *If you perceive an outage, please try again later.*  Once a file has been downloaded the following steps can be used to install it (for the dotnet tools at least):  1. Open a terminal and cd to the directory you downloaded it to 2. Install / extract files from that package via: &#x60;&#x60;&#x60; dotnet tool install NameOfFileWithoutVersionNumberOrExtension -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; e.g. &#x60;&#x60;&#x60; dotnet tool install Finbourne.Luminesce.DbProviders.Oracle_Snowflake -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; 3. Execute them (see documentation for specific binary)...  The installed binaries can then be found in - Windows - &#x60;%USERPROFILE%\\.dotnet\\tools\\.store\\&#x60; - Linux/macOS - &#x60;$HOME/.dotnet/tools/.store/&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - binary file is not available for some reason (e.g. permissions or invalid version) - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Type of binary to download (each requires separate licenses and entitlements) (optional)</param>
@@ -392,7 +392,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DownloadBinary: Download Luminesce Binaries you may run on site  Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.  &gt; This endpoint is an alternative to time-consuming manual distribution via Drive or Email. &gt; it relies on an underlying datastore that is not quite as \&quot;Highly Available\&quot; to the degree  &gt; that FINBOURNE services generally are.   &gt; Thus it is not subject to the same SLAs as other API endpoints are. &gt; *If you perceive an outage, please try again later.*  Once a file has been downloaded the following steps can be used to install it (for the dotnet tools at least):  1. Open a terminal and cd to the directory you downloaded it to 2. Install / extract files from that package via: &#x60;&#x60;&#x60; dotnet tool install NameOfFileWithoutVersionNumberOrExtension -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; e.g. &#x60;&#x60;&#x60; dotnet tool install Finbourne.Luminesce.DbProviders.Oracle_Snowflake -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; 3. Execute them (see documentation for specific binary)...  The installed binaries can then be found in - Windows - &#x60;%USERPROFILE%\\.dotnet\\tools\\.store\\&#x60; - Linux/macOS - &#x60;$HOME/.dotnet/tools/.store/&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - binary file is not available for some reason (e.g. permissions or invalid version) - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] DownloadBinary: Download a Luminesce Binary you may run on-site  Downloads the latest version (or specific if needs be) of the specified Luminesce Binary, given the required entitlements.  &gt; This endpoint is an alternative to time-consuming manual distribution via Drive or Email. &gt; it relies on an underlying datastore that is not quite as \&quot;Highly Available\&quot; to the degree  &gt; that FINBOURNE services generally are.   &gt; Thus it is not subject to the same SLAs as other API endpoints are. &gt; *If you perceive an outage, please try again later.*  Once a file has been downloaded the following steps can be used to install it (for the dotnet tools at least):  1. Open a terminal and cd to the directory you downloaded it to 2. Install / extract files from that package via: &#x60;&#x60;&#x60; dotnet tool install NameOfFileWithoutVersionNumberOrExtension -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; e.g. &#x60;&#x60;&#x60; dotnet tool install Finbourne.Luminesce.DbProviders.Oracle_Snowflake -g - -add-source \&quot;.\&quot; &#x60;&#x60;&#x60; 3. Execute them (see documentation for specific binary)...  The installed binaries can then be found in - Windows - &#x60;%USERPROFILE%\\.dotnet\\tools\\.store\\&#x60; - Linux/macOS - &#x60;$HOME/.dotnet/tools/.store/&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - binary file is not available for some reason (e.g. permissions or invalid version) - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Type of binary to download (each requires separate licenses and entitlements) (optional)</param>
@@ -484,7 +484,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetBinaryVersions: Lists the available versions of binaries  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
+        /// [EXPERIMENTAL] GetBinaryVersions: List available versions of binaries  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Type of binary to fetch available versions of (optional)</param>
@@ -498,7 +498,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetBinaryVersions: Lists the available versions of binaries  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
+        /// [EXPERIMENTAL] GetBinaryVersions: List available versions of binaries  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Type of binary to fetch available versions of (optional)</param>
@@ -581,7 +581,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetBinaryVersions: Lists the available versions of binaries  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
+        /// [EXPERIMENTAL] GetBinaryVersions: List available versions of binaries  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Type of binary to fetch available versions of (optional)</param>
@@ -596,7 +596,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetBinaryVersions: Lists the available versions of binaries  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
+        /// [EXPERIMENTAL] GetBinaryVersions: List available versions of binaries  Gets all available versions of a given binary type (from newest to oldest) This does not mean you are entitled to download them.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Type of binary to fetch available versions of (optional)</param>

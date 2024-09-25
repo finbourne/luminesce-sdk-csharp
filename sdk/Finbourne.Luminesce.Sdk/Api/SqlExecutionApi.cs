@@ -32,7 +32,7 @@ namespace Finbourne.Luminesce.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// GetByQueryCsv: Executes Sql from the url returning CSV
+        /// GetByQueryCsv: Execute Sql from the url returning CSV
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -51,7 +51,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string GetByQueryCsv(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetByQueryCsv: Executes Sql from the url returning CSV
+        /// GetByQueryCsv: Execute Sql from the url returning CSV
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -69,7 +69,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> GetByQueryCsvWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetByQueryExcel: Executes Sql from the url returning an Excel file
+        /// GetByQueryExcel: Execute Sql from the url returning an Excel file
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -85,7 +85,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.IO.Stream GetByQueryExcel(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetByQueryExcel: Executes Sql from the url returning an Excel file
+        /// GetByQueryExcel: Execute Sql from the url returning an Excel file
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -100,7 +100,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> GetByQueryExcelWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetByQueryJson: Executes Sql from the url returning JSON
+        /// GetByQueryJson: Execute Sql from the url returning JSON
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -117,7 +117,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string GetByQueryJson(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetByQueryJson: Executes Sql from the url returning JSON
+        /// GetByQueryJson: Execute Sql from the url returning JSON
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -133,7 +133,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> GetByQueryJsonWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetByQueryParquet: Executes Sql from the url returning a Parquet file
+        /// GetByQueryParquet: Execute Sql from the url returning a Parquet file
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -149,7 +149,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.IO.Stream GetByQueryParquet(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetByQueryParquet: Executes Sql from the url returning a Parquet file
+        /// GetByQueryParquet: Execute Sql from the url returning a Parquet file
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -164,7 +164,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> GetByQueryParquetWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetByQueryPipe: Executes Sql from the url returning pipe-delimited
+        /// GetByQueryPipe: Execute Sql from the url returning pipe-delimited
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -181,7 +181,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string GetByQueryPipe(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetByQueryPipe: Executes Sql from the url returning pipe-delimited
+        /// GetByQueryPipe: Execute Sql from the url returning pipe-delimited
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -197,7 +197,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> GetByQueryPipeWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetByQuerySqlite: Executes Sql from the url returning SqLite DB
+        /// GetByQuerySqlite: Execute Sql from the url returning SqLite DB
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -213,7 +213,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.IO.Stream GetByQuerySqlite(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetByQuerySqlite: Executes Sql from the url returning SqLite DB
+        /// GetByQuerySqlite: Execute Sql from the url returning SqLite DB
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -228,7 +228,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> GetByQuerySqliteWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetByQueryXml: Executes Sql from the url returning XML
+        /// GetByQueryXml: Execute Sql from the url returning XML
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -245,7 +245,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string GetByQueryXml(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetByQueryXml: Executes Sql from the url returning XML
+        /// GetByQueryXml: Execute Sql from the url returning XML
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -261,7 +261,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> GetByQueryXmlWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutByQueryCsv: Executes Sql from the body returning CSV
+        /// PutByQueryCsv: Execute Sql from the body returning CSV
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -280,7 +280,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string PutByQueryCsv(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutByQueryCsv: Executes Sql from the body returning CSV
+        /// PutByQueryCsv: Execute Sql from the body returning CSV
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -298,7 +298,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> PutByQueryCsvWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutByQueryExcel: Executes Sql from the body making an Excel file
+        /// PutByQueryExcel: Execute Sql from the body making an Excel file
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -314,7 +314,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.IO.Stream PutByQueryExcel(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutByQueryExcel: Executes Sql from the body making an Excel file
+        /// PutByQueryExcel: Execute Sql from the body making an Excel file
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -329,7 +329,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> PutByQueryExcelWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutByQueryJson: Executes Sql from the body returning JSON
+        /// PutByQueryJson: Execute Sql from the body returning JSON
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -346,7 +346,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string PutByQueryJson(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutByQueryJson: Executes Sql from the body returning JSON
+        /// PutByQueryJson: Execute Sql from the body returning JSON
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -362,7 +362,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> PutByQueryJsonWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutByQueryParquet: Executes Sql from the body making a Parquet file
+        /// PutByQueryParquet: Execute Sql from the body making a Parquet file
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -378,7 +378,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.IO.Stream PutByQueryParquet(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutByQueryParquet: Executes Sql from the body making a Parquet file
+        /// PutByQueryParquet: Execute Sql from the body making a Parquet file
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -393,7 +393,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> PutByQueryParquetWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutByQueryPipe: Executes Sql from the body making pipe-delimited
+        /// PutByQueryPipe: Execute Sql from the body making pipe-delimited
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -410,7 +410,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string PutByQueryPipe(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutByQueryPipe: Executes Sql from the body making pipe-delimited
+        /// PutByQueryPipe: Execute Sql from the body making pipe-delimited
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -426,7 +426,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> PutByQueryPipeWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutByQuerySqlite: Executes Sql from the body returning SqLite DB
+        /// PutByQuerySqlite: Execute Sql from the body returning SqLite DB
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -442,7 +442,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.IO.Stream PutByQuerySqlite(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutByQuerySqlite: Executes Sql from the body returning SqLite DB
+        /// PutByQuerySqlite: Execute Sql from the body returning SqLite DB
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -457,7 +457,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> PutByQuerySqliteWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutByQueryXml: Executes Sql from the body returning XML
+        /// PutByQueryXml: Execute Sql from the body returning XML
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -474,7 +474,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         string PutByQueryXml(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutByQueryXml: Executes Sql from the body returning XML
+        /// PutByQueryXml: Execute Sql from the body returning XML
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -499,7 +499,7 @@ namespace Finbourne.Luminesce.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// GetByQueryCsv: Executes Sql from the url returning CSV
+        /// GetByQueryCsv: Execute Sql from the url returning CSV
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -519,7 +519,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> GetByQueryCsvAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetByQueryCsv: Executes Sql from the url returning CSV
+        /// GetByQueryCsv: Execute Sql from the url returning CSV
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -538,7 +538,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> GetByQueryCsvWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetByQueryExcel: Executes Sql from the url returning an Excel file
+        /// GetByQueryExcel: Execute Sql from the url returning an Excel file
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -555,7 +555,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<System.IO.Stream> GetByQueryExcelAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetByQueryExcel: Executes Sql from the url returning an Excel file
+        /// GetByQueryExcel: Execute Sql from the url returning an Excel file
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -571,7 +571,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetByQueryExcelWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetByQueryJson: Executes Sql from the url returning JSON
+        /// GetByQueryJson: Execute Sql from the url returning JSON
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -589,7 +589,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> GetByQueryJsonAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetByQueryJson: Executes Sql from the url returning JSON
+        /// GetByQueryJson: Execute Sql from the url returning JSON
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -606,7 +606,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> GetByQueryJsonWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetByQueryParquet: Executes Sql from the url returning a Parquet file
+        /// GetByQueryParquet: Execute Sql from the url returning a Parquet file
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -623,7 +623,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<System.IO.Stream> GetByQueryParquetAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetByQueryParquet: Executes Sql from the url returning a Parquet file
+        /// GetByQueryParquet: Execute Sql from the url returning a Parquet file
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -639,7 +639,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetByQueryParquetWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetByQueryPipe: Executes Sql from the url returning pipe-delimited
+        /// GetByQueryPipe: Execute Sql from the url returning pipe-delimited
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -657,7 +657,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> GetByQueryPipeAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetByQueryPipe: Executes Sql from the url returning pipe-delimited
+        /// GetByQueryPipe: Execute Sql from the url returning pipe-delimited
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -674,7 +674,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> GetByQueryPipeWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetByQuerySqlite: Executes Sql from the url returning SqLite DB
+        /// GetByQuerySqlite: Execute Sql from the url returning SqLite DB
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -691,7 +691,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<System.IO.Stream> GetByQuerySqliteAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetByQuerySqlite: Executes Sql from the url returning SqLite DB
+        /// GetByQuerySqlite: Execute Sql from the url returning SqLite DB
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -707,7 +707,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetByQuerySqliteWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// GetByQueryXml: Executes Sql from the url returning XML
+        /// GetByQueryXml: Execute Sql from the url returning XML
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -725,7 +725,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> GetByQueryXmlAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// GetByQueryXml: Executes Sql from the url returning XML
+        /// GetByQueryXml: Execute Sql from the url returning XML
         /// </summary>
         /// <remarks>
         ///  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -742,7 +742,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> GetByQueryXmlWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutByQueryCsv: Executes Sql from the body returning CSV
+        /// PutByQueryCsv: Execute Sql from the body returning CSV
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -762,7 +762,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> PutByQueryCsvAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutByQueryCsv: Executes Sql from the body returning CSV
+        /// PutByQueryCsv: Execute Sql from the body returning CSV
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -781,7 +781,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> PutByQueryCsvWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutByQueryExcel: Executes Sql from the body making an Excel file
+        /// PutByQueryExcel: Execute Sql from the body making an Excel file
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -798,7 +798,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<System.IO.Stream> PutByQueryExcelAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutByQueryExcel: Executes Sql from the body making an Excel file
+        /// PutByQueryExcel: Execute Sql from the body making an Excel file
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -814,7 +814,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> PutByQueryExcelWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutByQueryJson: Executes Sql from the body returning JSON
+        /// PutByQueryJson: Execute Sql from the body returning JSON
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -832,7 +832,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> PutByQueryJsonAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutByQueryJson: Executes Sql from the body returning JSON
+        /// PutByQueryJson: Execute Sql from the body returning JSON
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -849,7 +849,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> PutByQueryJsonWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutByQueryParquet: Executes Sql from the body making a Parquet file
+        /// PutByQueryParquet: Execute Sql from the body making a Parquet file
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -866,7 +866,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<System.IO.Stream> PutByQueryParquetAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutByQueryParquet: Executes Sql from the body making a Parquet file
+        /// PutByQueryParquet: Execute Sql from the body making a Parquet file
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -882,7 +882,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> PutByQueryParquetWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutByQueryPipe: Executes Sql from the body making pipe-delimited
+        /// PutByQueryPipe: Execute Sql from the body making pipe-delimited
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -900,7 +900,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> PutByQueryPipeAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutByQueryPipe: Executes Sql from the body making pipe-delimited
+        /// PutByQueryPipe: Execute Sql from the body making pipe-delimited
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -917,7 +917,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> PutByQueryPipeWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutByQuerySqlite: Executes Sql from the body returning SqLite DB
+        /// PutByQuerySqlite: Execute Sql from the body returning SqLite DB
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -934,7 +934,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<System.IO.Stream> PutByQuerySqliteAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutByQuerySqlite: Executes Sql from the body returning SqLite DB
+        /// PutByQuerySqlite: Execute Sql from the body returning SqLite DB
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -950,7 +950,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> PutByQuerySqliteWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// PutByQueryXml: Executes Sql from the body returning XML
+        /// PutByQueryXml: Execute Sql from the body returning XML
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -968,7 +968,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<string> PutByQueryXmlAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// PutByQueryXml: Executes Sql from the body returning XML
+        /// PutByQueryXml: Execute Sql from the body returning XML
         /// </summary>
         /// <remarks>
         ///  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
@@ -1108,7 +1108,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryCsv: Executes Sql from the url returning CSV  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryCsv: Execute Sql from the url returning CSV  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -1128,7 +1128,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryCsv: Executes Sql from the url returning CSV  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryCsv: Execute Sql from the url returning CSV  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -1244,7 +1244,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryCsv: Executes Sql from the url returning CSV  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryCsv: Execute Sql from the url returning CSV  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -1265,7 +1265,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryCsv: Executes Sql from the url returning CSV  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryCsv: Execute Sql from the url returning CSV  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -1384,7 +1384,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryExcel: Executes Sql from the url returning an Excel file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryExcel: Execute Sql from the url returning an Excel file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -1401,7 +1401,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryExcel: Executes Sql from the url returning an Excel file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryExcel: Execute Sql from the url returning an Excel file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -1502,7 +1502,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryExcel: Executes Sql from the url returning an Excel file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryExcel: Execute Sql from the url returning an Excel file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -1520,7 +1520,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryExcel: Executes Sql from the url returning an Excel file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryExcel: Execute Sql from the url returning an Excel file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -1624,7 +1624,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryJson: Executes Sql from the url returning JSON  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryJson: Execute Sql from the url returning JSON  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -1642,7 +1642,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryJson: Executes Sql from the url returning JSON  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryJson: Execute Sql from the url returning JSON  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -1748,7 +1748,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryJson: Executes Sql from the url returning JSON  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryJson: Execute Sql from the url returning JSON  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -1767,7 +1767,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryJson: Executes Sql from the url returning JSON  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryJson: Execute Sql from the url returning JSON  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -1876,7 +1876,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryParquet: Executes Sql from the url returning a Parquet file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryParquet: Execute Sql from the url returning a Parquet file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -1893,7 +1893,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryParquet: Executes Sql from the url returning a Parquet file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryParquet: Execute Sql from the url returning a Parquet file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -1994,7 +1994,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryParquet: Executes Sql from the url returning a Parquet file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryParquet: Execute Sql from the url returning a Parquet file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -2012,7 +2012,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryParquet: Executes Sql from the url returning a Parquet file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryParquet: Execute Sql from the url returning a Parquet file  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -2116,7 +2116,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryPipe: Executes Sql from the url returning pipe-delimited  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryPipe: Execute Sql from the url returning pipe-delimited  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -2134,7 +2134,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryPipe: Executes Sql from the url returning pipe-delimited  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryPipe: Execute Sql from the url returning pipe-delimited  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -2240,7 +2240,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryPipe: Executes Sql from the url returning pipe-delimited  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryPipe: Execute Sql from the url returning pipe-delimited  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -2259,7 +2259,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryPipe: Executes Sql from the url returning pipe-delimited  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryPipe: Execute Sql from the url returning pipe-delimited  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -2368,7 +2368,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQuerySqlite: Executes Sql from the url returning SqLite DB  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQuerySqlite: Execute Sql from the url returning SqLite DB  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -2385,7 +2385,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQuerySqlite: Executes Sql from the url returning SqLite DB  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQuerySqlite: Execute Sql from the url returning SqLite DB  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -2486,7 +2486,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQuerySqlite: Executes Sql from the url returning SqLite DB  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQuerySqlite: Execute Sql from the url returning SqLite DB  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -2504,7 +2504,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQuerySqlite: Executes Sql from the url returning SqLite DB  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQuerySqlite: Execute Sql from the url returning SqLite DB  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -2608,7 +2608,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryXml: Executes Sql from the url returning XML  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryXml: Execute Sql from the url returning XML  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -2626,7 +2626,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryXml: Executes Sql from the url returning XML  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryXml: Execute Sql from the url returning XML  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -2732,7 +2732,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryXml: Executes Sql from the url returning XML  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryXml: Execute Sql from the url returning XML  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -2751,7 +2751,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// GetByQueryXml: Executes Sql from the url returning XML  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// GetByQueryXml: Execute Sql from the url returning XML  Returns data from a simple single-line query execution which is specified on the url. e.g. &#x60;select ^ from Sys.Field order by 1, 2&#x60;, returned in the format of the method name.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
@@ -2860,7 +2860,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryCsv: Executes Sql from the body returning CSV  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryCsv: Execute Sql from the body returning CSV  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -2880,7 +2880,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryCsv: Executes Sql from the body returning CSV  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryCsv: Execute Sql from the body returning CSV  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -2997,7 +2997,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryCsv: Executes Sql from the body returning CSV  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryCsv: Execute Sql from the body returning CSV  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3018,7 +3018,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryCsv: Executes Sql from the body returning CSV  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryCsv: Execute Sql from the body returning CSV  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3138,7 +3138,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryExcel: Executes Sql from the body making an Excel file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryExcel: Execute Sql from the body making an Excel file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3155,7 +3155,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryExcel: Executes Sql from the body making an Excel file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryExcel: Execute Sql from the body making an Excel file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3257,7 +3257,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryExcel: Executes Sql from the body making an Excel file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryExcel: Execute Sql from the body making an Excel file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3275,7 +3275,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryExcel: Executes Sql from the body making an Excel file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryExcel: Execute Sql from the body making an Excel file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3380,7 +3380,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryJson: Executes Sql from the body returning JSON  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryJson: Execute Sql from the body returning JSON  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3398,7 +3398,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryJson: Executes Sql from the body returning JSON  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryJson: Execute Sql from the body returning JSON  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3505,7 +3505,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryJson: Executes Sql from the body returning JSON  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryJson: Execute Sql from the body returning JSON  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3524,7 +3524,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryJson: Executes Sql from the body returning JSON  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryJson: Execute Sql from the body returning JSON  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3634,7 +3634,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryParquet: Executes Sql from the body making a Parquet file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryParquet: Execute Sql from the body making a Parquet file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3651,7 +3651,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryParquet: Executes Sql from the body making a Parquet file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryParquet: Execute Sql from the body making a Parquet file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3753,7 +3753,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryParquet: Executes Sql from the body making a Parquet file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryParquet: Execute Sql from the body making a Parquet file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3771,7 +3771,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryParquet: Executes Sql from the body making a Parquet file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryParquet: Execute Sql from the body making a Parquet file  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3876,7 +3876,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryPipe: Executes Sql from the body making pipe-delimited  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryPipe: Execute Sql from the body making pipe-delimited  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -3894,7 +3894,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryPipe: Executes Sql from the body making pipe-delimited  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryPipe: Execute Sql from the body making pipe-delimited  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -4001,7 +4001,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryPipe: Executes Sql from the body making pipe-delimited  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryPipe: Execute Sql from the body making pipe-delimited  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -4020,7 +4020,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryPipe: Executes Sql from the body making pipe-delimited  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryPipe: Execute Sql from the body making pipe-delimited  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -4130,7 +4130,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQuerySqlite: Executes Sql from the body returning SqLite DB  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQuerySqlite: Execute Sql from the body returning SqLite DB  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -4147,7 +4147,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQuerySqlite: Executes Sql from the body returning SqLite DB  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQuerySqlite: Execute Sql from the body returning SqLite DB  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -4249,7 +4249,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQuerySqlite: Executes Sql from the body returning SqLite DB  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQuerySqlite: Execute Sql from the body returning SqLite DB  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -4267,7 +4267,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQuerySqlite: Executes Sql from the body returning SqLite DB  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQuerySqlite: Execute Sql from the body returning SqLite DB  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -4372,7 +4372,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryXml: Executes Sql from the body returning XML  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryXml: Execute Sql from the body returning XML  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -4390,7 +4390,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryXml: Executes Sql from the body returning XML  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryXml: Execute Sql from the body returning XML  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -4497,7 +4497,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryXml: Executes Sql from the body returning XML  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryXml: Execute Sql from the body returning XML  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
@@ -4516,7 +4516,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutByQueryXml: Executes Sql from the body returning XML  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
+        /// PutByQueryXml: Execute Sql from the body returning XML  For more complex LuminesceSql a PUT will allow for longer and line break delimited Sql, whic will be returned in the format of the method name. e.g.: &#x60;&#x60;&#x60;sql @@cutoff &#x3D; select #2020-02-01#; @issues &#x3D; select Id, SortId, Summary, Created, Updated from Dev.Jira.Issue where Project&#x3D;&#39;HC&#39; and Created &lt; @@cutoff and Updated &gt; @@cutoff;  select i.Id, i.SortId, i.Summary, LinkText, LinkedIssueId, LinkedIssueSortId, LinkedIssueSummary from @issues i inner join Dev.Jira.Issue.Link li     on i.Id &#x3D; li.IssueId &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - something failed with the execution or parsing of your query - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>

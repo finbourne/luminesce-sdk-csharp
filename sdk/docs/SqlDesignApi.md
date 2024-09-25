@@ -4,28 +4,28 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**PutCaseStatementDesignSqlToDesign**](SqlDesignApi.md#putcasestatementdesignsqltodesign) | **PUT** /api/Sql/tocasestatementdesign | [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL to a case statement design object |
-| [**PutCaseStatementDesignToSql**](SqlDesignApi.md#putcasestatementdesigntosql) | **PUT** /api/Sql/fromcasestatementdesign | [EXPERIMENTAL] PutCaseStatementDesignToSql: Converts a case statement design object to SQL |
-| [**PutFileReadDesignToSql**](SqlDesignApi.md#putfilereaddesigntosql) | **PUT** /api/Sql/fromfilereaddesign | [EXPERIMENTAL] PutFileReadDesignToSql: Makes file read SQL from a design object |
-| [**PutInlinedPropertiesDesignSqlToDesign**](SqlDesignApi.md#putinlinedpropertiesdesignsqltodesign) | **PUT** /api/Sql/toinlinedpropertiesdesign | [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Makes an inlined properties design from SQL |
-| [**PutInlinedPropertiesDesignToSql**](SqlDesignApi.md#putinlinedpropertiesdesigntosql) | **PUT** /api/Sql/frominlinedpropertiesdesign | [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Makes inlined properties SQL from a design object |
-| [**PutIntellisense**](SqlDesignApi.md#putintellisense) | **PUT** /api/Sql/intellisense | PutIntellisense: Makes a intellisense prompts given an SQL snip-it |
-| [**PutIntellisenseError**](SqlDesignApi.md#putintellisenseerror) | **PUT** /api/Sql/intellisenseError | PutIntellisenseError: Expresses error ranges from SQL |
-| [**PutQueryDesignToSql**](SqlDesignApi.md#putquerydesigntosql) | **PUT** /api/Sql/fromdesign | [EXPERIMENTAL] PutQueryDesignToSql: Makes SQL from a structured query design |
-| [**PutQueryToFormat**](SqlDesignApi.md#putquerytoformat) | **PUT** /api/Sql/pretty | PutQueryToFormat: Formats SQL into a more readable form |
-| [**PutSqlToExtractScalarParameters**](SqlDesignApi.md#putsqltoextractscalarparameters) | **PUT** /api/Sql/extractscalarparameters | [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extracts scalar parameter information from SQL |
-| [**PutSqlToFileReadDesign**](SqlDesignApi.md#putsqltofilereaddesign) | **PUT** /api/Sql/tofilereaddesign | [EXPERIMENTAL] PutSqlToFileReadDesign: Makes a design object from file-read SQL |
-| [**PutSqlToQueryDesign**](SqlDesignApi.md#putsqltoquerydesign) | **PUT** /api/Sql/todesign | [EXPERIMENTAL] PutSqlToQueryDesign: Makes a SQL-design object from SQL if possible |
-| [**PutSqlToViewDesign**](SqlDesignApi.md#putsqltoviewdesign) | **PUT** /api/Sql/toviewdesign | [EXPERIMENTAL] PutSqlToViewDesign: Makes a view-design from view creation SQL |
-| [**PutSqlToWriterDesign**](SqlDesignApi.md#putsqltowriterdesign) | **PUT** /api/Sql/towriterdesign | [EXPERIMENTAL] PutSqlToWriterDesign: Makes a SQL-writer-design object from SQL |
-| [**PutViewDesignToSql**](SqlDesignApi.md#putviewdesigntosql) | **PUT** /api/Sql/fromviewdesign | [EXPERIMENTAL] PutViewDesignToSql: Makes view creation sql from a view-design |
-| [**PutWriterDesignToSql**](SqlDesignApi.md#putwriterdesigntosql) | **PUT** /api/Sql/fromwriterdesign | [EXPERIMENTAL] PutWriterDesignToSql: Makes writer SQL from a writer-design object |
+| [**PutCaseStatementDesignSqlToDesign**](SqlDesignApi.md#putcasestatementdesignsqltodesign) | **PUT** /api/Sql/tocasestatementdesign | [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object |
+| [**PutCaseStatementDesignToSql**](SqlDesignApi.md#putcasestatementdesigntosql) | **PUT** /api/Sql/fromcasestatementdesign | [EXPERIMENTAL] PutCaseStatementDesignToSql: Convert a case statement design object to SQL |
+| [**PutFileReadDesignToSql**](SqlDesignApi.md#putfilereaddesigntosql) | **PUT** /api/Sql/fromfilereaddesign | [EXPERIMENTAL] PutFileReadDesignToSql: Make file read SQL from a design object |
+| [**PutInlinedPropertiesDesignSqlToDesign**](SqlDesignApi.md#putinlinedpropertiesdesignsqltodesign) | **PUT** /api/Sql/toinlinedpropertiesdesign | [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL |
+| [**PutInlinedPropertiesDesignToSql**](SqlDesignApi.md#putinlinedpropertiesdesigntosql) | **PUT** /api/Sql/frominlinedpropertiesdesign | [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object |
+| [**PutIntellisense**](SqlDesignApi.md#putintellisense) | **PUT** /api/Sql/intellisense | PutIntellisense: Make intellisense prompts given an SQL snip-it |
+| [**PutIntellisenseError**](SqlDesignApi.md#putintellisenseerror) | **PUT** /api/Sql/intellisenseError | PutIntellisenseError: Get error ranges from SQL |
+| [**PutQueryDesignToSql**](SqlDesignApi.md#putquerydesigntosql) | **PUT** /api/Sql/fromdesign | [EXPERIMENTAL] PutQueryDesignToSql: Make SQL from a structured query design |
+| [**PutQueryToFormat**](SqlDesignApi.md#putquerytoformat) | **PUT** /api/Sql/pretty | PutQueryToFormat: Format SQL into a more readable form |
+| [**PutSqlToExtractScalarParameters**](SqlDesignApi.md#putsqltoextractscalarparameters) | **PUT** /api/Sql/extractscalarparameters | [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL |
+| [**PutSqlToFileReadDesign**](SqlDesignApi.md#putsqltofilereaddesign) | **PUT** /api/Sql/tofilereaddesign | [EXPERIMENTAL] PutSqlToFileReadDesign: Make a design object from file-read SQL |
+| [**PutSqlToQueryDesign**](SqlDesignApi.md#putsqltoquerydesign) | **PUT** /api/Sql/todesign | [EXPERIMENTAL] PutSqlToQueryDesign: Make a SQL-design object from SQL if possible |
+| [**PutSqlToViewDesign**](SqlDesignApi.md#putsqltoviewdesign) | **PUT** /api/Sql/toviewdesign | [EXPERIMENTAL] PutSqlToViewDesign: Make a view-design from view creation SQL |
+| [**PutSqlToWriterDesign**](SqlDesignApi.md#putsqltowriterdesign) | **PUT** /api/Sql/towriterdesign | [EXPERIMENTAL] PutSqlToWriterDesign: Make a SQL-writer-design object from SQL |
+| [**PutViewDesignToSql**](SqlDesignApi.md#putviewdesigntosql) | **PUT** /api/Sql/fromviewdesign | [EXPERIMENTAL] PutViewDesignToSql: Make view creation sql from a view-design |
+| [**PutWriterDesignToSql**](SqlDesignApi.md#putwriterdesigntosql) | **PUT** /api/Sql/fromwriterdesign | [EXPERIMENTAL] PutWriterDesignToSql: Make writer SQL from a writer-design object |
 
 <a id="putcasestatementdesignsqltodesign"></a>
 # **PutCaseStatementDesignSqlToDesign**
 > CaseStatementDesign PutCaseStatementDesignSqlToDesign (string? body = null)
 
-[EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL to a case statement design object
+[EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object
 
 Converts a SQL query to a CaseStatementDesign object  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -79,7 +79,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // CaseStatementDesign result = apiInstance.PutCaseStatementDesignSqlToDesign(body, opts: opts);
 
-                // [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL to a case statement design object
+                // [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object
                 CaseStatementDesign result = apiInstance.PutCaseStatementDesignSqlToDesign(body);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -100,7 +100,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Converts SQL to a case statement design object
+    // [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object
     ApiResponse<CaseStatementDesign> response = apiInstance.PutCaseStatementDesignSqlToDesignWithHttpInfo(body);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -143,7 +143,7 @@ catch (ApiException e)
 # **PutCaseStatementDesignToSql**
 > string PutCaseStatementDesignToSql (CaseStatementDesign caseStatementDesign)
 
-[EXPERIMENTAL] PutCaseStatementDesignToSql: Converts a case statement design object to SQL
+[EXPERIMENTAL] PutCaseStatementDesignToSql: Convert a case statement design object to SQL
 
 Generates a SQL case statement query from a structured CaseStatementDesign object  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -193,7 +193,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.PutCaseStatementDesignToSql(caseStatementDesign, opts: opts);
 
-                // [EXPERIMENTAL] PutCaseStatementDesignToSql: Converts a case statement design object to SQL
+                // [EXPERIMENTAL] PutCaseStatementDesignToSql: Convert a case statement design object to SQL
                 string result = apiInstance.PutCaseStatementDesignToSql(caseStatementDesign);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -214,7 +214,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PutCaseStatementDesignToSql: Converts a case statement design object to SQL
+    // [EXPERIMENTAL] PutCaseStatementDesignToSql: Convert a case statement design object to SQL
     ApiResponse<string> response = apiInstance.PutCaseStatementDesignToSqlWithHttpInfo(caseStatementDesign);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -257,7 +257,7 @@ catch (ApiException e)
 # **PutFileReadDesignToSql**
 > FileReaderBuilderResponse PutFileReadDesignToSql (FileReaderBuilderDef fileReaderBuilderDef, bool? executeQuery = null)
 
-[EXPERIMENTAL] PutFileReadDesignToSql: Makes file read SQL from a design object
+[EXPERIMENTAL] PutFileReadDesignToSql: Make file read SQL from a design object
 
 Generates SQL from a FileReaderBuilderDef object  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -308,7 +308,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // FileReaderBuilderResponse result = apiInstance.PutFileReadDesignToSql(fileReaderBuilderDef, executeQuery, opts: opts);
 
-                // [EXPERIMENTAL] PutFileReadDesignToSql: Makes file read SQL from a design object
+                // [EXPERIMENTAL] PutFileReadDesignToSql: Make file read SQL from a design object
                 FileReaderBuilderResponse result = apiInstance.PutFileReadDesignToSql(fileReaderBuilderDef, executeQuery);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -329,7 +329,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PutFileReadDesignToSql: Makes file read SQL from a design object
+    // [EXPERIMENTAL] PutFileReadDesignToSql: Make file read SQL from a design object
     ApiResponse<FileReaderBuilderResponse> response = apiInstance.PutFileReadDesignToSqlWithHttpInfo(fileReaderBuilderDef, executeQuery);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -373,7 +373,7 @@ catch (ApiException e)
 # **PutInlinedPropertiesDesignSqlToDesign**
 > InlinedPropertyDesign PutInlinedPropertiesDesignSqlToDesign (string? body = null)
 
-[EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Makes an inlined properties design from SQL
+[EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL
 
 Generates a SQL-inlined-properties-design object from SQL string, if possible.  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -425,7 +425,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // InlinedPropertyDesign result = apiInstance.PutInlinedPropertiesDesignSqlToDesign(body, opts: opts);
 
-                // [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Makes an inlined properties design from SQL
+                // [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL
                 InlinedPropertyDesign result = apiInstance.PutInlinedPropertiesDesignSqlToDesign(body);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -446,7 +446,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Makes an inlined properties design from SQL
+    // [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL
     ApiResponse<InlinedPropertyDesign> response = apiInstance.PutInlinedPropertiesDesignSqlToDesignWithHttpInfo(body);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -489,7 +489,7 @@ catch (ApiException e)
 # **PutInlinedPropertiesDesignToSql**
 > string PutInlinedPropertiesDesignToSql (InlinedPropertyDesign inlinedPropertyDesign)
 
-[EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Makes inlined properties SQL from a design object
+[EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object
 
 Generates inlined properties SQL from a structured design  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -539,7 +539,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.PutInlinedPropertiesDesignToSql(inlinedPropertyDesign, opts: opts);
 
-                // [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Makes inlined properties SQL from a design object
+                // [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object
                 string result = apiInstance.PutInlinedPropertiesDesignToSql(inlinedPropertyDesign);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -560,7 +560,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Makes inlined properties SQL from a design object
+    // [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object
     ApiResponse<string> response = apiInstance.PutInlinedPropertiesDesignToSqlWithHttpInfo(inlinedPropertyDesign);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -603,7 +603,7 @@ catch (ApiException e)
 # **PutIntellisense**
 > IntellisenseResponse PutIntellisense (IntellisenseRequest intellisenseRequest)
 
-PutIntellisense: Makes a intellisense prompts given an SQL snip-it
+PutIntellisense: Make intellisense prompts given an SQL snip-it
 
 Generate a set of possible intellisense prompts given a SQL snip-it (in need not yet be valid SQL) and cursor location  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -653,7 +653,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // IntellisenseResponse result = apiInstance.PutIntellisense(intellisenseRequest, opts: opts);
 
-                // PutIntellisense: Makes a intellisense prompts given an SQL snip-it
+                // PutIntellisense: Make intellisense prompts given an SQL snip-it
                 IntellisenseResponse result = apiInstance.PutIntellisense(intellisenseRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -674,7 +674,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // PutIntellisense: Makes a intellisense prompts given an SQL snip-it
+    // PutIntellisense: Make intellisense prompts given an SQL snip-it
     ApiResponse<IntellisenseResponse> response = apiInstance.PutIntellisenseWithHttpInfo(intellisenseRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -717,7 +717,7 @@ catch (ApiException e)
 # **PutIntellisenseError**
 > ErrorHighlightResponse PutIntellisenseError (ErrorHighlightRequest errorHighlightRequest)
 
-PutIntellisenseError: Expresses error ranges from SQL
+PutIntellisenseError: Get error ranges from SQL
 
 Generate a set of error ranges, if any, in the given SQL (expressed as Lines)  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -767,7 +767,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ErrorHighlightResponse result = apiInstance.PutIntellisenseError(errorHighlightRequest, opts: opts);
 
-                // PutIntellisenseError: Expresses error ranges from SQL
+                // PutIntellisenseError: Get error ranges from SQL
                 ErrorHighlightResponse result = apiInstance.PutIntellisenseError(errorHighlightRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -788,7 +788,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // PutIntellisenseError: Expresses error ranges from SQL
+    // PutIntellisenseError: Get error ranges from SQL
     ApiResponse<ErrorHighlightResponse> response = apiInstance.PutIntellisenseErrorWithHttpInfo(errorHighlightRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -831,7 +831,7 @@ catch (ApiException e)
 # **PutQueryDesignToSql**
 > string PutQueryDesignToSql (QueryDesign queryDesign)
 
-[EXPERIMENTAL] PutQueryDesignToSql: Makes SQL from a structured query design
+[EXPERIMENTAL] PutQueryDesignToSql: Make SQL from a structured query design
 
 Generates SQL from a QueryDesign object  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -881,7 +881,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.PutQueryDesignToSql(queryDesign, opts: opts);
 
-                // [EXPERIMENTAL] PutQueryDesignToSql: Makes SQL from a structured query design
+                // [EXPERIMENTAL] PutQueryDesignToSql: Make SQL from a structured query design
                 string result = apiInstance.PutQueryDesignToSql(queryDesign);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -902,7 +902,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PutQueryDesignToSql: Makes SQL from a structured query design
+    // [EXPERIMENTAL] PutQueryDesignToSql: Make SQL from a structured query design
     ApiResponse<string> response = apiInstance.PutQueryDesignToSqlWithHttpInfo(queryDesign);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -945,7 +945,7 @@ catch (ApiException e)
 # **PutQueryToFormat**
 > string PutQueryToFormat (string body, bool? trailingCommas = null, bool? uppercaseKeywords = null, bool? breakJoinOnSections = null, bool? spaceAfterExpandedComma = null, bool? keywordStandardization = null, bool? expandCommaLists = null, bool? expandInLists = null, bool? expandBooleanExpressions = null, bool? expandBetweenConditions = null, bool? expandCaseStatements = null, int? maxLineWidth = null, bool? spaceBeforeTrailingSingleLineComments = null, bool? multilineCommentExtraLineBreak = null)
 
-PutQueryToFormat: Formats SQL into a more readable form
+PutQueryToFormat: Format SQL into a more readable form
 
  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. ```sql select x,y,z from a inner join b on a.x=b.x where x>y or y!=z ``` becomes ```sql select x, y, z from a inner join b    on a.x = b.x where x > y    or y != z ``` 
 
@@ -1008,7 +1008,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.PutQueryToFormat(body, trailingCommas, uppercaseKeywords, breakJoinOnSections, spaceAfterExpandedComma, keywordStandardization, expandCommaLists, expandInLists, expandBooleanExpressions, expandBetweenConditions, expandCaseStatements, maxLineWidth, spaceBeforeTrailingSingleLineComments, multilineCommentExtraLineBreak, opts: opts);
 
-                // PutQueryToFormat: Formats SQL into a more readable form
+                // PutQueryToFormat: Format SQL into a more readable form
                 string result = apiInstance.PutQueryToFormat(body, trailingCommas, uppercaseKeywords, breakJoinOnSections, spaceAfterExpandedComma, keywordStandardization, expandCommaLists, expandInLists, expandBooleanExpressions, expandBetweenConditions, expandCaseStatements, maxLineWidth, spaceBeforeTrailingSingleLineComments, multilineCommentExtraLineBreak);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1029,7 +1029,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // PutQueryToFormat: Formats SQL into a more readable form
+    // PutQueryToFormat: Format SQL into a more readable form
     ApiResponse<string> response = apiInstance.PutQueryToFormatWithHttpInfo(body, trailingCommas, uppercaseKeywords, breakJoinOnSections, spaceAfterExpandedComma, keywordStandardization, expandCommaLists, expandInLists, expandBooleanExpressions, expandBetweenConditions, expandCaseStatements, maxLineWidth, spaceBeforeTrailingSingleLineComments, multilineCommentExtraLineBreak);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1085,7 +1085,7 @@ catch (ApiException e)
 # **PutSqlToExtractScalarParameters**
 > List&lt;ScalarParameter&gt; PutSqlToExtractScalarParameters (string body)
 
-[EXPERIMENTAL] PutSqlToExtractScalarParameters: Extracts scalar parameter information from SQL
+[EXPERIMENTAL] PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL
 
 Extracts information about all the scalar parameters defined in the given SQL statement  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -1135,7 +1135,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // List<ScalarParameter> result = apiInstance.PutSqlToExtractScalarParameters(body, opts: opts);
 
-                // [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extracts scalar parameter information from SQL
+                // [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL
                 List<ScalarParameter> result = apiInstance.PutSqlToExtractScalarParameters(body);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1156,7 +1156,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extracts scalar parameter information from SQL
+    // [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL
     ApiResponse<List<ScalarParameter>> response = apiInstance.PutSqlToExtractScalarParametersWithHttpInfo(body);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1199,7 +1199,7 @@ catch (ApiException e)
 # **PutSqlToFileReadDesign**
 > FileReaderBuilderDef PutSqlToFileReadDesign (bool? determineAvailableSources = null, string? body = null)
 
-[EXPERIMENTAL] PutSqlToFileReadDesign: Makes a design object from file-read SQL
+[EXPERIMENTAL] PutSqlToFileReadDesign: Make a design object from file-read SQL
 
 Generates a SQL-file-read-design object from SQL string, if possible.  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -1255,7 +1255,7 @@ select * from @x;;  // string? | SQL query to generate the file read design obje
                 // uncomment the below to set overrides at the request level
                 // FileReaderBuilderDef result = apiInstance.PutSqlToFileReadDesign(determineAvailableSources, body, opts: opts);
 
-                // [EXPERIMENTAL] PutSqlToFileReadDesign: Makes a design object from file-read SQL
+                // [EXPERIMENTAL] PutSqlToFileReadDesign: Make a design object from file-read SQL
                 FileReaderBuilderDef result = apiInstance.PutSqlToFileReadDesign(determineAvailableSources, body);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1276,7 +1276,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PutSqlToFileReadDesign: Makes a design object from file-read SQL
+    // [EXPERIMENTAL] PutSqlToFileReadDesign: Make a design object from file-read SQL
     ApiResponse<FileReaderBuilderDef> response = apiInstance.PutSqlToFileReadDesignWithHttpInfo(determineAvailableSources, body);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1320,7 +1320,7 @@ catch (ApiException e)
 # **PutSqlToQueryDesign**
 > QueryDesign PutSqlToQueryDesign (string body, bool? validateWithMetadata = null)
 
-[EXPERIMENTAL] PutSqlToQueryDesign: Makes a SQL-design object from SQL if possible
+[EXPERIMENTAL] PutSqlToQueryDesign: Make a SQL-design object from SQL if possible
 
 Generates a QueryDesign object from simple SQL if possible  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -1382,7 +1382,7 @@ LIMIT 42;  // string | SQL query to generate the design object from
                 // uncomment the below to set overrides at the request level
                 // QueryDesign result = apiInstance.PutSqlToQueryDesign(body, validateWithMetadata, opts: opts);
 
-                // [EXPERIMENTAL] PutSqlToQueryDesign: Makes a SQL-design object from SQL if possible
+                // [EXPERIMENTAL] PutSqlToQueryDesign: Make a SQL-design object from SQL if possible
                 QueryDesign result = apiInstance.PutSqlToQueryDesign(body, validateWithMetadata);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1403,7 +1403,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PutSqlToQueryDesign: Makes a SQL-design object from SQL if possible
+    // [EXPERIMENTAL] PutSqlToQueryDesign: Make a SQL-design object from SQL if possible
     ApiResponse<QueryDesign> response = apiInstance.PutSqlToQueryDesignWithHttpInfo(body, validateWithMetadata);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1447,7 +1447,7 @@ catch (ApiException e)
 # **PutSqlToViewDesign**
 > ConvertToViewData PutSqlToViewDesign (string body)
 
-[EXPERIMENTAL] PutSqlToViewDesign: Makes a view-design from view creation SQL
+[EXPERIMENTAL] PutSqlToViewDesign: Make a view-design from view creation SQL
 
 Converts SQL which creates a view into a structured ConvertToViewData object  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -1504,7 +1504,7 @@ select * from @x;;  // string | SQL Query to generate the ConvertToViewData obje
                 // uncomment the below to set overrides at the request level
                 // ConvertToViewData result = apiInstance.PutSqlToViewDesign(body, opts: opts);
 
-                // [EXPERIMENTAL] PutSqlToViewDesign: Makes a view-design from view creation SQL
+                // [EXPERIMENTAL] PutSqlToViewDesign: Make a view-design from view creation SQL
                 ConvertToViewData result = apiInstance.PutSqlToViewDesign(body);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1525,7 +1525,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PutSqlToViewDesign: Makes a view-design from view creation SQL
+    // [EXPERIMENTAL] PutSqlToViewDesign: Make a view-design from view creation SQL
     ApiResponse<ConvertToViewData> response = apiInstance.PutSqlToViewDesignWithHttpInfo(body);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1568,7 +1568,7 @@ catch (ApiException e)
 # **PutSqlToWriterDesign**
 > WriterDesign PutSqlToWriterDesign (string body, bool? mergeAdditionalMappingFields = null)
 
-[EXPERIMENTAL] PutSqlToWriterDesign: Makes a SQL-writer-design object from SQL
+[EXPERIMENTAL] PutSqlToWriterDesign: Make a SQL-writer-design object from SQL
 
 Generates a SQL-writer-design object (WriterDesign) from a SQL query, if possible  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -1619,7 +1619,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // WriterDesign result = apiInstance.PutSqlToWriterDesign(body, mergeAdditionalMappingFields, opts: opts);
 
-                // [EXPERIMENTAL] PutSqlToWriterDesign: Makes a SQL-writer-design object from SQL
+                // [EXPERIMENTAL] PutSqlToWriterDesign: Make a SQL-writer-design object from SQL
                 WriterDesign result = apiInstance.PutSqlToWriterDesign(body, mergeAdditionalMappingFields);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1640,7 +1640,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PutSqlToWriterDesign: Makes a SQL-writer-design object from SQL
+    // [EXPERIMENTAL] PutSqlToWriterDesign: Make a SQL-writer-design object from SQL
     ApiResponse<WriterDesign> response = apiInstance.PutSqlToWriterDesignWithHttpInfo(body, mergeAdditionalMappingFields);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1684,7 +1684,7 @@ catch (ApiException e)
 # **PutViewDesignToSql**
 > string PutViewDesignToSql (ConvertToViewData convertToViewData)
 
-[EXPERIMENTAL] PutViewDesignToSql: Makes view creation sql from a view-design
+[EXPERIMENTAL] PutViewDesignToSql: Make view creation sql from a view-design
 
 Converts a ConvertToView specification into SQL that creates a view  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -1734,7 +1734,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.PutViewDesignToSql(convertToViewData, opts: opts);
 
-                // [EXPERIMENTAL] PutViewDesignToSql: Makes view creation sql from a view-design
+                // [EXPERIMENTAL] PutViewDesignToSql: Make view creation sql from a view-design
                 string result = apiInstance.PutViewDesignToSql(convertToViewData);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1755,7 +1755,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PutViewDesignToSql: Makes view creation sql from a view-design
+    // [EXPERIMENTAL] PutViewDesignToSql: Make view creation sql from a view-design
     ApiResponse<string> response = apiInstance.PutViewDesignToSqlWithHttpInfo(convertToViewData);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1798,7 +1798,7 @@ catch (ApiException e)
 # **PutWriterDesignToSql**
 > string PutWriterDesignToSql (WriterDesign writerDesign)
 
-[EXPERIMENTAL] PutWriterDesignToSql: Makes writer SQL from a writer-design object
+[EXPERIMENTAL] PutWriterDesignToSql: Make writer SQL from a writer-design object
 
 Generates writer SQL from a valid WriterDesign structure  > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
@@ -1848,7 +1848,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.PutWriterDesignToSql(writerDesign, opts: opts);
 
-                // [EXPERIMENTAL] PutWriterDesignToSql: Makes writer SQL from a writer-design object
+                // [EXPERIMENTAL] PutWriterDesignToSql: Make writer SQL from a writer-design object
                 string result = apiInstance.PutWriterDesignToSql(writerDesign);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1869,7 +1869,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] PutWriterDesignToSql: Makes writer SQL from a writer-design object
+    // [EXPERIMENTAL] PutWriterDesignToSql: Make writer SQL from a writer-design object
     ApiResponse<string> response = apiInstance.PutWriterDesignToSqlWithHttpInfo(writerDesign);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

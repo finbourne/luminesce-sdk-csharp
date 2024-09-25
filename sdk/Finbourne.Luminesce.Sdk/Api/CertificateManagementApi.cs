@@ -32,7 +32,7 @@ namespace Finbourne.Luminesce.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] DownloadCertificate: Download Domain or your personal certificates
+        /// [EXPERIMENTAL] DownloadCertificate: Download domain or your personal certificates
         /// </summary>
         /// <remarks>
         ///  Downloads your latest Domain or your User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized - 403 Forbidden 
@@ -47,7 +47,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.IO.Stream DownloadCertificate(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DownloadCertificate: Download Domain or your personal certificates
+        /// [EXPERIMENTAL] DownloadCertificate: Download domain or your personal certificates
         /// </summary>
         /// <remarks>
         ///  Downloads your latest Domain or your User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized - 403 Forbidden 
@@ -61,7 +61,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> DownloadCertificateWithHttpInfo(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListCertificates: Lists previously minted certificates
+        /// [EXPERIMENTAL] ListCertificates: List previously minted certificates
         /// </summary>
         /// <remarks>
         ///  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
@@ -73,7 +73,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         List<CertificateState> ListCertificates(int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListCertificates: Lists previously minted certificates
+        /// [EXPERIMENTAL] ListCertificates: List previously minted certificates
         /// </summary>
         /// <remarks>
         ///  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
@@ -128,7 +128,7 @@ namespace Finbourne.Luminesce.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] DownloadCertificate: Download Domain or your personal certificates
+        /// [EXPERIMENTAL] DownloadCertificate: Download domain or your personal certificates
         /// </summary>
         /// <remarks>
         ///  Downloads your latest Domain or your User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized - 403 Forbidden 
@@ -144,7 +144,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<System.IO.Stream> DownloadCertificateAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DownloadCertificate: Download Domain or your personal certificates
+        /// [EXPERIMENTAL] DownloadCertificate: Download domain or your personal certificates
         /// </summary>
         /// <remarks>
         ///  Downloads your latest Domain or your User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized - 403 Forbidden 
@@ -159,7 +159,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> DownloadCertificateWithHttpInfoAsync(CertificateType? type = default(CertificateType?), CertificateFileType? fileType = default(CertificateFileType?), bool? mayAutoCreate = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListCertificates: Lists previously minted certificates
+        /// [EXPERIMENTAL] ListCertificates: List previously minted certificates
         /// </summary>
         /// <remarks>
         ///  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
@@ -172,7 +172,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         System.Threading.Tasks.Task<List<CertificateState>> ListCertificatesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListCertificates: Lists previously minted certificates
+        /// [EXPERIMENTAL] ListCertificates: List previously minted certificates
         /// </summary>
         /// <remarks>
         ///  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
@@ -344,7 +344,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DownloadCertificate: Download Domain or your personal certificates  Downloads your latest Domain or your User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] DownloadCertificate: Download domain or your personal certificates  Downloads your latest Domain or your User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
@@ -360,7 +360,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DownloadCertificate: Download Domain or your personal certificates  Downloads your latest Domain or your User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] DownloadCertificate: Download domain or your personal certificates  Downloads your latest Domain or your User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
@@ -453,7 +453,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DownloadCertificate: Download Domain or your personal certificates  Downloads your latest Domain or your User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] DownloadCertificate: Download domain or your personal certificates  Downloads your latest Domain or your User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
@@ -470,7 +470,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DownloadCertificate: Download Domain or your personal certificates  Downloads your latest Domain or your User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] DownloadCertificate: Download domain or your personal certificates  Downloads your latest Domain or your User certificate&#39;s public or private key - if any.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - certificate is not available for some reason - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">User or Domain level cert (Domain level requires additional entitlements) (optional)</param>
@@ -566,7 +566,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListCertificates: Lists previously minted certificates  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] ListCertificates: List previously minted certificates  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -579,7 +579,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListCertificates: Lists previously minted certificates  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] ListCertificates: List previously minted certificates  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -657,7 +657,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListCertificates: Lists previously minted certificates  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] ListCertificates: List previously minted certificates  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -671,7 +671,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListCertificates: Lists previously minted certificates  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] ListCertificates: List previously minted certificates  Lists all the certificates previously minted to which you have access.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
