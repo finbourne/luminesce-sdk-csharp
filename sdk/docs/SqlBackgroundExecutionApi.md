@@ -131,7 +131,7 @@ catch (ApiException e)
 
 <a id="fetchqueryresultcsv"></a>
 # **FetchQueryResultCsv**
-> string FetchQueryResultCsv (string executionId, bool? download = null, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null, string? delimiter = null, string? escape = null)
+> string FetchQueryResultCsv (string executionId, bool? download = null, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null, string? delimiter = null, string? escape = null, int? loadWaitMilliseconds = null)
 
 FetchQueryResultCsv: Fetch the result of a query as CSV
 
@@ -186,14 +186,15 @@ namespace Examples
             var page = 0;  // int? | 0-N based on chunk sized determined by the limit, ignored if limit < 1. (optional)  (default to 0)
             var delimiter = "delimiter_example";  // string? | Delimiter string to override the default (optional) 
             var escape = "escape_example";  // string? | Escape character to override the default (optional) 
+            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.FetchQueryResultCsv(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape, opts: opts);
+                // string result = apiInstance.FetchQueryResultCsv(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape, loadWaitMilliseconds, opts: opts);
 
                 // FetchQueryResultCsv: Fetch the result of a query as CSV
-                string result = apiInstance.FetchQueryResultCsv(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape);
+                string result = apiInstance.FetchQueryResultCsv(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape, loadWaitMilliseconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -214,7 +215,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // FetchQueryResultCsv: Fetch the result of a query as CSV
-    ApiResponse<string> response = apiInstance.FetchQueryResultCsvWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape);
+    ApiResponse<string> response = apiInstance.FetchQueryResultCsvWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape, loadWaitMilliseconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -241,6 +242,7 @@ catch (ApiException e)
 | **page** | **int?** | 0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. | [optional] [default to 0] |
 | **delimiter** | **string?** | Delimiter string to override the default | [optional]  |
 | **escape** | **string?** | Escape character to override the default | [optional]  |
+| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
 
 ### Return type
 
@@ -263,7 +265,7 @@ catch (ApiException e)
 
 <a id="fetchqueryresultexcel"></a>
 # **FetchQueryResultExcel**
-> System.IO.Stream FetchQueryResultExcel (string executionId, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null)
+> System.IO.Stream FetchQueryResultExcel (string executionId, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? loadWaitMilliseconds = null)
 
 FetchQueryResultExcel: Fetch the result of a query as an Excel file
 
@@ -313,14 +315,15 @@ namespace Examples
             var filter = "filter_example";  // string? | An ODATA filter per Finbourne.Filtering syntax. (optional) 
             var select = "select_example";  // string? | Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - `MyField`  - `Max(x) FILTER (WHERE y > 12) as ABC` (max of a field, if another field lets it qualify, with a nice column name)  - `count(*)` (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - `count(distinct x) as numOfXs`  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - `some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name`    where you would likely want to pass `1` as the `groupBy` also. (optional) 
             var groupBy = "groupBy_example";  // string? | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. `2,3`, `myColumn`.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \"select\" parameter fields.              Only specify this if you are selecting aggregations in the \"select\" parameter. (optional) 
+            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // System.IO.Stream result = apiInstance.FetchQueryResultExcel(executionId, sortBy, filter, select, groupBy, opts: opts);
+                // System.IO.Stream result = apiInstance.FetchQueryResultExcel(executionId, sortBy, filter, select, groupBy, loadWaitMilliseconds, opts: opts);
 
                 // FetchQueryResultExcel: Fetch the result of a query as an Excel file
-                System.IO.Stream result = apiInstance.FetchQueryResultExcel(executionId, sortBy, filter, select, groupBy);
+                System.IO.Stream result = apiInstance.FetchQueryResultExcel(executionId, sortBy, filter, select, groupBy, loadWaitMilliseconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -341,7 +344,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // FetchQueryResultExcel: Fetch the result of a query as an Excel file
-    ApiResponse<System.IO.Stream> response = apiInstance.FetchQueryResultExcelWithHttpInfo(executionId, sortBy, filter, select, groupBy);
+    ApiResponse<System.IO.Stream> response = apiInstance.FetchQueryResultExcelWithHttpInfo(executionId, sortBy, filter, select, groupBy, loadWaitMilliseconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -363,6 +366,7 @@ catch (ApiException e)
 | **filter** | **string?** | An ODATA filter per Finbourne.Filtering syntax. | [optional]  |
 | **select** | **string?** | Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. | [optional]  |
 | **groupBy** | **string?** | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. | [optional]  |
+| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
 
 ### Return type
 
@@ -511,7 +515,7 @@ catch (ApiException e)
 
 <a id="fetchqueryresultjson"></a>
 # **FetchQueryResultJson**
-> string FetchQueryResultJson (string executionId, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null)
+> string FetchQueryResultJson (string executionId, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null, int? loadWaitMilliseconds = null)
 
 FetchQueryResultJson: Fetch the result of a query as a JSON string
 
@@ -563,14 +567,15 @@ namespace Examples
             var groupBy = "groupBy_example";  // string? | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. `2,3`, `myColumn`.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \"select\" parameter fields.              Only specify this if you are selecting aggregations in the \"select\" parameter. (optional) 
             var limit = 0;  // int? | When paginating, only return this number of records, page should also be specified. (optional)  (default to 0)
             var page = 0;  // int? | 0-N based on chunk sized determined by the limit, ignored if limit < 1. (optional)  (default to 0)
+            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.FetchQueryResultJson(executionId, sortBy, filter, select, groupBy, limit, page, opts: opts);
+                // string result = apiInstance.FetchQueryResultJson(executionId, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds, opts: opts);
 
                 // FetchQueryResultJson: Fetch the result of a query as a JSON string
-                string result = apiInstance.FetchQueryResultJson(executionId, sortBy, filter, select, groupBy, limit, page);
+                string result = apiInstance.FetchQueryResultJson(executionId, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -591,7 +596,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // FetchQueryResultJson: Fetch the result of a query as a JSON string
-    ApiResponse<string> response = apiInstance.FetchQueryResultJsonWithHttpInfo(executionId, sortBy, filter, select, groupBy, limit, page);
+    ApiResponse<string> response = apiInstance.FetchQueryResultJsonWithHttpInfo(executionId, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -615,6 +620,7 @@ catch (ApiException e)
 | **groupBy** | **string?** | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. | [optional]  |
 | **limit** | **int?** | When paginating, only return this number of records, page should also be specified. | [optional] [default to 0] |
 | **page** | **int?** | 0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. | [optional] [default to 0] |
+| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
 
 ### Return type
 
@@ -637,7 +643,7 @@ catch (ApiException e)
 
 <a id="fetchqueryresultjsonproper"></a>
 # **FetchQueryResultJsonProper**
-> string FetchQueryResultJsonProper (string executionId, bool? download = null, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null)
+> string FetchQueryResultJsonProper (string executionId, bool? download = null, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null, int? loadWaitMilliseconds = null)
 
 FetchQueryResultJsonProper: Fetch the result of a query as JSON
 
@@ -690,14 +696,15 @@ namespace Examples
             var groupBy = "groupBy_example";  // string? | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. `2,3`, `myColumn`.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \"select\" parameter fields.              Only specify this if you are selecting aggregations in the \"select\" parameter. (optional) 
             var limit = 0;  // int? | When paginating, only return this number of records, page should also be specified. (optional)  (default to 0)
             var page = 0;  // int? | 0-N based on chunk sized determined by the limit, ignored if limit < 1. (optional)  (default to 0)
+            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.FetchQueryResultJsonProper(executionId, download, sortBy, filter, select, groupBy, limit, page, opts: opts);
+                // string result = apiInstance.FetchQueryResultJsonProper(executionId, download, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds, opts: opts);
 
                 // FetchQueryResultJsonProper: Fetch the result of a query as JSON
-                string result = apiInstance.FetchQueryResultJsonProper(executionId, download, sortBy, filter, select, groupBy, limit, page);
+                string result = apiInstance.FetchQueryResultJsonProper(executionId, download, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -718,7 +725,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // FetchQueryResultJsonProper: Fetch the result of a query as JSON
-    ApiResponse<string> response = apiInstance.FetchQueryResultJsonProperWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page);
+    ApiResponse<string> response = apiInstance.FetchQueryResultJsonProperWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -743,6 +750,7 @@ catch (ApiException e)
 | **groupBy** | **string?** | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. | [optional]  |
 | **limit** | **int?** | When paginating, only return this number of records, page should also be specified. | [optional] [default to 0] |
 | **page** | **int?** | 0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. | [optional] [default to 0] |
+| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
 
 ### Return type
 
@@ -765,7 +773,7 @@ catch (ApiException e)
 
 <a id="fetchqueryresultparquet"></a>
 # **FetchQueryResultParquet**
-> System.IO.Stream FetchQueryResultParquet (string executionId, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null)
+> System.IO.Stream FetchQueryResultParquet (string executionId, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? loadWaitMilliseconds = null)
 
 FetchQueryResultParquet: Fetch the result of a query as Parquet
 
@@ -815,14 +823,15 @@ namespace Examples
             var filter = "filter_example";  // string? | An ODATA filter per Finbourne.Filtering syntax. (optional) 
             var select = "select_example";  // string? | Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - `MyField`  - `Max(x) FILTER (WHERE y > 12) as ABC` (max of a field, if another field lets it qualify, with a nice column name)  - `count(*)` (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - `count(distinct x) as numOfXs`  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - `some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name`    where you would likely want to pass `1` as the `groupBy` also. (optional) 
             var groupBy = "groupBy_example";  // string? | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. `2,3`, `myColumn`.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \"select\" parameter fields.              Only specify this if you are selecting aggregations in the \"select\" parameter. (optional) 
+            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // System.IO.Stream result = apiInstance.FetchQueryResultParquet(executionId, sortBy, filter, select, groupBy, opts: opts);
+                // System.IO.Stream result = apiInstance.FetchQueryResultParquet(executionId, sortBy, filter, select, groupBy, loadWaitMilliseconds, opts: opts);
 
                 // FetchQueryResultParquet: Fetch the result of a query as Parquet
-                System.IO.Stream result = apiInstance.FetchQueryResultParquet(executionId, sortBy, filter, select, groupBy);
+                System.IO.Stream result = apiInstance.FetchQueryResultParquet(executionId, sortBy, filter, select, groupBy, loadWaitMilliseconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -843,7 +852,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // FetchQueryResultParquet: Fetch the result of a query as Parquet
-    ApiResponse<System.IO.Stream> response = apiInstance.FetchQueryResultParquetWithHttpInfo(executionId, sortBy, filter, select, groupBy);
+    ApiResponse<System.IO.Stream> response = apiInstance.FetchQueryResultParquetWithHttpInfo(executionId, sortBy, filter, select, groupBy, loadWaitMilliseconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -865,6 +874,7 @@ catch (ApiException e)
 | **filter** | **string?** | An ODATA filter per Finbourne.Filtering syntax. | [optional]  |
 | **select** | **string?** | Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. | [optional]  |
 | **groupBy** | **string?** | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. | [optional]  |
+| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
 
 ### Return type
 
@@ -887,7 +897,7 @@ catch (ApiException e)
 
 <a id="fetchqueryresultpipe"></a>
 # **FetchQueryResultPipe**
-> string FetchQueryResultPipe (string executionId, bool? download = null, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null)
+> string FetchQueryResultPipe (string executionId, bool? download = null, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null, int? loadWaitMilliseconds = null)
 
 FetchQueryResultPipe: Fetch the result of a query as pipe-delimited
 
@@ -940,14 +950,15 @@ namespace Examples
             var groupBy = "groupBy_example";  // string? | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. `2,3`, `myColumn`.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \"select\" parameter fields.              Only specify this if you are selecting aggregations in the \"select\" parameter. (optional) 
             var limit = 0;  // int? | When paginating, only return this number of records, page should also be specified. (optional)  (default to 0)
             var page = 0;  // int? | 0-N based on chunk sized determined by the limit, ignored if limit < 1. (optional)  (default to 0)
+            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.FetchQueryResultPipe(executionId, download, sortBy, filter, select, groupBy, limit, page, opts: opts);
+                // string result = apiInstance.FetchQueryResultPipe(executionId, download, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds, opts: opts);
 
                 // FetchQueryResultPipe: Fetch the result of a query as pipe-delimited
-                string result = apiInstance.FetchQueryResultPipe(executionId, download, sortBy, filter, select, groupBy, limit, page);
+                string result = apiInstance.FetchQueryResultPipe(executionId, download, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -968,7 +979,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // FetchQueryResultPipe: Fetch the result of a query as pipe-delimited
-    ApiResponse<string> response = apiInstance.FetchQueryResultPipeWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page);
+    ApiResponse<string> response = apiInstance.FetchQueryResultPipeWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -993,6 +1004,7 @@ catch (ApiException e)
 | **groupBy** | **string?** | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. | [optional]  |
 | **limit** | **int?** | When paginating, only return this number of records, page should also be specified. | [optional] [default to 0] |
 | **page** | **int?** | 0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. | [optional] [default to 0] |
+| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
 
 ### Return type
 
@@ -1015,7 +1027,7 @@ catch (ApiException e)
 
 <a id="fetchqueryresultsqlite"></a>
 # **FetchQueryResultSqlite**
-> System.IO.Stream FetchQueryResultSqlite (string executionId, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null)
+> System.IO.Stream FetchQueryResultSqlite (string executionId, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? loadWaitMilliseconds = null)
 
 FetchQueryResultSqlite: Fetch the result of a query as SqLite
 
@@ -1065,14 +1077,15 @@ namespace Examples
             var filter = "filter_example";  // string? | An ODATA filter per Finbourne.Filtering syntax. (optional) 
             var select = "select_example";  // string? | Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - `MyField`  - `Max(x) FILTER (WHERE y > 12) as ABC` (max of a field, if another field lets it qualify, with a nice column name)  - `count(*)` (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - `count(distinct x) as numOfXs`  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - `some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name`    where you would likely want to pass `1` as the `groupBy` also. (optional) 
             var groupBy = "groupBy_example";  // string? | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. `2,3`, `myColumn`.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \"select\" parameter fields.              Only specify this if you are selecting aggregations in the \"select\" parameter. (optional) 
+            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // System.IO.Stream result = apiInstance.FetchQueryResultSqlite(executionId, sortBy, filter, select, groupBy, opts: opts);
+                // System.IO.Stream result = apiInstance.FetchQueryResultSqlite(executionId, sortBy, filter, select, groupBy, loadWaitMilliseconds, opts: opts);
 
                 // FetchQueryResultSqlite: Fetch the result of a query as SqLite
-                System.IO.Stream result = apiInstance.FetchQueryResultSqlite(executionId, sortBy, filter, select, groupBy);
+                System.IO.Stream result = apiInstance.FetchQueryResultSqlite(executionId, sortBy, filter, select, groupBy, loadWaitMilliseconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1093,7 +1106,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // FetchQueryResultSqlite: Fetch the result of a query as SqLite
-    ApiResponse<System.IO.Stream> response = apiInstance.FetchQueryResultSqliteWithHttpInfo(executionId, sortBy, filter, select, groupBy);
+    ApiResponse<System.IO.Stream> response = apiInstance.FetchQueryResultSqliteWithHttpInfo(executionId, sortBy, filter, select, groupBy, loadWaitMilliseconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1115,6 +1128,7 @@ catch (ApiException e)
 | **filter** | **string?** | An ODATA filter per Finbourne.Filtering syntax. | [optional]  |
 | **select** | **string?** | Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. | [optional]  |
 | **groupBy** | **string?** | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. | [optional]  |
+| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
 
 ### Return type
 
@@ -1137,7 +1151,7 @@ catch (ApiException e)
 
 <a id="fetchqueryresultxml"></a>
 # **FetchQueryResultXml**
-> string FetchQueryResultXml (string executionId, bool? download = null, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null)
+> string FetchQueryResultXml (string executionId, bool? download = null, string? sortBy = null, string? filter = null, string? select = null, string? groupBy = null, int? limit = null, int? page = null, int? loadWaitMilliseconds = null)
 
 FetchQueryResultXml: Fetch the result of a query as XML
 
@@ -1190,14 +1204,15 @@ namespace Examples
             var groupBy = "groupBy_example";  // string? | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. `2,3`, `myColumn`.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \"select\" parameter fields.              Only specify this if you are selecting aggregations in the \"select\" parameter. (optional) 
             var limit = 0;  // int? | When paginating, only return this number of records, page should also be specified. (optional)  (default to 0)
             var page = 0;  // int? | 0-N based on chunk sized determined by the limit, ignored if limit < 1. (optional)  (default to 0)
+            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.FetchQueryResultXml(executionId, download, sortBy, filter, select, groupBy, limit, page, opts: opts);
+                // string result = apiInstance.FetchQueryResultXml(executionId, download, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds, opts: opts);
 
                 // FetchQueryResultXml: Fetch the result of a query as XML
-                string result = apiInstance.FetchQueryResultXml(executionId, download, sortBy, filter, select, groupBy, limit, page);
+                string result = apiInstance.FetchQueryResultXml(executionId, download, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1218,7 +1233,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // FetchQueryResultXml: Fetch the result of a query as XML
-    ApiResponse<string> response = apiInstance.FetchQueryResultXmlWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page);
+    ApiResponse<string> response = apiInstance.FetchQueryResultXmlWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1243,6 +1258,7 @@ catch (ApiException e)
 | **groupBy** | **string?** | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. | [optional]  |
 | **limit** | **int?** | When paginating, only return this number of records, page should also be specified. | [optional] [default to 0] |
 | **page** | **int?** | 0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. | [optional] [default to 0] |
+| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
 
 ### Return type
 
