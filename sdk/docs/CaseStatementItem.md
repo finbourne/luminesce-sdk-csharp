@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Filter** | **string** | The operator in the case statement SQL expression | 
 **Source** | **string** | The expression that is on the LHS of the operator  A typical case statement would look like:  CASE Field {Filter} Source THEN Target | 
 **Target** | **string** | The expression that is on the RHS of the operator  A typical case statement would look like:  CASE Field {Filter} Source THEN Target | 
+**IsTargetNonLiteral** | **bool** | The Target can be a literal value or a non literal (field) and  hence will be interpreted differently.  This can be determined from the UI and passed down as a true / false | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

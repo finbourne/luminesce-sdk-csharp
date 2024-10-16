@@ -39,7 +39,8 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="filter">The operator in the case statement SQL expression (required).</param>
         /// <param name="source">The expression that is on the LHS of the operator  A typical case statement would look like:  CASE Field {Filter} Source THEN Target (required).</param>
         /// <param name="target">The expression that is on the RHS of the operator  A typical case statement would look like:  CASE Field {Filter} Source THEN Target (required).</param>
-        public CaseStatementItem(string filter = default(string), string source = default(string), string target = default(string))
+        /// <param name="isTargetNonLiteral">The Target can be a literal value or a non literal (field) and  hence will be interpreted differently.  This can be determined from the UI and passed down as a true / false.</param>
+        public CaseStatementItem(string filter = default(string), string source = default(string), string target = default(string), bool isTargetNonLiteral = default(bool))
         {
             // to ensure "filter" is required (not null)
             if (filter == null)
@@ -59,6 +60,7 @@ namespace Finbourne.Luminesce.Sdk.Model
                 throw new ArgumentNullException("target is a required property for CaseStatementItem and cannot be null");
             }
             this.Target = target;
+            this.IsTargetNonLiteral = isTargetNonLiteral;
         }
 
         /// <summary>
@@ -83,6 +85,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         public string Target { get; set; }
 
         /// <summary>
+        /// The Target can be a literal value or a non literal (field) and  hence will be interpreted differently.  This can be determined from the UI and passed down as a true / false
+        /// </summary>
+        /// <value>The Target can be a literal value or a non literal (field) and  hence will be interpreted differently.  This can be determined from the UI and passed down as a true / false</value>
+        [DataMember(Name = "isTargetNonLiteral", EmitDefaultValue = true)]
+        public bool IsTargetNonLiteral { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +102,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  Filter: ").Append(Filter).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Target: ").Append(Target).Append("\n");
+            sb.Append("  IsTargetNonLiteral: ").Append(IsTargetNonLiteral).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,6 +152,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Target == input.Target ||
                     (this.Target != null &&
                     this.Target.Equals(input.Target))
+                ) && 
+                (
+                    this.IsTargetNonLiteral == input.IsTargetNonLiteral ||
+                    this.IsTargetNonLiteral.Equals(input.IsTargetNonLiteral)
                 );
         }
 
@@ -166,6 +180,7 @@ namespace Finbourne.Luminesce.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Target.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsTargetNonLiteral.GetHashCode();
                 return hashCode;
             }
         }
