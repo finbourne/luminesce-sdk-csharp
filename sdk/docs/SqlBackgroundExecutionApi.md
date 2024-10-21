@@ -186,7 +186,7 @@ namespace Examples
             var page = 0;  // int? | 0-N based on chunk sized determined by the limit, ignored if limit < 1. (optional)  (default to 0)
             var delimiter = "delimiter_example";  // string? | Delimiter string to override the default (optional) 
             var escape = "escape_example";  // string? | Escape character to override the default (optional) 
-            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
+            var loadWaitMilliseconds = 0;  // int? | Optional maximum additional wait period for post execution platform processing. (optional)  (default to 0)
 
             try
             {
@@ -242,7 +242,7 @@ catch (ApiException e)
 | **page** | **int?** | 0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. | [optional] [default to 0] |
 | **delimiter** | **string?** | Delimiter string to override the default | [optional]  |
 | **escape** | **string?** | Escape character to override the default | [optional]  |
-| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
+| **loadWaitMilliseconds** | **int?** | Optional maximum additional wait period for post execution platform processing. | [optional] [default to 0] |
 
 ### Return type
 
@@ -315,7 +315,7 @@ namespace Examples
             var filter = "filter_example";  // string? | An ODATA filter per Finbourne.Filtering syntax. (optional) 
             var select = "select_example";  // string? | Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - `MyField`  - `Max(x) FILTER (WHERE y > 12) as ABC` (max of a field, if another field lets it qualify, with a nice column name)  - `count(*)` (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - `count(distinct x) as numOfXs`  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - `some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name`    where you would likely want to pass `1` as the `groupBy` also. (optional) 
             var groupBy = "groupBy_example";  // string? | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. `2,3`, `myColumn`.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \"select\" parameter fields.              Only specify this if you are selecting aggregations in the \"select\" parameter. (optional) 
-            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
+            var loadWaitMilliseconds = 0;  // int? | Optional maximum additional wait period for post execution platform processing. (optional)  (default to 0)
 
             try
             {
@@ -366,7 +366,7 @@ catch (ApiException e)
 | **filter** | **string?** | An ODATA filter per Finbourne.Filtering syntax. | [optional]  |
 | **select** | **string?** | Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. | [optional]  |
 | **groupBy** | **string?** | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. | [optional]  |
-| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
+| **loadWaitMilliseconds** | **int?** | Optional maximum additional wait period for post execution platform processing. | [optional] [default to 0] |
 
 ### Return type
 
@@ -567,7 +567,7 @@ namespace Examples
             var groupBy = "groupBy_example";  // string? | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. `2,3`, `myColumn`.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \"select\" parameter fields.              Only specify this if you are selecting aggregations in the \"select\" parameter. (optional) 
             var limit = 0;  // int? | When paginating, only return this number of records, page should also be specified. (optional)  (default to 0)
             var page = 0;  // int? | 0-N based on chunk sized determined by the limit, ignored if limit < 1. (optional)  (default to 0)
-            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
+            var loadWaitMilliseconds = 0;  // int? | Optional maximum additional wait period for post execution platform processing. (optional)  (default to 0)
 
             try
             {
@@ -620,7 +620,7 @@ catch (ApiException e)
 | **groupBy** | **string?** | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. | [optional]  |
 | **limit** | **int?** | When paginating, only return this number of records, page should also be specified. | [optional] [default to 0] |
 | **page** | **int?** | 0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. | [optional] [default to 0] |
-| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
+| **loadWaitMilliseconds** | **int?** | Optional maximum additional wait period for post execution platform processing. | [optional] [default to 0] |
 
 ### Return type
 
@@ -696,7 +696,7 @@ namespace Examples
             var groupBy = "groupBy_example";  // string? | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. `2,3`, `myColumn`.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \"select\" parameter fields.              Only specify this if you are selecting aggregations in the \"select\" parameter. (optional) 
             var limit = 0;  // int? | When paginating, only return this number of records, page should also be specified. (optional)  (default to 0)
             var page = 0;  // int? | 0-N based on chunk sized determined by the limit, ignored if limit < 1. (optional)  (default to 0)
-            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
+            var loadWaitMilliseconds = 0;  // int? | Optional maximum additional wait period for post execution platform processing. (optional)  (default to 0)
 
             try
             {
@@ -750,7 +750,7 @@ catch (ApiException e)
 | **groupBy** | **string?** | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. | [optional]  |
 | **limit** | **int?** | When paginating, only return this number of records, page should also be specified. | [optional] [default to 0] |
 | **page** | **int?** | 0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. | [optional] [default to 0] |
-| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
+| **loadWaitMilliseconds** | **int?** | Optional maximum additional wait period for post execution platform processing. | [optional] [default to 0] |
 
 ### Return type
 
@@ -823,7 +823,7 @@ namespace Examples
             var filter = "filter_example";  // string? | An ODATA filter per Finbourne.Filtering syntax. (optional) 
             var select = "select_example";  // string? | Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - `MyField`  - `Max(x) FILTER (WHERE y > 12) as ABC` (max of a field, if another field lets it qualify, with a nice column name)  - `count(*)` (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - `count(distinct x) as numOfXs`  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - `some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name`    where you would likely want to pass `1` as the `groupBy` also. (optional) 
             var groupBy = "groupBy_example";  // string? | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. `2,3`, `myColumn`.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \"select\" parameter fields.              Only specify this if you are selecting aggregations in the \"select\" parameter. (optional) 
-            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
+            var loadWaitMilliseconds = 0;  // int? | Optional maximum additional wait period for post execution platform processing. (optional)  (default to 0)
 
             try
             {
@@ -874,7 +874,7 @@ catch (ApiException e)
 | **filter** | **string?** | An ODATA filter per Finbourne.Filtering syntax. | [optional]  |
 | **select** | **string?** | Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. | [optional]  |
 | **groupBy** | **string?** | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. | [optional]  |
-| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
+| **loadWaitMilliseconds** | **int?** | Optional maximum additional wait period for post execution platform processing. | [optional] [default to 0] |
 
 ### Return type
 
@@ -950,7 +950,7 @@ namespace Examples
             var groupBy = "groupBy_example";  // string? | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. `2,3`, `myColumn`.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \"select\" parameter fields.              Only specify this if you are selecting aggregations in the \"select\" parameter. (optional) 
             var limit = 0;  // int? | When paginating, only return this number of records, page should also be specified. (optional)  (default to 0)
             var page = 0;  // int? | 0-N based on chunk sized determined by the limit, ignored if limit < 1. (optional)  (default to 0)
-            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
+            var loadWaitMilliseconds = 0;  // int? | Optional maximum additional wait period for post execution platform processing. (optional)  (default to 0)
 
             try
             {
@@ -1004,7 +1004,7 @@ catch (ApiException e)
 | **groupBy** | **string?** | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. | [optional]  |
 | **limit** | **int?** | When paginating, only return this number of records, page should also be specified. | [optional] [default to 0] |
 | **page** | **int?** | 0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. | [optional] [default to 0] |
-| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
+| **loadWaitMilliseconds** | **int?** | Optional maximum additional wait period for post execution platform processing. | [optional] [default to 0] |
 
 ### Return type
 
@@ -1077,7 +1077,7 @@ namespace Examples
             var filter = "filter_example";  // string? | An ODATA filter per Finbourne.Filtering syntax. (optional) 
             var select = "select_example";  // string? | Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - `MyField`  - `Max(x) FILTER (WHERE y > 12) as ABC` (max of a field, if another field lets it qualify, with a nice column name)  - `count(*)` (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - `count(distinct x) as numOfXs`  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - `some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name`    where you would likely want to pass `1` as the `groupBy` also. (optional) 
             var groupBy = "groupBy_example";  // string? | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. `2,3`, `myColumn`.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \"select\" parameter fields.              Only specify this if you are selecting aggregations in the \"select\" parameter. (optional) 
-            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
+            var loadWaitMilliseconds = 0;  // int? | Optional maximum additional wait period for post execution platform processing. (optional)  (default to 0)
 
             try
             {
@@ -1128,7 +1128,7 @@ catch (ApiException e)
 | **filter** | **string?** | An ODATA filter per Finbourne.Filtering syntax. | [optional]  |
 | **select** | **string?** | Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. | [optional]  |
 | **groupBy** | **string?** | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. | [optional]  |
-| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
+| **loadWaitMilliseconds** | **int?** | Optional maximum additional wait period for post execution platform processing. | [optional] [default to 0] |
 
 ### Return type
 
@@ -1204,7 +1204,7 @@ namespace Examples
             var groupBy = "groupBy_example";  // string? | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. `2,3`, `myColumn`.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \"select\" parameter fields.              Only specify this if you are selecting aggregations in the \"select\" parameter. (optional) 
             var limit = 0;  // int? | When paginating, only return this number of records, page should also be specified. (optional)  (default to 0)
             var page = 0;  // int? | 0-N based on chunk sized determined by the limit, ignored if limit < 1. (optional)  (default to 0)
-            var loadWaitMilliseconds = 0;  // int? | Optional period to wait for results deserialization if in progress when this method is called. (optional)  (default to 0)
+            var loadWaitMilliseconds = 0;  // int? | Optional maximum additional wait period for post execution platform processing. (optional)  (default to 0)
 
             try
             {
@@ -1258,7 +1258,7 @@ catch (ApiException e)
 | **groupBy** | **string?** | Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. | [optional]  |
 | **limit** | **int?** | When paginating, only return this number of records, page should also be specified. | [optional] [default to 0] |
 | **page** | **int?** | 0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. | [optional] [default to 0] |
-| **loadWaitMilliseconds** | **int?** | Optional period to wait for results deserialization if in progress when this method is called. | [optional] [default to 0] |
+| **loadWaitMilliseconds** | **int?** | Optional maximum additional wait period for post execution platform processing. | [optional] [default to 0] |
 
 ### Return type
 
