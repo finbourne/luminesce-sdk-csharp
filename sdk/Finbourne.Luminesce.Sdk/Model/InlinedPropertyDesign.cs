@@ -32,10 +32,12 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Initializes a new instance of the <see cref="InlinedPropertyDesign" /> class.
         /// </summary>
         /// <param name="providerName">The provider name for which these properties are to be inlined.</param>
+        /// <param name="providerNameExtension">The provider extension name for extended providers.</param>
         /// <param name="inlinedPropertyItems">Collection of Inlined properties.</param>
-        public InlinedPropertyDesign(string providerName = default(string), List<InlinedPropertyItem> inlinedPropertyItems = default(List<InlinedPropertyItem>))
+        public InlinedPropertyDesign(string providerName = default(string), string providerNameExtension = default(string), List<InlinedPropertyItem> inlinedPropertyItems = default(List<InlinedPropertyItem>))
         {
             this.ProviderName = providerName;
+            this.ProviderNameExtension = providerNameExtension;
             this.InlinedPropertyItems = inlinedPropertyItems;
         }
 
@@ -45,6 +47,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <value>The provider name for which these properties are to be inlined</value>
         [DataMember(Name = "providerName", EmitDefaultValue = true)]
         public string ProviderName { get; set; }
+
+        /// <summary>
+        /// The provider extension name for extended providers
+        /// </summary>
+        /// <value>The provider extension name for extended providers</value>
+        [DataMember(Name = "providerNameExtension", EmitDefaultValue = true)]
+        public string ProviderNameExtension { get; set; }
 
         /// <summary>
         /// Collection of Inlined properties
@@ -62,6 +71,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlinedPropertyDesign {\n");
             sb.Append("  ProviderName: ").Append(ProviderName).Append("\n");
+            sb.Append("  ProviderNameExtension: ").Append(ProviderNameExtension).Append("\n");
             sb.Append("  InlinedPropertyItems: ").Append(InlinedPropertyItems).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -104,6 +114,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.ProviderName.Equals(input.ProviderName))
                 ) && 
                 (
+                    this.ProviderNameExtension == input.ProviderNameExtension ||
+                    (this.ProviderNameExtension != null &&
+                    this.ProviderNameExtension.Equals(input.ProviderNameExtension))
+                ) && 
+                (
                     this.InlinedPropertyItems == input.InlinedPropertyItems ||
                     this.InlinedPropertyItems != null &&
                     input.InlinedPropertyItems != null &&
@@ -123,6 +138,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.ProviderName != null)
                 {
                     hashCode = (hashCode * 59) + this.ProviderName.GetHashCode();
+                }
+                if (this.ProviderNameExtension != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProviderNameExtension.GetHashCode();
                 }
                 if (this.InlinedPropertyItems != null)
                 {
