@@ -60,10 +60,11 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="revokedAt">The point at which this was revoked, if any.</param>
         /// <param name="revokedBy">The user which revoked this, if any.</param>
         /// <param name="createdAt">The point at which this was created.</param>
+        /// <param name="permissionsSetAt">The point at which permissions were adjusted by the system.</param>
         /// <param name="createdBy">The user which created this.</param>
         /// <param name="serialNumber">The Vault-issued serial number of the certificate, if any - used for revocation.</param>
         /// <param name="links">The location within Configuration Store that this is saved to.</param>
-        public CertificateState(string key = default(string), int version = default(int), string commonName = default(string), CertificateType? type = default(CertificateType?), CertificateStatus? creationStatus = default(CertificateStatus?), CertificateStatus? revocationStatus = default(CertificateStatus?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), DateTimeOffset? revokedAt = default(DateTimeOffset?), string revokedBy = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), string createdBy = default(string), string serialNumber = default(string), List<Link> links = default(List<Link>))
+        public CertificateState(string key = default(string), int version = default(int), string commonName = default(string), CertificateType? type = default(CertificateType?), CertificateStatus? creationStatus = default(CertificateStatus?), CertificateStatus? revocationStatus = default(CertificateStatus?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), DateTimeOffset? revokedAt = default(DateTimeOffset?), string revokedBy = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? permissionsSetAt = default(DateTimeOffset?), string createdBy = default(string), string serialNumber = default(string), List<Link> links = default(List<Link>))
         {
             this.Key = key;
             this._Version = version;
@@ -76,6 +77,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             this.RevokedAt = revokedAt;
             this.RevokedBy = revokedBy;
             this.CreatedAt = createdAt;
+            this.PermissionsSetAt = permissionsSetAt;
             this.CreatedBy = createdBy;
             this.SerialNumber = serialNumber;
             this.Links = links;
@@ -138,6 +140,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         public DateTimeOffset? CreatedAt { get; set; }
 
         /// <summary>
+        /// The point at which permissions were adjusted by the system
+        /// </summary>
+        /// <value>The point at which permissions were adjusted by the system</value>
+        [DataMember(Name = "permissionsSetAt", EmitDefaultValue = true)]
+        public DateTimeOffset? PermissionsSetAt { get; set; }
+
+        /// <summary>
         /// The user which created this
         /// </summary>
         /// <value>The user which created this</value>
@@ -177,6 +186,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  RevokedAt: ").Append(RevokedAt).Append("\n");
             sb.Append("  RevokedBy: ").Append(RevokedBy).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  PermissionsSetAt: ").Append(PermissionsSetAt).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  SerialNumber: ").Append(SerialNumber).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -267,6 +277,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.CreatedAt.Equals(input.CreatedAt))
                 ) && 
                 (
+                    this.PermissionsSetAt == input.PermissionsSetAt ||
+                    (this.PermissionsSetAt != null &&
+                    this.PermissionsSetAt.Equals(input.PermissionsSetAt))
+                ) && 
+                (
                     this.CreatedBy == input.CreatedBy ||
                     (this.CreatedBy != null &&
                     this.CreatedBy.Equals(input.CreatedBy))
@@ -324,6 +339,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.CreatedAt != null)
                 {
                     hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.PermissionsSetAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.PermissionsSetAt.GetHashCode();
                 }
                 if (this.CreatedBy != null)
                 {
