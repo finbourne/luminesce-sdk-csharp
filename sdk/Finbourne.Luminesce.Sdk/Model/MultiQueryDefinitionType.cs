@@ -87,7 +87,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [EnumMember(Value = "InstrumentUpsert")]
         InstrumentUpsert = 10
-
     }
 
 }

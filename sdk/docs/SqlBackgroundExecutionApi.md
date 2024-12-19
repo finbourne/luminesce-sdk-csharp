@@ -436,8 +436,8 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var timestampFieldName = "timestampFieldName_example";  // string | Name of the timestamp field used in building the histogram
-            var startAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Start point (of the timestampFieldName field) for the histogram (optional) 
-            var endAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | End point (of the timestampFieldName field) for the histogram (optional) 
+            var startAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Start point (of the timestampFieldName field) for the histogram (optional) 
+            var endAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | End point (of the timestampFieldName field) for the histogram (optional) 
             var bucketSize = "bucketSize_example";  // string? | Optional histogram bucket width.  If not provided a set number of buckets between start/end range will be generated. (optional) 
             var filter = "filter_example";  // string? | An ODATA filter per Finbourne.Filtering syntax. (optional) 
             var jsonProper = false;  // bool? | Should this be text/json (not json-encoded-as-a-string) (optional)  (default to false)

@@ -75,7 +75,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [EnumMember(Value = "ScalarVariable")]
         ScalarVariable = 8
-
     }
 
 }

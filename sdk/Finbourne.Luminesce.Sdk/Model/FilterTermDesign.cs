@@ -42,11 +42,11 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FilterTermDesign" /> class.
         /// </summary>
-        /// <param name="_operator">_operator (required).</param>
+        /// <param name="varOperator">varOperator (required).</param>
         /// <param name="value">The value to compare against (always as a string, but will be formatted to the correct type) (required).</param>
-        public FilterTermDesign(QueryDesignerBinaryOperator _operator = default(QueryDesignerBinaryOperator), string value = default(string))
+        public FilterTermDesign(QueryDesignerBinaryOperator varOperator = default(QueryDesignerBinaryOperator), string value = default(string))
         {
-            this.Operator = _operator;
+            this.Operator = varOperator;
             // to ensure "value" is required (not null)
             if (value == null)
             {

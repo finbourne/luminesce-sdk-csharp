@@ -76,7 +76,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [EnumMember(Value = "group_concat")]
         GroupConcat = 8
-
     }
 
 }

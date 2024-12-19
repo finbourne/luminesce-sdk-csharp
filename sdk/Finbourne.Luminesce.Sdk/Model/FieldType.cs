@@ -39,7 +39,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Parameter")]
         Parameter = 2
-
     }
 
 }

@@ -51,7 +51,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Main")]
         Main = 4
-
     }
 
 }

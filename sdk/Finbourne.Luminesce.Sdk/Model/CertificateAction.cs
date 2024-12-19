@@ -52,7 +52,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Revoke")]
         Revoke = 4
-
     }
 
 }

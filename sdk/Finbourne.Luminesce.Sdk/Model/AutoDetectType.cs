@@ -46,7 +46,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [EnumMember(Value = "SpecifyColumnsAndTypes")]
         SpecifyColumnsAndTypes = 3
-
     }
 
 }

@@ -64,7 +64,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [EnumMember(Value = "AllSystems")]
         AllSystems = 6
-
     }
 
 }

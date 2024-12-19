@@ -38,9 +38,9 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         /// <param name="sql">Original SQL that started this off (required).</param>
         /// <param name="availableToMapFrom">The data able to be mapped from as derived from the Sql.</param>
-        /// <param name="_parameter">_parameter.</param>
+        /// <param name="varParameter">varParameter.</param>
         /// <param name="availableParameters">All the parameter the user may wish to design.</param>
-        public WriterDesign(string sql = default(string), List<ExpressionWithAlias> availableToMapFrom = default(List<ExpressionWithAlias>), AvailableParameter _parameter = default(AvailableParameter), List<AvailableParameter> availableParameters = default(List<AvailableParameter>))
+        public WriterDesign(string sql = default(string), List<ExpressionWithAlias> availableToMapFrom = default(List<ExpressionWithAlias>), AvailableParameter varParameter = default(AvailableParameter), List<AvailableParameter> availableParameters = default(List<AvailableParameter>))
         {
             // to ensure "sql" is required (not null)
             if (sql == null)
@@ -49,7 +49,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             }
             this.Sql = sql;
             this.AvailableToMapFrom = availableToMapFrom;
-            this.Parameter = _parameter;
+            this.Parameter = varParameter;
             this.AvailableParameters = availableParameters;
         }
 

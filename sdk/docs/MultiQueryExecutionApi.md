@@ -281,8 +281,8 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<MultiQueryExecutionApi>();
             var type = Instrument;  // MultiQueryDefinitionType | An enum value defining the set of statements being executed
             var body = Apple;  // string | A \"search\" value (e.g. 'Apple' on an instrument search, a `Finbourne.Filtering` expression of Insights, etc.)  In the cases where \"Nothing\" is valid for a `Finbourne.Filtering` expression, pass `True`.
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt time used by any bitemporal provider in the queries. (optional) 
-            var effectiveAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The EffectiveAt time used by any bitemporal provider in the queries. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The AsAt time used by any bitemporal provider in the queries. (optional) 
+            var effectiveAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The EffectiveAt time used by any bitemporal provider in the queries. (optional) 
             var limit1 = 56;  // int? | A limit that is applied to first-level queries (e.g. Instruments themselves) (optional) 
             var limit2 = 56;  // int? | A limit that is applied to second-level queries (e.g. Holdings based on the set of Instruments found) (optional) 
             var input1 = "input1_example";  // string? | A value available to queries, these vary by 'type' and are only used by some types at all.  e.g. a start-date of some sort (optional) 

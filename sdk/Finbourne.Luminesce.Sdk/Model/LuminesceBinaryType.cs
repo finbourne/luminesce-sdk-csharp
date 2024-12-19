@@ -154,7 +154,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Odbc_Win64_Driver")]
         OdbcWin64Driver = 21
-
     }
 
 }

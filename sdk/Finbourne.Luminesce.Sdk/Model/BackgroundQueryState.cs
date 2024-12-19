@@ -105,7 +105,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [EnumMember(Value = "OwnerTerminated")]
         OwnerTerminated = 13
-
     }
 
 }

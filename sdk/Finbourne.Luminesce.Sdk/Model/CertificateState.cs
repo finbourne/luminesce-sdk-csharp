@@ -50,7 +50,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Initializes a new instance of the <see cref="CertificateState" /> class.
         /// </summary>
         /// <param name="key">The \&quot;key\&quot; to which this belongs in the dictionary,  basically the CN without any version information.</param>
-        /// <param name="version">The version of this certificate.</param>
+        /// <param name="varVersion">The version of this certificate.</param>
         /// <param name="commonName">The common Name of the Certificate.</param>
         /// <param name="type">type.</param>
         /// <param name="creationStatus">creationStatus.</param>
@@ -64,10 +64,10 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="createdBy">The user which created this.</param>
         /// <param name="serialNumber">The Vault-issued serial number of the certificate, if any - used for revocation.</param>
         /// <param name="links">The location within Configuration Store that this is saved to.</param>
-        public CertificateState(string key = default(string), int version = default(int), string commonName = default(string), CertificateType? type = default(CertificateType?), CertificateStatus? creationStatus = default(CertificateStatus?), CertificateStatus? revocationStatus = default(CertificateStatus?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), DateTimeOffset? revokedAt = default(DateTimeOffset?), string revokedBy = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? permissionsSetAt = default(DateTimeOffset?), string createdBy = default(string), string serialNumber = default(string), List<Link> links = default(List<Link>))
+        public CertificateState(string key = default(string), int varVersion = default(int), string commonName = default(string), CertificateType? type = default(CertificateType?), CertificateStatus? creationStatus = default(CertificateStatus?), CertificateStatus? revocationStatus = default(CertificateStatus?), DateTimeOffset? validityStart = default(DateTimeOffset?), DateTimeOffset? validityEnd = default(DateTimeOffset?), DateTimeOffset? revokedAt = default(DateTimeOffset?), string revokedBy = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? permissionsSetAt = default(DateTimeOffset?), string createdBy = default(string), string serialNumber = default(string), List<Link> links = default(List<Link>))
         {
             this.Key = key;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.CommonName = commonName;
             this.Type = type;
             this.CreationStatus = creationStatus;
@@ -95,7 +95,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         /// <value>The version of this certificate</value>
         [DataMember(Name = "version", EmitDefaultValue = true)]
-        public int _Version { get; set; }
+        public int VarVersion { get; set; }
 
         /// <summary>
         /// The common Name of the Certificate
@@ -176,7 +176,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class CertificateState {\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  CommonName: ").Append(CommonName).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  CreationStatus: ").Append(CreationStatus).Append("\n");
@@ -231,8 +231,8 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Key.Equals(input.Key))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    this._Version.Equals(input._Version)
+                    this.VarVersion == input.VarVersion ||
+                    this.VarVersion.Equals(input.VarVersion)
                 ) && 
                 (
                     this.CommonName == input.CommonName ||
@@ -312,7 +312,7 @@ namespace Finbourne.Luminesce.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Key.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 if (this.CommonName != null)
                 {
                     hashCode = (hashCode * 59) + this.CommonName.GetHashCode();

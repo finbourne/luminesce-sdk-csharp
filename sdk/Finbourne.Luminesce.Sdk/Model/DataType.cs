@@ -81,7 +81,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Table")]
         Table = 9
-
     }
 
 }

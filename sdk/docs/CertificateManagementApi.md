@@ -285,8 +285,8 @@ namespace Examples
             var action = new CertificateAction?(); // CertificateAction? | The Action to perform, e.g. Create / Renew / Revoke (optional) 
             var type = new CertificateType?(); // CertificateType? | User or Domain level cert (Domain level requires additional entitlements) (optional) 
             var version = 1;  // int? | Version number of the cert, the request will fail to validate if incorrect (optional)  (default to 1)
-            var validityStart = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | When should the cert first be valid (defaults to the current time in UTC) (optional) 
-            var validityEnd = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | When should the cert no longer be valid (defaults to 13 months from now) (optional) 
+            var validityStart = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | When should the cert first be valid (defaults to the current time in UTC) (optional) 
+            var validityEnd = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | When should the cert no longer be valid (defaults to 13 months from now) (optional) 
             var dryRun = true;  // bool? | True will just validate the request, but perform no changes to any system (optional)  (default to true)
 
             try

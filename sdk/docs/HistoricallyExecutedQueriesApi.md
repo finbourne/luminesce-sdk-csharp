@@ -417,8 +417,8 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<HistoricallyExecutedQueriesApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<HistoricallyExecutedQueriesApi>();
-            var startAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Date time to start the search from.  Will default to Now - 1 Day (optional) 
-            var endAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Date time to end the search at.  Defaults to now. (optional) 
+            var startAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Date time to start the search from.  Will default to Now - 1 Day (optional) 
+            var endAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Date time to end the search at.  Defaults to now. (optional) 
             var freeTextSearch = "freeTextSearch_example";  // string? | Some test that must be in at least one field returned. (optional) 
             var showAll = false;  // bool? | For users with extra permissions, they may optionally see other users' queries. (optional)  (default to false)
             var mayUseNativeStore = true;  // bool? | Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional)  (default to true)

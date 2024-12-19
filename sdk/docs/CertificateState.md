@@ -6,7 +6,7 @@ Information held about the minting / revoking of a certificate.  It does *not* c
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **string** | The \&quot;key\&quot; to which this belongs in the dictionary,  basically the CN without any version information | [optional] 
-**_Version** | **int** | The version of this certificate | [optional] 
+**VarVersion** | **int** | The version of this certificate | [optional] 
 **CommonName** | **string** | The common Name of the Certificate | [optional] 
 **Type** | **CertificateType** |  | [optional] 
 **CreationStatus** | **CertificateStatus** |  | [optional] 

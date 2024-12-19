@@ -33,44 +33,43 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Enum Unknown for value: Unknown
         /// </summary>
         [EnumMember(Value = "Unknown")]
-        Unknown = 1,
+        Unknown,
 
         /// <summary>
         /// Enum Csv for value: Csv
         /// </summary>
         [EnumMember(Value = "Csv")]
-        Csv = 2,
+        Csv,
 
         /// <summary>
         /// Enum Excel for value: Excel
         /// </summary>
         [EnumMember(Value = "Excel")]
-        Excel = 3,
+        Excel,
 
         /// <summary>
         /// Enum SqLite for value: SqLite
         /// </summary>
         [EnumMember(Value = "SqLite")]
-        SqLite = 4,
+        SqLite,
 
         /// <summary>
         /// Enum Xml for value: Xml
         /// </summary>
         [EnumMember(Value = "Xml")]
-        Xml = 5,
+        Xml,
 
         /// <summary>
         /// Enum Parquet for value: Parquet
         /// </summary>
         [EnumMember(Value = "Parquet")]
-        Parquet = 6,
+        Parquet,
 
         /// <summary>
         /// Enum RawText for value: RawText
         /// </summary>
         [EnumMember(Value = "RawText")]
-        RawText = 7
-
+        RawText
     }
 
 }

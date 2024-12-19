@@ -40,7 +40,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [EnumMember(Value = "desc")]
         Desc = 2
-
     }
 
 }

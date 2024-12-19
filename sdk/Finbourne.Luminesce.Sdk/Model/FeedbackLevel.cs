@@ -93,7 +93,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [EnumMember(Value = "ExecutionKeepAlive")]
         ExecutionKeepAlive = 11
-
     }
 
 }

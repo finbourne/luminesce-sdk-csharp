@@ -51,7 +51,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Additional")]
         Additional = 4
-
     }
 
 }
