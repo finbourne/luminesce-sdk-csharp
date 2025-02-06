@@ -48,19 +48,21 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="isRequiredByProvider">isRequiredByProvider.</param>
         /// <param name="mandatoryForActions">mandatoryForActions.</param>
         /// <param name="clientIds">clientIds.</param>
+        /// <param name="name">name.</param>
         /// <param name="type">type.</param>
         /// <param name="description">description.</param>
         /// <param name="displayName">displayName.</param>
         /// <param name="conditionUsage">conditionUsage.</param>
         /// <param name="sampleValues">sampleValues.</param>
         /// <param name="allowedValues">allowedValues.</param>
-        public Column(bool isPrimaryKey = default(bool), bool isMain = default(bool), bool isRequiredByProvider = default(bool), string mandatoryForActions = default(string), List<string> clientIds = default(List<string>), DataType? type = default(DataType?), string description = default(string), string displayName = default(string), ConditionAttributes? conditionUsage = default(ConditionAttributes?), string sampleValues = default(string), string allowedValues = default(string))
+        public Column(bool isPrimaryKey = default(bool), bool isMain = default(bool), bool isRequiredByProvider = default(bool), string mandatoryForActions = default(string), List<string> clientIds = default(List<string>), string name = default(string), DataType? type = default(DataType?), string description = default(string), string displayName = default(string), ConditionAttributes? conditionUsage = default(ConditionAttributes?), string sampleValues = default(string), string allowedValues = default(string))
         {
             this.IsPrimaryKey = isPrimaryKey;
             this.IsMain = isMain;
             this.IsRequiredByProvider = isRequiredByProvider;
             this.MandatoryForActions = mandatoryForActions;
             this.ClientIds = clientIds;
+            this.Name = name;
             this.Type = type;
             this.Description = description;
             this.DisplayName = displayName;
@@ -103,16 +105,8 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Gets or Sets Name
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = true)]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
-        /// <summary>
-        /// Returns false as Name should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeName()
-        {
-            return false;
-        }
         /// <summary>
         /// Gets or Sets Description
         /// </summary>

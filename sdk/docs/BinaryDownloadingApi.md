@@ -55,7 +55,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<BinaryDownloadingApi>();
             var type = new LuminesceBinaryType?(); // LuminesceBinaryType? | Type of binary to download (each requires separate licenses and entitlements) (optional) 
-            var version = "version_example";  // string? | An explicit version of the binary.  Leave blank to get the latest version (recommended) (optional) 
+            var version = 1.17.274;  // string? | An explicit version of the binary.  Leave blank to get the latest version (recommended) (optional) 
 
             try
             {
@@ -231,7 +231,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 

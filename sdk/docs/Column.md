@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **IsRequiredByProvider** | **bool** |  | [optional] 
 **MandatoryForActions** | **string** |  | [optional] 
 **ClientIds** | **List&lt;string&gt;** |  | [optional] 
-**Name** | **string** |  | [optional] [readonly] 
+**Name** | **string** |  | [optional] 
 **Type** | **DataType** |  | [optional] 
 **Description** | **string** |  | [optional] 
 **DisplayName** | **string** |  | [optional] 
