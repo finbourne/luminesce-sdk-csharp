@@ -6,11 +6,11 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ApplicationMetadataApi* | [**GetServicesAsAccessControlledResources**](docs/ApplicationMetadataApi.md#getservicesasaccesscontrolledresources) | **GET** /api/metadata/access/resources | GetServicesAsAccessControlledResources: Get resources available for access control
-*BinaryDownloadingApi* | [**DownloadBinary**](docs/BinaryDownloadingApi.md#downloadbinary) | **GET** /api/Download/download | [EXPERIMENTAL] DownloadBinary: Download a Luminesce Binary you may run on-site
-*BinaryDownloadingApi* | [**GetBinaryVersions**](docs/BinaryDownloadingApi.md#getbinaryversions) | **GET** /api/Download/versions | [EXPERIMENTAL] GetBinaryVersions: List available versions of binaries
-*CertificateManagementApi* | [**DownloadCertificate**](docs/CertificateManagementApi.md#downloadcertificate) | **GET** /api/Certificate/certificate | [EXPERIMENTAL] DownloadCertificate: Download domain or your personal certificates
-*CertificateManagementApi* | [**ListCertificates**](docs/CertificateManagementApi.md#listcertificates) | **GET** /api/Certificate/certificates | [EXPERIMENTAL] ListCertificates: List previously minted certificates
-*CertificateManagementApi* | [**ManageCertificate**](docs/CertificateManagementApi.md#managecertificate) | **PUT** /api/Certificate/manage | [EXPERIMENTAL] ManageCertificate: Create / Renew / Revoke a certificate
+*BinaryDownloadingApi* | [**DownloadBinary**](docs/BinaryDownloadingApi.md#downloadbinary) | **GET** /api/Download/download | DownloadBinary: Download a Luminesce Binary you may run on-site
+*BinaryDownloadingApi* | [**GetBinaryVersions**](docs/BinaryDownloadingApi.md#getbinaryversions) | **GET** /api/Download/versions | GetBinaryVersions: List available versions of binaries
+*CertificateManagementApi* | [**DownloadCertificate**](docs/CertificateManagementApi.md#downloadcertificate) | **GET** /api/Certificate/certificate | DownloadCertificate: Download domain or your personal certificates
+*CertificateManagementApi* | [**ListCertificates**](docs/CertificateManagementApi.md#listcertificates) | **GET** /api/Certificate/certificates | ListCertificates: List previously minted certificates
+*CertificateManagementApi* | [**ManageCertificate**](docs/CertificateManagementApi.md#managecertificate) | **PUT** /api/Certificate/manage | ManageCertificate: Create / Renew / Revoke a certificate
 *CurrentTableFieldCatalogApi* | [**GetCatalog**](docs/CurrentTableFieldCatalogApi.md#getcatalog) | **GET** /api/Catalog | GetCatalog: Get a Flattened Table/Field Catalog
 *CurrentTableFieldCatalogApi* | [**GetFields**](docs/CurrentTableFieldCatalogApi.md#getfields) | **GET** /api/Catalog/fields | GetFields: List field and parameters for providers
 *CurrentTableFieldCatalogApi* | [**GetProviders**](docs/CurrentTableFieldCatalogApi.md#getproviders) | **GET** /api/Catalog/providers | GetProviders: List available providers
@@ -36,22 +36,22 @@ Class | Method | HTTP request | Description
 *SqlBackgroundExecutionApi* | [**GetProgressOf**](docs/SqlBackgroundExecutionApi.md#getprogressof) | **GET** /api/SqlBackground/{executionId} | GetProgressOf: View query progress up to this point
 *SqlBackgroundExecutionApi* | [**StartQuery**](docs/SqlBackgroundExecutionApi.md#startquery) | **PUT** /api/SqlBackground | StartQuery: Start to Execute Sql in the background
 *SqlDesignApi* | [**GetProviderTemplateForExport**](docs/SqlDesignApi.md#getprovidertemplateforexport) | **GET** /api/Sql/providertemplateforexport | GetProviderTemplateForExport: Makes a fields template for file importing via a writer
-*SqlDesignApi* | [**PutCaseStatementDesignSqlToDesign**](docs/SqlDesignApi.md#putcasestatementdesignsqltodesign) | **PUT** /api/Sql/tocasestatementdesign | [EXPERIMENTAL] PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object
-*SqlDesignApi* | [**PutCaseStatementDesignToSql**](docs/SqlDesignApi.md#putcasestatementdesigntosql) | **PUT** /api/Sql/fromcasestatementdesign | [EXPERIMENTAL] PutCaseStatementDesignToSql: Convert a case statement design object to SQL
-*SqlDesignApi* | [**PutFileReadDesignToSql**](docs/SqlDesignApi.md#putfilereaddesigntosql) | **PUT** /api/Sql/fromfilereaddesign | [EXPERIMENTAL] PutFileReadDesignToSql: Make file read SQL from a design object
-*SqlDesignApi* | [**PutInlinedPropertiesDesignSqlToDesign**](docs/SqlDesignApi.md#putinlinedpropertiesdesignsqltodesign) | **PUT** /api/Sql/toinlinedpropertiesdesign | [EXPERIMENTAL] PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL
-*SqlDesignApi* | [**PutInlinedPropertiesDesignToSql**](docs/SqlDesignApi.md#putinlinedpropertiesdesigntosql) | **PUT** /api/Sql/frominlinedpropertiesdesign | [EXPERIMENTAL] PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object
+*SqlDesignApi* | [**PutCaseStatementDesignSqlToDesign**](docs/SqlDesignApi.md#putcasestatementdesignsqltodesign) | **PUT** /api/Sql/tocasestatementdesign | PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object
+*SqlDesignApi* | [**PutCaseStatementDesignToSql**](docs/SqlDesignApi.md#putcasestatementdesigntosql) | **PUT** /api/Sql/fromcasestatementdesign | PutCaseStatementDesignToSql: Convert a case statement design object to SQL
+*SqlDesignApi* | [**PutFileReadDesignToSql**](docs/SqlDesignApi.md#putfilereaddesigntosql) | **PUT** /api/Sql/fromfilereaddesign | PutFileReadDesignToSql: Make file read SQL from a design object
+*SqlDesignApi* | [**PutInlinedPropertiesDesignSqlToDesign**](docs/SqlDesignApi.md#putinlinedpropertiesdesignsqltodesign) | **PUT** /api/Sql/toinlinedpropertiesdesign | PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL
+*SqlDesignApi* | [**PutInlinedPropertiesDesignToSql**](docs/SqlDesignApi.md#putinlinedpropertiesdesigntosql) | **PUT** /api/Sql/frominlinedpropertiesdesign | PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object
 *SqlDesignApi* | [**PutIntellisense**](docs/SqlDesignApi.md#putintellisense) | **PUT** /api/Sql/intellisense | PutIntellisense: Make intellisense prompts given an SQL snip-it
 *SqlDesignApi* | [**PutIntellisenseError**](docs/SqlDesignApi.md#putintellisenseerror) | **PUT** /api/Sql/intellisenseError | PutIntellisenseError: Get error ranges from SQL
-*SqlDesignApi* | [**PutQueryDesignToSql**](docs/SqlDesignApi.md#putquerydesigntosql) | **PUT** /api/Sql/fromdesign | [EXPERIMENTAL] PutQueryDesignToSql: Make SQL from a structured query design
+*SqlDesignApi* | [**PutQueryDesignToSql**](docs/SqlDesignApi.md#putquerydesigntosql) | **PUT** /api/Sql/fromdesign | PutQueryDesignToSql: Make SQL from a structured query design
 *SqlDesignApi* | [**PutQueryToFormat**](docs/SqlDesignApi.md#putquerytoformat) | **PUT** /api/Sql/pretty | PutQueryToFormat: Format SQL into a more readable form
-*SqlDesignApi* | [**PutSqlToExtractScalarParameters**](docs/SqlDesignApi.md#putsqltoextractscalarparameters) | **PUT** /api/Sql/extractscalarparameters | [EXPERIMENTAL] PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL
-*SqlDesignApi* | [**PutSqlToFileReadDesign**](docs/SqlDesignApi.md#putsqltofilereaddesign) | **PUT** /api/Sql/tofilereaddesign | [EXPERIMENTAL] PutSqlToFileReadDesign: Make a design object from file-read SQL
-*SqlDesignApi* | [**PutSqlToQueryDesign**](docs/SqlDesignApi.md#putsqltoquerydesign) | **PUT** /api/Sql/todesign | [EXPERIMENTAL] PutSqlToQueryDesign: Make a SQL-design object from SQL if possible
-*SqlDesignApi* | [**PutSqlToViewDesign**](docs/SqlDesignApi.md#putsqltoviewdesign) | **PUT** /api/Sql/toviewdesign | [EXPERIMENTAL] PutSqlToViewDesign: Make a view-design from view creation SQL
-*SqlDesignApi* | [**PutSqlToWriterDesign**](docs/SqlDesignApi.md#putsqltowriterdesign) | **PUT** /api/Sql/towriterdesign | [EXPERIMENTAL] PutSqlToWriterDesign: Make a SQL-writer-design object from SQL
-*SqlDesignApi* | [**PutViewDesignToSql**](docs/SqlDesignApi.md#putviewdesigntosql) | **PUT** /api/Sql/fromviewdesign | [EXPERIMENTAL] PutViewDesignToSql: Make view creation sql from a view-design
-*SqlDesignApi* | [**PutWriterDesignToSql**](docs/SqlDesignApi.md#putwriterdesigntosql) | **PUT** /api/Sql/fromwriterdesign | [EXPERIMENTAL] PutWriterDesignToSql: Make writer SQL from a writer-design object
+*SqlDesignApi* | [**PutSqlToExtractScalarParameters**](docs/SqlDesignApi.md#putsqltoextractscalarparameters) | **PUT** /api/Sql/extractscalarparameters | PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL
+*SqlDesignApi* | [**PutSqlToFileReadDesign**](docs/SqlDesignApi.md#putsqltofilereaddesign) | **PUT** /api/Sql/tofilereaddesign | PutSqlToFileReadDesign: Make a design object from file-read SQL
+*SqlDesignApi* | [**PutSqlToQueryDesign**](docs/SqlDesignApi.md#putsqltoquerydesign) | **PUT** /api/Sql/todesign | PutSqlToQueryDesign: Make a SQL-design object from SQL if possible
+*SqlDesignApi* | [**PutSqlToViewDesign**](docs/SqlDesignApi.md#putsqltoviewdesign) | **PUT** /api/Sql/toviewdesign | PutSqlToViewDesign: Make a view-design from view creation SQL
+*SqlDesignApi* | [**PutSqlToWriterDesign**](docs/SqlDesignApi.md#putsqltowriterdesign) | **PUT** /api/Sql/towriterdesign | PutSqlToWriterDesign: Make a SQL-writer-design object from SQL
+*SqlDesignApi* | [**PutViewDesignToSql**](docs/SqlDesignApi.md#putviewdesigntosql) | **PUT** /api/Sql/fromviewdesign | PutViewDesignToSql: Make view creation sql from a view-design
+*SqlDesignApi* | [**PutWriterDesignToSql**](docs/SqlDesignApi.md#putwriterdesigntosql) | **PUT** /api/Sql/fromwriterdesign | PutWriterDesignToSql: Make writer SQL from a writer-design object
 *SqlExecutionApi* | [**GetByQueryCsv**](docs/SqlExecutionApi.md#getbyquerycsv) | **GET** /api/Sql/csv/{query} | GetByQueryCsv: Execute Sql from the url returning CSV
 *SqlExecutionApi* | [**GetByQueryExcel**](docs/SqlExecutionApi.md#getbyqueryexcel) | **GET** /api/Sql/excel/{query} | GetByQueryExcel: Execute Sql from the url returning an Excel file
 *SqlExecutionApi* | [**GetByQueryJson**](docs/SqlExecutionApi.md#getbyqueryjson) | **GET** /api/Sql/json/{query} | GetByQueryJson: Execute Sql from the url returning JSON
