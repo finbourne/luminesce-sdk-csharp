@@ -48,22 +48,82 @@ namespace Finbourne.Luminesce.Sdk.Model
         Vault = 3,
 
         /// <summary>
+        /// Enum WebApiPersistenceVault for value: WebApiPersistenceVault
+        /// </summary>
+        [EnumMember(Value = "WebApiPersistenceVault")]
+        WebApiPersistenceVault = 4,
+
+        /// <summary>
         /// Enum Rabbit for value: Rabbit
         /// </summary>
         [EnumMember(Value = "Rabbit")]
-        Rabbit = 4,
+        Rabbit = 5,
+
+        /// <summary>
+        /// Enum WebApiPersistenceRabbit for value: WebApiPersistenceRabbit
+        /// </summary>
+        [EnumMember(Value = "WebApiPersistenceRabbit")]
+        WebApiPersistenceRabbit = 6,
+
+        /// <summary>
+        /// Enum VaultRabbit for value: VaultRabbit
+        /// </summary>
+        [EnumMember(Value = "VaultRabbit")]
+        VaultRabbit = 7,
+
+        /// <summary>
+        /// Enum WebApiPersistenceVaultRabbit for value: WebApiPersistenceVaultRabbit
+        /// </summary>
+        [EnumMember(Value = "WebApiPersistenceVaultRabbit")]
+        WebApiPersistenceVaultRabbit = 8,
 
         /// <summary>
         /// Enum ConfigStore for value: ConfigStore
         /// </summary>
         [EnumMember(Value = "ConfigStore")]
-        ConfigStore = 5,
+        ConfigStore = 9,
+
+        /// <summary>
+        /// Enum WebApiPersistenceConfigStore for value: WebApiPersistenceConfigStore
+        /// </summary>
+        [EnumMember(Value = "WebApiPersistenceConfigStore")]
+        WebApiPersistenceConfigStore = 10,
+
+        /// <summary>
+        /// Enum VaultConfigStore for value: VaultConfigStore
+        /// </summary>
+        [EnumMember(Value = "VaultConfigStore")]
+        VaultConfigStore = 11,
+
+        /// <summary>
+        /// Enum WebApiPersistenceVaultConfigStore for value: WebApiPersistenceVaultConfigStore
+        /// </summary>
+        [EnumMember(Value = "WebApiPersistenceVaultConfigStore")]
+        WebApiPersistenceVaultConfigStore = 12,
+
+        /// <summary>
+        /// Enum RabbitConfigStore for value: RabbitConfigStore
+        /// </summary>
+        [EnumMember(Value = "RabbitConfigStore")]
+        RabbitConfigStore = 13,
+
+        /// <summary>
+        /// Enum WebApiPersistenceRabbitConfigStore for value: WebApiPersistenceRabbitConfigStore
+        /// </summary>
+        [EnumMember(Value = "WebApiPersistenceRabbitConfigStore")]
+        WebApiPersistenceRabbitConfigStore = 14,
+
+        /// <summary>
+        /// Enum VaultRabbitConfigStore for value: VaultRabbitConfigStore
+        /// </summary>
+        [EnumMember(Value = "VaultRabbitConfigStore")]
+        VaultRabbitConfigStore = 15,
 
         /// <summary>
         /// Enum AllSystems for value: AllSystems
         /// </summary>
         [EnumMember(Value = "AllSystems")]
-        AllSystems = 6
+        AllSystems = 16
     }
 
 }
