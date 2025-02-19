@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **IsMain** | **bool** |  | [optional] 
 **IsRequiredByProvider** | **bool** |  | [optional] 
 **MandatoryForActions** | **string** |  | [optional] 
-**ClientIds** | **List&lt;string&gt;** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **Type** | **DataType** |  | [optional] 
 **Description** | **string** |  | [optional] 

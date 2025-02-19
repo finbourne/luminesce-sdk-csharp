@@ -47,7 +47,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="isMain">isMain.</param>
         /// <param name="isRequiredByProvider">isRequiredByProvider.</param>
         /// <param name="mandatoryForActions">mandatoryForActions.</param>
-        /// <param name="clientIds">clientIds.</param>
         /// <param name="name">name.</param>
         /// <param name="type">type.</param>
         /// <param name="description">description.</param>
@@ -55,13 +54,12 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="conditionUsage">conditionUsage.</param>
         /// <param name="sampleValues">sampleValues.</param>
         /// <param name="allowedValues">allowedValues.</param>
-        public Column(bool isPrimaryKey = default(bool), bool isMain = default(bool), bool isRequiredByProvider = default(bool), string mandatoryForActions = default(string), List<string> clientIds = default(List<string>), string name = default(string), DataType? type = default(DataType?), string description = default(string), string displayName = default(string), ConditionAttributes? conditionUsage = default(ConditionAttributes?), string sampleValues = default(string), string allowedValues = default(string))
+        public Column(bool isPrimaryKey = default(bool), bool isMain = default(bool), bool isRequiredByProvider = default(bool), string mandatoryForActions = default(string), string name = default(string), DataType? type = default(DataType?), string description = default(string), string displayName = default(string), ConditionAttributes? conditionUsage = default(ConditionAttributes?), string sampleValues = default(string), string allowedValues = default(string))
         {
             this.IsPrimaryKey = isPrimaryKey;
             this.IsMain = isMain;
             this.IsRequiredByProvider = isRequiredByProvider;
             this.MandatoryForActions = mandatoryForActions;
-            this.ClientIds = clientIds;
             this.Name = name;
             this.Type = type;
             this.Description = description;
@@ -94,12 +92,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [DataMember(Name = "mandatoryForActions", EmitDefaultValue = true)]
         public string MandatoryForActions { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ClientIds
-        /// </summary>
-        [DataMember(Name = "clientIds", EmitDefaultValue = true)]
-        public List<string> ClientIds { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -143,7 +135,6 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  IsMain: ").Append(IsMain).Append("\n");
             sb.Append("  IsRequiredByProvider: ").Append(IsRequiredByProvider).Append("\n");
             sb.Append("  MandatoryForActions: ").Append(MandatoryForActions).Append("\n");
-            sb.Append("  ClientIds: ").Append(ClientIds).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -204,12 +195,6 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.MandatoryForActions.Equals(input.MandatoryForActions))
                 ) && 
                 (
-                    this.ClientIds == input.ClientIds ||
-                    this.ClientIds != null &&
-                    input.ClientIds != null &&
-                    this.ClientIds.SequenceEqual(input.ClientIds)
-                ) && 
-                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -259,10 +244,6 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.MandatoryForActions != null)
                 {
                     hashCode = (hashCode * 59) + this.MandatoryForActions.GetHashCode();
-                }
-                if (this.ClientIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.ClientIds.GetHashCode();
                 }
                 if (this.Name != null)
                 {
