@@ -12,6 +12,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 | [**PutInlinedPropertiesDesignToSql**](SqlDesignApi.md#putinlinedpropertiesdesigntosql) | **PUT** /api/Sql/frominlinedpropertiesdesign | PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object |
 | [**PutIntellisense**](SqlDesignApi.md#putintellisense) | **PUT** /api/Sql/intellisense | PutIntellisense: Make intellisense prompts given an SQL snip-it |
 | [**PutIntellisenseError**](SqlDesignApi.md#putintellisenseerror) | **PUT** /api/Sql/intellisenseError | PutIntellisenseError: Get error ranges from SQL |
+| [**PutLusidGridToQuery**](SqlDesignApi.md#putlusidgridtoquery) | **PUT** /api/Sql/fromlusidgrid | [EXPERIMENTAL] PutLusidGridToQuery: Generates SQL from a dashboard view |
 | [**PutQueryDesignToSql**](SqlDesignApi.md#putquerydesigntosql) | **PUT** /api/Sql/fromdesign | PutQueryDesignToSql: Make SQL from a structured query design |
 | [**PutQueryToFormat**](SqlDesignApi.md#putquerytoformat) | **PUT** /api/Sql/pretty | PutQueryToFormat: Format SQL into a more readable form |
 | [**PutSqlToExtractScalarParameters**](SqlDesignApi.md#putsqltoextractscalarparameters) | **PUT** /api/Sql/extractscalarparameters | PutSqlToExtractScalarParameters: Extract scalar parameter information from SQL |
@@ -922,6 +923,120 @@ catch (ApiException e)
 ### Return type
 
 [**ErrorHighlightResponse**](ErrorHighlightResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="putlusidgridtoquery"></a>
+# **PutLusidGridToQuery**
+> string PutLusidGridToQuery (LusidGridData lusidGridData)
+
+[EXPERIMENTAL] PutLusidGridToQuery: Generates SQL from a dashboard view
+
+Used to convert dashboard views in LUSID to SQL that can be run in Lumi
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Luminesce.Sdk.Api;
+using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
+using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
+            var lusidGridData = new LusidGridData(); // LusidGridData | 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.PutLusidGridToQuery(lusidGridData, opts: opts);
+
+                // [EXPERIMENTAL] PutLusidGridToQuery: Generates SQL from a dashboard view
+                string result = apiInstance.PutLusidGridToQuery(lusidGridData);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling SqlDesignApi.PutLusidGridToQuery: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the PutLusidGridToQueryWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] PutLusidGridToQuery: Generates SQL from a dashboard view
+    ApiResponse<string> response = apiInstance.PutLusidGridToQueryWithHttpInfo(lusidGridData);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling SqlDesignApi.PutLusidGridToQueryWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **lusidGridData** | [**LusidGridData**](LusidGridData.md) |  |  |
+
+### Return type
+
+**string**
 
 ### HTTP request headers
 
