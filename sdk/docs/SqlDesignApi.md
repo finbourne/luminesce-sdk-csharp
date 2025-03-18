@@ -1584,7 +1584,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
-            var body = SELECT\n    [TableName],\n    Count(distinct [FieldName]) as [NumberOfFields]\nFROM\n    [Sys.Field]\nWHERE\n    ([TableName] = 'Sys.Registration')\nGROUP BY\n    [TableName]\nORDER BY\n    [DataType]\nLIMIT 42;  // string | SQL query to generate the design object from
+            var body = SELECT [TableName], Count(distinct [FieldName]) as [NumberOfFields], case [FieldType] when 'Column' then 'col' else [FieldType] end as FieldType2  FROM [Sys.Field] WHERE ([TableName] = 'Sys.Registration') GROUP BY [TableName], [FieldType2] ORDER BY [DataType] LIMIT 42;  // string | SQL query to generate the design object from
             var validateWithMetadata = true;  // bool? | Should the table be validated against the users' view of Sys.Field to fill in DataTypes, etc.? (optional)  (default to true)
 
             try

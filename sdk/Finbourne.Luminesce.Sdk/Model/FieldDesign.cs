@@ -42,13 +42,14 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FieldDesign" /> class.
         /// </summary>
-        /// <param name="name">Name of the Field (required).</param>
+        /// <param name="name">Name of the Field (column name, constant, complex expression, etc.) (required).</param>
         /// <param name="alias">Alias if any (if none the Name is used).</param>
         /// <param name="dataType">dataType.</param>
         /// <param name="shouldSelect">Should this be selected? False would imply it is only being filtered on.  Ignored when Aggregations are present.</param>
         /// <param name="filters">Filter clauses to apply to this field (And&#39;ed together).</param>
         /// <param name="aggregations">Aggregations to apply (as opposed to simply selecting).</param>
-        public FieldDesign(string name = default(string), string alias = default(string), DataType? dataType = default(DataType?), bool shouldSelect = default(bool), List<FilterTermDesign> filters = default(List<FilterTermDesign>), List<Aggregation> aggregations = default(List<Aggregation>))
+        /// <param name="isExpression">Is this field an expression.</param>
+        public FieldDesign(string name = default(string), string alias = default(string), DataType? dataType = default(DataType?), bool shouldSelect = default(bool), List<FilterTermDesign> filters = default(List<FilterTermDesign>), List<Aggregation> aggregations = default(List<Aggregation>), bool isExpression = default(bool))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -61,12 +62,13 @@ namespace Finbourne.Luminesce.Sdk.Model
             this.ShouldSelect = shouldSelect;
             this.Filters = filters;
             this.Aggregations = aggregations;
+            this.IsExpression = isExpression;
         }
 
         /// <summary>
-        /// Name of the Field
+        /// Name of the Field (column name, constant, complex expression, etc.)
         /// </summary>
-        /// <value>Name of the Field</value>
+        /// <value>Name of the Field (column name, constant, complex expression, etc.)</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
@@ -99,6 +101,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         public List<Aggregation> Aggregations { get; set; }
 
         /// <summary>
+        /// Is this field an expression
+        /// </summary>
+        /// <value>Is this field an expression</value>
+        [DataMember(Name = "isExpression", EmitDefaultValue = true)]
+        public bool IsExpression { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -112,6 +121,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  ShouldSelect: ").Append(ShouldSelect).Append("\n");
             sb.Append("  Filters: ").Append(Filters).Append("\n");
             sb.Append("  Aggregations: ").Append(Aggregations).Append("\n");
+            sb.Append("  IsExpression: ").Append(IsExpression).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -176,6 +186,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Aggregations != null &&
                     input.Aggregations != null &&
                     this.Aggregations.SequenceEqual(input.Aggregations)
+                ) && 
+                (
+                    this.IsExpression == input.IsExpression ||
+                    this.IsExpression.Equals(input.IsExpression)
                 );
         }
 
@@ -206,6 +220,7 @@ namespace Finbourne.Luminesce.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Aggregations.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsExpression.GetHashCode();
                 return hashCode;
             }
         }
@@ -217,16 +232,10 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Name (string) maxLength
-            if (this.Name != null && this.Name.Length > 256)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 256.", new [] { "Name" });
-            }
-
             // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 0)
+            if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // Alias (string) maxLength
