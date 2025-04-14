@@ -54,7 +54,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="conditionUsage">conditionUsage.</param>
         /// <param name="sampleValues">sampleValues.</param>
         /// <param name="allowedValues">allowedValues.</param>
-        public Column(bool isPrimaryKey = default(bool), bool isMain = default(bool), bool isRequiredByProvider = default(bool), string mandatoryForActions = default(string), string name = default(string), DataType? type = default(DataType?), string description = default(string), string displayName = default(string), ConditionAttributes? conditionUsage = default(ConditionAttributes?), string sampleValues = default(string), string allowedValues = default(string))
+        public Column(bool isPrimaryKey = default(bool), bool isMain = default(bool), bool isRequiredByProvider = default(bool), string mandatoryForActions = default(string), string name = default(string), DataType ?type = default(DataType?), string description = default(string), string displayName = default(string), ConditionAttributes ?conditionUsage = default(ConditionAttributes?), string sampleValues = default(string), string allowedValues = default(string))
         {
             this.IsPrimaryKey = isPrimaryKey;
             this.IsMain = isMain;

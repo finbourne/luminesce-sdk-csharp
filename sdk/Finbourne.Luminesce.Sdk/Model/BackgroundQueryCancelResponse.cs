@@ -47,7 +47,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="previousStatus">previousStatus.</param>
         /// <param name="previousState">previousState.</param>
         /// <param name="progress">progress.</param>
-        public BackgroundQueryCancelResponse(bool hadData = default(bool), TaskStatus? previousStatus = default(TaskStatus?), BackgroundQueryState? previousState = default(BackgroundQueryState?), string progress = default(string))
+        public BackgroundQueryCancelResponse(bool hadData = default(bool), TaskStatus ?previousStatus = default(TaskStatus?), BackgroundQueryState ?previousState = default(BackgroundQueryState?), string progress = default(string))
         {
             this.HadData = hadData;
             this.PreviousStatus = previousStatus;

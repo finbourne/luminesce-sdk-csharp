@@ -39,7 +39,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         /// <param name="location">The source location.  Start of a provider name, &#x60;Drive&#x60;, &#x60;LocalFs&#x60;, &#x60;AwsS3&#x60; etc..</param>
         /// <param name="type">type.</param>
-        public Source(string location = default(string), SourceType? type = default(SourceType?))
+        public Source(string location = default(string), SourceType ?type = default(SourceType?))
         {
             this.Location = location;
             this.Type = type;

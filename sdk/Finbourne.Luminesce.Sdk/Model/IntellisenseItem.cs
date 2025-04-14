@@ -48,7 +48,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="score">How important is this.  Bigger is more important..</param>
         /// <param name="docHTML">Popup further info (as in a whole documentation article!).</param>
         /// <param name="type">type.</param>
-        public IntellisenseItem(string caption = default(string), string value = default(string), string meta = default(string), int score = default(int), string docHTML = default(string), IntellisenseType? type = default(IntellisenseType?))
+        public IntellisenseItem(string caption = default(string), string value = default(string), string meta = default(string), int score = default(int), string docHTML = default(string), IntellisenseType ?type = default(IntellisenseType?))
         {
             // to ensure "caption" is required (not null)
             if (caption == null)

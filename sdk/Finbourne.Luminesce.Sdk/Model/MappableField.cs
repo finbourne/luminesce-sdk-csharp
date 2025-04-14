@@ -45,7 +45,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="allowedValues">Any set of exactly allowed values for the field (perhaps just for rendering to the user, if nothing else).</param>
         /// <param name="mandatoryForActions">Which &#x60;Actions&#x60; is this mandatory for? If any (and potentially when), perhaps just for rendering to the user, if nothing else.</param>
         /// <param name="mapping">mapping.</param>
-        public MappableField(string name = default(string), DataType? type = default(DataType?), string description = default(string), string displayName = default(string), string sampleValues = default(string), string allowedValues = default(string), string mandatoryForActions = default(string), ExpressionWithAlias mapping = default(ExpressionWithAlias))
+        public MappableField(string name = default(string), DataType ?type = default(DataType?), string description = default(string), string displayName = default(string), string sampleValues = default(string), string allowedValues = default(string), string mandatoryForActions = default(string), ExpressionWithAlias mapping = default(ExpressionWithAlias))
         {
             this.Name = name;
             this.Type = type;

@@ -49,7 +49,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="filters">Filter clauses to apply to this field (And&#39;ed together).</param>
         /// <param name="aggregations">Aggregations to apply (as opposed to simply selecting).</param>
         /// <param name="isExpression">Is this field an expression.</param>
-        public FieldDesign(string name = default(string), string alias = default(string), DataType? dataType = default(DataType?), bool shouldSelect = default(bool), List<FilterTermDesign> filters = default(List<FilterTermDesign>), List<Aggregation> aggregations = default(List<Aggregation>), bool isExpression = default(bool))
+        public FieldDesign(string name = default(string), string alias = default(string), DataType ?dataType = default(DataType?), bool shouldSelect = default(bool), List<FilterTermDesign> filters = default(List<FilterTermDesign>), List<Aggregation> aggregations = default(List<Aggregation>), bool isExpression = default(bool))
         {
             // to ensure "name" is required (not null)
             if (name == null)

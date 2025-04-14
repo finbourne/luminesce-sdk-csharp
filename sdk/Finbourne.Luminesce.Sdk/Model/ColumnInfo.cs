@@ -41,7 +41,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="type">type.</param>
         /// <param name="name">The name of the column.</param>
         /// <param name="xPath">Xpath for the column (only applicable to XML defined columns).</param>
-        public ColumnInfo(bool select = default(bool), DataType? type = default(DataType?), string name = default(string), string xPath = default(string))
+        public ColumnInfo(bool select = default(bool), DataType ?type = default(DataType?), string name = default(string), string xPath = default(string))
         {
             this.Select = select;
             this.Type = type;

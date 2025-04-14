@@ -45,7 +45,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="stateId">stateId.</param>
         /// <param name="messageTemplate">messageTemplate.</param>
         /// <param name="propertyValues">propertyValues.</param>
-        public FeedbackEventArgs(DateTimeOffset when = default(DateTimeOffset), Guid sessionId = default(Guid), Guid executionId = default(Guid), FeedbackLevel? level = default(FeedbackLevel?), string sender = default(string), int? stateId = default(int?), string messageTemplate = default(string), List<Object> propertyValues = default(List<Object>))
+        public FeedbackEventArgs(DateTimeOffset when = default(DateTimeOffset), Guid sessionId = default(Guid), Guid executionId = default(Guid), FeedbackLevel ?level = default(FeedbackLevel?), string sender = default(string), int? stateId = default(int?), string messageTemplate = default(string), List<Object> propertyValues = default(List<Object>))
         {
             this.When = when;
             this.SessionId = sessionId;

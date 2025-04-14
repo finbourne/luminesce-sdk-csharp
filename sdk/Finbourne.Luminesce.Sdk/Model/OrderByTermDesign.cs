@@ -44,7 +44,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         /// <param name="field">Name of the field to order by (required).</param>
         /// <param name="direction">direction.</param>
-        public OrderByTermDesign(string field = default(string), OrderByDirection? direction = default(OrderByDirection?))
+        public OrderByTermDesign(string field = default(string), OrderByDirection ?direction = default(OrderByDirection?))
         {
             // to ensure "field" is required (not null)
             if (field == null)

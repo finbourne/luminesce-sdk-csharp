@@ -47,7 +47,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="dashboardType">dashboardType.</param>
         /// <param name="useSettleDate">Whether to use the Settlement date or the Transaction date.</param>
         /// <param name="dates">dates.</param>
-        public LusidGridData(TableView lusidGridDesign = default(TableView), ResourceId resourceId = default(ResourceId), DashboardType? dashboardType = default(DashboardType?), bool? useSettleDate = default(bool?), DateParameters dates = default(DateParameters))
+        public LusidGridData(TableView lusidGridDesign = default(TableView), ResourceId resourceId = default(ResourceId), DashboardType ?dashboardType = default(DashboardType?), bool? useSettleDate = default(bool?), DateParameters dates = default(DateParameters))
         {
             // to ensure "lusidGridDesign" is required (not null)
             if (lusidGridDesign == null)

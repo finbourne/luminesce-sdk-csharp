@@ -52,7 +52,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="query">The LuminesceSql of the original request.</param>
         /// <param name="queryName">The QueryName given in the original request.</param>
         /// <param name="columnsAvailable">When HasData is true this is the schema of columns that will be returned if the data is requested.</param>
-        public BackgroundQueryProgressResponse(bool hasData = default(bool), int rowCount = default(int), TaskStatus? status = default(TaskStatus?), BackgroundQueryState? state = default(BackgroundQueryState?), string progress = default(string), List<FeedbackEventArgs> feedback = default(List<FeedbackEventArgs>), string query = default(string), string queryName = default(string), List<Column> columnsAvailable = default(List<Column>))
+        public BackgroundQueryProgressResponse(bool hasData = default(bool), int rowCount = default(int), TaskStatus ?status = default(TaskStatus?), BackgroundQueryState ?state = default(BackgroundQueryState?), string progress = default(string), List<FeedbackEventArgs> feedback = default(List<FeedbackEventArgs>), string query = default(string), string queryName = default(string), List<Column> columnsAvailable = default(List<Column>))
         {
             this.HasData = hasData;
             this.RowCount = rowCount;

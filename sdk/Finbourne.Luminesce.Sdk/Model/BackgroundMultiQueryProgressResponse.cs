@@ -41,7 +41,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="feedback">Individual Feedback Messages (to replace Progress).  A given message will be returned from only one call..</param>
         /// <param name="status">status.</param>
         /// <param name="queries">queries.</param>
-        public BackgroundMultiQueryProgressResponse(string progress = default(string), List<FeedbackEventArgs> feedback = default(List<FeedbackEventArgs>), TaskStatus? status = default(TaskStatus?), List<BackgroundQueryProgressResponse> queries = default(List<BackgroundQueryProgressResponse>))
+        public BackgroundMultiQueryProgressResponse(string progress = default(string), List<FeedbackEventArgs> feedback = default(List<FeedbackEventArgs>), TaskStatus ?status = default(TaskStatus?), List<BackgroundQueryProgressResponse> queries = default(List<BackgroundQueryProgressResponse>))
         {
             this.Progress = progress;
             this.Feedback = feedback;

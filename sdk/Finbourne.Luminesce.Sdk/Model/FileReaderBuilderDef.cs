@@ -52,7 +52,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="sqLite">sqLite.</param>
         /// <param name="xml">xml.</param>
         /// <param name="parquet">parquet.</param>
-        public FileReaderBuilderDef(AutoDetectType? autoDetect = default(AutoDetectType?), List<ColumnInfo> columns = default(List<ColumnInfo>), int limit = default(int), Source source = default(Source), List<Source> availableSources = default(List<Source>), string variableName = default(string), string filePath = default(string), string folderFilter = default(string), string zipFilter = default(string), bool addFileName = default(bool), OptionsCsv csv = default(OptionsCsv), OptionsExcel excel = default(OptionsExcel), OptionsSqLite sqLite = default(OptionsSqLite), OptionsXml xml = default(OptionsXml), OptionsParquet parquet = default(OptionsParquet))
+        public FileReaderBuilderDef(AutoDetectType ?autoDetect = default(AutoDetectType?), List<ColumnInfo> columns = default(List<ColumnInfo>), int limit = default(int), Source source = default(Source), List<Source> availableSources = default(List<Source>), string variableName = default(string), string filePath = default(string), string folderFilter = default(string), string zipFilter = default(string), bool addFileName = default(bool), OptionsCsv csv = default(OptionsCsv), OptionsExcel excel = default(OptionsExcel), OptionsSqLite sqLite = default(OptionsSqLite), OptionsXml xml = default(OptionsXml), OptionsParquet parquet = default(OptionsParquet))
         {
             this.AutoDetect = autoDetect;
             this.Columns = columns;

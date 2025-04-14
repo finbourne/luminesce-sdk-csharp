@@ -53,7 +53,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="fieldType">fieldType (required).</param>
         /// <param name="isMain">Is this a Main Field within the Provider.</param>
         /// <param name="isPrimaryKey">Is this a member of the PrimaryKey of the Provider.</param>
-        public AvailableField(string name = default(string), DataType? dataType = default(DataType?), FieldType fieldType = default(FieldType), bool? isMain = default(bool?), bool? isPrimaryKey = default(bool?))
+        public AvailableField(string name = default(string), DataType ?dataType = default(DataType?), FieldType fieldType = default(FieldType), bool? isMain = default(bool?), bool? isPrimaryKey = default(bool?))
         {
             // to ensure "name" is required (not null)
             if (name == null)

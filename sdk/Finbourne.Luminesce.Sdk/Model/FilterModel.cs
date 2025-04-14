@@ -55,7 +55,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="values">An array of possible values for the set filter type.</param>
         /// <param name="dateFrom">A lower bound date for the date filter type.</param>
         /// <param name="dateTo">An upper bound date for the date filter type.</param>
-        public FilterModel(FilterType filterType = default(FilterType), Type? type = default(Type?), string filter = default(string), decimal? filterTo = default(decimal?), List<string> values = default(List<string>), string dateFrom = default(string), string dateTo = default(string))
+        public FilterModel(FilterType filterType = default(FilterType), Type ?type = default(Type?), string filter = default(string), decimal? filterTo = default(decimal?), List<string> values = default(List<string>), string dateFrom = default(string), string dateTo = default(string))
         {
             this.FilterType = filterType;
             this.Type = type;

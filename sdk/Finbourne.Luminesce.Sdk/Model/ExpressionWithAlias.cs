@@ -45,7 +45,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="expression">Expression (column name, constant, complex expression, etc.) (required).</param>
         /// <param name="alias">Column Alias for the expression.</param>
         /// <param name="flags">flags.</param>
-        public ExpressionWithAlias(string expression = default(string), string alias = default(string), MappingFlags? flags = default(MappingFlags?))
+        public ExpressionWithAlias(string expression = default(string), string alias = default(string), MappingFlags ?flags = default(MappingFlags?))
         {
             // to ensure "expression" is required (not null)
             if (expression == null)
