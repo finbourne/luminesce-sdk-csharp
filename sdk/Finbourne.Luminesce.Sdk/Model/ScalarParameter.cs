@@ -45,7 +45,9 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="name">Name of the scalar parameter (required).</param>
         /// <param name="type">type (required).</param>
         /// <param name="value">the default value of the parameter.</param>
-        public ScalarParameter(string name = default(string), DataType type = default(DataType), Object value = default(Object))
+        /// <param name="valueOptions">Values of the parameter listed as being available for choosing from..</param>
+        /// <param name="valueMustBeFromOptions">Must Value be one of ValueOptions (if any)?.</param>
+        public ScalarParameter(string name = default(string), DataType type = default(DataType), Object value = default(Object), List<Object> valueOptions = default(List<Object>), bool valueMustBeFromOptions = default(bool))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -55,6 +57,8 @@ namespace Finbourne.Luminesce.Sdk.Model
             this.Name = name;
             this.Type = type;
             this.Value = value;
+            this.ValueOptions = valueOptions;
+            this.ValueMustBeFromOptions = valueMustBeFromOptions;
         }
 
         /// <summary>
@@ -72,6 +76,20 @@ namespace Finbourne.Luminesce.Sdk.Model
         public Object Value { get; set; }
 
         /// <summary>
+        /// Values of the parameter listed as being available for choosing from.
+        /// </summary>
+        /// <value>Values of the parameter listed as being available for choosing from.</value>
+        [DataMember(Name = "valueOptions", EmitDefaultValue = true)]
+        public List<Object> ValueOptions { get; set; }
+
+        /// <summary>
+        /// Must Value be one of ValueOptions (if any)?
+        /// </summary>
+        /// <value>Must Value be one of ValueOptions (if any)?</value>
+        [DataMember(Name = "valueMustBeFromOptions", EmitDefaultValue = true)]
+        public bool ValueMustBeFromOptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +100,8 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  ValueOptions: ").Append(ValueOptions).Append("\n");
+            sb.Append("  ValueMustBeFromOptions: ").Append(ValueMustBeFromOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,6 +150,16 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Value == input.Value ||
                     (this.Value != null &&
                     this.Value.Equals(input.Value))
+                ) && 
+                (
+                    this.ValueOptions == input.ValueOptions ||
+                    this.ValueOptions != null &&
+                    input.ValueOptions != null &&
+                    this.ValueOptions.SequenceEqual(input.ValueOptions)
+                ) && 
+                (
+                    this.ValueMustBeFromOptions == input.ValueMustBeFromOptions ||
+                    this.ValueMustBeFromOptions.Equals(input.ValueMustBeFromOptions)
                 );
         }
 
@@ -151,6 +181,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 }
+                if (this.ValueOptions != null)
+                {
+                    hashCode = (hashCode * 59) + this.ValueOptions.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ValueMustBeFromOptions.GetHashCode();
                 return hashCode;
             }
         }

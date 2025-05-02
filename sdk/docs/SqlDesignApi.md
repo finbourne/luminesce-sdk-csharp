@@ -1354,7 +1354,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
-            var body = select abc, :p1:'this' as c1 from xxx where abc = :abcP:123 or xyz in (:p2:, 'zzz');  // string | SQL query to generate the design object from
+            var body = select abc, :p1:'this' as c1 from xxx where abc = :abcP:{1,2,3} or xyz in (:p2:, 'zzz');  // string | SQL query to generate the design object from
 
             try
             {
