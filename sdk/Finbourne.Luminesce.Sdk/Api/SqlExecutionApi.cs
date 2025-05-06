@@ -42,7 +42,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -61,7 +61,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -78,7 +78,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
@@ -94,7 +94,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
@@ -109,7 +109,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -126,7 +126,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -142,7 +142,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
@@ -158,7 +158,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
@@ -174,7 +174,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
@@ -191,7 +191,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
@@ -206,7 +206,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
@@ -222,7 +222,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
@@ -238,7 +238,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
@@ -255,7 +255,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
@@ -271,7 +271,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -290,7 +290,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -307,7 +307,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
@@ -323,7 +323,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
@@ -338,7 +338,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -355,7 +355,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -371,7 +371,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
@@ -387,7 +387,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
@@ -403,7 +403,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
@@ -420,7 +420,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
@@ -435,7 +435,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
@@ -451,7 +451,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
@@ -467,7 +467,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
@@ -484,7 +484,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
@@ -509,7 +509,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -529,7 +529,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -547,7 +547,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -564,7 +564,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -580,7 +580,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -598,7 +598,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -615,7 +615,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -632,7 +632,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -649,7 +649,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -667,7 +667,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -683,7 +683,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -700,7 +700,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -717,7 +717,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -735,7 +735,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -752,7 +752,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -772,7 +772,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -790,7 +790,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -807,7 +807,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -823,7 +823,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -841,7 +841,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -858,7 +858,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -875,7 +875,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -892,7 +892,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -910,7 +910,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -926,7 +926,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -943,7 +943,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -960,7 +960,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -978,7 +978,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1115,7 +1115,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1135,7 +1135,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1251,7 +1251,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1272,7 +1272,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1390,7 +1390,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
@@ -1407,7 +1407,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
@@ -1508,7 +1508,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1526,7 +1526,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1630,7 +1630,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1648,7 +1648,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1754,7 +1754,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1773,7 +1773,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1882,7 +1882,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
@@ -1899,7 +1899,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
@@ -2000,7 +2000,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2018,7 +2018,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2123,7 +2123,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
@@ -2141,7 +2141,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
@@ -2247,7 +2247,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2266,7 +2266,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2374,7 +2374,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
@@ -2391,7 +2391,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
@@ -2492,7 +2492,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2510,7 +2510,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2615,7 +2615,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
@@ -2633,7 +2633,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
@@ -2739,7 +2739,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2758,7 +2758,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeout">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -2867,7 +2867,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2887,7 +2887,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3004,7 +3004,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3025,7 +3025,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3144,7 +3144,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
@@ -3161,7 +3161,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
@@ -3263,7 +3263,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3281,7 +3281,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3386,7 +3386,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3404,7 +3404,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3511,7 +3511,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3530,7 +3530,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3640,7 +3640,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
@@ -3657,7 +3657,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
@@ -3759,7 +3759,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3777,7 +3777,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3883,7 +3883,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
@@ -3901,7 +3901,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
@@ -4008,7 +4008,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4027,7 +4027,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4136,7 +4136,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
@@ -4153,7 +4153,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
@@ -4255,7 +4255,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4273,7 +4273,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4379,7 +4379,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
@@ -4397,7 +4397,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
@@ -4504,7 +4504,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4523,7 +4523,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
-        /// <param name="timeoutSeconds">In seconds: &lt;0 → ∞, 0 → 120s (optional, default to 0)</param>
+        /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

@@ -70,7 +70,7 @@ namespace Examples
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
-            var timeout = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
+            var timeout = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
             var delimiter = "delimiter_example";  // string? | Delimiter string to override the default (optional) 
             var escape = "escape_example";  // string? | Escape character to override the default (optional) 
 
@@ -122,7 +122,7 @@ catch (ApiException e)
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **download** | **bool?** | Makes this a file-download request (as opposed to returning the data in the response-body) | [optional] [default to false] |
-| **timeout** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
+| **timeout** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 | **delimiter** | **string?** | Delimiter string to override the default | [optional]  |
 | **escape** | **string?** | Escape character to override the default | [optional]  |
 
@@ -195,7 +195,7 @@ namespace Examples
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
-            var timeout = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
+            var timeout = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
 
             try
             {
@@ -244,7 +244,7 @@ catch (ApiException e)
 | **query** | **string** | LuminesceSql to Execute (must be one line only) |  |
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
-| **timeout** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
+| **timeout** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 
 ### Return type
 
@@ -315,7 +315,7 @@ namespace Examples
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
-            var timeout = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
+            var timeout = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
             var jsonProper = false;  // bool? | Should this be text/json (not json-encoded-as-a-string) (optional)  (default to false)
 
             try
@@ -365,7 +365,7 @@ catch (ApiException e)
 | **query** | **string** | LuminesceSql to Execute (must be one line only) |  |
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
-| **timeout** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
+| **timeout** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 | **jsonProper** | **bool?** | Should this be text/json (not json-encoded-as-a-string) | [optional] [default to false] |
 
 ### Return type
@@ -437,7 +437,7 @@ namespace Examples
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
-            var timeout = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
+            var timeout = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
 
             try
             {
@@ -486,7 +486,7 @@ catch (ApiException e)
 | **query** | **string** | LuminesceSql to Execute (must be one line only) |  |
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
-| **timeout** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
+| **timeout** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 
 ### Return type
 
@@ -558,7 +558,7 @@ namespace Examples
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
-            var timeout = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
+            var timeout = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
 
             try
             {
@@ -608,7 +608,7 @@ catch (ApiException e)
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **download** | **bool?** | Makes this a file-download request (as opposed to returning the data in the response-body) | [optional] [default to false] |
-| **timeout** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
+| **timeout** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 
 ### Return type
 
@@ -679,7 +679,7 @@ namespace Examples
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
-            var timeout = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
+            var timeout = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
 
             try
             {
@@ -728,7 +728,7 @@ catch (ApiException e)
 | **query** | **string** | LuminesceSql to Execute (must be one line only) |  |
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
-| **timeout** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
+| **timeout** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 
 ### Return type
 
@@ -800,7 +800,7 @@ namespace Examples
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
-            var timeout = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
+            var timeout = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
 
             try
             {
@@ -850,7 +850,7 @@ catch (ApiException e)
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **download** | **bool?** | Makes this a file-download request (as opposed to returning the data in the response-body) | [optional] [default to false] |
-| **timeout** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
+| **timeout** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 
 ### Return type
 
@@ -922,7 +922,7 @@ namespace Examples
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
-            var timeoutSeconds = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
+            var timeoutSeconds = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
             var delimiter = "delimiter_example";  // string? | Delimiter string to override the default (optional) 
             var escape = "escape_example";  // string? | Escape character to override the default (optional) 
 
@@ -974,7 +974,7 @@ catch (ApiException e)
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **download** | **bool?** | Makes this a file-download request (as opposed to returning the data in the response-body) | [optional] [default to false] |
-| **timeoutSeconds** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
+| **timeoutSeconds** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 | **delimiter** | **string?** | Delimiter string to override the default | [optional]  |
 | **escape** | **string?** | Escape character to override the default | [optional]  |
 
@@ -1047,7 +1047,7 @@ namespace Examples
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
-            var timeoutSeconds = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
+            var timeoutSeconds = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
 
             try
             {
@@ -1096,7 +1096,7 @@ catch (ApiException e)
 | **body** | **string** | LuminesceSql to Execute (may be multi-line) |  |
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
-| **timeoutSeconds** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
+| **timeoutSeconds** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 
 ### Return type
 
@@ -1167,7 +1167,7 @@ namespace Examples
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
-            var timeoutSeconds = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
+            var timeoutSeconds = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
             var jsonProper = false;  // bool? | Should this be text/json (not json-encoded-as-a-string) (optional)  (default to false)
 
             try
@@ -1217,7 +1217,7 @@ catch (ApiException e)
 | **body** | **string** | LuminesceSql to Execute (may be multi-line) |  |
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
-| **timeoutSeconds** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
+| **timeoutSeconds** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 | **jsonProper** | **bool?** | Should this be text/json (not json-encoded-as-a-string) | [optional] [default to false] |
 
 ### Return type
@@ -1289,7 +1289,7 @@ namespace Examples
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
-            var timeoutSeconds = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
+            var timeoutSeconds = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
 
             try
             {
@@ -1338,7 +1338,7 @@ catch (ApiException e)
 | **body** | **string** | LuminesceSql to Execute (may be multi-line) |  |
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
-| **timeoutSeconds** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
+| **timeoutSeconds** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 
 ### Return type
 
@@ -1410,7 +1410,7 @@ namespace Examples
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
-            var timeoutSeconds = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
+            var timeoutSeconds = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
 
             try
             {
@@ -1460,7 +1460,7 @@ catch (ApiException e)
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **download** | **bool?** | Makes this a file-download request (as opposed to returning the data in the response-body) | [optional] [default to false] |
-| **timeoutSeconds** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
+| **timeoutSeconds** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 
 ### Return type
 
@@ -1531,7 +1531,7 @@ namespace Examples
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
-            var timeoutSeconds = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
+            var timeoutSeconds = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
 
             try
             {
@@ -1580,7 +1580,7 @@ catch (ApiException e)
 | **body** | **string** | LuminesceSql to Execute (may be multi-line) |  |
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
-| **timeoutSeconds** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
+| **timeoutSeconds** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 
 ### Return type
 
@@ -1652,7 +1652,7 @@ namespace Examples
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
-            var timeoutSeconds = 120;  // int? | In seconds: <0 → ∞, 0 → 120s (optional)  (default to 0)
+            var timeoutSeconds = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
 
             try
             {
@@ -1702,7 +1702,7 @@ catch (ApiException e)
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **download** | **bool?** | Makes this a file-download request (as opposed to returning the data in the response-body) | [optional] [default to false] |
-| **timeoutSeconds** | **int?** | In seconds: &lt;0 → ∞, 0 → 120s | [optional] [default to 0] |
+| **timeoutSeconds** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 
 ### Return type
 
