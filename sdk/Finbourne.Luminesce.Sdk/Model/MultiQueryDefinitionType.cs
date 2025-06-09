@@ -86,7 +86,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Enum InstrumentUpsert for value: InstrumentUpsert
         /// </summary>
         [EnumMember(Value = "InstrumentUpsert")]
-        InstrumentUpsert = 10
+        InstrumentUpsert = 10,
+
+        /// <summary>
+        /// Enum InsightsApplicationRequestLogs for value: InsightsApplicationRequestLogs
+        /// </summary>
+        [EnumMember(Value = "InsightsApplicationRequestLogs")]
+        InsightsApplicationRequestLogs = 11
     }
 
 }

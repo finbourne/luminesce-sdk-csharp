@@ -40,7 +40,8 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="name">Name of the property.</param>
         /// <param name="isMain">Is Main indicator for the property.</param>
         /// <param name="description">Description of the property.</param>
-        public InlinedPropertyItem(string key = default(string), string name = default(string), bool isMain = default(bool), string description = default(string))
+        /// <param name="dataType">Data type of the property.</param>
+        public InlinedPropertyItem(string key = default(string), string name = default(string), bool isMain = default(bool), string description = default(string), string dataType = default(string))
         {
             // to ensure "key" is required (not null)
             if (key == null)
@@ -51,6 +52,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             this.Name = name;
             this.IsMain = isMain;
             this.Description = description;
+            this.DataType = dataType;
         }
 
         /// <summary>
@@ -82,6 +84,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
+        /// Data type of the property
+        /// </summary>
+        /// <value>Data type of the property</value>
+        [DataMember(Name = "dataType", EmitDefaultValue = true)]
+        public string DataType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +102,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  IsMain: ").Append(IsMain).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  DataType: ").Append(DataType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -146,6 +156,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.DataType == input.DataType ||
+                    (this.DataType != null &&
+                    this.DataType.Equals(input.DataType))
                 );
         }
 
@@ -170,6 +185,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.DataType != null)
+                {
+                    hashCode = (hashCode * 59) + this.DataType.GetHashCode();
                 }
                 return hashCode;
             }
