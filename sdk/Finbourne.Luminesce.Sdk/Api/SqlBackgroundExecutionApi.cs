@@ -413,7 +413,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?    Deprecated.  Regardless of the value here it is now the case that:   False [and now even True] will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryProgressResponse</returns>
@@ -427,7 +427,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?    Deprecated.  Regardless of the value here it is now the case that:   False [and now even True] will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryProgressResponse</returns>
@@ -878,7 +878,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?    Deprecated.  Regardless of the value here it is now the case that:   False [and now even True] will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -893,7 +893,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?    Deprecated.  Regardless of the value here it is now the case that:   False [and now even True] will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3854,7 +3854,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?    Deprecated.  Regardless of the value here it is now the case that:   False [and now even True] will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryProgressResponse</returns>
@@ -3869,7 +3869,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?    Deprecated.  Regardless of the value here it is now the case that:   False [and now even True] will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryProgressResponse</returns>
@@ -3960,7 +3960,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?    Deprecated.  Regardless of the value here it is now the case that:   False [and now even True] will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3976,7 +3976,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to true)</param>
+        /// <param name="buildFromLogs">Should the response state be build from query logs if missing from the shared-db-state?    Deprecated.  Regardless of the value here it is now the case that:   False [and now even True] will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

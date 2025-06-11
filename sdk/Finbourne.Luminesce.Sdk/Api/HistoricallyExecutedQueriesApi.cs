@@ -137,7 +137,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
-        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available?  This is no longer supported and effectively always true. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryResponse</returns>
@@ -154,7 +154,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
-        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available?  This is no longer supported and effectively always true. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
@@ -305,7 +305,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
-        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available?  This is no longer supported and effectively always true. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -323,7 +323,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
-        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available?  This is no longer supported and effectively always true. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1219,7 +1219,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
-        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available?  This is no longer supported and effectively always true. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryResponse</returns>
@@ -1237,7 +1237,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
-        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available?  This is no longer supported and effectively always true. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
@@ -1340,7 +1340,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
-        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available?  This is no longer supported and effectively always true. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1359,7 +1359,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="endAt">Date time to end the search at.  Defaults to now. (optional)</param>
         /// <param name="freeTextSearch">Some test that must be in at least one field returned. (optional)</param>
         /// <param name="showAll">For users with extra permissions, they may optionally see other users&#39; queries. (optional, default to false)</param>
-        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional, default to true)</param>
+        /// <param name="mayUseNativeStore">Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available?  This is no longer supported and effectively always true. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

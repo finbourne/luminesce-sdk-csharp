@@ -1327,7 +1327,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
-            var buildFromLogs = true;  // bool? | Should the response state be build from query logs if missing from the shared-db-state?  False will mean `404 Not Found` in cases where it was a real query but has passed its `keepForSeconds`  since the query completed (as well as 'this was not a query at all' of course) (optional)  (default to true)
+            var buildFromLogs = false;  // bool? | Should the response state be build from query logs if missing from the shared-db-state?    Deprecated.  Regardless of the value here it is now the case that:   False [and now even True] will mean `404 Not Found` in cases where it was a real query but has passed its `keepForSeconds`  since the query completed (as well as 'this was not a query at all' of course) (optional)  (default to false)
 
             try
             {
@@ -1374,7 +1374,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **executionId** | **string** | ExecutionId returned when starting the query |  |
-| **buildFromLogs** | **bool?** | Should the response state be build from query logs if missing from the shared-db-state?  False will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) | [optional] [default to true] |
+| **buildFromLogs** | **bool?** | Should the response state be build from query logs if missing from the shared-db-state?    Deprecated.  Regardless of the value here it is now the case that:   False [and now even True] will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60;  since the query completed (as well as &#39;this was not a query at all&#39; of course) | [optional] [default to false] |
 
 ### Return type
 

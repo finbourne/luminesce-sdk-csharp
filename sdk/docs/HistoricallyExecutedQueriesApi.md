@@ -421,7 +421,7 @@ namespace Examples
             var endAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Date time to end the search at.  Defaults to now. (optional) 
             var freeTextSearch = "freeTextSearch_example";  // string? | Some test that must be in at least one field returned. (optional) 
             var showAll = false;  // bool? | For users with extra permissions, they may optionally see other users' queries. (optional)  (default to false)
-            var mayUseNativeStore = true;  // bool? | Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? (optional)  (default to true)
+            var mayUseNativeStore = true;  // bool? | Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available?  This is no longer supported and effectively always true. (optional)  (default to true)
 
             try
             {
@@ -471,7 +471,7 @@ catch (ApiException e)
 | **endAt** | **DateTimeOffset?** | Date time to end the search at.  Defaults to now. | [optional]  |
 | **freeTextSearch** | **string?** | Some test that must be in at least one field returned. | [optional]  |
 | **showAll** | **bool?** | For users with extra permissions, they may optionally see other users&#39; queries. | [optional] [default to false] |
-| **mayUseNativeStore** | **bool?** | Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? | [optional] [default to true] |
+| **mayUseNativeStore** | **bool?** | Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available?  This is no longer supported and effectively always true. | [optional] [default to true] |
 
 ### Return type
 
