@@ -92,7 +92,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Enum InsightsApplicationRequestLogs for value: InsightsApplicationRequestLogs
         /// </summary>
         [EnumMember(Value = "InsightsApplicationRequestLogs")]
-        InsightsApplicationRequestLogs = 11
+        InsightsApplicationRequestLogs = 11,
+
+        /// <summary>
+        /// Enum InsightsVendorLogs for value: InsightsVendorLogs
+        /// </summary>
+        [EnumMember(Value = "InsightsVendorLogs")]
+        InsightsVendorLogs = 12
     }
 
 }
