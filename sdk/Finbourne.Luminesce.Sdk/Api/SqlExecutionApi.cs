@@ -45,10 +45,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string GetByQueryCsv(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        string GetByQueryCsv(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetByQueryCsv: Execute Sql from the url returning CSV
@@ -64,10 +65,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryCsvWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryCsvWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetByQueryExcel: Execute Sql from the url returning an Excel file
         /// </summary>
@@ -78,11 +80,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream GetByQueryExcel(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        System.IO.Stream GetByQueryExcel(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetByQueryExcel: Execute Sql from the url returning an Excel file
@@ -94,11 +97,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> GetByQueryExcelWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> GetByQueryExcelWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetByQueryJson: Execute Sql from the url returning JSON
         /// </summary>
@@ -174,11 +178,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string GetByQueryPipe(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        string GetByQueryPipe(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetByQueryPipe: Execute Sql from the url returning pipe-delimited
@@ -191,11 +196,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryPipeWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryPipeWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetByQuerySqlite: Execute Sql from the url returning SqLite DB
         /// </summary>
@@ -274,10 +280,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string PutByQueryCsv(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        string PutByQueryCsv(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutByQueryCsv: Execute Sql from the body returning CSV
@@ -293,10 +300,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryCsvWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryCsvWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// PutByQueryExcel: Execute Sql from the body making an Excel file
         /// </summary>
@@ -307,11 +315,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream PutByQueryExcel(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        System.IO.Stream PutByQueryExcel(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutByQueryExcel: Execute Sql from the body making an Excel file
@@ -323,11 +332,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> PutByQueryExcelWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> PutByQueryExcelWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// PutByQueryJson: Execute Sql from the body returning JSON
         /// </summary>
@@ -403,11 +413,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string PutByQueryPipe(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        string PutByQueryPipe(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutByQueryPipe: Execute Sql from the body making pipe-delimited
@@ -420,11 +431,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryPipeWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryPipeWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// PutByQuerySqlite: Execute Sql from the body returning SqLite DB
         /// </summary>
@@ -512,11 +524,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetByQueryCsvAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<string> GetByQueryCsvAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetByQueryCsv: Execute Sql from the url returning CSV
@@ -532,11 +545,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryCsvWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryCsvWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetByQueryExcel: Execute Sql from the url returning an Excel file
         /// </summary>
@@ -547,12 +561,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> GetByQueryExcelAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<System.IO.Stream> GetByQueryExcelAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetByQueryExcel: Execute Sql from the url returning an Excel file
@@ -564,12 +579,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> GetByQueryExcelWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> GetByQueryExcelWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetByQueryJson: Execute Sql from the url returning JSON
         /// </summary>
@@ -649,12 +665,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetByQueryPipeAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<string> GetByQueryPipeAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetByQueryPipe: Execute Sql from the url returning pipe-delimited
@@ -667,12 +684,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryPipeWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryPipeWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetByQuerySqlite: Execute Sql from the url returning SqLite DB
         /// </summary>
@@ -755,11 +773,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutByQueryCsvAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<string> PutByQueryCsvAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutByQueryCsv: Execute Sql from the body returning CSV
@@ -775,11 +794,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryCsvWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryCsvWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// PutByQueryExcel: Execute Sql from the body making an Excel file
         /// </summary>
@@ -790,12 +810,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> PutByQueryExcelAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<System.IO.Stream> PutByQueryExcelAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutByQueryExcel: Execute Sql from the body making an Excel file
@@ -807,12 +828,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> PutByQueryExcelWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> PutByQueryExcelWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// PutByQueryJson: Execute Sql from the body returning JSON
         /// </summary>
@@ -892,12 +914,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutByQueryPipeAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<string> PutByQueryPipeAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutByQueryPipe: Execute Sql from the body making pipe-delimited
@@ -910,12 +933,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryPipeWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryPipeWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// PutByQuerySqlite: Execute Sql from the body returning SqLite DB
         /// </summary>
@@ -1118,12 +1142,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string GetByQueryCsv(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public string GetByQueryCsv(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetByQueryCsvWithHttpInfo(query, scalarParameters, queryName, download, timeout, delimiter, escape, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetByQueryCsvWithHttpInfo(query, scalarParameters, queryName, download, timeout, delimiter, escape, dateTimeFormat, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1138,10 +1163,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryCsvWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryCsvWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1207,6 +1233,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (escape != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "escape", escape));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
 
             localVarRequestOptions.Operation = "SqlExecutionApi.GetByQueryCsv";
@@ -1254,13 +1284,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetByQueryCsvAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<string> GetByQueryCsvAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetByQueryCsvWithHttpInfoAsync(query, scalarParameters, queryName, download, timeout, delimiter, escape, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetByQueryCsvWithHttpInfoAsync(query, scalarParameters, queryName, download, timeout, delimiter, escape, dateTimeFormat, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1275,11 +1306,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryCsvWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryCsvWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1347,6 +1379,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "escape", escape));
             }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
+            }
 
             localVarRequestOptions.Operation = "SqlExecutionApi.GetByQueryCsv";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1390,13 +1426,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream GetByQueryExcel(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public System.IO.Stream GetByQueryExcel(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = GetByQueryExcelWithHttpInfo(query, scalarParameters, queryName, timeout, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = GetByQueryExcelWithHttpInfo(query, scalarParameters, queryName, dateTimeFormat, timeout, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1407,11 +1444,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> GetByQueryExcelWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> GetByQueryExcelWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1461,6 +1499,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (timeout != null)
             {
@@ -1508,14 +1550,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> GetByQueryExcelAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<System.IO.Stream> GetByQueryExcelAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await GetByQueryExcelWithHttpInfoAsync(query, scalarParameters, queryName, timeout, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await GetByQueryExcelWithHttpInfoAsync(query, scalarParameters, queryName, dateTimeFormat, timeout, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1526,12 +1569,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="query">LuminesceSql to Execute (must be one line only)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> GetByQueryExcelWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> GetByQueryExcelWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1582,6 +1626,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (timeout != null)
             {
@@ -2123,13 +2171,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string GetByQueryPipe(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public string GetByQueryPipe(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetByQueryPipeWithHttpInfo(query, scalarParameters, queryName, download, timeout, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetByQueryPipeWithHttpInfo(query, scalarParameters, queryName, download, dateTimeFormat, timeout, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2141,11 +2190,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryPipeWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryPipeWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -2199,6 +2249,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (download != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "download", download));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (timeout != null)
             {
@@ -2247,14 +2301,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetByQueryPipeAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<string> GetByQueryPipeAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetByQueryPipeWithHttpInfoAsync(query, scalarParameters, queryName, download, timeout, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetByQueryPipeWithHttpInfoAsync(query, scalarParameters, queryName, download, dateTimeFormat, timeout, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2266,12 +2321,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryPipeWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryPipeWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeout = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -2326,6 +2382,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (download != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "download", download));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (timeout != null)
             {
@@ -2870,12 +2930,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string PutByQueryCsv(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public string PutByQueryCsv(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutByQueryCsvWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutByQueryCsvWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape, dateTimeFormat, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2890,10 +2951,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryCsvWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryCsvWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -2959,6 +3021,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (escape != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "escape", escape));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             localVarRequestOptions.Data = body;
 
@@ -3007,13 +3073,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutByQueryCsvAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<string> PutByQueryCsvAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutByQueryCsvWithHttpInfoAsync(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutByQueryCsvWithHttpInfoAsync(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape, dateTimeFormat, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3028,11 +3095,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryCsvWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryCsvWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3100,6 +3168,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "escape", escape));
             }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
+            }
             localVarRequestOptions.Data = body;
 
             localVarRequestOptions.Operation = "SqlExecutionApi.PutByQueryCsv";
@@ -3144,13 +3216,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream PutByQueryExcel(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public System.IO.Stream PutByQueryExcel(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = PutByQueryExcelWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = PutByQueryExcelWithHttpInfo(body, scalarParameters, queryName, dateTimeFormat, timeoutSeconds, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3161,11 +3234,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> PutByQueryExcelWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> PutByQueryExcelWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3215,6 +3289,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (timeoutSeconds != null)
             {
@@ -3263,14 +3341,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> PutByQueryExcelAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<System.IO.Stream> PutByQueryExcelAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await PutByQueryExcelWithHttpInfoAsync(body, scalarParameters, queryName, timeoutSeconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await PutByQueryExcelWithHttpInfoAsync(body, scalarParameters, queryName, dateTimeFormat, timeoutSeconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3281,12 +3360,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="body">LuminesceSql to Execute (may be multi-line)</param>
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> PutByQueryExcelWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> PutByQueryExcelWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3337,6 +3417,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (queryName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (timeoutSeconds != null)
             {
@@ -3883,13 +3967,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string PutByQueryPipe(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public string PutByQueryPipe(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutByQueryPipeWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutByQueryPipeWithHttpInfo(body, scalarParameters, queryName, download, dateTimeFormat, timeoutSeconds, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3901,11 +3986,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryPipeWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryPipeWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3959,6 +4045,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (download != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "download", download));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (timeoutSeconds != null)
             {
@@ -4008,14 +4098,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutByQueryPipeAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<string> PutByQueryPipeAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutByQueryPipeWithHttpInfoAsync(body, scalarParameters, queryName, download, timeoutSeconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutByQueryPipeWithHttpInfoAsync(body, scalarParameters, queryName, download, dateTimeFormat, timeoutSeconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4027,12 +4118,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="scalarParameters">Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional)</param>
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryPipeWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryPipeWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), bool? download = default(bool?), string? dateTimeFormat = default(string?), int? timeoutSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -4087,6 +4179,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (download != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "download", download));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (timeoutSeconds != null)
             {

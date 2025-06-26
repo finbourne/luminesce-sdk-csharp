@@ -21,7 +21,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 
 <a id="getbyquerycsv"></a>
 # **GetByQueryCsv**
-> string GetByQueryCsv (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, bool? download = null, int? timeout = null, string? delimiter = null, string? escape = null)
+> string GetByQueryCsv (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, bool? download = null, int? timeout = null, string? delimiter = null, string? escape = null, string? dateTimeFormat = null)
 
 GetByQueryCsv: Execute Sql from the url returning CSV
 
@@ -73,14 +73,15 @@ namespace Examples
             var timeout = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
             var delimiter = "delimiter_example";  // string? | Delimiter string to override the default (optional) 
             var escape = "escape_example";  // string? | Escape character to override the default (optional) 
+            var dateTimeFormat = "dateTimeFormat_example";  // string? | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently `yyyy-MM-dd HH:mm:ss.fff` (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.GetByQueryCsv(query, scalarParameters, queryName, download, timeout, delimiter, escape, opts: opts);
+                // string result = apiInstance.GetByQueryCsv(query, scalarParameters, queryName, download, timeout, delimiter, escape, dateTimeFormat, opts: opts);
 
                 // GetByQueryCsv: Execute Sql from the url returning CSV
-                string result = apiInstance.GetByQueryCsv(query, scalarParameters, queryName, download, timeout, delimiter, escape);
+                string result = apiInstance.GetByQueryCsv(query, scalarParameters, queryName, download, timeout, delimiter, escape, dateTimeFormat);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -101,7 +102,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetByQueryCsv: Execute Sql from the url returning CSV
-    ApiResponse<string> response = apiInstance.GetByQueryCsvWithHttpInfo(query, scalarParameters, queryName, download, timeout, delimiter, escape);
+    ApiResponse<string> response = apiInstance.GetByQueryCsvWithHttpInfo(query, scalarParameters, queryName, download, timeout, delimiter, escape, dateTimeFormat);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -125,6 +126,7 @@ catch (ApiException e)
 | **timeout** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 | **delimiter** | **string?** | Delimiter string to override the default | [optional]  |
 | **escape** | **string?** | Escape character to override the default | [optional]  |
+| **dateTimeFormat** | **string?** | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; | [optional]  |
 
 ### Return type
 
@@ -147,7 +149,7 @@ catch (ApiException e)
 
 <a id="getbyqueryexcel"></a>
 # **GetByQueryExcel**
-> System.IO.Stream GetByQueryExcel (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeout = null)
+> System.IO.Stream GetByQueryExcel (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, string? dateTimeFormat = null, int? timeout = null)
 
 GetByQueryExcel: Execute Sql from the url returning an Excel file
 
@@ -195,15 +197,16 @@ namespace Examples
             var query = select ^ from Sys.Field order by 1, 2;  // string | LuminesceSql to Execute (must be one line only)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
+            var dateTimeFormat = "dateTimeFormat_example";  // string? | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently `yyyy-MM-dd HH:mm:ss.000` (Excel support for this is limited) (optional) 
             var timeout = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // System.IO.Stream result = apiInstance.GetByQueryExcel(query, scalarParameters, queryName, timeout, opts: opts);
+                // System.IO.Stream result = apiInstance.GetByQueryExcel(query, scalarParameters, queryName, dateTimeFormat, timeout, opts: opts);
 
                 // GetByQueryExcel: Execute Sql from the url returning an Excel file
-                System.IO.Stream result = apiInstance.GetByQueryExcel(query, scalarParameters, queryName, timeout);
+                System.IO.Stream result = apiInstance.GetByQueryExcel(query, scalarParameters, queryName, dateTimeFormat, timeout);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -224,7 +227,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetByQueryExcel: Execute Sql from the url returning an Excel file
-    ApiResponse<System.IO.Stream> response = apiInstance.GetByQueryExcelWithHttpInfo(query, scalarParameters, queryName, timeout);
+    ApiResponse<System.IO.Stream> response = apiInstance.GetByQueryExcelWithHttpInfo(query, scalarParameters, queryName, dateTimeFormat, timeout);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -244,6 +247,7 @@ catch (ApiException e)
 | **query** | **string** | LuminesceSql to Execute (must be one line only) |  |
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
+| **dateTimeFormat** | **string?** | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) | [optional]  |
 | **timeout** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 
 ### Return type
@@ -509,7 +513,7 @@ catch (ApiException e)
 
 <a id="getbyquerypipe"></a>
 # **GetByQueryPipe**
-> string GetByQueryPipe (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, bool? download = null, int? timeout = null)
+> string GetByQueryPipe (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, bool? download = null, string? dateTimeFormat = null, int? timeout = null)
 
 GetByQueryPipe: Execute Sql from the url returning pipe-delimited
 
@@ -558,15 +562,16 @@ namespace Examples
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
+            var dateTimeFormat = "dateTimeFormat_example";  // string? | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently `yyyy-MM-dd HH:mm:ss.fff` (optional) 
             var timeout = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.GetByQueryPipe(query, scalarParameters, queryName, download, timeout, opts: opts);
+                // string result = apiInstance.GetByQueryPipe(query, scalarParameters, queryName, download, dateTimeFormat, timeout, opts: opts);
 
                 // GetByQueryPipe: Execute Sql from the url returning pipe-delimited
-                string result = apiInstance.GetByQueryPipe(query, scalarParameters, queryName, download, timeout);
+                string result = apiInstance.GetByQueryPipe(query, scalarParameters, queryName, download, dateTimeFormat, timeout);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -587,7 +592,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetByQueryPipe: Execute Sql from the url returning pipe-delimited
-    ApiResponse<string> response = apiInstance.GetByQueryPipeWithHttpInfo(query, scalarParameters, queryName, download, timeout);
+    ApiResponse<string> response = apiInstance.GetByQueryPipeWithHttpInfo(query, scalarParameters, queryName, download, dateTimeFormat, timeout);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -608,6 +613,7 @@ catch (ApiException e)
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **download** | **bool?** | Makes this a file-download request (as opposed to returning the data in the response-body) | [optional] [default to false] |
+| **dateTimeFormat** | **string?** | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; | [optional]  |
 | **timeout** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 
 ### Return type
@@ -873,7 +879,7 @@ catch (ApiException e)
 
 <a id="putbyquerycsv"></a>
 # **PutByQueryCsv**
-> string PutByQueryCsv (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, bool? download = null, int? timeoutSeconds = null, string? delimiter = null, string? escape = null)
+> string PutByQueryCsv (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, bool? download = null, int? timeoutSeconds = null, string? delimiter = null, string? escape = null, string? dateTimeFormat = null)
 
 PutByQueryCsv: Execute Sql from the body returning CSV
 
@@ -925,14 +931,15 @@ namespace Examples
             var timeoutSeconds = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
             var delimiter = "delimiter_example";  // string? | Delimiter string to override the default (optional) 
             var escape = "escape_example";  // string? | Escape character to override the default (optional) 
+            var dateTimeFormat = "dateTimeFormat_example";  // string? | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently `yyyy-MM-dd HH:mm:ss.fff` (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.PutByQueryCsv(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape, opts: opts);
+                // string result = apiInstance.PutByQueryCsv(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape, dateTimeFormat, opts: opts);
 
                 // PutByQueryCsv: Execute Sql from the body returning CSV
-                string result = apiInstance.PutByQueryCsv(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape);
+                string result = apiInstance.PutByQueryCsv(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape, dateTimeFormat);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -953,7 +960,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // PutByQueryCsv: Execute Sql from the body returning CSV
-    ApiResponse<string> response = apiInstance.PutByQueryCsvWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape);
+    ApiResponse<string> response = apiInstance.PutByQueryCsvWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds, delimiter, escape, dateTimeFormat);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -977,6 +984,7 @@ catch (ApiException e)
 | **timeoutSeconds** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 | **delimiter** | **string?** | Delimiter string to override the default | [optional]  |
 | **escape** | **string?** | Escape character to override the default | [optional]  |
+| **dateTimeFormat** | **string?** | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; | [optional]  |
 
 ### Return type
 
@@ -999,7 +1007,7 @@ catch (ApiException e)
 
 <a id="putbyqueryexcel"></a>
 # **PutByQueryExcel**
-> System.IO.Stream PutByQueryExcel (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeoutSeconds = null)
+> System.IO.Stream PutByQueryExcel (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, string? dateTimeFormat = null, int? timeoutSeconds = null)
 
 PutByQueryExcel: Execute Sql from the body making an Excel file
 
@@ -1047,15 +1055,16 @@ namespace Examples
             var body = select * from sys.field;  // string | LuminesceSql to Execute (may be multi-line)
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
+            var dateTimeFormat = "dateTimeFormat_example";  // string? | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently `yyyy-MM-dd HH:mm:ss.000` (Excel support for this is limited) (optional) 
             var timeoutSeconds = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // System.IO.Stream result = apiInstance.PutByQueryExcel(body, scalarParameters, queryName, timeoutSeconds, opts: opts);
+                // System.IO.Stream result = apiInstance.PutByQueryExcel(body, scalarParameters, queryName, dateTimeFormat, timeoutSeconds, opts: opts);
 
                 // PutByQueryExcel: Execute Sql from the body making an Excel file
-                System.IO.Stream result = apiInstance.PutByQueryExcel(body, scalarParameters, queryName, timeoutSeconds);
+                System.IO.Stream result = apiInstance.PutByQueryExcel(body, scalarParameters, queryName, dateTimeFormat, timeoutSeconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1076,7 +1085,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // PutByQueryExcel: Execute Sql from the body making an Excel file
-    ApiResponse<System.IO.Stream> response = apiInstance.PutByQueryExcelWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds);
+    ApiResponse<System.IO.Stream> response = apiInstance.PutByQueryExcelWithHttpInfo(body, scalarParameters, queryName, dateTimeFormat, timeoutSeconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1096,6 +1105,7 @@ catch (ApiException e)
 | **body** | **string** | LuminesceSql to Execute (may be multi-line) |  |
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
+| **dateTimeFormat** | **string?** | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.000&#x60; (Excel support for this is limited) | [optional]  |
 | **timeoutSeconds** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 
 ### Return type
@@ -1361,7 +1371,7 @@ catch (ApiException e)
 
 <a id="putbyquerypipe"></a>
 # **PutByQueryPipe**
-> string PutByQueryPipe (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, bool? download = null, int? timeoutSeconds = null)
+> string PutByQueryPipe (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, bool? download = null, string? dateTimeFormat = null, int? timeoutSeconds = null)
 
 PutByQueryPipe: Execute Sql from the body making pipe-delimited
 
@@ -1410,15 +1420,16 @@ namespace Examples
             var scalarParameters = new Dictionary<string, string>?(); // Dictionary<string, string>? | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. (optional) 
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var download = false;  // bool? | Makes this a file-download request (as opposed to returning the data in the response-body) (optional)  (default to false)
+            var dateTimeFormat = "dateTimeFormat_example";  // string? | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently `yyyy-MM-dd HH:mm:ss.fff` (optional) 
             var timeoutSeconds = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.PutByQueryPipe(body, scalarParameters, queryName, download, timeoutSeconds, opts: opts);
+                // string result = apiInstance.PutByQueryPipe(body, scalarParameters, queryName, download, dateTimeFormat, timeoutSeconds, opts: opts);
 
                 // PutByQueryPipe: Execute Sql from the body making pipe-delimited
-                string result = apiInstance.PutByQueryPipe(body, scalarParameters, queryName, download, timeoutSeconds);
+                string result = apiInstance.PutByQueryPipe(body, scalarParameters, queryName, download, dateTimeFormat, timeoutSeconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1439,7 +1450,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // PutByQueryPipe: Execute Sql from the body making pipe-delimited
-    ApiResponse<string> response = apiInstance.PutByQueryPipeWithHttpInfo(body, scalarParameters, queryName, download, timeoutSeconds);
+    ApiResponse<string> response = apiInstance.PutByQueryPipeWithHttpInfo(body, scalarParameters, queryName, download, dateTimeFormat, timeoutSeconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1460,6 +1471,7 @@ catch (ApiException e)
 | **scalarParameters** | [**Dictionary&lt;string, string&gt;?**](string.md) | Json encoded dictionary of key-value pairs for scalar parameter values to use in the sql execution. | [optional]  |
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **download** | **bool?** | Makes this a file-download request (as opposed to returning the data in the response-body) | [optional] [default to false] |
+| **dateTimeFormat** | **string?** | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; | [optional]  |
 | **timeoutSeconds** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 
 ### Return type

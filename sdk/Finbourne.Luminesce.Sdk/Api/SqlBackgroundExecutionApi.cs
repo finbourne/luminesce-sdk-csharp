@@ -73,11 +73,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string FetchQueryResultCsv(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        string FetchQueryResultCsv(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultCsv: Fetch the result of a query as CSV
@@ -96,11 +97,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultCsvWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultCsvWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultExcel: Fetch the result of a query as an Excel file
         /// </summary>
@@ -113,11 +115,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream FetchQueryResultExcel(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        System.IO.Stream FetchQueryResultExcel(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultExcel: Fetch the result of a query as an Excel file
@@ -131,11 +134,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> FetchQueryResultExcelWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> FetchQueryResultExcelWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultHistogram: Construct a histogram of the result of a query
         /// </summary>
@@ -303,11 +307,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string FetchQueryResultPipe(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        string FetchQueryResultPipe(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultPipe: Fetch the result of a query as pipe-delimited
@@ -324,11 +329,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultPipeWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultPipeWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultSqlite: Fetch the result of a query as SqLite
         /// </summary>
@@ -520,12 +526,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> FetchQueryResultCsvAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<string> FetchQueryResultCsvAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultCsv: Fetch the result of a query as CSV
@@ -544,12 +551,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultCsvWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultCsvWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultExcel: Fetch the result of a query as an Excel file
         /// </summary>
@@ -562,12 +570,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultExcelAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultExcelAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultExcel: Fetch the result of a query as an Excel file
@@ -581,12 +590,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> FetchQueryResultExcelWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> FetchQueryResultExcelWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultHistogram: Construct a histogram of the result of a query
         /// </summary>
@@ -762,12 +772,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> FetchQueryResultPipeAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<string> FetchQueryResultPipeAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// FetchQueryResultPipe: Fetch the result of a query as pipe-delimited
@@ -784,12 +795,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultPipeWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultPipeWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultSqlite: Fetch the result of a query as SqLite
         /// </summary>
@@ -1277,13 +1289,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string FetchQueryResultCsv(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public string FetchQueryResultCsv(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultCsvWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape, loadWaitMilliseconds, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultCsvWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape, dateTimeFormat, loadWaitMilliseconds, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1301,11 +1314,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultCsvWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultCsvWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1383,6 +1397,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (escape != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "escape", escape));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (loadWaitMilliseconds != null)
             {
@@ -1437,14 +1455,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> FetchQueryResultCsvAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<string> FetchQueryResultCsvAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultCsvWithHttpInfoAsync(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape, loadWaitMilliseconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultCsvWithHttpInfoAsync(executionId, download, sortBy, filter, select, groupBy, limit, page, delimiter, escape, dateTimeFormat, loadWaitMilliseconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1462,12 +1481,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
         /// <param name="delimiter">Delimiter string to override the default (optional)</param>
         /// <param name="escape">Escape character to override the default (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultCsvWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultCsvWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? delimiter = default(string?), string? escape = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1547,6 +1567,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "escape", escape));
             }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
+            }
             if (loadWaitMilliseconds != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "loadWaitMilliseconds", loadWaitMilliseconds));
@@ -1596,13 +1620,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream FetchQueryResultExcel(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public System.IO.Stream FetchQueryResultExcel(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = FetchQueryResultExcelWithHttpInfo(executionId, sortBy, filter, select, groupBy, loadWaitMilliseconds, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = FetchQueryResultExcelWithHttpInfo(executionId, sortBy, filter, select, groupBy, dateTimeFormat, loadWaitMilliseconds, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1615,11 +1640,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> FetchQueryResultExcelWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> FetchQueryResultExcelWithHttpInfo(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1677,6 +1703,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (groupBy != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "groupBy", groupBy));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (loadWaitMilliseconds != null)
             {
@@ -1726,14 +1756,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultExcelAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<System.IO.Stream> FetchQueryResultExcelAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await FetchQueryResultExcelWithHttpInfoAsync(executionId, sortBy, filter, select, groupBy, loadWaitMilliseconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await FetchQueryResultExcelWithHttpInfoAsync(executionId, sortBy, filter, select, groupBy, dateTimeFormat, loadWaitMilliseconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1746,12 +1777,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
         /// <param name="select">Default is null (meaning return all columns in the original query itself).  The values are in terms of the result column name from the original data set and are comma delimited.  The power of this comes in that you may aggregate the data if you wish  (that is the main reason for allowing this, in fact).  e.g.:  - &#x60;MyField&#x60;  - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name)  - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works)  - &#x60;count(distinct x) as numOfXs&#x60;  If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].   e.g.  - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;    where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> FetchQueryResultExcelWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> FetchQueryResultExcelWithHttpInfoAsync(string executionId, string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -1810,6 +1842,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (groupBy != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "groupBy", groupBy));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (loadWaitMilliseconds != null)
             {
@@ -2997,13 +3033,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string FetchQueryResultPipe(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public string FetchQueryResultPipe(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultPipeWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultPipeWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, dateTimeFormat, loadWaitMilliseconds, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3019,11 +3056,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultPipeWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultPipeWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -3093,6 +3131,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (page != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (loadWaitMilliseconds != null)
             {
@@ -3145,14 +3187,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> FetchQueryResultPipeAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<string> FetchQueryResultPipeAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultPipeWithHttpInfoAsync(executionId, download, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultPipeWithHttpInfoAsync(executionId, download, sortBy, filter, select, groupBy, limit, page, dateTimeFormat, loadWaitMilliseconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3168,12 +3211,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="groupBy">Groups by the specified fields.              A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).              e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.              Default is null (meaning no grouping will be performed on the selected columns).              This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.              Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
         /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
         /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
         /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultPipeWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultPipeWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -3244,6 +3288,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (page != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (loadWaitMilliseconds != null)
             {
