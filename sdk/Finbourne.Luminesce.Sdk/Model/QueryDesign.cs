@@ -39,11 +39,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="tableName">Name of the table being designed (required).</param>
         /// <param name="alias">Alias for the table in the generated SQL, if any.</param>
         /// <param name="fields">Fields to be selected, aggregated over and/or filtered on (required).</param>
+        /// <param name="joinedTables">Joined in table to the main TableName / Alias.</param>
         /// <param name="orderBy">Order By clauses to apply.</param>
         /// <param name="limit">Row limit to apply, if any.</param>
+        /// <param name="offset">Row offset to apply, if any.</param>
         /// <param name="warnings">Any warnings to show the user when converting from SQL to this representation.</param>
         /// <param name="availableFields">Fields that are known to be available for design when parsing SQL.</param>
-        public QueryDesign(string tableName = default(string), string alias = default(string), List<FieldDesign> fields = default(List<FieldDesign>), List<OrderByTermDesign> orderBy = default(List<OrderByTermDesign>), int? limit = default(int?), List<string> warnings = default(List<string>), List<AvailableField> availableFields = default(List<AvailableField>))
+        public QueryDesign(string tableName = default(string), string alias = default(string), List<FieldDesign> fields = default(List<FieldDesign>), List<JoinedTableDesign> joinedTables = default(List<JoinedTableDesign>), List<OrderByTermDesign> orderBy = default(List<OrderByTermDesign>), int? limit = default(int?), int? offset = default(int?), List<string> warnings = default(List<string>), List<AvailableField> availableFields = default(List<AvailableField>))
         {
             // to ensure "tableName" is required (not null)
             if (tableName == null)
@@ -58,8 +60,10 @@ namespace Finbourne.Luminesce.Sdk.Model
             }
             this.Fields = fields;
             this.Alias = alias;
+            this.JoinedTables = joinedTables;
             this.OrderBy = orderBy;
             this.Limit = limit;
+            this.Offset = offset;
             this.Warnings = warnings;
             this.AvailableFields = availableFields;
         }
@@ -86,6 +90,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         public List<FieldDesign> Fields { get; set; }
 
         /// <summary>
+        /// Joined in table to the main TableName / Alias
+        /// </summary>
+        /// <value>Joined in table to the main TableName / Alias</value>
+        [DataMember(Name = "joinedTables", EmitDefaultValue = true)]
+        public List<JoinedTableDesign> JoinedTables { get; set; }
+
+        /// <summary>
         /// Order By clauses to apply
         /// </summary>
         /// <value>Order By clauses to apply</value>
@@ -98,6 +109,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <value>Row limit to apply, if any</value>
         [DataMember(Name = "limit", EmitDefaultValue = true)]
         public int? Limit { get; set; }
+
+        /// <summary>
+        /// Row offset to apply, if any
+        /// </summary>
+        /// <value>Row offset to apply, if any</value>
+        [DataMember(Name = "offset", EmitDefaultValue = true)]
+        public int? Offset { get; set; }
 
         /// <summary>
         /// Any warnings to show the user when converting from SQL to this representation
@@ -124,8 +142,10 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  TableName: ").Append(TableName).Append("\n");
             sb.Append("  Alias: ").Append(Alias).Append("\n");
             sb.Append("  Fields: ").Append(Fields).Append("\n");
+            sb.Append("  JoinedTables: ").Append(JoinedTables).Append("\n");
             sb.Append("  OrderBy: ").Append(OrderBy).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
+            sb.Append("  Offset: ").Append(Offset).Append("\n");
             sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("  AvailableFields: ").Append(AvailableFields).Append("\n");
             sb.Append("}\n");
@@ -180,6 +200,12 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Fields.SequenceEqual(input.Fields)
                 ) && 
                 (
+                    this.JoinedTables == input.JoinedTables ||
+                    this.JoinedTables != null &&
+                    input.JoinedTables != null &&
+                    this.JoinedTables.SequenceEqual(input.JoinedTables)
+                ) && 
+                (
                     this.OrderBy == input.OrderBy ||
                     this.OrderBy != null &&
                     input.OrderBy != null &&
@@ -189,6 +215,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Limit == input.Limit ||
                     (this.Limit != null &&
                     this.Limit.Equals(input.Limit))
+                ) && 
+                (
+                    this.Offset == input.Offset ||
+                    (this.Offset != null &&
+                    this.Offset.Equals(input.Offset))
                 ) && 
                 (
                     this.Warnings == input.Warnings ||
@@ -225,6 +256,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Fields.GetHashCode();
                 }
+                if (this.JoinedTables != null)
+                {
+                    hashCode = (hashCode * 59) + this.JoinedTables.GetHashCode();
+                }
                 if (this.OrderBy != null)
                 {
                     hashCode = (hashCode * 59) + this.OrderBy.GetHashCode();
@@ -232,6 +267,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.Limit != null)
                 {
                     hashCode = (hashCode * 59) + this.Limit.GetHashCode();
+                }
+                if (this.Offset != null)
+                {
+                    hashCode = (hashCode * 59) + this.Offset.GetHashCode();
                 }
                 if (this.Warnings != null)
                 {

@@ -6,6 +6,7 @@ Treatment of a single field within a QueryDesign
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of the Field (column name, constant, complex expression, etc.) | 
+**TableAlias** | **string** | Alias of the Table the field belongs to | [optional] 
 **Alias** | **string** | Alias if any (if none the Name is used) | [optional] 
 **DataType** | **DataType** |  | [optional] 
 **ShouldSelect** | **bool** | Should this be selected? False would imply it is only being filtered on.  Ignored when Aggregations are present | [optional] 

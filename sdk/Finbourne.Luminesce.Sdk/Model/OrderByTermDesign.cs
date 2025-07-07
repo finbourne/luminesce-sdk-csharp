@@ -44,7 +44,8 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         /// <param name="field">Name of the field to order by (required).</param>
         /// <param name="direction">direction.</param>
-        public OrderByTermDesign(string field = default(string), OrderByDirection ?direction = default(OrderByDirection?))
+        /// <param name="tableAlias">Table Alias of the field to order by.</param>
+        public OrderByTermDesign(string field = default(string), OrderByDirection ?direction = default(OrderByDirection?), string tableAlias = default(string))
         {
             // to ensure "field" is required (not null)
             if (field == null)
@@ -53,6 +54,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             }
             this.Field = field;
             this.Direction = direction;
+            this.TableAlias = tableAlias;
         }
 
         /// <summary>
@@ -61,6 +63,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <value>Name of the field to order by</value>
         [DataMember(Name = "field", IsRequired = true, EmitDefaultValue = true)]
         public string Field { get; set; }
+
+        /// <summary>
+        /// Table Alias of the field to order by
+        /// </summary>
+        /// <value>Table Alias of the field to order by</value>
+        [DataMember(Name = "tableAlias", EmitDefaultValue = true)]
+        public string TableAlias { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,6 +81,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("class OrderByTermDesign {\n");
             sb.Append("  Field: ").Append(Field).Append("\n");
             sb.Append("  Direction: ").Append(Direction).Append("\n");
+            sb.Append("  TableAlias: ").Append(TableAlias).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,6 +125,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                 (
                     this.Direction == input.Direction ||
                     this.Direction.Equals(input.Direction)
+                ) && 
+                (
+                    this.TableAlias == input.TableAlias ||
+                    (this.TableAlias != null &&
+                    this.TableAlias.Equals(input.TableAlias))
                 );
         }
 
@@ -132,6 +147,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                     hashCode = (hashCode * 59) + this.Field.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Direction.GetHashCode();
+                if (this.TableAlias != null)
+                {
+                    hashCode = (hashCode * 59) + this.TableAlias.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -153,6 +172,18 @@ namespace Finbourne.Luminesce.Sdk.Model
             if (this.Field != null && this.Field.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Field, length must be greater than 0.", new [] { "Field" });
+            }
+
+            // TableAlias (string) maxLength
+            if (this.TableAlias != null && this.TableAlias.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TableAlias, length must be less than 256.", new [] { "TableAlias" });
+            }
+
+            // TableAlias (string) minLength
+            if (this.TableAlias != null && this.TableAlias.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TableAlias, length must be greater than 0.", new [] { "TableAlias" });
             }
 
             yield break;

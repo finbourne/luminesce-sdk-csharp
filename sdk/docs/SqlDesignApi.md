@@ -1539,7 +1539,7 @@ catch (ApiException e)
 
 <a id="putsqltoquerydesign"></a>
 # **PutSqlToQueryDesign**
-> QueryDesign PutSqlToQueryDesign (string body, bool? validateWithMetadata = null)
+> QueryDesign PutSqlToQueryDesign (string body, bool? validateWithMetadata = null, QueryDesignerVersion? version = null)
 
 PutSqlToQueryDesign: Make a SQL-design object from SQL if possible
 
@@ -1586,14 +1586,15 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = SELECT [TableName], Count(distinct [FieldName]) as [NumberOfFields], case [FieldType] when 'Column' then 'col' else [FieldType] end as FieldType2  FROM [Sys.Field] WHERE ([TableName] = 'Sys.Registration') GROUP BY [TableName], [FieldType2] ORDER BY [DataType] LIMIT 42;  // string | SQL query to generate the design object from
             var validateWithMetadata = true;  // bool? | Should the table be validated against the users' view of Sys.Field to fill in DataTypes, etc.? (optional)  (default to true)
+            var version = new QueryDesignerVersion?(); // QueryDesignerVersion? | Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // QueryDesign result = apiInstance.PutSqlToQueryDesign(body, validateWithMetadata, opts: opts);
+                // QueryDesign result = apiInstance.PutSqlToQueryDesign(body, validateWithMetadata, version, opts: opts);
 
                 // PutSqlToQueryDesign: Make a SQL-design object from SQL if possible
-                QueryDesign result = apiInstance.PutSqlToQueryDesign(body, validateWithMetadata);
+                QueryDesign result = apiInstance.PutSqlToQueryDesign(body, validateWithMetadata, version);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1614,7 +1615,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // PutSqlToQueryDesign: Make a SQL-design object from SQL if possible
-    ApiResponse<QueryDesign> response = apiInstance.PutSqlToQueryDesignWithHttpInfo(body, validateWithMetadata);
+    ApiResponse<QueryDesign> response = apiInstance.PutSqlToQueryDesignWithHttpInfo(body, validateWithMetadata, version);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1633,6 +1634,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **body** | **string** | SQL query to generate the design object from |  |
 | **validateWithMetadata** | **bool?** | Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? | [optional] [default to true] |
+| **version** | [**QueryDesignerVersion?**](QueryDesignerVersion?.md) | Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). | [optional]  |
 
 ### Return type
 

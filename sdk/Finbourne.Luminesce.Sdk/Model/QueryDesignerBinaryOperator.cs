@@ -86,7 +86,19 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Enum EndsWith for value: EndsWith
         /// </summary>
         [EnumMember(Value = "EndsWith")]
-        EndsWith = 10
+        EndsWith = 10,
+
+        /// <summary>
+        /// Enum IsNull for value: IsNull
+        /// </summary>
+        [EnumMember(Value = "IsNull")]
+        IsNull = 11,
+
+        /// <summary>
+        /// Enum IsNotNull for value: IsNotNull
+        /// </summary>
+        [EnumMember(Value = "IsNotNull")]
+        IsNotNull = 12
     }
 
 }

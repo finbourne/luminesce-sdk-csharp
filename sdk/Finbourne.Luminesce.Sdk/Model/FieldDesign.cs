@@ -43,13 +43,14 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Initializes a new instance of the <see cref="FieldDesign" /> class.
         /// </summary>
         /// <param name="name">Name of the Field (column name, constant, complex expression, etc.) (required).</param>
+        /// <param name="tableAlias">Alias of the Table the field belongs to.</param>
         /// <param name="alias">Alias if any (if none the Name is used).</param>
         /// <param name="dataType">dataType.</param>
         /// <param name="shouldSelect">Should this be selected? False would imply it is only being filtered on.  Ignored when Aggregations are present.</param>
         /// <param name="filters">Filter clauses to apply to this field (And&#39;ed together).</param>
         /// <param name="aggregations">Aggregations to apply (as opposed to simply selecting).</param>
         /// <param name="isExpression">Is this field an expression.</param>
-        public FieldDesign(string name = default(string), string alias = default(string), DataType ?dataType = default(DataType?), bool shouldSelect = default(bool), List<FilterTermDesign> filters = default(List<FilterTermDesign>), List<Aggregation> aggregations = default(List<Aggregation>), bool isExpression = default(bool))
+        public FieldDesign(string name = default(string), string tableAlias = default(string), string alias = default(string), DataType ?dataType = default(DataType?), bool shouldSelect = default(bool), List<FilterTermDesign> filters = default(List<FilterTermDesign>), List<Aggregation> aggregations = default(List<Aggregation>), bool isExpression = default(bool))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -57,6 +58,7 @@ namespace Finbourne.Luminesce.Sdk.Model
                 throw new ArgumentNullException("name is a required property for FieldDesign and cannot be null");
             }
             this.Name = name;
+            this.TableAlias = tableAlias;
             this.Alias = alias;
             this.DataType = dataType;
             this.ShouldSelect = shouldSelect;
@@ -71,6 +73,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <value>Name of the Field (column name, constant, complex expression, etc.)</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Alias of the Table the field belongs to
+        /// </summary>
+        /// <value>Alias of the Table the field belongs to</value>
+        [DataMember(Name = "tableAlias", EmitDefaultValue = true)]
+        public string TableAlias { get; set; }
 
         /// <summary>
         /// Alias if any (if none the Name is used)
@@ -116,6 +125,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class FieldDesign {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  TableAlias: ").Append(TableAlias).Append("\n");
             sb.Append("  Alias: ").Append(Alias).Append("\n");
             sb.Append("  DataType: ").Append(DataType).Append("\n");
             sb.Append("  ShouldSelect: ").Append(ShouldSelect).Append("\n");
@@ -163,6 +173,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.TableAlias == input.TableAlias ||
+                    (this.TableAlias != null &&
+                    this.TableAlias.Equals(input.TableAlias))
+                ) && 
+                (
                     this.Alias == input.Alias ||
                     (this.Alias != null &&
                     this.Alias.Equals(input.Alias))
@@ -206,6 +221,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
+                if (this.TableAlias != null)
+                {
+                    hashCode = (hashCode * 59) + this.TableAlias.GetHashCode();
+                }
                 if (this.Alias != null)
                 {
                     hashCode = (hashCode * 59) + this.Alias.GetHashCode();
@@ -236,6 +255,18 @@ namespace Finbourne.Luminesce.Sdk.Model
             if (this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+            }
+
+            // TableAlias (string) maxLength
+            if (this.TableAlias != null && this.TableAlias.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TableAlias, length must be less than 256.", new [] { "TableAlias" });
+            }
+
+            // TableAlias (string) minLength
+            if (this.TableAlias != null && this.TableAlias.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TableAlias, length must be greater than 0.", new [] { "TableAlias" });
             }
 
             // Alias (string) maxLength

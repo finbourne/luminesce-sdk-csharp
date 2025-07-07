@@ -397,10 +397,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>QueryDesign</returns>
-        QueryDesign PutSqlToQueryDesign(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        QueryDesign PutSqlToQueryDesign(string body, bool? validateWithMetadata = default(bool?), QueryDesignerVersion? version = default(QueryDesignerVersion?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutSqlToQueryDesign: Make a SQL-design object from SQL if possible
@@ -411,10 +412,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of QueryDesign</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign> PutSqlToQueryDesignWithHttpInfo(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign> PutSqlToQueryDesignWithHttpInfo(string body, bool? validateWithMetadata = default(bool?), QueryDesignerVersion? version = default(QueryDesignerVersion?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// PutSqlToViewDesign: Make a view-design from view creation SQL
         /// </summary>
@@ -918,11 +920,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of QueryDesign</returns>
-        System.Threading.Tasks.Task<QueryDesign> PutSqlToQueryDesignAsync(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<QueryDesign> PutSqlToQueryDesignAsync(string body, bool? validateWithMetadata = default(bool?), QueryDesignerVersion? version = default(QueryDesignerVersion?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutSqlToQueryDesign: Make a SQL-design object from SQL if possible
@@ -933,11 +936,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (QueryDesign)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign>> PutSqlToQueryDesignWithHttpInfoAsync(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign>> PutSqlToQueryDesignWithHttpInfoAsync(string body, bool? validateWithMetadata = default(bool?), QueryDesignerVersion? version = default(QueryDesignerVersion?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// PutSqlToViewDesign: Make a view-design from view creation SQL
         /// </summary>
@@ -4057,12 +4061,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>QueryDesign</returns>
-        public QueryDesign PutSqlToQueryDesign(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public QueryDesign PutSqlToQueryDesign(string body, bool? validateWithMetadata = default(bool?), QueryDesignerVersion? version = default(QueryDesignerVersion?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign> localVarResponse = PutSqlToQueryDesignWithHttpInfo(body, validateWithMetadata, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign> localVarResponse = PutSqlToQueryDesignWithHttpInfo(body, validateWithMetadata, version, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -4072,10 +4077,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of QueryDesign</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign> PutSqlToQueryDesignWithHttpInfo(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign> PutSqlToQueryDesignWithHttpInfo(string body, bool? validateWithMetadata = default(bool?), QueryDesignerVersion? version = default(QueryDesignerVersion?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -4121,6 +4127,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (validateWithMetadata != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "validateWithMetadata", validateWithMetadata));
+            }
+            if (version != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "version", version));
             }
             localVarRequestOptions.Data = body;
 
@@ -4164,13 +4174,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of QueryDesign</returns>
-        public async System.Threading.Tasks.Task<QueryDesign> PutSqlToQueryDesignAsync(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<QueryDesign> PutSqlToQueryDesignAsync(string body, bool? validateWithMetadata = default(bool?), QueryDesignerVersion? version = default(QueryDesignerVersion?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign> localVarResponse = await PutSqlToQueryDesignWithHttpInfoAsync(body, validateWithMetadata, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign> localVarResponse = await PutSqlToQueryDesignWithHttpInfoAsync(body, validateWithMetadata, version, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4180,11 +4191,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (QueryDesign)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign>> PutSqlToQueryDesignWithHttpInfoAsync(string body, bool? validateWithMetadata = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<QueryDesign>> PutSqlToQueryDesignWithHttpInfoAsync(string body, bool? validateWithMetadata = default(bool?), QueryDesignerVersion? version = default(QueryDesignerVersion?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -4231,6 +4243,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (validateWithMetadata != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "validateWithMetadata", validateWithMetadata));
+            }
+            if (version != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "version", version));
             }
             localVarRequestOptions.Data = body;
 
