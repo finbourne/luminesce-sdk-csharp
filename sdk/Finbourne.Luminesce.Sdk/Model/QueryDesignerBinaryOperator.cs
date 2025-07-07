@@ -23,8 +23,9 @@ using OpenAPIDateConverter = Finbourne.Luminesce.Sdk.Client.OpenAPIDateConverter
 namespace Finbourne.Luminesce.Sdk.Model
 {
     /// <summary>
-    /// Defines QueryDesignerBinaryOperator
+    /// Binary operators
     /// </summary>
+    /// <value>Binary operators</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum QueryDesignerBinaryOperator
     {

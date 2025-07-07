@@ -1,4 +1,5 @@
 # Finbourne.Luminesce.Sdk.Model.QueryDesignerBinaryOperator
+Binary operators
 
 ## Properties
 
