@@ -10,7 +10,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 
 <a id="getcatalog"></a>
 # **GetCatalog**
-> string GetCatalog (string? freeTextSearch = null, bool? jsonProper = null, bool? useCache = null)
+> string GetCatalog (string? freeTextSearch = null, bool? jsonProper = null)
 
 GetCatalog: Get a Flattened Table/Field Catalog
 
@@ -57,15 +57,14 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CurrentTableFieldCatalogApi>();
             var freeTextSearch = "freeTextSearch_example";  // string? | Limit the catalog to only things in some way dealing with the passed in text string (optional) 
             var jsonProper = false;  // bool? | Should this be text/json (not json-encoded-as-a-string) (optional)  (default to false)
-            var useCache = false;  // bool? | Should the available cache be used? false is effectively to pick up a change in the catalog (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.GetCatalog(freeTextSearch, jsonProper, useCache, opts: opts);
+                // string result = apiInstance.GetCatalog(freeTextSearch, jsonProper, opts: opts);
 
                 // GetCatalog: Get a Flattened Table/Field Catalog
-                string result = apiInstance.GetCatalog(freeTextSearch, jsonProper, useCache);
+                string result = apiInstance.GetCatalog(freeTextSearch, jsonProper);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -86,7 +85,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetCatalog: Get a Flattened Table/Field Catalog
-    ApiResponse<string> response = apiInstance.GetCatalogWithHttpInfo(freeTextSearch, jsonProper, useCache);
+    ApiResponse<string> response = apiInstance.GetCatalogWithHttpInfo(freeTextSearch, jsonProper);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -105,7 +104,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **freeTextSearch** | **string?** | Limit the catalog to only things in some way dealing with the passed in text string | [optional]  |
 | **jsonProper** | **bool?** | Should this be text/json (not json-encoded-as-a-string) | [optional] [default to false] |
-| **useCache** | **bool?** | Should the available cache be used? false is effectively to pick up a change in the catalog | [optional] [default to false] |
 
 ### Return type
 
@@ -238,7 +236,7 @@ catch (ApiException e)
 
 <a id="getproviders"></a>
 # **GetProviders**
-> string GetProviders (string? freeTextSearch = null, bool? useCache = null)
+> string GetProviders (string? freeTextSearch = null)
 
 GetProviders: List available providers
 
@@ -284,15 +282,14 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CurrentTableFieldCatalogApi>();
             var freeTextSearch = "freeTextSearch_example";  // string? | Limit the catalog to only things in some way dealing with the passed in text string (optional) 
-            var useCache = true;  // bool? | Should the available cache be used? false is effectively to pick up a change in the catalog (optional)  (default to true)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.GetProviders(freeTextSearch, useCache, opts: opts);
+                // string result = apiInstance.GetProviders(freeTextSearch, opts: opts);
 
                 // GetProviders: List available providers
-                string result = apiInstance.GetProviders(freeTextSearch, useCache);
+                string result = apiInstance.GetProviders(freeTextSearch);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -313,7 +310,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetProviders: List available providers
-    ApiResponse<string> response = apiInstance.GetProvidersWithHttpInfo(freeTextSearch, useCache);
+    ApiResponse<string> response = apiInstance.GetProvidersWithHttpInfo(freeTextSearch);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -331,7 +328,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **freeTextSearch** | **string?** | Limit the catalog to only things in some way dealing with the passed in text string | [optional]  |
-| **useCache** | **bool?** | Should the available cache be used? false is effectively to pick up a change in the catalog | [optional] [default to true] |
 
 ### Return type
 
