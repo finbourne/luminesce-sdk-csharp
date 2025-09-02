@@ -11,5 +11,22 @@ Name | Type | Description | Notes
 **Description** | **string** | Description of the property | [optional] 
 **DataType** | **string** | Data type of the property | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+string key = "key";
+string name = "example name";
+bool isMain = //"True";
+string description = "example description";
+string dataType = "example dataType";
+
+InlinedPropertyItem inlinedPropertyItemInstance = new InlinedPropertyItem(
+    key: key,
+    name: name,
+    isMain: isMain,
+    description: description,
+    dataType: dataType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

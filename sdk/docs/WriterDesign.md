@@ -10,5 +10,21 @@ Name | Type | Description | Notes
 **Parameter** | [**AvailableParameter**](AvailableParameter.md) |  | [optional] 
 **AvailableParameters** | [**List&lt;AvailableParameter&gt;**](AvailableParameter.md) | All the parameter the user may wish to design | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+string sql = "sql";
+List<ExpressionWithAlias> availableToMapFrom = new List<ExpressionWithAlias>();
+AvailableParameter? parameter = new AvailableParameter();
+
+List<AvailableParameter> availableParameters = new List<AvailableParameter>();
+
+WriterDesign writerDesignInstance = new WriterDesign(
+    sql: sql,
+    availableToMapFrom: availableToMapFrom,
+    parameter: parameter,
+    availableParameters: availableParameters);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

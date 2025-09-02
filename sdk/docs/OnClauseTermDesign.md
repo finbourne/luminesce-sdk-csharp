@@ -11,5 +11,20 @@ Name | Type | Description | Notes
 **FilterValue** | **string** | The value to compare against (always as a string, but will be formatted to the correct type) | [optional] 
 **FilterValueDataType** | **DataType** |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+string leftTableField = "example leftTableField";
+string rightTableField = "example rightTableField";
+string filterValue = "example filterValue";
+
+OnClauseTermDesign onClauseTermDesignInstance = new OnClauseTermDesign(
+    leftTableField: leftTableField,
+    rightTableField: rightTableField,
+    operator: operator,
+    filterValue: filterValue,
+    filterValueDataType: filterValueDataType);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

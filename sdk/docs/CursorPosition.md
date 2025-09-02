@@ -8,5 +8,14 @@ Name | Type | Description | Notes
 **Row** | **int** | Row (0 based) of the user&#39;s cursor position | 
 **Column** | **int** | Column (0 based) of the user&#39;s cursor position | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+
+CursorPosition cursorPositionInstance = new CursorPosition(
+    row: row,
+    column: column);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

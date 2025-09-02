@@ -13,5 +13,23 @@ Name | Type | Description | Notes
 **DateFrom** | **string** | A lower bound date for the date filter type | [optional] 
 **DateTo** | **string** | An upper bound date for the date filter type | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+string filter = "example filter";
+List<string> values = new List<string>();
+string dateFrom = "example dateFrom";
+string dateTo = "example dateTo";
+
+FilterModel filterModelInstance = new FilterModel(
+    filterType: filterType,
+    type: type,
+    filter: filter,
+    filterTo: filterTo,
+    values: values,
+    dateFrom: dateFrom,
+    dateTo: dateTo);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

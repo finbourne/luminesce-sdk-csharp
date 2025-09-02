@@ -10,5 +10,16 @@ Name | Type | Description | Notes
 **EffectiveAt** | **DateTimeOffset?** | EffectiveAt of the dashboard | [optional] 
 **AsAt** | **DateTimeOffset** | AsAt of the dashboard | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+
+DateParameters dateParametersInstance = new DateParameters(
+    dateFrom: dateFrom,
+    dateTo: dateTo,
+    effectiveAt: effectiveAt,
+    asAt: asAt);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

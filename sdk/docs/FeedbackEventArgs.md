@@ -14,5 +14,27 @@ Name | Type | Description | Notes
 **PropertyValues** | **List&lt;Object&gt;** |  | [optional] 
 **Message** | **string** |  | [optional] [readonly] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+Guid sessionId = "example sessionId";
+Guid executionId = "example executionId";
+string sender = "example sender";
+string messageTemplate = "example messageTemplate";
+List<Object> propertyValues = new List<Object>();
+string message = "example message";
+
+FeedbackEventArgs feedbackEventArgsInstance = new FeedbackEventArgs(
+    when: when,
+    sessionId: sessionId,
+    executionId: executionId,
+    level: level,
+    sender: sender,
+    stateId: stateId,
+    messageTemplate: messageTemplate,
+    propertyValues: propertyValues,
+    message: message);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

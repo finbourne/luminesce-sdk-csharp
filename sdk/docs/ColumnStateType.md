@@ -10,5 +10,19 @@ Name | Type | Description | Notes
 **Sort** | **string** | The sort order (asc or desc) | [optional] 
 **SortIndex** | **int?** | The index of the sort to determine the order in which the sorts are applied | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+string colId = "colId";
+bool hide = //"True";
+string sort = "example sort";
+
+ColumnStateType columnStateTypeInstance = new ColumnStateType(
+    colId: colId,
+    hide: hide,
+    sort: sort,
+    sortIndex: sortIndex);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

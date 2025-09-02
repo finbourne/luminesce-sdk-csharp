@@ -18,5 +18,33 @@ Name | Type | Description | Notes
 **SkipPostHeader** | **int** | Number of rows to ignore after the header row | [optional] 
 **SkipInvalidRows** | **bool** | Skip invalid data rows (totally invalid ones),   This also allows for potentially wrong data if it can be handled somewhat e.g. embedded quotes misused (and still returns such rows).  In either case a warning will show in the progress feedback. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+string columnNames = "example columnNames";
+string columnNamesWanted = "example columnNamesWanted";
+string columnTypes = "example columnTypes";
+bool noHeader = //"True";
+string delimiter = "example delimiter";
+string escape = "example escape";
+string quote = "example quote";
+string valuesToMakeNull = "example valuesToMakeNull";
+bool skipInvalidRows = //"True";
+
+OptionsCsv optionsCsvInstance = new OptionsCsv(
+    columnNames: columnNames,
+    columnNamesWanted: columnNamesWanted,
+    columnTypes: columnTypes,
+    inferTypeRowCount: inferTypeRowCount,
+    noHeader: noHeader,
+    delimiter: delimiter,
+    escape: escape,
+    quote: quote,
+    valuesToMakeNull: valuesToMakeNull,
+    skipPreHeader: skipPreHeader,
+    skipPostHeader: skipPostHeader,
+    skipInvalidRows: skipInvalidRows);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

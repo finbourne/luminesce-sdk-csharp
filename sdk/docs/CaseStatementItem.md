@@ -10,5 +10,20 @@ Name | Type | Description | Notes
 **Target** | **string** | The expression that is on the RHS of the operator  A typical case statement would look like:  CASE Field {Filter} Source THEN Target | 
 **IsTargetNonLiteral** | **bool** | The Target can be a literal value or a non literal (field) and  hence will be interpreted differently.  This can be determined from the UI and passed down as a true / false | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+string filter = "filter";
+string source = "source";
+string target = "target";
+bool isTargetNonLiteral = //"True";
+
+CaseStatementItem caseStatementItemInstance = new CaseStatementItem(
+    filter: filter,
+    source: source,
+    target: target,
+    isTargetNonLiteral: isTargetNonLiteral);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

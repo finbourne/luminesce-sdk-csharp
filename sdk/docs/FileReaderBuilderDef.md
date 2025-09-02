@@ -21,5 +21,46 @@ Name | Type | Description | Notes
 **Xml** | [**OptionsXml**](OptionsXml.md) |  | [optional] 
 **Parquet** | [**OptionsParquet**](OptionsParquet.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+List<ColumnInfo> columns = new List<ColumnInfo>();
+Source? source = new Source();
+
+List<Source> availableSources = new List<Source>();
+string variableName = "example variableName";
+string filePath = "example filePath";
+string folderFilter = "example folderFilter";
+string zipFilter = "example zipFilter";
+bool addFileName = //"True";
+OptionsCsv? csv = new OptionsCsv();
+
+OptionsExcel? excel = new OptionsExcel();
+
+OptionsSqLite? sqLite = new OptionsSqLite();
+
+OptionsXml? xml = new OptionsXml();
+
+OptionsParquet? parquet = new OptionsParquet();
+
+
+FileReaderBuilderDef fileReaderBuilderDefInstance = new FileReaderBuilderDef(
+    autoDetect: autoDetect,
+    columns: columns,
+    limit: limit,
+    source: source,
+    availableSources: availableSources,
+    variableName: variableName,
+    filePath: filePath,
+    folderFilter: folderFilter,
+    zipFilter: zipFilter,
+    addFileName: addFileName,
+    csv: csv,
+    excel: excel,
+    sqLite: sqLite,
+    xml: xml,
+    parquet: parquet);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

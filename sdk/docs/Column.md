@@ -16,5 +16,32 @@ Name | Type | Description | Notes
 **SampleValues** | **string** |  | [optional] 
 **AllowedValues** | **string** |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+bool isPrimaryKey = //"True";
+bool isMain = //"True";
+bool isRequiredByProvider = //"True";
+string mandatoryForActions = "example mandatoryForActions";
+string name = "example name";
+string description = "example description";
+string displayName = "example displayName";
+string sampleValues = "example sampleValues";
+string allowedValues = "example allowedValues";
+
+Column columnInstance = new Column(
+    isPrimaryKey: isPrimaryKey,
+    isMain: isMain,
+    isRequiredByProvider: isRequiredByProvider,
+    mandatoryForActions: mandatoryForActions,
+    name: name,
+    type: type,
+    description: description,
+    displayName: displayName,
+    conditionUsage: conditionUsage,
+    sampleValues: sampleValues,
+    allowedValues: allowedValues);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -12,5 +12,23 @@ Name | Type | Description | Notes
 **OnClauseTerms** | [**List&lt;OnClauseTermDesign&gt;**](OnClauseTermDesign.md) | Filter clauses to apply to this join in the on clause | 
 **RightTableAvailableFields** | [**List&lt;AvailableField&gt;**](AvailableField.md) | Fields that are known to be available for design when parsing SQL, of the right hand table | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+string joinedTableName = "joinedTableName";
+string joinedTableAlias = "joinedTableAlias";
+string leftTableAlias = "leftTableAlias";
+List<OnClauseTermDesign> onClauseTerms = new List<OnClauseTermDesign>();
+List<AvailableField> rightTableAvailableFields = new List<AvailableField>();
+
+JoinedTableDesign joinedTableDesignInstance = new JoinedTableDesign(
+    joinedTableName: joinedTableName,
+    joinedTableAlias: joinedTableAlias,
+    leftTableAlias: leftTableAlias,
+    joinType: joinType,
+    onClauseTerms: onClauseTerms,
+    rightTableAvailableFields: rightTableAvailableFields);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

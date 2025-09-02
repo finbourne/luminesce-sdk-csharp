@@ -14,5 +14,27 @@ Name | Type | Description | Notes
 **Aggregations** | [**List&lt;Aggregation&gt;**](Aggregation.md) | Aggregations to apply (as opposed to simply selecting) | [optional] 
 **IsExpression** | **bool** | Is this field an expression | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+string name = "name";
+string tableAlias = "example tableAlias";
+string alias = "example alias";
+bool shouldSelect = //"True";
+List<FilterTermDesign> filters = new List<FilterTermDesign>();
+List<Aggregation> aggregations = new List<Aggregation>();
+bool isExpression = //"True";
+
+FieldDesign fieldDesignInstance = new FieldDesign(
+    name: name,
+    tableAlias: tableAlias,
+    alias: alias,
+    dataType: dataType,
+    shouldSelect: shouldSelect,
+    filters: filters,
+    aggregations: aggregations,
+    isExpression: isExpression);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

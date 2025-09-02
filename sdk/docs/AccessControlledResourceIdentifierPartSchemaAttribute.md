@@ -12,5 +12,24 @@ Name | Type | Description | Notes
 **ValuesPath** | **string** |  | [optional] 
 **TypeId** | **Object** |  | [optional] [readonly] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+string name = "example name";
+string displayName = "example displayName";
+string description = "example description";
+bool required = //"True";
+string valuesPath = "example valuesPath";
+
+AccessControlledResourceIdentifierPartSchemaAttribute accessControlledResourceIdentifierPartSchemaAttributeInstance = new AccessControlledResourceIdentifierPartSchemaAttribute(
+    index: index,
+    name: name,
+    displayName: displayName,
+    description: description,
+    required: required,
+    valuesPath: valuesPath,
+    typeId: typeId);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

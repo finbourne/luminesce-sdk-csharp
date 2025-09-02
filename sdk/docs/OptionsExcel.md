@@ -16,5 +16,31 @@ Name | Type | Description | Notes
 **IgnoreInvalidCells** | **bool** | If specified cells which can not be successfully converted to the target type will be ignored | [optional] 
 **IgnoreBlankRows** | **bool** | If the entire rows has only blank cells it will be ignored will be ignored | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+string columnNames = "example columnNames";
+string columnTypes = "example columnTypes";
+bool noHeader = //"True";
+bool calculate = //"True";
+string password = "example password";
+string worksheet = "example worksheet";
+string rangeOrTable = "example rangeOrTable";
+bool ignoreInvalidCells = //"True";
+bool ignoreBlankRows = //"True";
+
+OptionsExcel optionsExcelInstance = new OptionsExcel(
+    columnNames: columnNames,
+    columnTypes: columnTypes,
+    inferTypeRowCount: inferTypeRowCount,
+    noHeader: noHeader,
+    calculate: calculate,
+    password: password,
+    worksheet: worksheet,
+    rangeOrTable: rangeOrTable,
+    ignoreInvalidCells: ignoreInvalidCells,
+    ignoreBlankRows: ignoreBlankRows);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -8,5 +8,16 @@ Name | Type | Description | Notes
 **SelectedField** | **string** | Selected field in the SQL query. | [optional] 
 **CaseStatementItems** | [**List&lt;CaseStatementItem&gt;**](CaseStatementItem.md) | A list containing the filter, source, and target. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+string selectedField = "example selectedField";
+List<CaseStatementItem> caseStatementItems = new List<CaseStatementItem>();
+
+CaseStatementDesign caseStatementDesignInstance = new CaseStatementDesign(
+    selectedField: selectedField,
+    caseStatementItems: caseStatementItems);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

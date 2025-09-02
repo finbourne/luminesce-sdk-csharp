@@ -12,5 +12,23 @@ Name | Type | Description | Notes
 **NodePath** | **string** | XPath query that selects the nodes to map to rows | [optional] 
 **Namespaces** | **string** | Selected prefix(es) and namespace(s):prefix1&#x3D;namespace1-uri1,prefix2&#x3D;namespace2-uri2,...prefixN&#x3D;namespaceN-uriN | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+string columnTypes = "example columnTypes";
+string valuesToMakeNull = "example valuesToMakeNull";
+string columnNames = "example columnNames";
+string nodePath = "example nodePath";
+string namespaces = "example namespaces";
+
+OptionsXml optionsXmlInstance = new OptionsXml(
+    columnTypes: columnTypes,
+    inferTypeRowCount: inferTypeRowCount,
+    valuesToMakeNull: valuesToMakeNull,
+    columnNames: columnNames,
+    nodePath: nodePath,
+    namespaces: namespaces);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

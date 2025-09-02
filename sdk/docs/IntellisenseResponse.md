@@ -11,5 +11,22 @@ Name | Type | Description | Notes
 **StartReplacementPosition** | [**CursorPosition**](CursorPosition.md) |  | 
 **EndReplacementPosition** | [**CursorPosition**](CursorPosition.md) |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+List<IntellisenseItem> autoCompleteList = new List<IntellisenseItem>();
+bool tryAgainSoonForMore = //"True";
+string sqlWithMarker = "sqlWithMarker";
+CursorPosition startReplacementPosition = new CursorPosition();
+CursorPosition endReplacementPosition = new CursorPosition();
+
+IntellisenseResponse intellisenseResponseInstance = new IntellisenseResponse(
+    autoCompleteList: autoCompleteList,
+    tryAgainSoonForMore: tryAgainSoonForMore,
+    sqlWithMarker: sqlWithMarker,
+    startReplacementPosition: startReplacementPosition,
+    endReplacementPosition: endReplacementPosition);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

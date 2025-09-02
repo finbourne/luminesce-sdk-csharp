@@ -12,5 +12,22 @@ Name | Type | Description | Notes
 **DocHTML** | **string** | Popup further info (as in a whole documentation article!) | [optional] 
 **Type** | **IntellisenseType** |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Luminesce.Sdk.Model;
+using System;
 
+string caption = "caption";
+string value = "value";
+string meta = "example meta";
+string docHTML = "example docHTML";
+
+IntellisenseItem intellisenseItemInstance = new IntellisenseItem(
+    caption: caption,
+    value: value,
+    meta: meta,
+    score: score,
+    docHTML: docHTML,
+    type: type);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
