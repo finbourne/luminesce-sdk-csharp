@@ -37,7 +37,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Initializes a new instance of the <see cref="ErrorHighlightRequest" /> class.
         /// </summary>
         /// <param name="lines">The lines of text the user currently has in the editor (required).</param>
-        /// <param name="ensureSomeTextIsSelected">If an editor requires some selection of non-whitespace this can be set to true to force  at least one visible character to be selected..</param>
+        /// <param name="ensureSomeTextIsSelected">If an editor requires some selection of non-whitespace this can be set to true to force at least one visible character to be selected..</param>
         public ErrorHighlightRequest(List<string> lines = default(List<string>), bool ensureSomeTextIsSelected = default(bool))
         {
             // to ensure "lines" is required (not null)
@@ -57,9 +57,9 @@ namespace Finbourne.Luminesce.Sdk.Model
         public List<string> Lines { get; set; }
 
         /// <summary>
-        /// If an editor requires some selection of non-whitespace this can be set to true to force  at least one visible character to be selected.
+        /// If an editor requires some selection of non-whitespace this can be set to true to force at least one visible character to be selected.
         /// </summary>
-        /// <value>If an editor requires some selection of non-whitespace this can be set to true to force  at least one visible character to be selected.</value>
+        /// <value>If an editor requires some selection of non-whitespace this can be set to true to force at least one visible character to be selected.</value>
         [DataMember(Name = "ensureSomeTextIsSelected", EmitDefaultValue = true)]
         public bool EnsureSomeTextIsSelected { get; set; }
 

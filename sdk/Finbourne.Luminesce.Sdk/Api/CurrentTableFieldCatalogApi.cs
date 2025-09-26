@@ -384,10 +384,12 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (freeTextSearch != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "freeTextSearch", freeTextSearch));
             }
             if (jsonProper != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "jsonProper", jsonProper));
             }
 
@@ -592,6 +594,7 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (tableLike != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "tableLike", tableLike));
             }
 
@@ -790,6 +793,7 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (freeTextSearch != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "freeTextSearch", freeTextSearch));
             }
 

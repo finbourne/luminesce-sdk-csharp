@@ -1212,30 +1212,38 @@ namespace Finbourne.Luminesce.Sdk.Api
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
             if (scalarParameters != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters[scalarParameters]", scalarParameters));
+
             }
             if (queryName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
             }
             if (download != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "download", download));
             }
             if (timeout != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeout", timeout));
             }
             if (delimiter != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "delimiter", delimiter));
             }
             if (escape != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "escape", escape));
             }
             if (dateTimeFormat != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
 
@@ -1494,18 +1502,23 @@ namespace Finbourne.Luminesce.Sdk.Api
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
             if (scalarParameters != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters[scalarParameters]", scalarParameters));
+
             }
             if (queryName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
             }
             if (dateTimeFormat != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (timeout != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeout", timeout));
             }
 
@@ -1746,18 +1759,23 @@ namespace Finbourne.Luminesce.Sdk.Api
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
             if (scalarParameters != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters[scalarParameters]", scalarParameters));
+
             }
             if (queryName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
             }
             if (timeout != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeout", timeout));
             }
             if (jsonProper != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "jsonProper", jsonProper));
             }
 
@@ -1996,14 +2014,18 @@ namespace Finbourne.Luminesce.Sdk.Api
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
             if (scalarParameters != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters[scalarParameters]", scalarParameters));
+
             }
             if (queryName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
             }
             if (timeout != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeout", timeout));
             }
 
@@ -2240,22 +2262,28 @@ namespace Finbourne.Luminesce.Sdk.Api
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
             if (scalarParameters != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters[scalarParameters]", scalarParameters));
+
             }
             if (queryName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
             }
             if (download != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "download", download));
             }
             if (dateTimeFormat != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (timeout != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeout", timeout));
             }
 
@@ -2500,14 +2528,18 @@ namespace Finbourne.Luminesce.Sdk.Api
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
             if (scalarParameters != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters[scalarParameters]", scalarParameters));
+
             }
             if (queryName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
             }
             if (timeout != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeout", timeout));
             }
 
@@ -2742,18 +2774,23 @@ namespace Finbourne.Luminesce.Sdk.Api
             localVarRequestOptions.PathParameters.Add("query", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(query)); // path parameter
             if (scalarParameters != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters[scalarParameters]", scalarParameters));
+
             }
             if (queryName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
             }
             if (download != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "download", download));
             }
             if (timeout != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeout", timeout));
             }
 
@@ -3000,30 +3037,38 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (scalarParameters != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters[scalarParameters]", scalarParameters));
+
             }
             if (queryName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
             }
             if (download != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "download", download));
             }
             if (timeoutSeconds != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeoutSeconds", timeoutSeconds));
             }
             if (delimiter != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "delimiter", delimiter));
             }
             if (escape != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "escape", escape));
             }
             if (dateTimeFormat != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             localVarRequestOptions.Data = body;
@@ -3284,18 +3329,23 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (scalarParameters != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters[scalarParameters]", scalarParameters));
+
             }
             if (queryName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
             }
             if (dateTimeFormat != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (timeoutSeconds != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeoutSeconds", timeoutSeconds));
             }
             localVarRequestOptions.Data = body;
@@ -3538,18 +3588,23 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (scalarParameters != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters[scalarParameters]", scalarParameters));
+
             }
             if (queryName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
             }
             if (timeoutSeconds != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeoutSeconds", timeoutSeconds));
             }
             if (jsonProper != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "jsonProper", jsonProper));
             }
             localVarRequestOptions.Data = body;
@@ -3790,14 +3845,18 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (scalarParameters != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters[scalarParameters]", scalarParameters));
+
             }
             if (queryName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
             }
             if (timeoutSeconds != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeoutSeconds", timeoutSeconds));
             }
             localVarRequestOptions.Data = body;
@@ -4036,22 +4095,28 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (scalarParameters != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters[scalarParameters]", scalarParameters));
+
             }
             if (queryName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
             }
             if (download != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "download", download));
             }
             if (dateTimeFormat != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
             }
             if (timeoutSeconds != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeoutSeconds", timeoutSeconds));
             }
             localVarRequestOptions.Data = body;
@@ -4298,14 +4363,18 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (scalarParameters != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters[scalarParameters]", scalarParameters));
+
             }
             if (queryName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
             }
             if (timeoutSeconds != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeoutSeconds", timeoutSeconds));
             }
             localVarRequestOptions.Data = body;
@@ -4542,18 +4611,23 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (scalarParameters != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters", scalarParameters));
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scalarParameters[scalarParameters]", scalarParameters));
+
             }
             if (queryName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "queryName", queryName));
             }
             if (download != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "download", download));
             }
             if (timeoutSeconds != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeoutSeconds", timeoutSeconds));
             }
             localVarRequestOptions.Data = body;

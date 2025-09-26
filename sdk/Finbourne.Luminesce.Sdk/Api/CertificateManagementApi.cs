@@ -407,14 +407,17 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (type != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
             }
             if (fileType != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "fileType", fileType));
             }
             if (mayAutoCreate != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "mayAutoCreate", mayAutoCreate));
             }
 
@@ -821,26 +824,32 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (action != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "action", action));
             }
             if (type != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
             }
             if (version != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "version", version));
             }
             if (validityStart != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "validityStart", validityStart));
             }
             if (validityEnd != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "validityEnd", validityEnd));
             }
             if (dryRun != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dryRun", dryRun));
             }
 

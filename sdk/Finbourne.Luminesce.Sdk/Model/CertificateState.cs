@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Luminesce.Sdk.Client.OpenAPIDateConverter
 namespace Finbourne.Luminesce.Sdk.Model
 {
     /// <summary>
-    /// Information held about the minting / revoking of a certificate.  It does *not* contain the certificate itself
+    /// Information held about the minting / revoking of a certificate. It does *not* contain the certificate itself
     /// </summary>
     [DataContract(Name = "CertificateState")]
     public partial class CertificateState : IEquatable<CertificateState>, IValidatableObject
@@ -49,7 +49,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CertificateState" /> class.
         /// </summary>
-        /// <param name="key">The \&quot;key\&quot; to which this belongs in the dictionary,  basically the CN without any version information.</param>
+        /// <param name="key">The \&quot;key\&quot; to which this belongs in the dictionary, basically the CN without any version information.</param>
         /// <param name="varVersion">The version of this certificate.</param>
         /// <param name="commonName">The common Name of the Certificate.</param>
         /// <param name="type">type.</param>
@@ -84,9 +84,9 @@ namespace Finbourne.Luminesce.Sdk.Model
         }
 
         /// <summary>
-        /// The \&quot;key\&quot; to which this belongs in the dictionary,  basically the CN without any version information
+        /// The \&quot;key\&quot; to which this belongs in the dictionary, basically the CN without any version information
         /// </summary>
-        /// <value>The \&quot;key\&quot; to which this belongs in the dictionary,  basically the CN without any version information</value>
+        /// <value>The \&quot;key\&quot; to which this belongs in the dictionary, basically the CN without any version information</value>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 

@@ -334,10 +334,12 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (type != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
             }
             if (version != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "version", version));
             }
 
@@ -543,6 +545,7 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (type != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
             }
 

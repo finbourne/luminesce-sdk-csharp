@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Luminesce.Sdk.Client.OpenAPIDateConverter
 namespace Finbourne.Luminesce.Sdk.Model
 {
     /// <summary>
-    /// Information about a case statement.  A typical case statement would look like:  CASE WHEN Field {Filter} Source THEN Target  For example: CASE WHEN &#39;currency&#39; &#x3D; &#39;USD&#39; THEN &#39;US&#39;  Here the Field is &#39;currency&#39;, the Source is &#39;USD&#39;, the Filter is &#39;&#x3D;&#39;, and the Target is &#39;US&#39;
+    /// Information about a case statement. A typical case statement would look like: CASE WHEN Field {Filter} Source THEN Target For example: CASE WHEN &#39;currency&#39; &#x3D; &#39;USD&#39; THEN &#39;US&#39; Here the Field is &#39;currency&#39;, the Source is &#39;USD&#39;, the Filter is &#39;&#x3D;&#39;, and the Target is &#39;US&#39;
     /// </summary>
     [DataContract(Name = "CaseStatementItem")]
     public partial class CaseStatementItem : IEquatable<CaseStatementItem>, IValidatableObject
@@ -37,9 +37,9 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Initializes a new instance of the <see cref="CaseStatementItem" /> class.
         /// </summary>
         /// <param name="filter">The operator in the case statement SQL expression (required).</param>
-        /// <param name="source">The expression that is on the LHS of the operator  A typical case statement would look like:  CASE Field {Filter} Source THEN Target (required).</param>
-        /// <param name="target">The expression that is on the RHS of the operator  A typical case statement would look like:  CASE Field {Filter} Source THEN Target (required).</param>
-        /// <param name="isTargetNonLiteral">The Target can be a literal value or a non literal (field) and  hence will be interpreted differently.  This can be determined from the UI and passed down as a true / false.</param>
+        /// <param name="source">The expression that is on the LHS of the operator A typical case statement would look like: CASE Field {Filter} Source THEN Target (required).</param>
+        /// <param name="target">The expression that is on the RHS of the operator A typical case statement would look like: CASE Field {Filter} Source THEN Target (required).</param>
+        /// <param name="isTargetNonLiteral">The Target can be a literal value or a non literal (field) and hence will be interpreted differently. This can be determined from the UI and passed down as a true / false.</param>
         public CaseStatementItem(string filter = default(string), string source = default(string), string target = default(string), bool isTargetNonLiteral = default(bool))
         {
             // to ensure "filter" is required (not null)
@@ -71,23 +71,23 @@ namespace Finbourne.Luminesce.Sdk.Model
         public string Filter { get; set; }
 
         /// <summary>
-        /// The expression that is on the LHS of the operator  A typical case statement would look like:  CASE Field {Filter} Source THEN Target
+        /// The expression that is on the LHS of the operator A typical case statement would look like: CASE Field {Filter} Source THEN Target
         /// </summary>
-        /// <value>The expression that is on the LHS of the operator  A typical case statement would look like:  CASE Field {Filter} Source THEN Target</value>
+        /// <value>The expression that is on the LHS of the operator A typical case statement would look like: CASE Field {Filter} Source THEN Target</value>
         [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = true)]
         public string Source { get; set; }
 
         /// <summary>
-        /// The expression that is on the RHS of the operator  A typical case statement would look like:  CASE Field {Filter} Source THEN Target
+        /// The expression that is on the RHS of the operator A typical case statement would look like: CASE Field {Filter} Source THEN Target
         /// </summary>
-        /// <value>The expression that is on the RHS of the operator  A typical case statement would look like:  CASE Field {Filter} Source THEN Target</value>
+        /// <value>The expression that is on the RHS of the operator A typical case statement would look like: CASE Field {Filter} Source THEN Target</value>
         [DataMember(Name = "target", IsRequired = true, EmitDefaultValue = true)]
         public string Target { get; set; }
 
         /// <summary>
-        /// The Target can be a literal value or a non literal (field) and  hence will be interpreted differently.  This can be determined from the UI and passed down as a true / false
+        /// The Target can be a literal value or a non literal (field) and hence will be interpreted differently. This can be determined from the UI and passed down as a true / false
         /// </summary>
-        /// <value>The Target can be a literal value or a non literal (field) and  hence will be interpreted differently.  This can be determined from the UI and passed down as a true / false</value>
+        /// <value>The Target can be a literal value or a non literal (field) and hence will be interpreted differently. This can be determined from the UI and passed down as a true / false</value>
         [DataMember(Name = "isTargetNonLiteral", EmitDefaultValue = true)]
         public bool IsTargetNonLiteral { get; set; }
 

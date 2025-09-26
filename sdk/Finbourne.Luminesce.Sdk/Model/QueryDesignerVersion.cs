@@ -23,9 +23,9 @@ using OpenAPIDateConverter = Finbourne.Luminesce.Sdk.Client.OpenAPIDateConverter
 namespace Finbourne.Luminesce.Sdk.Model
 {
     /// <summary>
-    /// Versions of the Query Designer as evolving over time.  Generally only the two largest values will be supported at any one time.
+    /// Versions of the Query Designer as evolving over time. Generally only the two largest values will be supported at any one time.
     /// </summary>
-    /// <value>Versions of the Query Designer as evolving over time.  Generally only the two largest values will be supported at any one time.</value>
+    /// <value>Versions of the Query Designer as evolving over time. Generally only the two largest values will be supported at any one time.</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum QueryDesignerVersion
     {

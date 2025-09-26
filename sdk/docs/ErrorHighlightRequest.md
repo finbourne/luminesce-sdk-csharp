@@ -6,7 +6,7 @@ Request for Error highlighting
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Lines** | **List&lt;string&gt;** | The lines of text the user currently has in the editor | 
-**EnsureSomeTextIsSelected** | **bool** | If an editor requires some selection of non-whitespace this can be set to true to force  at least one visible character to be selected. | [optional] 
+**EnsureSomeTextIsSelected** | **bool** | If an editor requires some selection of non-whitespace this can be set to true to force at least one visible character to be selected. | [optional] 
 
 ```csharp
 using Finbourne.Luminesce.Sdk.Model;

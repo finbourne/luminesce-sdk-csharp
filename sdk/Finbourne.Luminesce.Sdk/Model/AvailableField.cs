@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Luminesce.Sdk.Client.OpenAPIDateConverter
 namespace Finbourne.Luminesce.Sdk.Model
 {
     /// <summary>
-    /// Information about a field that can be designed on (regardless if it currently is)  Kind of a \&quot;mini-available catalog entry\&quot;
+    /// Information about a field that can be designed on (regardless if it currently is) Kind of a \&quot;mini-available catalog entry\&quot;
     /// </summary>
     [DataContract(Name = "AvailableField")]
     public partial class AvailableField : IEquatable<AvailableField>, IValidatableObject

@@ -45,7 +45,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="name">Name of the provider (required).</param>
         /// <param name="dataType">dataType (required).</param>
         /// <param name="value">Value of the provider (required).</param>
-        /// <param name="isTableDataMandatory">Should this be selected? False would imply it is only being filtered on.  Ignored when Aggregations are present.</param>
+        /// <param name="isTableDataMandatory">Should this be selected? False would imply it is only being filtered on. Ignored when Aggregations are present.</param>
         /// <param name="description">Description of the parameter.</param>
         public ViewParameter(string name = default(string), DataType dataType = default(DataType), string value = default(string), bool isTableDataMandatory = default(bool), string description = default(string))
         {
@@ -81,9 +81,9 @@ namespace Finbourne.Luminesce.Sdk.Model
         public string Value { get; set; }
 
         /// <summary>
-        /// Should this be selected? False would imply it is only being filtered on.  Ignored when Aggregations are present
+        /// Should this be selected? False would imply it is only being filtered on. Ignored when Aggregations are present
         /// </summary>
-        /// <value>Should this be selected? False would imply it is only being filtered on.  Ignored when Aggregations are present</value>
+        /// <value>Should this be selected? False would imply it is only being filtered on. Ignored when Aggregations are present</value>
         [DataMember(Name = "isTableDataMandatory", EmitDefaultValue = true)]
         public bool IsTableDataMandatory { get; set; }
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Name of the provider | 
 **DataType** | **DataType** |  | 
 **Value** | **string** | Value of the provider | 
-**IsTableDataMandatory** | **bool** | Should this be selected? False would imply it is only being filtered on.  Ignored when Aggregations are present | [optional] 
+**IsTableDataMandatory** | **bool** | Should this be selected? False would imply it is only being filtered on. Ignored when Aggregations are present | [optional] 
 **Description** | **string** | Description of the parameter | [optional] 
 
 ```csharp

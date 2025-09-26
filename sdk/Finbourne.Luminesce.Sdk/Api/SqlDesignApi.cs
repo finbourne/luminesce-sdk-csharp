@@ -397,7 +397,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
-        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions. Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>QueryDesign</returns>
@@ -412,7 +412,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
-        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions. Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of QueryDesign</returns>
@@ -920,7 +920,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
-        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions. Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -936,7 +936,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
-        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions. Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1875,6 +1875,7 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (executeQuery != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "executeQuery", executeQuery));
             }
             localVarRequestOptions.Data = fileReaderBuilderDef;
@@ -3374,54 +3375,67 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (trailingCommas != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "trailingCommas", trailingCommas));
             }
             if (uppercaseKeywords != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "uppercaseKeywords", uppercaseKeywords));
             }
             if (breakJoinOnSections != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "breakJoinOnSections", breakJoinOnSections));
             }
             if (spaceAfterExpandedComma != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "spaceAfterExpandedComma", spaceAfterExpandedComma));
             }
             if (keywordStandardization != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "keywordStandardization", keywordStandardization));
             }
             if (expandCommaLists != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expandCommaLists", expandCommaLists));
             }
             if (expandInLists != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expandInLists", expandInLists));
             }
             if (expandBooleanExpressions != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expandBooleanExpressions", expandBooleanExpressions));
             }
             if (expandBetweenConditions != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expandBetweenConditions", expandBetweenConditions));
             }
             if (expandCaseStatements != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expandCaseStatements", expandCaseStatements));
             }
             if (maxLineWidth != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "maxLineWidth", maxLineWidth));
             }
             if (spaceBeforeTrailingSingleLineComments != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "spaceBeforeTrailingSingleLineComments", spaceBeforeTrailingSingleLineComments));
             }
             if (multilineCommentExtraLineBreak != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "multilineCommentExtraLineBreak", multilineCommentExtraLineBreak));
             }
             localVarRequestOptions.Data = body;
@@ -3912,6 +3926,7 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (determineAvailableSources != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "determineAvailableSources", determineAvailableSources));
             }
             localVarRequestOptions.Data = body;
@@ -4061,7 +4076,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
-        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions. Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>QueryDesign</returns>
@@ -4077,7 +4092,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
-        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions. Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of QueryDesign</returns>
@@ -4126,10 +4141,12 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (validateWithMetadata != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "validateWithMetadata", validateWithMetadata));
             }
             if (version != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "version", version));
             }
             localVarRequestOptions.Data = body;
@@ -4174,7 +4191,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
-        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions. Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4191,7 +4208,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">SQL query to generate the design object from</param>
         /// <param name="validateWithMetadata">Should the table be validated against the users&#39; view of Sys.Field to fill in DataTypes, etc.? (optional, default to true)</param>
-        /// <param name="version">Designer version number used to support multiple web user interface versions.  Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
+        /// <param name="version">Designer version number used to support multiple web user interface versions. Only some values will be allowed and this will change over time (as mentioned this whole method is largely internal to the Finbourne web user interfaces and evolves over time). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -4560,6 +4577,7 @@ namespace Finbourne.Luminesce.Sdk.Api
 
             if (mergeAdditionalMappingFields != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "mergeAdditionalMappingFields", mergeAdditionalMappingFields));
             }
             localVarRequestOptions.Data = body;

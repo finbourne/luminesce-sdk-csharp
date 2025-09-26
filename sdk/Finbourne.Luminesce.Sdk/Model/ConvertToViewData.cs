@@ -41,7 +41,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="description">Description of view.</param>
         /// <param name="documentationLink">Documentation link.</param>
         /// <param name="viewParameters">View parameters.</param>
-        /// <param name="otherParameters">Other parameters not explicitly handled by the ConvertToView generation.  These will be populated by the \&quot;From SQL\&quot; and should simply be returned by  the web GUI should the user edit / update / regenerate.</param>
+        /// <param name="otherParameters">Other parameters not explicitly handled by the ConvertToView generation. These will be populated by the \&quot;From SQL\&quot; and should simply be returned by the web GUI should the user edit / update / regenerate.</param>
         /// <param name="startingVariableName">Which variable the this start with, null if not started from a full Create View Sql Statement..</param>
         public ConvertToViewData(string query = default(string), string name = default(string), string description = default(string), string documentationLink = default(string), List<ViewParameter> viewParameters = default(List<ViewParameter>), Dictionary<string, string> otherParameters = default(Dictionary<string, string>), string startingVariableName = default(string))
         {
@@ -100,9 +100,9 @@ namespace Finbourne.Luminesce.Sdk.Model
         public List<ViewParameter> ViewParameters { get; set; }
 
         /// <summary>
-        /// Other parameters not explicitly handled by the ConvertToView generation.  These will be populated by the \&quot;From SQL\&quot; and should simply be returned by  the web GUI should the user edit / update / regenerate
+        /// Other parameters not explicitly handled by the ConvertToView generation. These will be populated by the \&quot;From SQL\&quot; and should simply be returned by the web GUI should the user edit / update / regenerate
         /// </summary>
-        /// <value>Other parameters not explicitly handled by the ConvertToView generation.  These will be populated by the \&quot;From SQL\&quot; and should simply be returned by  the web GUI should the user edit / update / regenerate</value>
+        /// <value>Other parameters not explicitly handled by the ConvertToView generation. These will be populated by the \&quot;From SQL\&quot; and should simply be returned by the web GUI should the user edit / update / regenerate</value>
         [DataMember(Name = "otherParameters", EmitDefaultValue = true)]
         public Dictionary<string, string> OtherParameters { get; set; }
 

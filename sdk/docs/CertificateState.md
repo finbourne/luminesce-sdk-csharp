@@ -1,11 +1,11 @@
 # Finbourne.Luminesce.Sdk.Model.CertificateState
-Information held about the minting / revoking of a certificate.  It does *not* contain the certificate itself
+Information held about the minting / revoking of a certificate. It does *not* contain the certificate itself
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | **string** | The \&quot;key\&quot; to which this belongs in the dictionary,  basically the CN without any version information | [optional] 
+**Key** | **string** | The \&quot;key\&quot; to which this belongs in the dictionary, basically the CN without any version information | [optional] 
 **VarVersion** | **int** | The version of this certificate | [optional] 
 **CommonName** | **string** | The common Name of the Certificate | [optional] 
 **Type** | **CertificateType** |  | [optional] 

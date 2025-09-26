@@ -46,7 +46,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="tableAlias">Alias of the Table the field belongs to.</param>
         /// <param name="alias">Alias if any (if none the Name is used).</param>
         /// <param name="dataType">dataType.</param>
-        /// <param name="shouldSelect">Should this be selected? False would imply it is only being filtered on.  Ignored when Aggregations are present.</param>
+        /// <param name="shouldSelect">Should this be selected? False would imply it is only being filtered on. Ignored when Aggregations are present.</param>
         /// <param name="filters">Filter clauses to apply to this field (And&#39;ed together).</param>
         /// <param name="aggregations">Aggregations to apply (as opposed to simply selecting).</param>
         /// <param name="isExpression">Is this field an expression.</param>
@@ -89,9 +89,9 @@ namespace Finbourne.Luminesce.Sdk.Model
         public string Alias { get; set; }
 
         /// <summary>
-        /// Should this be selected? False would imply it is only being filtered on.  Ignored when Aggregations are present
+        /// Should this be selected? False would imply it is only being filtered on. Ignored when Aggregations are present
         /// </summary>
-        /// <value>Should this be selected? False would imply it is only being filtered on.  Ignored when Aggregations are present</value>
+        /// <value>Should this be selected? False would imply it is only being filtered on. Ignored when Aggregations are present</value>
         [DataMember(Name = "shouldSelect", EmitDefaultValue = true)]
         public bool ShouldSelect { get; set; }
 

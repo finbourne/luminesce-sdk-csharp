@@ -89,12 +89,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">An enum value defining the set of statements being executed</param>
-        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.)  In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
+        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.) In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
         /// <param name="asAt">The AsAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="effectiveAt">The EffectiveAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="limit1">A limit that is applied to first-level queries (e.g. Instruments themselves) (optional)</param>
         /// <param name="limit2">A limit that is applied to second-level queries (e.g. Holdings based on the set of Instruments found) (optional)</param>
-        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all.  e.g. a start-date of some sort (optional)</param>
+        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all. e.g. a start-date of some sort (optional)</param>
         /// <param name="input2">A second value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="input3">A third value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 1200s (20m) (optional, default to 0)</param>
@@ -112,12 +112,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">An enum value defining the set of statements being executed</param>
-        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.)  In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
+        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.) In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
         /// <param name="asAt">The AsAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="effectiveAt">The EffectiveAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="limit1">A limit that is applied to first-level queries (e.g. Instruments themselves) (optional)</param>
         /// <param name="limit2">A limit that is applied to second-level queries (e.g. Holdings based on the set of Instruments found) (optional)</param>
-        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all.  e.g. a start-date of some sort (optional)</param>
+        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all. e.g. a start-date of some sort (optional)</param>
         /// <param name="input2">A second value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="input3">A third value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 1200s (20m) (optional, default to 0)</param>
@@ -197,12 +197,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">An enum value defining the set of statements being executed</param>
-        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.)  In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
+        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.) In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
         /// <param name="asAt">The AsAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="effectiveAt">The EffectiveAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="limit1">A limit that is applied to first-level queries (e.g. Instruments themselves) (optional)</param>
         /// <param name="limit2">A limit that is applied to second-level queries (e.g. Holdings based on the set of Instruments found) (optional)</param>
-        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all.  e.g. a start-date of some sort (optional)</param>
+        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all. e.g. a start-date of some sort (optional)</param>
         /// <param name="input2">A second value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="input3">A third value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 1200s (20m) (optional, default to 0)</param>
@@ -221,12 +221,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">An enum value defining the set of statements being executed</param>
-        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.)  In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
+        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.) In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
         /// <param name="asAt">The AsAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="effectiveAt">The EffectiveAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="limit1">A limit that is applied to first-level queries (e.g. Instruments themselves) (optional)</param>
         /// <param name="limit2">A limit that is applied to second-level queries (e.g. Holdings based on the set of Instruments found) (optional)</param>
-        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all.  e.g. a start-date of some sort (optional)</param>
+        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all. e.g. a start-date of some sort (optional)</param>
         /// <param name="input2">A second value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="input3">A third value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 1200s (20m) (optional, default to 0)</param>
@@ -772,12 +772,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">An enum value defining the set of statements being executed</param>
-        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.)  In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
+        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.) In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
         /// <param name="asAt">The AsAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="effectiveAt">The EffectiveAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="limit1">A limit that is applied to first-level queries (e.g. Instruments themselves) (optional)</param>
         /// <param name="limit2">A limit that is applied to second-level queries (e.g. Holdings based on the set of Instruments found) (optional)</param>
-        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all.  e.g. a start-date of some sort (optional)</param>
+        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all. e.g. a start-date of some sort (optional)</param>
         /// <param name="input2">A second value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="input3">A third value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 1200s (20m) (optional, default to 0)</param>
@@ -796,12 +796,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">An enum value defining the set of statements being executed</param>
-        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.)  In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
+        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.) In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
         /// <param name="asAt">The AsAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="effectiveAt">The EffectiveAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="limit1">A limit that is applied to first-level queries (e.g. Instruments themselves) (optional)</param>
         /// <param name="limit2">A limit that is applied to second-level queries (e.g. Holdings based on the set of Instruments found) (optional)</param>
-        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all.  e.g. a start-date of some sort (optional)</param>
+        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all. e.g. a start-date of some sort (optional)</param>
         /// <param name="input2">A second value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="input3">A third value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 1200s (20m) (optional, default to 0)</param>
@@ -855,38 +855,47 @@ namespace Finbourne.Luminesce.Sdk.Api
             localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
             if (effectiveAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "effectiveAt", effectiveAt));
             }
             if (limit1 != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit1", limit1));
             }
             if (limit2 != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit2", limit2));
             }
             if (input1 != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "input1", input1));
             }
             if (input2 != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "input2", input2));
             }
             if (input3 != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "input3", input3));
             }
             if (timeoutSeconds != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "timeoutSeconds", timeoutSeconds));
             }
             if (keepForSeconds != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "keepForSeconds", keepForSeconds));
             }
             localVarRequestOptions.Data = body;
@@ -930,12 +939,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">An enum value defining the set of statements being executed</param>
-        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.)  In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
+        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.) In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
         /// <param name="asAt">The AsAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="effectiveAt">The EffectiveAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="limit1">A limit that is applied to first-level queries (e.g. Instruments themselves) (optional)</param>
         /// <param name="limit2">A limit that is applied to second-level queries (e.g. Holdings based on the set of Instruments found) (optional)</param>
-        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all.  e.g. a start-date of some sort (optional)</param>
+        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all. e.g. a start-date of some sort (optional)</param>
         /// <param name="input2">A second value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="input3">A third value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 1200s (20m) (optional, default to 0)</param>
@@ -955,12 +964,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">An enum value defining the set of statements being executed</param>
-        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.)  In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
+        /// <param name="body">A \&quot;search\&quot; value (e.g. &#39;Apple&#39; on an instrument search, a &#x60;Finbourne.Filtering&#x60; expression of Insights, etc.) In the cases where \&quot;Nothing\&quot; is valid for a &#x60;Finbourne.Filtering&#x60; expression, pass &#x60;True&#x60;.</param>
         /// <param name="asAt">The AsAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="effectiveAt">The EffectiveAt time used by any bitemporal provider in the queries. (optional)</param>
         /// <param name="limit1">A limit that is applied to first-level queries (e.g. Instruments themselves) (optional)</param>
         /// <param name="limit2">A limit that is applied to second-level queries (e.g. Holdings based on the set of Instruments found) (optional)</param>
-        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all.  e.g. a start-date of some sort (optional)</param>
+        /// <param name="input1">A value available to queries, these vary by &#39;type&#39; and are only used by some types at all. e.g. a start-date of some sort (optional)</param>
         /// <param name="input2">A second value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="input3">A third value available to queries, these vary by &#39;type&#39; and are only used by some types at all. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 1200s (20m) (optional, default to 0)</param>

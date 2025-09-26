@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **ValuesToMakeNull** | **string** | Regex of values to map to &#39;null&#39; in the returned data. | [optional] 
 **SkipPreHeader** | **int** | Number of rows to ignore before the header row | [optional] 
 **SkipPostHeader** | **int** | Number of rows to ignore after the header row | [optional] 
-**SkipInvalidRows** | **bool** | Skip invalid data rows (totally invalid ones),   This also allows for potentially wrong data if it can be handled somewhat e.g. embedded quotes misused (and still returns such rows).  In either case a warning will show in the progress feedback. | [optional] 
+**SkipInvalidRows** | **bool** | Skip invalid data rows (totally invalid ones),  This also allows for potentially wrong data if it can be handled somewhat e.g. embedded quotes misused (and still returns such rows). In either case a warning will show in the progress feedback. | [optional] 
 
 ```csharp
 using Finbourne.Luminesce.Sdk.Model;
