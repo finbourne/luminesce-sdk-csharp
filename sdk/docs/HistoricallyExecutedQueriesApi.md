@@ -372,7 +372,7 @@ catch (ApiException e)
 
 <a id="gethistory"></a>
 # **GetHistory**
-> BackgroundQueryResponse GetHistory (DateTimeOffset? startAt = null, DateTimeOffset? endAt = null, string? freeTextSearch = null, bool? showAll = null, bool? mayUseNativeStore = null)
+> BackgroundQueryResponse GetHistory (DateTimeOffset? startAt = null, DateTimeOffset? endAt = null, string? freeTextSearch = null, bool? showAll = null)
 
 GetHistory: Start a background history search
 
@@ -421,15 +421,14 @@ namespace Examples
             var endAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Date time to end the search at.  Defaults to now. (optional) 
             var freeTextSearch = "freeTextSearch_example";  // string? | Some test that must be in at least one field returned. (optional) 
             var showAll = false;  // bool? | For users with extra permissions, they may optionally see other users' queries. (optional)  (default to false)
-            var mayUseNativeStore = true;  // bool? | Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? This is no longer supported and effectively always true. (optional)  (default to true)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // BackgroundQueryResponse result = apiInstance.GetHistory(startAt, endAt, freeTextSearch, showAll, mayUseNativeStore, opts: opts);
+                // BackgroundQueryResponse result = apiInstance.GetHistory(startAt, endAt, freeTextSearch, showAll, opts: opts);
 
                 // GetHistory: Start a background history search
-                BackgroundQueryResponse result = apiInstance.GetHistory(startAt, endAt, freeTextSearch, showAll, mayUseNativeStore);
+                BackgroundQueryResponse result = apiInstance.GetHistory(startAt, endAt, freeTextSearch, showAll);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -450,7 +449,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetHistory: Start a background history search
-    ApiResponse<BackgroundQueryResponse> response = apiInstance.GetHistoryWithHttpInfo(startAt, endAt, freeTextSearch, showAll, mayUseNativeStore);
+    ApiResponse<BackgroundQueryResponse> response = apiInstance.GetHistoryWithHttpInfo(startAt, endAt, freeTextSearch, showAll);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -471,7 +470,6 @@ catch (ApiException e)
 | **endAt** | **DateTimeOffset?** | Date time to end the search at.  Defaults to now. | [optional]  |
 | **freeTextSearch** | **string?** | Some test that must be in at least one field returned. | [optional]  |
 | **showAll** | **bool?** | For users with extra permissions, they may optionally see other users&#39; queries. | [optional] [default to false] |
-| **mayUseNativeStore** | **bool?** | Should a native data store (e.g. Athena or Fabric) be used over Elastic Search if available? This is no longer supported and effectively always true. | [optional] [default to true] |
 
 ### Return type
 

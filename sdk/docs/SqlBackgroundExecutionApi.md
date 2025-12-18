@@ -14,7 +14,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 | [**FetchQueryResultPipe**](SqlBackgroundExecutionApi.md#fetchqueryresultpipe) | **GET** /api/SqlBackground/{executionId}/pipe | FetchQueryResultPipe: Fetch the result of a query as pipe-delimited |
 | [**FetchQueryResultSqlite**](SqlBackgroundExecutionApi.md#fetchqueryresultsqlite) | **GET** /api/SqlBackground/{executionId}/sqlite | FetchQueryResultSqlite: Fetch the result of a query as SqLite |
 | [**FetchQueryResultXml**](SqlBackgroundExecutionApi.md#fetchqueryresultxml) | **GET** /api/SqlBackground/{executionId}/xml | FetchQueryResultXml: Fetch the result of a query as XML |
-| [**GetHistoricalFeedback**](SqlBackgroundExecutionApi.md#gethistoricalfeedback) | **GET** /api/SqlBackground/{executionId}/historicalFeedback | GetHistoricalFeedback: View query progress up to this point |
+| [**GetHistoricalFeedback**](SqlBackgroundExecutionApi.md#gethistoricalfeedback) | **GET** /api/SqlBackground/{executionId}/historicalFeedback | GetHistoricalFeedback: View historical query progress (for older queries) |
 | [**GetProgressOf**](SqlBackgroundExecutionApi.md#getprogressof) | **GET** /api/SqlBackground/{executionId} | GetProgressOf: View query progress up to this point. |
 | [**StartQuery**](SqlBackgroundExecutionApi.md#startquery) | **PUT** /api/SqlBackground | StartQuery: Start to Execute Sql in the background |
 
@@ -1290,9 +1290,9 @@ catch (ApiException e)
 # **GetHistoricalFeedback**
 > BackgroundQueryProgressResponse GetHistoricalFeedback (string executionId)
 
-GetHistoricalFeedback: View query progress up to this point
+GetHistoricalFeedback: View historical query progress (for older queries)
 
-View full progress information, including historical feedback for queries which have passed their `keepForSeconds` time, so long as they were executed in the last 31 days. Unlike most methods here this may be called by a user that did not run the original query, as this is pure telemetry information.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+View full progress information, including historical feedback for queries which have passed their `keepForSeconds` time, so long as they were executed in the last 31 days. Unlike most methods here this may be called by a user that did not run the original query, if your entitlements allow this, as this is pure telemetry information.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
 ### Example
 ```csharp
@@ -1340,7 +1340,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BackgroundQueryProgressResponse result = apiInstance.GetHistoricalFeedback(executionId, opts: opts);
 
-                // GetHistoricalFeedback: View query progress up to this point
+                // GetHistoricalFeedback: View historical query progress (for older queries)
                 BackgroundQueryProgressResponse result = apiInstance.GetHistoricalFeedback(executionId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1361,7 +1361,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // GetHistoricalFeedback: View query progress up to this point
+    // GetHistoricalFeedback: View historical query progress (for older queries)
     ApiResponse<BackgroundQueryProgressResponse> response = apiInstance.GetHistoricalFeedbackWithHttpInfo(executionId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1400,7 +1400,7 @@ catch (ApiException e)
 
 <a id="getprogressof"></a>
 # **GetProgressOf**
-> BackgroundQueryProgressResponse GetProgressOf (string executionId, bool? buildFromLogs = null)
+> BackgroundQueryProgressResponse GetProgressOf (string executionId, bool? buildFromLogs = null, bool? includeAllFeedback = null)
 
 GetProgressOf: View query progress up to this point.
 
@@ -1447,14 +1447,15 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
             var buildFromLogs = false;  // bool? | Should the response state be build from query logs if missing from the shared-db-state?  Deprecated. Regardless of the value here it is now the case that:  False [and now even True] will mean `404 Not Found` in cases where it was a real query but has passed its `keepForSeconds` since the query completed (as well as 'this was not a query at all' of course) (optional)  (default to false)
+            var includeAllFeedback = false;  // bool? | Should all the feedback be returned?  As opposed to just the new feedback. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // BackgroundQueryProgressResponse result = apiInstance.GetProgressOf(executionId, buildFromLogs, opts: opts);
+                // BackgroundQueryProgressResponse result = apiInstance.GetProgressOf(executionId, buildFromLogs, includeAllFeedback, opts: opts);
 
                 // GetProgressOf: View query progress up to this point.
-                BackgroundQueryProgressResponse result = apiInstance.GetProgressOf(executionId, buildFromLogs);
+                BackgroundQueryProgressResponse result = apiInstance.GetProgressOf(executionId, buildFromLogs, includeAllFeedback);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1475,7 +1476,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetProgressOf: View query progress up to this point.
-    ApiResponse<BackgroundQueryProgressResponse> response = apiInstance.GetProgressOfWithHttpInfo(executionId, buildFromLogs);
+    ApiResponse<BackgroundQueryProgressResponse> response = apiInstance.GetProgressOfWithHttpInfo(executionId, buildFromLogs, includeAllFeedback);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1494,6 +1495,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **executionId** | **string** | ExecutionId returned when starting the query |  |
 | **buildFromLogs** | **bool?** | Should the response state be build from query logs if missing from the shared-db-state?  Deprecated. Regardless of the value here it is now the case that:  False [and now even True] will mean &#x60;404 Not Found&#x60; in cases where it was a real query but has passed its &#x60;keepForSeconds&#x60; since the query completed (as well as &#39;this was not a query at all&#39; of course) | [optional] [default to false] |
+| **includeAllFeedback** | **bool?** | Should all the feedback be returned?  As opposed to just the new feedback. | [optional] [default to false] |
 
 ### Return type
 
