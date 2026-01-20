@@ -36,6 +36,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="cancel">cancel.</param>
         /// <param name="fetchJson">fetchJson.</param>
         /// <param name="fetchJsonProper">fetchJsonProper.</param>
+        /// <param name="fetchJsonProperWithLineage">fetchJsonProperWithLineage.</param>
         /// <param name="fetchXml">fetchXml.</param>
         /// <param name="fetchParquet">fetchParquet.</param>
         /// <param name="fetchCsv">fetchCsv.</param>
@@ -43,13 +44,14 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="fetchExcel">fetchExcel.</param>
         /// <param name="fetchSqlite">fetchSqlite.</param>
         /// <param name="histogram">histogram.</param>
-        public BackgroundQueryResponse(string executionId = default(string), Link progress = default(Link), Link cancel = default(Link), Link fetchJson = default(Link), Link fetchJsonProper = default(Link), Link fetchXml = default(Link), Link fetchParquet = default(Link), Link fetchCsv = default(Link), Link fetchPipe = default(Link), Link fetchExcel = default(Link), Link fetchSqlite = default(Link), Link histogram = default(Link))
+        public BackgroundQueryResponse(string executionId = default(string), Link progress = default(Link), Link cancel = default(Link), Link fetchJson = default(Link), Link fetchJsonProper = default(Link), Link fetchJsonProperWithLineage = default(Link), Link fetchXml = default(Link), Link fetchParquet = default(Link), Link fetchCsv = default(Link), Link fetchPipe = default(Link), Link fetchExcel = default(Link), Link fetchSqlite = default(Link), Link histogram = default(Link))
         {
             this.ExecutionId = executionId;
             this.Progress = progress;
             this.Cancel = cancel;
             this.FetchJson = fetchJson;
             this.FetchJsonProper = fetchJsonProper;
+            this.FetchJsonProperWithLineage = fetchJsonProperWithLineage;
             this.FetchXml = fetchXml;
             this.FetchParquet = fetchParquet;
             this.FetchCsv = fetchCsv;
@@ -89,6 +91,12 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [DataMember(Name = "fetchJsonProper", EmitDefaultValue = false)]
         public Link FetchJsonProper { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FetchJsonProperWithLineage
+        /// </summary>
+        [DataMember(Name = "fetchJsonProperWithLineage", EmitDefaultValue = false)]
+        public Link FetchJsonProperWithLineage { get; set; }
 
         /// <summary>
         /// Gets or Sets FetchXml
@@ -145,6 +153,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  Cancel: ").Append(Cancel).Append("\n");
             sb.Append("  FetchJson: ").Append(FetchJson).Append("\n");
             sb.Append("  FetchJsonProper: ").Append(FetchJsonProper).Append("\n");
+            sb.Append("  FetchJsonProperWithLineage: ").Append(FetchJsonProperWithLineage).Append("\n");
             sb.Append("  FetchXml: ").Append(FetchXml).Append("\n");
             sb.Append("  FetchParquet: ").Append(FetchParquet).Append("\n");
             sb.Append("  FetchCsv: ").Append(FetchCsv).Append("\n");
@@ -213,6 +222,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.FetchJsonProper.Equals(input.FetchJsonProper))
                 ) && 
                 (
+                    this.FetchJsonProperWithLineage == input.FetchJsonProperWithLineage ||
+                    (this.FetchJsonProperWithLineage != null &&
+                    this.FetchJsonProperWithLineage.Equals(input.FetchJsonProperWithLineage))
+                ) && 
+                (
                     this.FetchXml == input.FetchXml ||
                     (this.FetchXml != null &&
                     this.FetchXml.Equals(input.FetchXml))
@@ -277,6 +291,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.FetchJsonProper != null)
                 {
                     hashCode = (hashCode * 59) + this.FetchJsonProper.GetHashCode();
+                }
+                if (this.FetchJsonProperWithLineage != null)
+                {
+                    hashCode = (hashCode * 59) + this.FetchJsonProperWithLineage.GetHashCode();
                 }
                 if (this.FetchXml != null)
                 {

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **IsMain** | **bool** |  | [optional] 
 **IsRequiredByProvider** | **bool** |  | [optional] 
 **MandatoryForActions** | **string** |  | [optional] 
+**Lineage** | [**Lineage**](Lineage.md) |  | [optional] 
 **Name** | **string** |  | [optional] 
 **Type** | **DataType** |  | [optional] 
 **Description** | **string** |  | [optional] 
@@ -24,6 +25,8 @@ bool isPrimaryKey = //"True";
 bool isMain = //"True";
 bool isRequiredByProvider = //"True";
 string mandatoryForActions = "example mandatoryForActions";
+Lineage? lineage = new Lineage();
+
 string name = "example name";
 string description = "example description";
 string displayName = "example displayName";
@@ -35,6 +38,7 @@ Column columnInstance = new Column(
     isMain: isMain,
     isRequiredByProvider: isRequiredByProvider,
     mandatoryForActions: mandatoryForActions,
+    lineage: lineage,
     name: name,
     type: type,
     description: description,

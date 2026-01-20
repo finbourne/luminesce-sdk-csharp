@@ -115,10 +115,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string GetByQueryJson(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        string GetByQueryJson(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetByQueryJson: Execute Sql from the url returning JSON
@@ -132,10 +133,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryJsonWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryJsonWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetByQueryParquet: Execute Sql from the url returning a Parquet file
         /// </summary>
@@ -350,10 +352,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string PutByQueryJson(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        string PutByQueryJson(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutByQueryJson: Execute Sql from the body returning JSON
@@ -367,10 +370,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryJsonWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryJsonWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// PutByQueryParquet: Execute Sql from the body making a Parquet file
         /// </summary>
@@ -598,11 +602,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetByQueryJsonAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<string> GetByQueryJsonAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetByQueryJson: Execute Sql from the url returning JSON
@@ -616,11 +621,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryJsonWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryJsonWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetByQueryParquet: Execute Sql from the url returning a Parquet file
         /// </summary>
@@ -847,11 +853,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> PutByQueryJsonAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<string> PutByQueryJsonAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// PutByQueryJson: Execute Sql from the body returning JSON
@@ -865,11 +872,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryJsonWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryJsonWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// PutByQueryParquet: Execute Sql from the body making a Parquet file
         /// </summary>
@@ -1693,12 +1701,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string GetByQueryJson(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public string GetByQueryJson(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetByQueryJsonWithHttpInfo(query, scalarParameters, queryName, timeout, jsonProper, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetByQueryJsonWithHttpInfo(query, scalarParameters, queryName, timeout, jsonProper, includeLineage, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1711,10 +1720,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryJsonWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetByQueryJsonWithHttpInfo(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1778,6 +1788,11 @@ namespace Finbourne.Luminesce.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "jsonProper", jsonProper));
             }
+            if (includeLineage != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeLineage", includeLineage));
+            }
 
             localVarRequestOptions.Operation = "SqlExecutionApi.GetByQueryJson";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1822,13 +1837,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetByQueryJsonAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<string> GetByQueryJsonAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetByQueryJsonWithHttpInfoAsync(query, scalarParameters, queryName, timeout, jsonProper, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetByQueryJsonWithHttpInfoAsync(query, scalarParameters, queryName, timeout, jsonProper, includeLineage, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1841,11 +1857,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeout">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryJsonWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetByQueryJsonWithHttpInfoAsync(string query, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeout = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1904,6 +1921,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (jsonProper != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "jsonProper", jsonProper));
+            }
+            if (includeLineage != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeLineage", includeLineage));
             }
 
             localVarRequestOptions.Operation = "SqlExecutionApi.GetByQueryJson";
@@ -3522,12 +3543,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string PutByQueryJson(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public string PutByQueryJson(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutByQueryJsonWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds, jsonProper, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutByQueryJsonWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds, jsonProper, includeLineage, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3540,10 +3562,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryJsonWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutByQueryJsonWithHttpInfo(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3607,6 +3630,11 @@ namespace Finbourne.Luminesce.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "jsonProper", jsonProper));
             }
+            if (includeLineage != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeLineage", includeLineage));
+            }
             localVarRequestOptions.Data = body;
 
             localVarRequestOptions.Operation = "SqlExecutionApi.PutByQueryJson";
@@ -3652,13 +3680,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> PutByQueryJsonAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<string> PutByQueryJsonAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutByQueryJsonWithHttpInfoAsync(body, scalarParameters, queryName, timeoutSeconds, jsonProper, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutByQueryJsonWithHttpInfoAsync(body, scalarParameters, queryName, timeoutSeconds, jsonProper, includeLineage, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3671,11 +3700,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; (optional)</param>
         /// <param name="timeoutSeconds">In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s (optional, default to 0)</param>
         /// <param name="jsonProper">Should this be text/json (not json-encoded-as-a-string) (optional, default to false)</param>
+        /// <param name="includeLineage">Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryJsonWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutByQueryJsonWithHttpInfoAsync(string body, Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), bool? jsonProper = default(bool?), bool? includeLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3734,6 +3764,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (jsonProper != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "jsonProper", jsonProper));
+            }
+            if (includeLineage != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeLineage", includeLineage));
             }
             localVarRequestOptions.Data = body;
 

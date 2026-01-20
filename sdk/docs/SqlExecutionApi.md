@@ -271,7 +271,7 @@ catch (ApiException e)
 
 <a id="getbyqueryjson"></a>
 # **GetByQueryJson**
-> string GetByQueryJson (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeout = null, bool? jsonProper = null)
+> string GetByQueryJson (string query, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeout = null, bool? jsonProper = null, bool? includeLineage = null)
 
 GetByQueryJson: Execute Sql from the url returning JSON
 
@@ -321,14 +321,15 @@ namespace Examples
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var timeout = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
             var jsonProper = false;  // bool? | Should this be text/json (not json-encoded-as-a-string) (optional)  (default to false)
+            var includeLineage = false;  // bool? | Should lineage be included? If true this will be `properJson` and the jsonProper flag ignored (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.GetByQueryJson(query, scalarParameters, queryName, timeout, jsonProper, opts: opts);
+                // string result = apiInstance.GetByQueryJson(query, scalarParameters, queryName, timeout, jsonProper, includeLineage, opts: opts);
 
                 // GetByQueryJson: Execute Sql from the url returning JSON
-                string result = apiInstance.GetByQueryJson(query, scalarParameters, queryName, timeout, jsonProper);
+                string result = apiInstance.GetByQueryJson(query, scalarParameters, queryName, timeout, jsonProper, includeLineage);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -349,7 +350,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetByQueryJson: Execute Sql from the url returning JSON
-    ApiResponse<string> response = apiInstance.GetByQueryJsonWithHttpInfo(query, scalarParameters, queryName, timeout, jsonProper);
+    ApiResponse<string> response = apiInstance.GetByQueryJsonWithHttpInfo(query, scalarParameters, queryName, timeout, jsonProper, includeLineage);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -371,6 +372,7 @@ catch (ApiException e)
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **timeout** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 | **jsonProper** | **bool?** | Should this be text/json (not json-encoded-as-a-string) | [optional] [default to false] |
+| **includeLineage** | **bool?** | Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored | [optional] [default to false] |
 
 ### Return type
 
@@ -1129,7 +1131,7 @@ catch (ApiException e)
 
 <a id="putbyqueryjson"></a>
 # **PutByQueryJson**
-> string PutByQueryJson (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeoutSeconds = null, bool? jsonProper = null)
+> string PutByQueryJson (string body, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeoutSeconds = null, bool? jsonProper = null, bool? includeLineage = null)
 
 PutByQueryJson: Execute Sql from the body returning JSON
 
@@ -1179,14 +1181,15 @@ namespace Examples
             var queryName = Get tables/fields;  // string? | Name to apply to the query in logs and `Sys.Logs.HcQueryStart` (optional) 
             var timeoutSeconds = 150;  // int? | In seconds: <0 or > 175 → 175s (Maximum allowed), 0 → 120s (optional)  (default to 0)
             var jsonProper = false;  // bool? | Should this be text/json (not json-encoded-as-a-string) (optional)  (default to false)
+            var includeLineage = false;  // bool? | Should lineage be included? If true this will be `properJson` and the jsonProper flag ignored (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.PutByQueryJson(body, scalarParameters, queryName, timeoutSeconds, jsonProper, opts: opts);
+                // string result = apiInstance.PutByQueryJson(body, scalarParameters, queryName, timeoutSeconds, jsonProper, includeLineage, opts: opts);
 
                 // PutByQueryJson: Execute Sql from the body returning JSON
-                string result = apiInstance.PutByQueryJson(body, scalarParameters, queryName, timeoutSeconds, jsonProper);
+                string result = apiInstance.PutByQueryJson(body, scalarParameters, queryName, timeoutSeconds, jsonProper, includeLineage);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1207,7 +1210,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // PutByQueryJson: Execute Sql from the body returning JSON
-    ApiResponse<string> response = apiInstance.PutByQueryJsonWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds, jsonProper);
+    ApiResponse<string> response = apiInstance.PutByQueryJsonWithHttpInfo(body, scalarParameters, queryName, timeoutSeconds, jsonProper, includeLineage);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1229,6 +1232,7 @@ catch (ApiException e)
 | **queryName** | **string?** | Name to apply to the query in logs and &#x60;Sys.Logs.HcQueryStart&#x60; | [optional]  |
 | **timeoutSeconds** | **int?** | In seconds: &lt;0 or &gt; 175 → 175s (Maximum allowed), 0 → 120s | [optional] [default to 0] |
 | **jsonProper** | **bool?** | Should this be text/json (not json-encoded-as-a-string) | [optional] [default to false] |
+| **includeLineage** | **bool?** | Should lineage be included? If true this will be &#x60;properJson&#x60; and the jsonProper flag ignored | [optional] [default to false] |
 
 ### Return type
 

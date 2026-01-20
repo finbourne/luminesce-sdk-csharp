@@ -258,6 +258,72 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultJsonProperWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// FetchQueryResultJsonProperWithLineage: Fetch the result of a query as JSON, but including a Lineage Node (if available)
+        /// </summary>
+        /// <remarks>
+        /// Fetch the data in proper Json format (if available, or if not simply being informed it is not yet ready) But embeds the data under a &#x60;Data&#x60; node and Lineage (if requested when starting the execution) under a &#x60;Lineage&#x60; node. Lineage is just for the &#39;raw query&#39; it ignores all of these parameters: sortBy, filter, select, groupBy and limit.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="sortBy">Order the results by these fields.             Use the &#x60;-&#x60; sign to denote descending order, e.g. &#x60;-MyFieldName&#x60;.  Numeric indexes may be used also, e.g. &#x60;2,-3&#x60;.             Multiple fields can be denoted by a comma e.g. &#x60;-MyFieldName,AnotherFieldName,-AFurtherFieldName&#x60;.             Default is null, the sort order specified in the query itself. (optional)</param>
+        /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
+        /// <param name="select">Default is null (meaning return all columns in the original query itself). The values are in terms of the result column name from the original data set and are comma delimited. The power of this comes in that you may aggregate the data if you wish (that is the main reason for allowing this, in fact). e.g.: - &#x60;MyField&#x60; - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name) - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works) - &#x60;count(distinct x) as numOfXs&#x60; If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].  e.g. - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;   where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
+        /// <param name="groupBy">Groups by the specified fields.             A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).             e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.             Default is null (meaning no grouping will be performed on the selected columns).             This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.             Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
+        /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>string</returns>
+        string FetchQueryResultJsonProperWithLineage(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// FetchQueryResultJsonProperWithLineage: Fetch the result of a query as JSON, but including a Lineage Node (if available)
+        /// </summary>
+        /// <remarks>
+        /// Fetch the data in proper Json format (if available, or if not simply being informed it is not yet ready) But embeds the data under a &#x60;Data&#x60; node and Lineage (if requested when starting the execution) under a &#x60;Lineage&#x60; node. Lineage is just for the &#39;raw query&#39; it ignores all of these parameters: sortBy, filter, select, groupBy and limit.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="sortBy">Order the results by these fields.             Use the &#x60;-&#x60; sign to denote descending order, e.g. &#x60;-MyFieldName&#x60;.  Numeric indexes may be used also, e.g. &#x60;2,-3&#x60;.             Multiple fields can be denoted by a comma e.g. &#x60;-MyFieldName,AnotherFieldName,-AFurtherFieldName&#x60;.             Default is null, the sort order specified in the query itself. (optional)</param>
+        /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
+        /// <param name="select">Default is null (meaning return all columns in the original query itself). The values are in terms of the result column name from the original data set and are comma delimited. The power of this comes in that you may aggregate the data if you wish (that is the main reason for allowing this, in fact). e.g.: - &#x60;MyField&#x60; - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name) - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works) - &#x60;count(distinct x) as numOfXs&#x60; If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].  e.g. - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;   where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
+        /// <param name="groupBy">Groups by the specified fields.             A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).             e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.             Default is null (meaning no grouping will be performed on the selected columns).             This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.             Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
+        /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of string</returns>
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultJsonProperWithLineageWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// FetchQueryResultLineage: Gets the Lineage determined while the query was executed
+        /// </summary>
+        /// <remarks>
+        /// Fetch the Lineage of the query in Json format. - this must have been requested when starting the query - if available (which is only after the query has executed) or if not simply being informed it is not yet ready  This contains some or all of: - What result columns mean, per column, and where their data came from - Some information about the data set as a whole: source tables/providers, joins, filters, etc. - ... Or a reason the information could not be generated (e.g. DirectProviders with unknown shape currently cause this to fail)  Note Lineage will never take into account sorts/filters/grouping/etc. placed when requesting the data. It will take into account such concepts when part of the query itself.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>string</returns>
+        string FetchQueryResultLineage(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// FetchQueryResultLineage: Gets the Lineage determined while the query was executed
+        /// </summary>
+        /// <remarks>
+        /// Fetch the Lineage of the query in Json format. - this must have been requested when starting the query - if available (which is only after the query has executed) or if not simply being informed it is not yet ready  This contains some or all of: - What result columns mean, per column, and where their data came from - Some information about the data set as a whole: source tables/providers, joins, filters, etc. - ... Or a reason the information could not be generated (e.g. DirectProviders with unknown shape currently cause this to fail)  Note Lineage will never take into account sorts/filters/grouping/etc. placed when requesting the data. It will take into account such concepts when part of the query itself.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of string</returns>
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultLineageWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// FetchQueryResultParquet: Fetch the result of a query as Parquet
         /// </summary>
         /// <remarks>
@@ -478,10 +544,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
+        /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryResponse</returns>
-        BackgroundQueryResponse StartQuery(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        BackgroundQueryResponse StartQuery(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// StartQuery: Start to Execute Sql in the background
@@ -496,10 +563,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
+        /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -748,6 +816,76 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultJsonProperWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// FetchQueryResultJsonProperWithLineage: Fetch the result of a query as JSON, but including a Lineage Node (if available)
+        /// </summary>
+        /// <remarks>
+        /// Fetch the data in proper Json format (if available, or if not simply being informed it is not yet ready) But embeds the data under a &#x60;Data&#x60; node and Lineage (if requested when starting the execution) under a &#x60;Lineage&#x60; node. Lineage is just for the &#39;raw query&#39; it ignores all of these parameters: sortBy, filter, select, groupBy and limit.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="sortBy">Order the results by these fields.             Use the &#x60;-&#x60; sign to denote descending order, e.g. &#x60;-MyFieldName&#x60;.  Numeric indexes may be used also, e.g. &#x60;2,-3&#x60;.             Multiple fields can be denoted by a comma e.g. &#x60;-MyFieldName,AnotherFieldName,-AFurtherFieldName&#x60;.             Default is null, the sort order specified in the query itself. (optional)</param>
+        /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
+        /// <param name="select">Default is null (meaning return all columns in the original query itself). The values are in terms of the result column name from the original data set and are comma delimited. The power of this comes in that you may aggregate the data if you wish (that is the main reason for allowing this, in fact). e.g.: - &#x60;MyField&#x60; - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name) - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works) - &#x60;count(distinct x) as numOfXs&#x60; If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].  e.g. - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;   where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
+        /// <param name="groupBy">Groups by the specified fields.             A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).             e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.             Default is null (meaning no grouping will be performed on the selected columns).             This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.             Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
+        /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> FetchQueryResultJsonProperWithLineageAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// FetchQueryResultJsonProperWithLineage: Fetch the result of a query as JSON, but including a Lineage Node (if available)
+        /// </summary>
+        /// <remarks>
+        /// Fetch the data in proper Json format (if available, or if not simply being informed it is not yet ready) But embeds the data under a &#x60;Data&#x60; node and Lineage (if requested when starting the execution) under a &#x60;Lineage&#x60; node. Lineage is just for the &#39;raw query&#39; it ignores all of these parameters: sortBy, filter, select, groupBy and limit.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="sortBy">Order the results by these fields.             Use the &#x60;-&#x60; sign to denote descending order, e.g. &#x60;-MyFieldName&#x60;.  Numeric indexes may be used also, e.g. &#x60;2,-3&#x60;.             Multiple fields can be denoted by a comma e.g. &#x60;-MyFieldName,AnotherFieldName,-AFurtherFieldName&#x60;.             Default is null, the sort order specified in the query itself. (optional)</param>
+        /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
+        /// <param name="select">Default is null (meaning return all columns in the original query itself). The values are in terms of the result column name from the original data set and are comma delimited. The power of this comes in that you may aggregate the data if you wish (that is the main reason for allowing this, in fact). e.g.: - &#x60;MyField&#x60; - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name) - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works) - &#x60;count(distinct x) as numOfXs&#x60; If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].  e.g. - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;   where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
+        /// <param name="groupBy">Groups by the specified fields.             A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).             e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.             Default is null (meaning no grouping will be performed on the selected columns).             This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.             Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
+        /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultJsonProperWithLineageWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// FetchQueryResultLineage: Gets the Lineage determined while the query was executed
+        /// </summary>
+        /// <remarks>
+        /// Fetch the Lineage of the query in Json format. - this must have been requested when starting the query - if available (which is only after the query has executed) or if not simply being informed it is not yet ready  This contains some or all of: - What result columns mean, per column, and where their data came from - Some information about the data set as a whole: source tables/providers, joins, filters, etc. - ... Or a reason the information could not be generated (e.g. DirectProviders with unknown shape currently cause this to fail)  Note Lineage will never take into account sorts/filters/grouping/etc. placed when requesting the data. It will take into account such concepts when part of the query itself.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> FetchQueryResultLineageAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// FetchQueryResultLineage: Gets the Lineage determined while the query was executed
+        /// </summary>
+        /// <remarks>
+        /// Fetch the Lineage of the query in Json format. - this must have been requested when starting the query - if available (which is only after the query has executed) or if not simply being informed it is not yet ready  This contains some or all of: - What result columns mean, per column, and where their data came from - Some information about the data set as a whole: source tables/providers, joins, filters, etc. - ... Or a reason the information could not be generated (e.g. DirectProviders with unknown shape currently cause this to fail)  Note Lineage will never take into account sorts/filters/grouping/etc. placed when requesting the data. It will take into account such concepts when part of the query itself.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultLineageWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// FetchQueryResultParquet: Fetch the result of a query as Parquet
         /// </summary>
         /// <remarks>
@@ -980,11 +1118,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
+        /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryResponse</returns>
-        System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// StartQuery: Start to Execute Sql in the background
@@ -999,11 +1138,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
+        /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryResponse)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -2851,6 +2991,518 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
+        /// FetchQueryResultJsonProperWithLineage: Fetch the result of a query as JSON, but including a Lineage Node (if available) Fetch the data in proper Json format (if available, or if not simply being informed it is not yet ready) But embeds the data under a &#x60;Data&#x60; node and Lineage (if requested when starting the execution) under a &#x60;Lineage&#x60; node. Lineage is just for the &#39;raw query&#39; it ignores all of these parameters: sortBy, filter, select, groupBy and limit.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="sortBy">Order the results by these fields.             Use the &#x60;-&#x60; sign to denote descending order, e.g. &#x60;-MyFieldName&#x60;.  Numeric indexes may be used also, e.g. &#x60;2,-3&#x60;.             Multiple fields can be denoted by a comma e.g. &#x60;-MyFieldName,AnotherFieldName,-AFurtherFieldName&#x60;.             Default is null, the sort order specified in the query itself. (optional)</param>
+        /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
+        /// <param name="select">Default is null (meaning return all columns in the original query itself). The values are in terms of the result column name from the original data set and are comma delimited. The power of this comes in that you may aggregate the data if you wish (that is the main reason for allowing this, in fact). e.g.: - &#x60;MyField&#x60; - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name) - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works) - &#x60;count(distinct x) as numOfXs&#x60; If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].  e.g. - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;   where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
+        /// <param name="groupBy">Groups by the specified fields.             A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).             e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.             Default is null (meaning no grouping will be performed on the selected columns).             This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.             Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
+        /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>string</returns>
+        public string FetchQueryResultJsonProperWithLineage(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultJsonProperWithLineageWithHttpInfo(executionId, download, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// FetchQueryResultJsonProperWithLineage: Fetch the result of a query as JSON, but including a Lineage Node (if available) Fetch the data in proper Json format (if available, or if not simply being informed it is not yet ready) But embeds the data under a &#x60;Data&#x60; node and Lineage (if requested when starting the execution) under a &#x60;Lineage&#x60; node. Lineage is just for the &#39;raw query&#39; it ignores all of these parameters: sortBy, filter, select, groupBy and limit.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="sortBy">Order the results by these fields.             Use the &#x60;-&#x60; sign to denote descending order, e.g. &#x60;-MyFieldName&#x60;.  Numeric indexes may be used also, e.g. &#x60;2,-3&#x60;.             Multiple fields can be denoted by a comma e.g. &#x60;-MyFieldName,AnotherFieldName,-AFurtherFieldName&#x60;.             Default is null, the sort order specified in the query itself. (optional)</param>
+        /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
+        /// <param name="select">Default is null (meaning return all columns in the original query itself). The values are in terms of the result column name from the original data set and are comma delimited. The power of this comes in that you may aggregate the data if you wish (that is the main reason for allowing this, in fact). e.g.: - &#x60;MyField&#x60; - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name) - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works) - &#x60;count(distinct x) as numOfXs&#x60; If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].  e.g. - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;   where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
+        /// <param name="groupBy">Groups by the specified fields.             A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).             e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.             Default is null (meaning no grouping will be performed on the selected columns).             This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.             Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
+        /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of string</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultJsonProperWithLineageWithHttpInfo(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'executionId' is set
+            if (executionId == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'executionId' when calling SqlBackgroundExecutionApi->FetchQueryResultJsonProperWithLineage");
+            }
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("executionId", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(executionId)); // path parameter
+            if (download != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "download", download));
+            }
+            if (sortBy != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (filter != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (select != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "select", select));
+            }
+            if (groupBy != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "groupBy", groupBy));
+            }
+            if (limit != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (loadWaitMilliseconds != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "loadWaitMilliseconds", loadWaitMilliseconds));
+            }
+
+            localVarRequestOptions.Operation = "SqlBackgroundExecutionApi.FetchQueryResultJsonProperWithLineage";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<string>("/api/SqlBackground/{executionId}/jsonProperWithLineage", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FetchQueryResultJsonProperWithLineage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// FetchQueryResultJsonProperWithLineage: Fetch the result of a query as JSON, but including a Lineage Node (if available) Fetch the data in proper Json format (if available, or if not simply being informed it is not yet ready) But embeds the data under a &#x60;Data&#x60; node and Lineage (if requested when starting the execution) under a &#x60;Lineage&#x60; node. Lineage is just for the &#39;raw query&#39; it ignores all of these parameters: sortBy, filter, select, groupBy and limit.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="sortBy">Order the results by these fields.             Use the &#x60;-&#x60; sign to denote descending order, e.g. &#x60;-MyFieldName&#x60;.  Numeric indexes may be used also, e.g. &#x60;2,-3&#x60;.             Multiple fields can be denoted by a comma e.g. &#x60;-MyFieldName,AnotherFieldName,-AFurtherFieldName&#x60;.             Default is null, the sort order specified in the query itself. (optional)</param>
+        /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
+        /// <param name="select">Default is null (meaning return all columns in the original query itself). The values are in terms of the result column name from the original data set and are comma delimited. The power of this comes in that you may aggregate the data if you wish (that is the main reason for allowing this, in fact). e.g.: - &#x60;MyField&#x60; - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name) - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works) - &#x60;count(distinct x) as numOfXs&#x60; If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].  e.g. - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;   where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
+        /// <param name="groupBy">Groups by the specified fields.             A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).             e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.             Default is null (meaning no grouping will be performed on the selected columns).             This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.             Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
+        /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> FetchQueryResultJsonProperWithLineageAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultJsonProperWithLineageWithHttpInfoAsync(executionId, download, sortBy, filter, select, groupBy, limit, page, loadWaitMilliseconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// FetchQueryResultJsonProperWithLineage: Fetch the result of a query as JSON, but including a Lineage Node (if available) Fetch the data in proper Json format (if available, or if not simply being informed it is not yet ready) But embeds the data under a &#x60;Data&#x60; node and Lineage (if requested when starting the execution) under a &#x60;Lineage&#x60; node. Lineage is just for the &#39;raw query&#39; it ignores all of these parameters: sortBy, filter, select, groupBy and limit.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="download">Makes this a file-download request (as opposed to returning the data in the response-body) (optional, default to false)</param>
+        /// <param name="sortBy">Order the results by these fields.             Use the &#x60;-&#x60; sign to denote descending order, e.g. &#x60;-MyFieldName&#x60;.  Numeric indexes may be used also, e.g. &#x60;2,-3&#x60;.             Multiple fields can be denoted by a comma e.g. &#x60;-MyFieldName,AnotherFieldName,-AFurtherFieldName&#x60;.             Default is null, the sort order specified in the query itself. (optional)</param>
+        /// <param name="filter">An ODATA filter per Finbourne.Filtering syntax. (optional)</param>
+        /// <param name="select">Default is null (meaning return all columns in the original query itself). The values are in terms of the result column name from the original data set and are comma delimited. The power of this comes in that you may aggregate the data if you wish (that is the main reason for allowing this, in fact). e.g.: - &#x60;MyField&#x60; - &#x60;Max(x) FILTER (WHERE y &gt; 12) as ABC&#x60; (max of a field, if another field lets it qualify, with a nice column name) - &#x60;count(*)&#x60; (count the rows for the given group, that would produce a rather ugly column name, but  it works) - &#x60;count(distinct x) as numOfXs&#x60; If there was an illegal character in a field you are selecting from, you are responsible for bracketing it with [ ].  e.g. - &#x60;some_field, count(*) as a, max(x) as b, min([column with space in name]) as nice_name&#x60;   where you would likely want to pass &#x60;1&#x60; as the &#x60;groupBy&#x60; also. (optional)</param>
+        /// <param name="groupBy">Groups by the specified fields.             A comma delimited list of: 1 based numeric indexes (cleaner), or repeats of the select expressions (a bit verbose and must match exactly).             e.g. &#x60;2,3&#x60;, &#x60;myColumn&#x60;.             Default is null (meaning no grouping will be performed on the selected columns).             This applies only over the result set being requested here, meaning indexes into the \&quot;select\&quot; parameter fields.             Only specify this if you are selecting aggregations in the \&quot;select\&quot; parameter. (optional)</param>
+        /// <param name="limit">When paginating, only return this number of records, page should also be specified. (optional, default to 0)</param>
+        /// <param name="page">0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. (optional, default to 0)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultJsonProperWithLineageWithHttpInfoAsync(string executionId, bool? download = default(bool?), string? sortBy = default(string?), string? filter = default(string?), string? select = default(string?), string? groupBy = default(string?), int? limit = default(int?), int? page = default(int?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'executionId' is set
+            if (executionId == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'executionId' when calling SqlBackgroundExecutionApi->FetchQueryResultJsonProperWithLineage");
+            }
+
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("executionId", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(executionId)); // path parameter
+            if (download != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "download", download));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (select != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "select", select));
+            }
+            if (groupBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "groupBy", groupBy));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (loadWaitMilliseconds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "loadWaitMilliseconds", loadWaitMilliseconds));
+            }
+
+            localVarRequestOptions.Operation = "SqlBackgroundExecutionApi.FetchQueryResultJsonProperWithLineage";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/api/SqlBackground/{executionId}/jsonProperWithLineage", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FetchQueryResultJsonProperWithLineage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// FetchQueryResultLineage: Gets the Lineage determined while the query was executed Fetch the Lineage of the query in Json format. - this must have been requested when starting the query - if available (which is only after the query has executed) or if not simply being informed it is not yet ready  This contains some or all of: - What result columns mean, per column, and where their data came from - Some information about the data set as a whole: source tables/providers, joins, filters, etc. - ... Or a reason the information could not be generated (e.g. DirectProviders with unknown shape currently cause this to fail)  Note Lineage will never take into account sorts/filters/grouping/etc. placed when requesting the data. It will take into account such concepts when part of the query itself.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>string</returns>
+        public string FetchQueryResultLineage(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = FetchQueryResultLineageWithHttpInfo(executionId, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// FetchQueryResultLineage: Gets the Lineage determined while the query was executed Fetch the Lineage of the query in Json format. - this must have been requested when starting the query - if available (which is only after the query has executed) or if not simply being informed it is not yet ready  This contains some or all of: - What result columns mean, per column, and where their data came from - Some information about the data set as a whole: source tables/providers, joins, filters, etc. - ... Or a reason the information could not be generated (e.g. DirectProviders with unknown shape currently cause this to fail)  Note Lineage will never take into account sorts/filters/grouping/etc. placed when requesting the data. It will take into account such concepts when part of the query itself.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of string</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> FetchQueryResultLineageWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'executionId' is set
+            if (executionId == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'executionId' when calling SqlBackgroundExecutionApi->FetchQueryResultLineage");
+            }
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("executionId", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(executionId)); // path parameter
+
+            localVarRequestOptions.Operation = "SqlBackgroundExecutionApi.FetchQueryResultLineage";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<string>("/api/SqlBackground/{executionId}/lineage", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FetchQueryResultLineage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// FetchQueryResultLineage: Gets the Lineage determined while the query was executed Fetch the Lineage of the query in Json format. - this must have been requested when starting the query - if available (which is only after the query has executed) or if not simply being informed it is not yet ready  This contains some or all of: - What result columns mean, per column, and where their data came from - Some information about the data set as a whole: source tables/providers, joins, filters, etc. - ... Or a reason the information could not be generated (e.g. DirectProviders with unknown shape currently cause this to fail)  Note Lineage will never take into account sorts/filters/grouping/etc. placed when requesting the data. It will take into account such concepts when part of the query itself.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> FetchQueryResultLineageAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await FetchQueryResultLineageWithHttpInfoAsync(executionId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// FetchQueryResultLineage: Gets the Lineage determined while the query was executed Fetch the Lineage of the query in Json format. - this must have been requested when starting the query - if available (which is only after the query has executed) or if not simply being informed it is not yet ready  This contains some or all of: - What result columns mean, per column, and where their data came from - Some information about the data set as a whole: source tables/providers, joins, filters, etc. - ... Or a reason the information could not be generated (e.g. DirectProviders with unknown shape currently cause this to fail)  Note Lineage will never take into account sorts/filters/grouping/etc. placed when requesting the data. It will take into account such concepts when part of the query itself.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> FetchQueryResultLineageWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'executionId' is set
+            if (executionId == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'executionId' when calling SqlBackgroundExecutionApi->FetchQueryResultLineage");
+            }
+
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("executionId", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(executionId)); // path parameter
+
+            localVarRequestOptions.Operation = "SqlBackgroundExecutionApi.FetchQueryResultLineage";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/api/SqlBackground/{executionId}/lineage", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FetchQueryResultLineage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// FetchQueryResultParquet: Fetch the result of a query as Parquet Fetch the data in the format of the method&#39;s name (if available, or if not simply being informed it is not yet ready).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4461,12 +5113,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
+        /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryResponse</returns>
-        public BackgroundQueryResponse StartQuery(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public BackgroundQueryResponse StartQuery(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = StartQueryWithHttpInfo(body, executionId, scalarParameters, queryName, timeoutSeconds, keepForSeconds, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = StartQueryWithHttpInfo(body, executionId, scalarParameters, queryName, timeoutSeconds, keepForSeconds, executionFlags, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -4480,10 +5133,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
+        /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -4552,6 +5206,11 @@ namespace Finbourne.Luminesce.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "keepForSeconds", keepForSeconds));
             }
+            if (executionFlags != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "executionFlags", executionFlags));
+            }
             localVarRequestOptions.Data = body;
 
             localVarRequestOptions.Operation = "SqlBackgroundExecutionApi.StartQuery";
@@ -4598,13 +5257,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
+        /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = await StartQueryWithHttpInfoAsync(body, executionId, scalarParameters, queryName, timeoutSeconds, keepForSeconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = await StartQueryWithHttpInfoAsync(body, executionId, scalarParameters, queryName, timeoutSeconds, keepForSeconds, executionFlags, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4618,11 +5278,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="queryName">A name for this query.  This goes into logs and is available in &#x60;Sys.Logs.HcQueryStart&#x60;. (optional)</param>
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
+        /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -4685,6 +5346,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (keepForSeconds != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "keepForSeconds", keepForSeconds));
+            }
+            if (executionFlags != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "executionFlags", executionFlags));
             }
             localVarRequestOptions.Data = body;
 

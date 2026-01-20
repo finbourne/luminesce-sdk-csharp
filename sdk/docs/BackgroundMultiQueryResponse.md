@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Cancel** | [**Link**](Link.md) |  | [optional] 
 **FetchJson** | [**List&lt;Link&gt;**](Link.md) | Json (as a string) data request links for all of the child queries | [optional] [readonly] 
 **FetchJsonProper** | [**List&lt;Link&gt;**](Link.md) | Json-proper data request links for all of the child queries | [optional] [readonly] 
+**FetchJsonProperWithLineage** | [**List&lt;Link&gt;**](Link.md) | Json-proper-with-lineage data request links for all of the child queries | [optional] [readonly] 
 **FetchXml** | [**List&lt;Link&gt;**](Link.md) | Xml data request links for all of the child queries | [optional] [readonly] 
 **FetchParquet** | [**List&lt;Link&gt;**](Link.md) | Parquet data request links for all of the child queries | [optional] [readonly] 
 **FetchCsv** | [**List&lt;Link&gt;**](Link.md) | CSV data request links for all of the child queries | [optional] [readonly] 
@@ -28,6 +29,7 @@ Link? cancel = new Link();
 
 List<Link> fetchJson = new List<Link>();
 List<Link> fetchJsonProper = new List<Link>();
+List<Link> fetchJsonProperWithLineage = new List<Link>();
 List<Link> fetchXml = new List<Link>();
 List<Link> fetchParquet = new List<Link>();
 List<Link> fetchCsv = new List<Link>();
@@ -42,6 +44,7 @@ BackgroundMultiQueryResponse backgroundMultiQueryResponseInstance = new Backgrou
     cancel: cancel,
     fetchJson: fetchJson,
     fetchJsonProper: fetchJsonProper,
+    fetchJsonProperWithLineage: fetchJsonProperWithLineage,
     fetchXml: fetchXml,
     fetchParquet: fetchParquet,
     fetchCsv: fetchCsv,

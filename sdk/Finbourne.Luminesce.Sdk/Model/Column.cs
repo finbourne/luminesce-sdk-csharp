@@ -47,6 +47,7 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="isMain">isMain.</param>
         /// <param name="isRequiredByProvider">isRequiredByProvider.</param>
         /// <param name="mandatoryForActions">mandatoryForActions.</param>
+        /// <param name="lineage">lineage.</param>
         /// <param name="name">name.</param>
         /// <param name="type">type.</param>
         /// <param name="description">description.</param>
@@ -54,12 +55,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="conditionUsage">conditionUsage.</param>
         /// <param name="sampleValues">sampleValues.</param>
         /// <param name="allowedValues">allowedValues.</param>
-        public Column(bool isPrimaryKey = default(bool), bool isMain = default(bool), bool isRequiredByProvider = default(bool), string mandatoryForActions = default(string), string name = default(string), DataType ?type = default(DataType?), string description = default(string), string displayName = default(string), ConditionAttributes ?conditionUsage = default(ConditionAttributes?), string sampleValues = default(string), string allowedValues = default(string))
+        public Column(bool isPrimaryKey = default(bool), bool isMain = default(bool), bool isRequiredByProvider = default(bool), string mandatoryForActions = default(string), Lineage lineage = default(Lineage), string name = default(string), DataType ?type = default(DataType?), string description = default(string), string displayName = default(string), ConditionAttributes ?conditionUsage = default(ConditionAttributes?), string sampleValues = default(string), string allowedValues = default(string))
         {
             this.IsPrimaryKey = isPrimaryKey;
             this.IsMain = isMain;
             this.IsRequiredByProvider = isRequiredByProvider;
             this.MandatoryForActions = mandatoryForActions;
+            this.Lineage = lineage;
             this.Name = name;
             this.Type = type;
             this.Description = description;
@@ -92,6 +94,12 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [DataMember(Name = "mandatoryForActions", EmitDefaultValue = true)]
         public string MandatoryForActions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Lineage
+        /// </summary>
+        [DataMember(Name = "lineage", EmitDefaultValue = false)]
+        public Lineage Lineage { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -135,6 +143,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  IsMain: ").Append(IsMain).Append("\n");
             sb.Append("  IsRequiredByProvider: ").Append(IsRequiredByProvider).Append("\n");
             sb.Append("  MandatoryForActions: ").Append(MandatoryForActions).Append("\n");
+            sb.Append("  Lineage: ").Append(Lineage).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -195,6 +204,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.MandatoryForActions.Equals(input.MandatoryForActions))
                 ) && 
                 (
+                    this.Lineage == input.Lineage ||
+                    (this.Lineage != null &&
+                    this.Lineage.Equals(input.Lineage))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -244,6 +258,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.MandatoryForActions != null)
                 {
                     hashCode = (hashCode * 59) + this.MandatoryForActions.GetHashCode();
+                }
+                if (this.Lineage != null)
+                {
+                    hashCode = (hashCode * 59) + this.Lineage.GetHashCode();
                 }
                 if (this.Name != null)
                 {

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Cancel** | [**Link**](Link.md) |  | [optional] 
 **FetchJson** | [**Link**](Link.md) |  | [optional] 
 **FetchJsonProper** | [**Link**](Link.md) |  | [optional] 
+**FetchJsonProperWithLineage** | [**Link**](Link.md) |  | [optional] 
 **FetchXml** | [**Link**](Link.md) |  | [optional] 
 **FetchParquet** | [**Link**](Link.md) |  | [optional] 
 **FetchCsv** | [**Link**](Link.md) |  | [optional] 
@@ -30,6 +31,8 @@ Link? cancel = new Link();
 Link? fetchJson = new Link();
 
 Link? fetchJsonProper = new Link();
+
+Link? fetchJsonProperWithLineage = new Link();
 
 Link? fetchXml = new Link();
 
@@ -52,6 +55,7 @@ BackgroundQueryResponse backgroundQueryResponseInstance = new BackgroundQueryRes
     cancel: cancel,
     fetchJson: fetchJson,
     fetchJsonProper: fetchJsonProper,
+    fetchJsonProperWithLineage: fetchJsonProperWithLineage,
     fetchXml: fetchXml,
     fetchParquet: fetchParquet,
     fetchCsv: fetchCsv,

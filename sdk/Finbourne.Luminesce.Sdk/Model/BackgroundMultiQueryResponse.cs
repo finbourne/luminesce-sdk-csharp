@@ -96,6 +96,21 @@ namespace Finbourne.Luminesce.Sdk.Model
             return false;
         }
         /// <summary>
+        /// Json-proper-with-lineage data request links for all of the child queries
+        /// </summary>
+        /// <value>Json-proper-with-lineage data request links for all of the child queries</value>
+        [DataMember(Name = "fetchJsonProperWithLineage", EmitDefaultValue = true)]
+        public List<Link> FetchJsonProperWithLineage { get; private set; }
+
+        /// <summary>
+        /// Returns false as FetchJsonProperWithLineage should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeFetchJsonProperWithLineage()
+        {
+            return false;
+        }
+        /// <summary>
         /// Xml data request links for all of the child queries
         /// </summary>
         /// <value>Xml data request links for all of the child queries</value>
@@ -213,6 +228,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  Cancel: ").Append(Cancel).Append("\n");
             sb.Append("  FetchJson: ").Append(FetchJson).Append("\n");
             sb.Append("  FetchJsonProper: ").Append(FetchJsonProper).Append("\n");
+            sb.Append("  FetchJsonProperWithLineage: ").Append(FetchJsonProperWithLineage).Append("\n");
             sb.Append("  FetchXml: ").Append(FetchXml).Append("\n");
             sb.Append("  FetchParquet: ").Append(FetchParquet).Append("\n");
             sb.Append("  FetchCsv: ").Append(FetchCsv).Append("\n");
@@ -281,6 +297,12 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.FetchJsonProper != null &&
                     input.FetchJsonProper != null &&
                     this.FetchJsonProper.SequenceEqual(input.FetchJsonProper)
+                ) && 
+                (
+                    this.FetchJsonProperWithLineage == input.FetchJsonProperWithLineage ||
+                    this.FetchJsonProperWithLineage != null &&
+                    input.FetchJsonProperWithLineage != null &&
+                    this.FetchJsonProperWithLineage.SequenceEqual(input.FetchJsonProperWithLineage)
                 ) && 
                 (
                     this.FetchXml == input.FetchXml ||
@@ -354,6 +376,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.FetchJsonProper != null)
                 {
                     hashCode = (hashCode * 59) + this.FetchJsonProper.GetHashCode();
+                }
+                if (this.FetchJsonProperWithLineage != null)
+                {
+                    hashCode = (hashCode * 59) + this.FetchJsonProperWithLineage.GetHashCode();
                 }
                 if (this.FetchXml != null)
                 {
