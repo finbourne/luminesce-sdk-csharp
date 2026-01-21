@@ -66,94 +66,100 @@ namespace Finbourne.Luminesce.Sdk.Model
         AzureProviders = 6,
 
         /// <summary>
+        /// Enum GcsProviders for value: Gcs_Providers
+        /// </summary>
+        [EnumMember(Value = "Gcs_Providers")]
+        GcsProviders = 7,
+
+        /// <summary>
         /// Enum SqlDbProvidersDb2Linux for value: SqlDb_Providers_Db2Linux
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_Db2Linux")]
-        SqlDbProvidersDb2Linux = 7,
+        SqlDbProvidersDb2Linux = 8,
 
         /// <summary>
         /// Enum SqlDbProvidersMySql for value: SqlDb_Providers_MySql
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_MySql")]
-        SqlDbProvidersMySql = 8,
+        SqlDbProvidersMySql = 9,
 
         /// <summary>
         /// Enum SqlDbProvidersOracle for value: SqlDb_Providers_Oracle
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_Oracle")]
-        SqlDbProvidersOracle = 9,
+        SqlDbProvidersOracle = 10,
 
         /// <summary>
         /// Enum SqlDbProvidersOracleSnowflake for value: SqlDb_Providers_Oracle_Snowflake
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_Oracle_Snowflake")]
-        SqlDbProvidersOracleSnowflake = 10,
+        SqlDbProvidersOracleSnowflake = 11,
 
         /// <summary>
         /// Enum SqlDbProvidersPostgresql for value: SqlDb_Providers_Postgresql
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_Postgresql")]
-        SqlDbProvidersPostgresql = 11,
+        SqlDbProvidersPostgresql = 12,
 
         /// <summary>
         /// Enum SqlDbProvidersSnowflake for value: SqlDb_Providers_Snowflake
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_Snowflake")]
-        SqlDbProvidersSnowflake = 12,
+        SqlDbProvidersSnowflake = 13,
 
         /// <summary>
         /// Enum SqlDbProvidersSqlServer for value: SqlDb_Providers_SqlServer
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_SqlServer")]
-        SqlDbProvidersSqlServer = 13,
+        SqlDbProvidersSqlServer = 14,
 
         /// <summary>
         /// Enum SqlDbProvidersSybaseAse for value: SqlDb_Providers_SybaseAse
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_SybaseAse")]
-        SqlDbProvidersSybaseAse = 14,
+        SqlDbProvidersSybaseAse = 15,
 
         /// <summary>
         /// Enum SqlDbProvidersSqLite for value: SqlDb_Providers_SqLite
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_SqLite")]
-        SqlDbProvidersSqLite = 15,
+        SqlDbProvidersSqLite = 16,
 
         /// <summary>
         /// Enum SqlDbProvidersDuckDb for value: SqlDb_Providers_DuckDb
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_DuckDb")]
-        SqlDbProvidersDuckDb = 16,
+        SqlDbProvidersDuckDb = 17,
 
         /// <summary>
         /// Enum SqlDbProvidersAwsDynamoDb for value: SqlDb_Providers_AwsDynamoDb
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_AwsDynamoDb")]
-        SqlDbProvidersAwsDynamoDb = 17,
+        SqlDbProvidersAwsDynamoDb = 18,
 
         /// <summary>
         /// Enum SqlDbProvidersSqlServerOracle for value: SqlDb_Providers_SqlServer_Oracle
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_SqlServer_Oracle")]
-        SqlDbProvidersSqlServerOracle = 18,
+        SqlDbProvidersSqlServerOracle = 19,
 
         /// <summary>
         /// Enum JdbcDriver for value: Jdbc_Driver
         /// </summary>
         [EnumMember(Value = "Jdbc_Driver")]
-        JdbcDriver = 19,
+        JdbcDriver = 20,
 
         /// <summary>
         /// Enum PowerBiConnector for value: PowerBi_Connector
         /// </summary>
         [EnumMember(Value = "PowerBi_Connector")]
-        PowerBiConnector = 20,
+        PowerBiConnector = 21,
 
         /// <summary>
         /// Enum OdbcWin64Driver for value: Odbc_Win64_Driver
         /// </summary>
         [EnumMember(Value = "Odbc_Win64_Driver")]
-        OdbcWin64Driver = 21
+        OdbcWin64Driver = 22
     }
 
 }
