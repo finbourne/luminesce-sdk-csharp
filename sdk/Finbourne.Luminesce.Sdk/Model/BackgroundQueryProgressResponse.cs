@@ -52,7 +52,8 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="query">The LuminesceSql of the original request.</param>
         /// <param name="queryName">The QueryName given in the original request.</param>
         /// <param name="columnsAvailable">When HasData is true this is the schema of columns that will be returned if the data is requested.</param>
-        public BackgroundQueryProgressResponse(bool hasData = default(bool), int rowCount = default(int), TaskStatus ?status = default(TaskStatus?), BackgroundQueryState ?state = default(BackgroundQueryState?), string progress = default(string), List<FeedbackEventArgs> feedback = default(List<FeedbackEventArgs>), string query = default(string), string queryName = default(string), List<Column> columnsAvailable = default(List<Column>))
+        /// <param name="lineage">lineage.</param>
+        public BackgroundQueryProgressResponse(bool hasData = default(bool), int rowCount = default(int), TaskStatus ?status = default(TaskStatus?), BackgroundQueryState ?state = default(BackgroundQueryState?), string progress = default(string), List<FeedbackEventArgs> feedback = default(List<FeedbackEventArgs>), string query = default(string), string queryName = default(string), List<Column> columnsAvailable = default(List<Column>), TableLineage lineage = default(TableLineage))
         {
             this.HasData = hasData;
             this.RowCount = rowCount;
@@ -63,6 +64,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             this.Query = query;
             this.QueryName = queryName;
             this.ColumnsAvailable = columnsAvailable;
+            this.Lineage = lineage;
         }
 
         /// <summary>
@@ -115,6 +117,12 @@ namespace Finbourne.Luminesce.Sdk.Model
         public List<Column> ColumnsAvailable { get; set; }
 
         /// <summary>
+        /// Gets or Sets Lineage
+        /// </summary>
+        [DataMember(Name = "lineage", EmitDefaultValue = false)]
+        public TableLineage Lineage { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -131,6 +139,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  Query: ").Append(Query).Append("\n");
             sb.Append("  QueryName: ").Append(QueryName).Append("\n");
             sb.Append("  ColumnsAvailable: ").Append(ColumnsAvailable).Append("\n");
+            sb.Append("  Lineage: ").Append(Lineage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -208,6 +217,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.ColumnsAvailable != null &&
                     input.ColumnsAvailable != null &&
                     this.ColumnsAvailable.SequenceEqual(input.ColumnsAvailable)
+                ) && 
+                (
+                    this.Lineage == input.Lineage ||
+                    (this.Lineage != null &&
+                    this.Lineage.Equals(input.Lineage))
                 );
         }
 
@@ -243,6 +257,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.ColumnsAvailable != null)
                 {
                     hashCode = (hashCode * 59) + this.ColumnsAvailable.GetHashCode();
+                }
+                if (this.Lineage != null)
+                {
+                    hashCode = (hashCode * 59) + this.Lineage.GetHashCode();
                 }
                 return hashCode;
             }

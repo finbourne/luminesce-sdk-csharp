@@ -39,13 +39,15 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="dateFrom">Parameter to determine the lower bound in a date range.</param>
         /// <param name="dateTo">Parameter to determine the upper bound in a date range.</param>
         /// <param name="effectiveAt">EffectiveAt of the dashboard.</param>
+        /// <param name="effectiveFrom">EffectiveFrom of the dashboard.</param>
         /// <param name="asAt">AsAt of the dashboard (required).</param>
-        public DateParameters(DateTimeOffset? dateFrom = default(DateTimeOffset?), DateTimeOffset? dateTo = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), DateTimeOffset asAt = default(DateTimeOffset))
+        public DateParameters(DateTimeOffset? dateFrom = default(DateTimeOffset?), DateTimeOffset? dateTo = default(DateTimeOffset?), DateTimeOffset? effectiveAt = default(DateTimeOffset?), DateTimeOffset? effectiveFrom = default(DateTimeOffset?), DateTimeOffset asAt = default(DateTimeOffset))
         {
             this.AsAt = asAt;
             this.DateFrom = dateFrom;
             this.DateTo = dateTo;
             this.EffectiveAt = effectiveAt;
+            this.EffectiveFrom = effectiveFrom;
         }
 
         /// <summary>
@@ -70,6 +72,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         public DateTimeOffset? EffectiveAt { get; set; }
 
         /// <summary>
+        /// EffectiveFrom of the dashboard
+        /// </summary>
+        /// <value>EffectiveFrom of the dashboard</value>
+        [DataMember(Name = "effectiveFrom", EmitDefaultValue = true)]
+        public DateTimeOffset? EffectiveFrom { get; set; }
+
+        /// <summary>
         /// AsAt of the dashboard
         /// </summary>
         /// <value>AsAt of the dashboard</value>
@@ -87,6 +96,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  DateFrom: ").Append(DateFrom).Append("\n");
             sb.Append("  DateTo: ").Append(DateTo).Append("\n");
             sb.Append("  EffectiveAt: ").Append(EffectiveAt).Append("\n");
+            sb.Append("  EffectiveFrom: ").Append(EffectiveFrom).Append("\n");
             sb.Append("  AsAt: ").Append(AsAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -139,6 +149,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.EffectiveAt.Equals(input.EffectiveAt))
                 ) && 
                 (
+                    this.EffectiveFrom == input.EffectiveFrom ||
+                    (this.EffectiveFrom != null &&
+                    this.EffectiveFrom.Equals(input.EffectiveFrom))
+                ) && 
+                (
                     this.AsAt == input.AsAt ||
                     (this.AsAt != null &&
                     this.AsAt.Equals(input.AsAt))
@@ -165,6 +180,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.EffectiveAt != null)
                 {
                     hashCode = (hashCode * 59) + this.EffectiveAt.GetHashCode();
+                }
+                if (this.EffectiveFrom != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveFrom.GetHashCode();
                 }
                 if (this.AsAt != null)
                 {

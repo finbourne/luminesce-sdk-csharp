@@ -47,7 +47,11 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="dashboardType">dashboardType.</param>
         /// <param name="useSettleDate">Whether to use the Settlement date or the Transaction date.</param>
         /// <param name="dates">dates.</param>
-        public LusidGridData(TableView lusidGridDesign = default(TableView), ResourceId resourceId = default(ResourceId), DashboardType ?dashboardType = default(DashboardType?), bool? useSettleDate = default(bool?), DateParameters dates = default(DateParameters))
+        /// <param name="recipe">The recipe to use for valuations.</param>
+        /// <param name="currency">The currency to use for valuations.</param>
+        /// <param name="tenor">The tenor to use for valuations.</param>
+        /// <param name="orderFlow">Type of order flow to include.</param>
+        public LusidGridData(TableView lusidGridDesign = default(TableView), ResourceId resourceId = default(ResourceId), DashboardType ?dashboardType = default(DashboardType?), bool? useSettleDate = default(bool?), DateParameters dates = default(DateParameters), string recipe = default(string), string currency = default(string), string tenor = default(string), string orderFlow = default(string))
         {
             // to ensure "lusidGridDesign" is required (not null)
             if (lusidGridDesign == null)
@@ -64,6 +68,10 @@ namespace Finbourne.Luminesce.Sdk.Model
             this.DashboardType = dashboardType;
             this.UseSettleDate = useSettleDate;
             this.Dates = dates;
+            this.Recipe = recipe;
+            this.Currency = currency;
+            this.Tenor = tenor;
+            this.OrderFlow = orderFlow;
         }
 
         /// <summary>
@@ -92,6 +100,34 @@ namespace Finbourne.Luminesce.Sdk.Model
         public DateParameters Dates { get; set; }
 
         /// <summary>
+        /// The recipe to use for valuations
+        /// </summary>
+        /// <value>The recipe to use for valuations</value>
+        [DataMember(Name = "recipe", EmitDefaultValue = true)]
+        public string Recipe { get; set; }
+
+        /// <summary>
+        /// The currency to use for valuations
+        /// </summary>
+        /// <value>The currency to use for valuations</value>
+        [DataMember(Name = "currency", EmitDefaultValue = true)]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// The tenor to use for valuations
+        /// </summary>
+        /// <value>The tenor to use for valuations</value>
+        [DataMember(Name = "tenor", EmitDefaultValue = true)]
+        public string Tenor { get; set; }
+
+        /// <summary>
+        /// Type of order flow to include
+        /// </summary>
+        /// <value>Type of order flow to include</value>
+        [DataMember(Name = "orderFlow", EmitDefaultValue = true)]
+        public string OrderFlow { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,6 +140,10 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  DashboardType: ").Append(DashboardType).Append("\n");
             sb.Append("  UseSettleDate: ").Append(UseSettleDate).Append("\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
+            sb.Append("  Recipe: ").Append(Recipe).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  Tenor: ").Append(Tenor).Append("\n");
+            sb.Append("  OrderFlow: ").Append(OrderFlow).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -162,6 +202,26 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Dates == input.Dates ||
                     (this.Dates != null &&
                     this.Dates.Equals(input.Dates))
+                ) && 
+                (
+                    this.Recipe == input.Recipe ||
+                    (this.Recipe != null &&
+                    this.Recipe.Equals(input.Recipe))
+                ) && 
+                (
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.Tenor == input.Tenor ||
+                    (this.Tenor != null &&
+                    this.Tenor.Equals(input.Tenor))
+                ) && 
+                (
+                    this.OrderFlow == input.OrderFlow ||
+                    (this.OrderFlow != null &&
+                    this.OrderFlow.Equals(input.OrderFlow))
                 );
         }
 
@@ -190,6 +250,22 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.Dates != null)
                 {
                     hashCode = (hashCode * 59) + this.Dates.GetHashCode();
+                }
+                if (this.Recipe != null)
+                {
+                    hashCode = (hashCode * 59) + this.Recipe.GetHashCode();
+                }
+                if (this.Currency != null)
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                if (this.Tenor != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tenor.GetHashCode();
+                }
+                if (this.OrderFlow != null)
+                {
+                    hashCode = (hashCode * 59) + this.OrderFlow.GetHashCode();
                 }
                 return hashCode;
             }

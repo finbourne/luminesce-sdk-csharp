@@ -11,7 +11,6 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 | [**FetchQueryResultJson**](SqlBackgroundExecutionApi.md#fetchqueryresultjson) | **GET** /api/SqlBackground/{executionId}/json | FetchQueryResultJson: Fetch the result of a query as a JSON string |
 | [**FetchQueryResultJsonProper**](SqlBackgroundExecutionApi.md#fetchqueryresultjsonproper) | **GET** /api/SqlBackground/{executionId}/jsonProper | FetchQueryResultJsonProper: Fetch the result of a query as JSON |
 | [**FetchQueryResultJsonProperWithLineage**](SqlBackgroundExecutionApi.md#fetchqueryresultjsonproperwithlineage) | **GET** /api/SqlBackground/{executionId}/jsonProperWithLineage | FetchQueryResultJsonProperWithLineage: Fetch the result of a query as JSON, but including a Lineage Node (if available) |
-| [**FetchQueryResultLineage**](SqlBackgroundExecutionApi.md#fetchqueryresultlineage) | **GET** /api/SqlBackground/{executionId}/lineage | FetchQueryResultLineage: Gets the Lineage determined while the query was executed |
 | [**FetchQueryResultParquet**](SqlBackgroundExecutionApi.md#fetchqueryresultparquet) | **GET** /api/SqlBackground/{executionId}/parquet | FetchQueryResultParquet: Fetch the result of a query as Parquet |
 | [**FetchQueryResultPipe**](SqlBackgroundExecutionApi.md#fetchqueryresultpipe) | **GET** /api/SqlBackground/{executionId}/pipe | FetchQueryResultPipe: Fetch the result of a query as pipe-delimited |
 | [**FetchQueryResultSqlite**](SqlBackgroundExecutionApi.md#fetchqueryresultsqlite) | **GET** /api/SqlBackground/{executionId}/sqlite | FetchQueryResultSqlite: Fetch the result of a query as SqLite |
@@ -888,120 +887,6 @@ catch (ApiException e)
 | **limit** | **int?** | When paginating, only return this number of records, page should also be specified. | [optional] [default to 0] |
 | **page** | **int?** | 0-N based on chunk sized determined by the limit, ignored if limit &lt; 1. | [optional] [default to 0] |
 | **loadWaitMilliseconds** | **int?** | Optional maximum additional wait period for post execution platform processing. | [optional] [default to 0] |
-
-### Return type
-
-**string**
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-
-[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
-
-<a id="fetchqueryresultlineage"></a>
-# **FetchQueryResultLineage**
-> string FetchQueryResultLineage (string executionId)
-
-FetchQueryResultLineage: Gets the Lineage determined while the query was executed
-
-Fetch the Lineage of the query in Json format. - this must have been requested when starting the query - if available (which is only after the query has executed) or if not simply being informed it is not yet ready  This contains some or all of: - What result columns mean, per column, and where their data came from - Some information about the data set as a whole: source tables/providers, joins, filters, etc. - ... Or a reason the information could not be generated (e.g. DirectProviders with unknown shape currently cause this to fail)  Note Lineage will never take into account sorts/filters/grouping/etc. placed when requesting the data. It will take into account such concepts when part of the query itself.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using Finbourne.Luminesce.Sdk.Api;
-using Finbourne.Luminesce.Sdk.Client;
-using Finbourne.Luminesce.Sdk.Extensions;
-using Finbourne.Luminesce.Sdk.Model;
-using Newtonsoft.Json;
-
-namespace Examples
-{
-    public static class Program
-    {
-        public static void Main()
-        {
-            var secretsFilename = "secrets.json";
-            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
-            // Replace with the relevant values
-            File.WriteAllText(
-                path, 
-                @"{
-                    ""api"": {
-                        ""tokenUrl"": ""<your-token-url>"",
-                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
-                        ""username"": ""<your-username>"",
-                        ""password"": ""<your-password>"",
-                        ""clientId"": ""<your-client-id>"",
-                        ""clientSecret"": ""<your-client-secret>""
-                    }
-                }");
-
-            // uncomment the below to use configuration overrides
-            // var opts = new ConfigurationOptions();
-            // opts.TimeoutMs = 30_000;
-
-            // uncomment the below to use an api factory with overrides
-            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlBackgroundExecutionApi>();
-
-            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
-            var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
-
-            try
-            {
-                // uncomment the below to set overrides at the request level
-                // string result = apiInstance.FetchQueryResultLineage(executionId, opts: opts);
-
-                // FetchQueryResultLineage: Gets the Lineage determined while the query was executed
-                string result = apiInstance.FetchQueryResultLineage(executionId);
-                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
-            }
-            catch (ApiException e)
-            {
-                Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultLineage: " + e.Message);
-                Console.WriteLine("Status Code: " + e.ErrorCode);
-                Console.WriteLine(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the FetchQueryResultLineageWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // FetchQueryResultLineage: Gets the Lineage determined while the query was executed
-    ApiResponse<string> response = apiInstance.FetchQueryResultLineageWithHttpInfo(executionId);
-    Console.WriteLine("Status Code: " + response.StatusCode);
-    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
-    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
-}
-catch (ApiException e)
-{
-    Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.FetchQueryResultLineageWithHttpInfo: " + e.Message);
-    Console.WriteLine("Status Code: " + e.ErrorCode);
-    Console.WriteLine(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **executionId** | **string** | ExecutionId returned when starting the query |  |
 
 ### Return type
 
