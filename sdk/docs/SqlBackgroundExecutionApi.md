@@ -1419,11 +1419,11 @@ catch (ApiException e)
 
 <a id="gethistoricalfeedback"></a>
 # **GetHistoricalFeedback**
-> BackgroundQueryProgressResponse GetHistoricalFeedback (string executionId)
+> BackgroundQueryProgressResponse GetHistoricalFeedback (string executionId, int? nextMessageWaitSeconds = null)
 
 GetHistoricalFeedback: View historical query progress (for older queries)
 
-View full progress information, including historical feedback for queries which have passed their `keepForSeconds` time, so long as they were executed in the last 31 days. Unlike most methods here this may be called by a user that did not run the original query, if your entitlements allow this, as this is pure telemetry information.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+View full progress information, including historical feedback for queries which have passed their `keepForSeconds` time, so long as they were executed in the last 31 days.  This method is slow by its nature of looking at the stream of historical feedback data.   On the other hand under some circumstances this can fail to wait long enough and return 404s where really there is data. To help with this `nextMessageWaitSeconds` may be specified to non-default values larger then the 2-7s used internally.  Unlike most methods here this may be called by a user that did not run the original query, if your entitlements allow this, as this is pure telemetry information.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
 ### Example
 ```csharp
@@ -1465,14 +1465,15 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
+            var nextMessageWaitSeconds = 56;  // int? | An override to the internal default as the the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // BackgroundQueryProgressResponse result = apiInstance.GetHistoricalFeedback(executionId, opts: opts);
+                // BackgroundQueryProgressResponse result = apiInstance.GetHistoricalFeedback(executionId, nextMessageWaitSeconds, opts: opts);
 
                 // GetHistoricalFeedback: View historical query progress (for older queries)
-                BackgroundQueryProgressResponse result = apiInstance.GetHistoricalFeedback(executionId);
+                BackgroundQueryProgressResponse result = apiInstance.GetHistoricalFeedback(executionId, nextMessageWaitSeconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1493,7 +1494,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetHistoricalFeedback: View historical query progress (for older queries)
-    ApiResponse<BackgroundQueryProgressResponse> response = apiInstance.GetHistoricalFeedbackWithHttpInfo(executionId);
+    ApiResponse<BackgroundQueryProgressResponse> response = apiInstance.GetHistoricalFeedbackWithHttpInfo(executionId, nextMessageWaitSeconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1511,6 +1512,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **executionId** | **string** | ExecutionId returned when starting the query |  |
+| **nextMessageWaitSeconds** | **int?** | An override to the internal default as the the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. | [optional]  |
 
 ### Return type
 
