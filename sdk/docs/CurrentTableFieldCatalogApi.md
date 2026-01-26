@@ -124,7 +124,7 @@ catch (ApiException e)
 
 <a id="getfields"></a>
 # **GetFields**
-> string GetFields (string? tableLike = null)
+> string GetFields (string? tableLike = null, bool? addLineage = null)
 
 GetFields: List field and parameters for providers
 
@@ -169,15 +169,16 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<CurrentTableFieldCatalogApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CurrentTableFieldCatalogApi>();
-            var tableLike = "\"%\"";  // string? |  (optional)  (default to "%")
+            var tableLike = "\"%\"";  // string? | Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional)  (default to "%")
+            var addLineage = false;  // bool? | Adds in any column lineage which is registered in the catalog to the results. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.GetFields(tableLike, opts: opts);
+                // string result = apiInstance.GetFields(tableLike, addLineage, opts: opts);
 
                 // GetFields: List field and parameters for providers
-                string result = apiInstance.GetFields(tableLike);
+                string result = apiInstance.GetFields(tableLike, addLineage);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -198,7 +199,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetFields: List field and parameters for providers
-    ApiResponse<string> response = apiInstance.GetFieldsWithHttpInfo(tableLike);
+    ApiResponse<string> response = apiInstance.GetFieldsWithHttpInfo(tableLike, addLineage);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -215,7 +216,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **tableLike** | **string?** |  | [optional] [default to &quot;%&quot;] |
+| **tableLike** | **string?** | Allows for SQL-LIKE style filtering of which Providers you want the fields for. | [optional] [default to &quot;%&quot;] |
+| **addLineage** | **bool?** | Adds in any column lineage which is registered in the catalog to the results. | [optional] [default to false] |
 
 ### Return type
 

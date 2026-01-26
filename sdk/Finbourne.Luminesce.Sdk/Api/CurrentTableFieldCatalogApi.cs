@@ -64,11 +64,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         ///  Returns the User&#39;s full version of the catalog but only the field/parameter-level information  (as well as the TableName they refer to, of course) for tables matching the &#x60;tableLike&#x60; (manually include wildcards if desired).  The internal results are cached for several minutes.  It is possible to be throttled if you make too many requests in a short period of time, receiving a: - 429 Too Many Requests : Please try your request again soon  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string GetFields(string? tableLike = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        string GetFields(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetFields: List field and parameters for providers
@@ -77,11 +78,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         ///  Returns the User&#39;s full version of the catalog but only the field/parameter-level information  (as well as the TableName they refer to, of course) for tables matching the &#x60;tableLike&#x60; (manually include wildcards if desired).  The internal results are cached for several minutes.  It is possible to be throttled if you make too many requests in a short period of time, receiving a: - 429 Too Many Requests : Please try your request again soon  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetFieldsWithHttpInfo(string? tableLike = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetFieldsWithHttpInfo(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetProviders: List available providers
         /// </summary>
@@ -152,12 +154,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         ///  Returns the User&#39;s full version of the catalog but only the field/parameter-level information  (as well as the TableName they refer to, of course) for tables matching the &#x60;tableLike&#x60; (manually include wildcards if desired).  The internal results are cached for several minutes.  It is possible to be throttled if you make too many requests in a short period of time, receiving a: - 429 Too Many Requests : Please try your request again soon  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetFieldsAsync(string? tableLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<string> GetFieldsAsync(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetFields: List field and parameters for providers
@@ -166,12 +169,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         ///  Returns the User&#39;s full version of the catalog but only the field/parameter-level information  (as well as the TableName they refer to, of course) for tables matching the &#x60;tableLike&#x60; (manually include wildcards if desired).  The internal results are cached for several minutes.  It is possible to be throttled if you make too many requests in a short period of time, receiving a: - 429 Too Many Requests : Please try your request again soon  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetFieldsWithHttpInfoAsync(string? tableLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetFieldsWithHttpInfoAsync(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetProviders: List available providers
         /// </summary>
@@ -538,13 +542,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// GetFields: List field and parameters for providers  Returns the User&#39;s full version of the catalog but only the field/parameter-level information  (as well as the TableName they refer to, of course) for tables matching the &#x60;tableLike&#x60; (manually include wildcards if desired).  The internal results are cached for several minutes.  It is possible to be throttled if you make too many requests in a short period of time, receiving a: - 429 Too Many Requests : Please try your request again soon  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string GetFields(string? tableLike = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public string GetFields(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetFieldsWithHttpInfo(tableLike, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetFieldsWithHttpInfo(tableLike, addLineage, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -552,11 +557,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// GetFields: List field and parameters for providers  Returns the User&#39;s full version of the catalog but only the field/parameter-level information  (as well as the TableName they refer to, of course) for tables matching the &#x60;tableLike&#x60; (manually include wildcards if desired).  The internal results are cached for several minutes.  It is possible to be throttled if you make too many requests in a short period of time, receiving a: - 429 Too Many Requests : Please try your request again soon  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetFieldsWithHttpInfo(string? tableLike = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetFieldsWithHttpInfo(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
 
@@ -596,6 +602,11 @@ namespace Finbourne.Luminesce.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "tableLike", tableLike));
+            }
+            if (addLineage != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "addLineage", addLineage));
             }
 
             localVarRequestOptions.Operation = "CurrentTableFieldCatalogApi.GetFields";
@@ -636,14 +647,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// GetFields: List field and parameters for providers  Returns the User&#39;s full version of the catalog but only the field/parameter-level information  (as well as the TableName they refer to, of course) for tables matching the &#x60;tableLike&#x60; (manually include wildcards if desired).  The internal results are cached for several minutes.  It is possible to be throttled if you make too many requests in a short period of time, receiving a: - 429 Too Many Requests : Please try your request again soon  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetFieldsAsync(string? tableLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<string> GetFieldsAsync(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetFieldsWithHttpInfoAsync(tableLike, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetFieldsWithHttpInfoAsync(tableLike, addLineage, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -651,12 +663,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// GetFields: List field and parameters for providers  Returns the User&#39;s full version of the catalog but only the field/parameter-level information  (as well as the TableName they refer to, of course) for tables matching the &#x60;tableLike&#x60; (manually include wildcards if desired).  The internal results are cached for several minutes.  It is possible to be throttled if you make too many requests in a short period of time, receiving a: - 429 Too Many Requests : Please try your request again soon  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tableLike"> (optional, default to &quot;%&quot;)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetFieldsWithHttpInfoAsync(string? tableLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetFieldsWithHttpInfoAsync(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
@@ -696,6 +709,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (tableLike != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "tableLike", tableLike));
+            }
+            if (addLineage != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "addLineage", addLineage));
             }
 
             localVarRequestOptions.Operation = "CurrentTableFieldCatalogApi.GetFields";
