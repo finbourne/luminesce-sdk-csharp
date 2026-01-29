@@ -238,7 +238,7 @@ catch (ApiException e)
 
 <a id="getproviders"></a>
 # **GetProviders**
-> string GetProviders (string? freeTextSearch = null)
+> string GetProviders (string? freeTextSearch = null, bool? addLineage = null)
 
 GetProviders: List available providers
 
@@ -284,14 +284,15 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CurrentTableFieldCatalogApi>();
             var freeTextSearch = "freeTextSearch_example";  // string? | Limit the catalog to only things in some way dealing with the passed in text string (optional) 
+            var addLineage = false;  // bool? | Adds in any column lineage which is registered in the catalog to the results. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.GetProviders(freeTextSearch, opts: opts);
+                // string result = apiInstance.GetProviders(freeTextSearch, addLineage, opts: opts);
 
                 // GetProviders: List available providers
-                string result = apiInstance.GetProviders(freeTextSearch);
+                string result = apiInstance.GetProviders(freeTextSearch, addLineage);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -312,7 +313,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetProviders: List available providers
-    ApiResponse<string> response = apiInstance.GetProvidersWithHttpInfo(freeTextSearch);
+    ApiResponse<string> response = apiInstance.GetProvidersWithHttpInfo(freeTextSearch, addLineage);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -330,6 +331,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **freeTextSearch** | **string?** | Limit the catalog to only things in some way dealing with the passed in text string | [optional]  |
+| **addLineage** | **bool?** | Adds in any column lineage which is registered in the catalog to the results. | [optional] [default to false] |
 
 ### Return type
 

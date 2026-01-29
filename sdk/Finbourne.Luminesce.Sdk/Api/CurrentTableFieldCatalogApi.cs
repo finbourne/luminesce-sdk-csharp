@@ -92,10 +92,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string GetProviders(string? freeTextSearch = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        string GetProviders(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetProviders: List available providers
@@ -105,10 +106,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetProvidersWithHttpInfo(string? freeTextSearch = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetProvidersWithHttpInfo(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -184,11 +186,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetProvidersAsync(string? freeTextSearch = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<string> GetProvidersAsync(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetProviders: List available providers
@@ -198,11 +201,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetProvidersWithHttpInfoAsync(string? freeTextSearch = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetProvidersWithHttpInfoAsync(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -755,12 +759,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string GetProviders(string? freeTextSearch = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public string GetProviders(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetProvidersWithHttpInfo(freeTextSearch, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetProvidersWithHttpInfo(freeTextSearch, addLineage, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -769,10 +774,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetProvidersWithHttpInfo(string? freeTextSearch = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetProvidersWithHttpInfo(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
 
@@ -812,6 +818,11 @@ namespace Finbourne.Luminesce.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "freeTextSearch", freeTextSearch));
+            }
+            if (addLineage != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "addLineage", addLineage));
             }
 
             localVarRequestOptions.Operation = "CurrentTableFieldCatalogApi.GetProviders";
@@ -853,13 +864,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetProvidersAsync(string? freeTextSearch = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<string> GetProvidersAsync(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetProvidersWithHttpInfoAsync(freeTextSearch, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetProvidersWithHttpInfoAsync(freeTextSearch, addLineage, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -868,11 +880,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
+        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetProvidersWithHttpInfoAsync(string? freeTextSearch = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetProvidersWithHttpInfoAsync(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
@@ -912,6 +925,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (freeTextSearch != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "freeTextSearch", freeTextSearch));
+            }
+            if (addLineage != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "addLineage", addLineage));
             }
 
             localVarRequestOptions.Operation = "CurrentTableFieldCatalogApi.GetProviders";

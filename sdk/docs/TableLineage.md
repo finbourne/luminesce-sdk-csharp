@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ColumnLineage** | [**List&lt;Lineage&gt;**](Lineage.md) |  | [optional] 
-**RowLineage** | [**Lineage**](Lineage.md) |  | [optional] 
+**WholeTableLineage** | [**Lineage**](Lineage.md) |  | [optional] 
 **FailureReason** | **string** |  | [optional] 
 
 ```csharp
@@ -13,13 +13,13 @@ using Finbourne.Luminesce.Sdk.Model;
 using System;
 
 List<Lineage> columnLineage = new List<Lineage>();
-Lineage? rowLineage = new Lineage();
+Lineage? wholeTableLineage = new Lineage();
 
 string failureReason = "example failureReason";
 
 TableLineage tableLineageInstance = new TableLineage(
     columnLineage: columnLineage,
-    rowLineage: rowLineage,
+    wholeTableLineage: wholeTableLineage,
     failureReason: failureReason);
 ```
 

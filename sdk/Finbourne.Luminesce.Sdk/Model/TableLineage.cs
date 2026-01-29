@@ -32,12 +32,12 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Initializes a new instance of the <see cref="TableLineage" /> class.
         /// </summary>
         /// <param name="columnLineage">columnLineage.</param>
-        /// <param name="rowLineage">rowLineage.</param>
+        /// <param name="wholeTableLineage">wholeTableLineage.</param>
         /// <param name="failureReason">failureReason.</param>
-        public TableLineage(List<Lineage> columnLineage = default(List<Lineage>), Lineage rowLineage = default(Lineage), string failureReason = default(string))
+        public TableLineage(List<Lineage> columnLineage = default(List<Lineage>), Lineage wholeTableLineage = default(Lineage), string failureReason = default(string))
         {
             this.ColumnLineage = columnLineage;
-            this.RowLineage = rowLineage;
+            this.WholeTableLineage = wholeTableLineage;
             this.FailureReason = failureReason;
         }
 
@@ -48,10 +48,10 @@ namespace Finbourne.Luminesce.Sdk.Model
         public List<Lineage> ColumnLineage { get; set; }
 
         /// <summary>
-        /// Gets or Sets RowLineage
+        /// Gets or Sets WholeTableLineage
         /// </summary>
-        [DataMember(Name = "rowLineage", EmitDefaultValue = false)]
-        public Lineage RowLineage { get; set; }
+        [DataMember(Name = "wholeTableLineage", EmitDefaultValue = false)]
+        public Lineage WholeTableLineage { get; set; }
 
         /// <summary>
         /// Gets or Sets FailureReason
@@ -68,7 +68,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TableLineage {\n");
             sb.Append("  ColumnLineage: ").Append(ColumnLineage).Append("\n");
-            sb.Append("  RowLineage: ").Append(RowLineage).Append("\n");
+            sb.Append("  WholeTableLineage: ").Append(WholeTableLineage).Append("\n");
             sb.Append("  FailureReason: ").Append(FailureReason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -112,9 +112,9 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.ColumnLineage.SequenceEqual(input.ColumnLineage)
                 ) && 
                 (
-                    this.RowLineage == input.RowLineage ||
-                    (this.RowLineage != null &&
-                    this.RowLineage.Equals(input.RowLineage))
+                    this.WholeTableLineage == input.WholeTableLineage ||
+                    (this.WholeTableLineage != null &&
+                    this.WholeTableLineage.Equals(input.WholeTableLineage))
                 ) && 
                 (
                     this.FailureReason == input.FailureReason ||
@@ -136,9 +136,9 @@ namespace Finbourne.Luminesce.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ColumnLineage.GetHashCode();
                 }
-                if (this.RowLineage != null)
+                if (this.WholeTableLineage != null)
                 {
-                    hashCode = (hashCode * 59) + this.RowLineage.GetHashCode();
+                    hashCode = (hashCode * 59) + this.WholeTableLineage.GetHashCode();
                 }
                 if (this.FailureReason != null)
                 {
