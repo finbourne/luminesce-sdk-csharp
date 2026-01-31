@@ -34,22 +34,24 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="type">type.</param>
         /// <param name="subtype">subtype.</param>
         /// <param name="alias">alias.</param>
-        /// <param name="displayName">displayName.</param>
-        /// <param name="description">description.</param>
+        /// <param name="columnTitleTooltip">columnTitleTooltip.</param>
+        /// <param name="explainTitle">explainTitle.</param>
+        /// <param name="explainTooltip">explainTooltip.</param>
+        /// <param name="fullFormula">fullFormula.</param>
         /// <param name="documentationAsHtml">documentationAsHtml.</param>
         /// <param name="documentationAsMarkDown">documentationAsMarkDown.</param>
-        /// <param name="fullText">fullText.</param>
         /// <param name="children">children.</param>
-        public Lineage(string type = default(string), string subtype = default(string), string alias = default(string), string displayName = default(string), string description = default(string), string documentationAsHtml = default(string), string documentationAsMarkDown = default(string), string fullText = default(string), List<Lineage> children = default(List<Lineage>))
+        public Lineage(string type = default(string), string subtype = default(string), string alias = default(string), string columnTitleTooltip = default(string), string explainTitle = default(string), string explainTooltip = default(string), string fullFormula = default(string), string documentationAsHtml = default(string), string documentationAsMarkDown = default(string), List<Lineage> children = default(List<Lineage>))
         {
             this.Type = type;
             this.Subtype = subtype;
             this.Alias = alias;
-            this.DisplayName = displayName;
-            this.Description = description;
+            this.ColumnTitleTooltip = columnTitleTooltip;
+            this.ExplainTitle = explainTitle;
+            this.ExplainTooltip = explainTooltip;
+            this.FullFormula = fullFormula;
             this.DocumentationAsHtml = documentationAsHtml;
             this.DocumentationAsMarkDown = documentationAsMarkDown;
-            this.FullText = fullText;
             this.Children = children;
         }
 
@@ -72,16 +74,28 @@ namespace Finbourne.Luminesce.Sdk.Model
         public string Alias { get; set; }
 
         /// <summary>
-        /// Gets or Sets DisplayName
+        /// Gets or Sets ColumnTitleTooltip
         /// </summary>
-        [DataMember(Name = "displayName", EmitDefaultValue = true)]
-        public string DisplayName { get; set; }
+        [DataMember(Name = "columnTitleTooltip", EmitDefaultValue = true)]
+        public string ColumnTitleTooltip { get; set; }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// Gets or Sets ExplainTitle
         /// </summary>
-        [DataMember(Name = "description", EmitDefaultValue = true)]
-        public string Description { get; set; }
+        [DataMember(Name = "explainTitle", EmitDefaultValue = true)]
+        public string ExplainTitle { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExplainTooltip
+        /// </summary>
+        [DataMember(Name = "explainTooltip", EmitDefaultValue = true)]
+        public string ExplainTooltip { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FullFormula
+        /// </summary>
+        [DataMember(Name = "fullFormula", EmitDefaultValue = true)]
+        public string FullFormula { get; set; }
 
         /// <summary>
         /// Gets or Sets DocumentationAsHtml
@@ -94,12 +108,6 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [DataMember(Name = "documentationAsMarkDown", EmitDefaultValue = true)]
         public string DocumentationAsMarkDown { get; set; }
-
-        /// <summary>
-        /// Gets or Sets FullText
-        /// </summary>
-        [DataMember(Name = "fullText", EmitDefaultValue = true)]
-        public string FullText { get; set; }
 
         /// <summary>
         /// Gets or Sets Children
@@ -118,11 +126,12 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Subtype: ").Append(Subtype).Append("\n");
             sb.Append("  Alias: ").Append(Alias).Append("\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  ColumnTitleTooltip: ").Append(ColumnTitleTooltip).Append("\n");
+            sb.Append("  ExplainTitle: ").Append(ExplainTitle).Append("\n");
+            sb.Append("  ExplainTooltip: ").Append(ExplainTooltip).Append("\n");
+            sb.Append("  FullFormula: ").Append(FullFormula).Append("\n");
             sb.Append("  DocumentationAsHtml: ").Append(DocumentationAsHtml).Append("\n");
             sb.Append("  DocumentationAsMarkDown: ").Append(DocumentationAsMarkDown).Append("\n");
-            sb.Append("  FullText: ").Append(FullText).Append("\n");
             sb.Append("  Children: ").Append(Children).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -175,14 +184,24 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Alias.Equals(input.Alias))
                 ) && 
                 (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
+                    this.ColumnTitleTooltip == input.ColumnTitleTooltip ||
+                    (this.ColumnTitleTooltip != null &&
+                    this.ColumnTitleTooltip.Equals(input.ColumnTitleTooltip))
                 ) && 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.ExplainTitle == input.ExplainTitle ||
+                    (this.ExplainTitle != null &&
+                    this.ExplainTitle.Equals(input.ExplainTitle))
+                ) && 
+                (
+                    this.ExplainTooltip == input.ExplainTooltip ||
+                    (this.ExplainTooltip != null &&
+                    this.ExplainTooltip.Equals(input.ExplainTooltip))
+                ) && 
+                (
+                    this.FullFormula == input.FullFormula ||
+                    (this.FullFormula != null &&
+                    this.FullFormula.Equals(input.FullFormula))
                 ) && 
                 (
                     this.DocumentationAsHtml == input.DocumentationAsHtml ||
@@ -193,11 +212,6 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.DocumentationAsMarkDown == input.DocumentationAsMarkDown ||
                     (this.DocumentationAsMarkDown != null &&
                     this.DocumentationAsMarkDown.Equals(input.DocumentationAsMarkDown))
-                ) && 
-                (
-                    this.FullText == input.FullText ||
-                    (this.FullText != null &&
-                    this.FullText.Equals(input.FullText))
                 ) && 
                 (
                     this.Children == input.Children ||
@@ -228,13 +242,21 @@ namespace Finbourne.Luminesce.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Alias.GetHashCode();
                 }
-                if (this.DisplayName != null)
+                if (this.ColumnTitleTooltip != null)
                 {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ColumnTitleTooltip.GetHashCode();
                 }
-                if (this.Description != null)
+                if (this.ExplainTitle != null)
                 {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ExplainTitle.GetHashCode();
+                }
+                if (this.ExplainTooltip != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExplainTooltip.GetHashCode();
+                }
+                if (this.FullFormula != null)
+                {
+                    hashCode = (hashCode * 59) + this.FullFormula.GetHashCode();
                 }
                 if (this.DocumentationAsHtml != null)
                 {
@@ -243,10 +265,6 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.DocumentationAsMarkDown != null)
                 {
                     hashCode = (hashCode * 59) + this.DocumentationAsMarkDown.GetHashCode();
-                }
-                if (this.FullText != null)
-                {
-                    hashCode = (hashCode * 59) + this.FullText.GetHashCode();
                 }
                 if (this.Children != null)
                 {
