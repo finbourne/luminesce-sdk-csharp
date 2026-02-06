@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Subtype** | **string** |  | [optional] 
 **Alias** | **string** |  | [optional] 
 **ColumnTitleTooltip** | **string** |  | [optional] 
+**ColumnTitleIcon** | **LineageColumnIcon** |  | [optional] 
 **ExplainTitle** | **string** |  | [optional] 
 **ExplainTooltip** | **string** |  | [optional] 
 **FullFormula** | **string** |  | [optional] 
@@ -35,6 +36,7 @@ Lineage lineageInstance = new Lineage(
     subtype: subtype,
     alias: alias,
     columnTitleTooltip: columnTitleTooltip,
+    columnTitleIcon: columnTitleIcon,
     explainTitle: explainTitle,
     explainTooltip: explainTooltip,
     fullFormula: fullFormula,

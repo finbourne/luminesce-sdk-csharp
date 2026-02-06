@@ -28,6 +28,12 @@ namespace Finbourne.Luminesce.Sdk.Model
     [DataContract(Name = "Lineage")]
     public partial class Lineage : IEquatable<Lineage>, IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets ColumnTitleIcon
+        /// </summary>
+        [DataMember(Name = "columnTitleIcon", EmitDefaultValue = false)]
+        public LineageColumnIcon? ColumnTitleIcon { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Lineage" /> class.
         /// </summary>
@@ -35,18 +41,20 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="subtype">subtype.</param>
         /// <param name="alias">alias.</param>
         /// <param name="columnTitleTooltip">columnTitleTooltip.</param>
+        /// <param name="columnTitleIcon">columnTitleIcon.</param>
         /// <param name="explainTitle">explainTitle.</param>
         /// <param name="explainTooltip">explainTooltip.</param>
         /// <param name="fullFormula">fullFormula.</param>
         /// <param name="documentationAsHtml">documentationAsHtml.</param>
         /// <param name="documentationAsMarkDown">documentationAsMarkDown.</param>
         /// <param name="children">children.</param>
-        public Lineage(string type = default(string), string subtype = default(string), string alias = default(string), string columnTitleTooltip = default(string), string explainTitle = default(string), string explainTooltip = default(string), string fullFormula = default(string), string documentationAsHtml = default(string), string documentationAsMarkDown = default(string), List<Lineage> children = default(List<Lineage>))
+        public Lineage(string type = default(string), string subtype = default(string), string alias = default(string), string columnTitleTooltip = default(string), LineageColumnIcon ?columnTitleIcon = default(LineageColumnIcon?), string explainTitle = default(string), string explainTooltip = default(string), string fullFormula = default(string), string documentationAsHtml = default(string), string documentationAsMarkDown = default(string), List<Lineage> children = default(List<Lineage>))
         {
             this.Type = type;
             this.Subtype = subtype;
             this.Alias = alias;
             this.ColumnTitleTooltip = columnTitleTooltip;
+            this.ColumnTitleIcon = columnTitleIcon;
             this.ExplainTitle = explainTitle;
             this.ExplainTooltip = explainTooltip;
             this.FullFormula = fullFormula;
@@ -127,6 +135,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  Subtype: ").Append(Subtype).Append("\n");
             sb.Append("  Alias: ").Append(Alias).Append("\n");
             sb.Append("  ColumnTitleTooltip: ").Append(ColumnTitleTooltip).Append("\n");
+            sb.Append("  ColumnTitleIcon: ").Append(ColumnTitleIcon).Append("\n");
             sb.Append("  ExplainTitle: ").Append(ExplainTitle).Append("\n");
             sb.Append("  ExplainTooltip: ").Append(ExplainTooltip).Append("\n");
             sb.Append("  FullFormula: ").Append(FullFormula).Append("\n");
@@ -189,6 +198,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.ColumnTitleTooltip.Equals(input.ColumnTitleTooltip))
                 ) && 
                 (
+                    this.ColumnTitleIcon == input.ColumnTitleIcon ||
+                    this.ColumnTitleIcon.Equals(input.ColumnTitleIcon)
+                ) && 
+                (
                     this.ExplainTitle == input.ExplainTitle ||
                     (this.ExplainTitle != null &&
                     this.ExplainTitle.Equals(input.ExplainTitle))
@@ -246,6 +259,7 @@ namespace Finbourne.Luminesce.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ColumnTitleTooltip.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.ColumnTitleIcon.GetHashCode();
                 if (this.ExplainTitle != null)
                 {
                     hashCode = (hashCode * 59) + this.ExplainTitle.GetHashCode();
