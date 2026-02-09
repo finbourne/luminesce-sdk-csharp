@@ -460,11 +460,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="nextMessageWaitSeconds">An override to the internal default as the the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="nextMessageWaitSeconds">An override to the internal default for the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="startedAt">Performance will be hugely improved if thet time (in UTC) when the query was started is provided. It will also significantly decrease the chances of a 404 where there really is data, as it can help to disambiguate between &#39;there is no query with this executionId&#39; and &#39;there is such a query but we couldn&#39;t wait long enough for it to come back from the Feedback Stream&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryProgressResponse</returns>
-        BackgroundQueryProgressResponse GetHistoricalFeedback(string executionId, int? nextMessageWaitSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        BackgroundQueryProgressResponse GetHistoricalFeedback(string executionId, int? nextMessageWaitSeconds = default(int?), DateTimeOffset? startedAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetHistoricalFeedback: View historical query progress (for older queries)
@@ -474,11 +475,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="nextMessageWaitSeconds">An override to the internal default as the the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="nextMessageWaitSeconds">An override to the internal default for the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="startedAt">Performance will be hugely improved if thet time (in UTC) when the query was started is provided. It will also significantly decrease the chances of a 404 where there really is data, as it can help to disambiguate between &#39;there is no query with this executionId&#39; and &#39;there is such a query but we couldn&#39;t wait long enough for it to come back from the Feedback Stream&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryProgressResponse</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> GetHistoricalFeedbackWithHttpInfo(string executionId, int? nextMessageWaitSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> GetHistoricalFeedbackWithHttpInfo(string executionId, int? nextMessageWaitSeconds = default(int?), DateTimeOffset? startedAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetProgressOf: View query progress up to this point.
         /// </summary>
@@ -1005,12 +1007,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="nextMessageWaitSeconds">An override to the internal default as the the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="nextMessageWaitSeconds">An override to the internal default for the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="startedAt">Performance will be hugely improved if thet time (in UTC) when the query was started is provided. It will also significantly decrease the chances of a 404 where there really is data, as it can help to disambiguate between &#39;there is no query with this executionId&#39; and &#39;there is such a query but we couldn&#39;t wait long enough for it to come back from the Feedback Stream&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryProgressResponse</returns>
-        System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetHistoricalFeedbackAsync(string executionId, int? nextMessageWaitSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetHistoricalFeedbackAsync(string executionId, int? nextMessageWaitSeconds = default(int?), DateTimeOffset? startedAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetHistoricalFeedback: View historical query progress (for older queries)
@@ -1020,12 +1023,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="nextMessageWaitSeconds">An override to the internal default as the the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="nextMessageWaitSeconds">An override to the internal default for the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="startedAt">Performance will be hugely improved if thet time (in UTC) when the query was started is provided. It will also significantly decrease the chances of a 404 where there really is data, as it can help to disambiguate between &#39;there is no query with this executionId&#39; and &#39;there is such a query but we couldn&#39;t wait long enough for it to come back from the Feedback Stream&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryProgressResponse)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse>> GetHistoricalFeedbackWithHttpInfoAsync(string executionId, int? nextMessageWaitSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse>> GetHistoricalFeedbackWithHttpInfoAsync(string executionId, int? nextMessageWaitSeconds = default(int?), DateTimeOffset? startedAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetProgressOf: View query progress up to this point.
         /// </summary>
@@ -4422,13 +4426,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="nextMessageWaitSeconds">An override to the internal default as the the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="nextMessageWaitSeconds">An override to the internal default for the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="startedAt">Performance will be hugely improved if thet time (in UTC) when the query was started is provided. It will also significantly decrease the chances of a 404 where there really is data, as it can help to disambiguate between &#39;there is no query with this executionId&#39; and &#39;there is such a query but we couldn&#39;t wait long enough for it to come back from the Feedback Stream&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryProgressResponse</returns>
-        public BackgroundQueryProgressResponse GetHistoricalFeedback(string executionId, int? nextMessageWaitSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public BackgroundQueryProgressResponse GetHistoricalFeedback(string executionId, int? nextMessageWaitSeconds = default(int?), DateTimeOffset? startedAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> localVarResponse = GetHistoricalFeedbackWithHttpInfo(executionId, nextMessageWaitSeconds, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> localVarResponse = GetHistoricalFeedbackWithHttpInfo(executionId, nextMessageWaitSeconds, startedAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -4437,11 +4442,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="nextMessageWaitSeconds">An override to the internal default as the the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="nextMessageWaitSeconds">An override to the internal default for the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="startedAt">Performance will be hugely improved if thet time (in UTC) when the query was started is provided. It will also significantly decrease the chances of a 404 where there really is data, as it can help to disambiguate between &#39;there is no query with this executionId&#39; and &#39;there is such a query but we couldn&#39;t wait long enough for it to come back from the Feedback Stream&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryProgressResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> GetHistoricalFeedbackWithHttpInfo(string executionId, int? nextMessageWaitSeconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> GetHistoricalFeedbackWithHttpInfo(string executionId, int? nextMessageWaitSeconds = default(int?), DateTimeOffset? startedAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -4488,6 +4494,11 @@ namespace Finbourne.Luminesce.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "nextMessageWaitSeconds", nextMessageWaitSeconds));
+            }
+            if (startedAt != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "startedAt", startedAt));
             }
 
             localVarRequestOptions.Operation = "SqlBackgroundExecutionApi.GetHistoricalFeedback";
@@ -4529,14 +4540,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="nextMessageWaitSeconds">An override to the internal default as the the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="nextMessageWaitSeconds">An override to the internal default for the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="startedAt">Performance will be hugely improved if thet time (in UTC) when the query was started is provided. It will also significantly decrease the chances of a 404 where there really is data, as it can help to disambiguate between &#39;there is no query with this executionId&#39; and &#39;there is such a query but we couldn&#39;t wait long enough for it to come back from the Feedback Stream&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryProgressResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetHistoricalFeedbackAsync(string executionId, int? nextMessageWaitSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<BackgroundQueryProgressResponse> GetHistoricalFeedbackAsync(string executionId, int? nextMessageWaitSeconds = default(int?), DateTimeOffset? startedAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> localVarResponse = await GetHistoricalFeedbackWithHttpInfoAsync(executionId, nextMessageWaitSeconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse> localVarResponse = await GetHistoricalFeedbackWithHttpInfoAsync(executionId, nextMessageWaitSeconds, startedAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4545,12 +4557,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="executionId">ExecutionId returned when starting the query</param>
-        /// <param name="nextMessageWaitSeconds">An override to the internal default as the the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="nextMessageWaitSeconds">An override to the internal default for the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional)</param>
+        /// <param name="startedAt">Performance will be hugely improved if thet time (in UTC) when the query was started is provided. It will also significantly decrease the chances of a 404 where there really is data, as it can help to disambiguate between &#39;there is no query with this executionId&#39; and &#39;there is such a query but we couldn&#39;t wait long enough for it to come back from the Feedback Stream&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryProgressResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse>> GetHistoricalFeedbackWithHttpInfoAsync(string executionId, int? nextMessageWaitSeconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryProgressResponse>> GetHistoricalFeedbackWithHttpInfoAsync(string executionId, int? nextMessageWaitSeconds = default(int?), DateTimeOffset? startedAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'executionId' is set
             if (executionId == null)
@@ -4597,6 +4610,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (nextMessageWaitSeconds != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "nextMessageWaitSeconds", nextMessageWaitSeconds));
+            }
+            if (startedAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "startedAt", startedAt));
             }
 
             localVarRequestOptions.Operation = "SqlBackgroundExecutionApi.GetHistoricalFeedback";

@@ -1419,7 +1419,7 @@ catch (ApiException e)
 
 <a id="gethistoricalfeedback"></a>
 # **GetHistoricalFeedback**
-> BackgroundQueryProgressResponse GetHistoricalFeedback (string executionId, int? nextMessageWaitSeconds = null)
+> BackgroundQueryProgressResponse GetHistoricalFeedback (string executionId, int? nextMessageWaitSeconds = null, DateTimeOffset? startedAt = null)
 
 GetHistoricalFeedback: View historical query progress (for older queries)
 
@@ -1465,15 +1465,16 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query
-            var nextMessageWaitSeconds = 56;  // int? | An override to the internal default as the the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional) 
+            var nextMessageWaitSeconds = 56;  // int? | An override to the internal default for the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. (optional) 
+            var startedAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Performance will be hugely improved if thet time (in UTC) when the query was started is provided. It will also significantly decrease the chances of a 404 where there really is data, as it can help to disambiguate between 'there is no query with this executionId' and 'there is such a query but we couldn't wait long enough for it to come back from the Feedback Stream'. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // BackgroundQueryProgressResponse result = apiInstance.GetHistoricalFeedback(executionId, nextMessageWaitSeconds, opts: opts);
+                // BackgroundQueryProgressResponse result = apiInstance.GetHistoricalFeedback(executionId, nextMessageWaitSeconds, startedAt, opts: opts);
 
                 // GetHistoricalFeedback: View historical query progress (for older queries)
-                BackgroundQueryProgressResponse result = apiInstance.GetHistoricalFeedback(executionId, nextMessageWaitSeconds);
+                BackgroundQueryProgressResponse result = apiInstance.GetHistoricalFeedback(executionId, nextMessageWaitSeconds, startedAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1494,7 +1495,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetHistoricalFeedback: View historical query progress (for older queries)
-    ApiResponse<BackgroundQueryProgressResponse> response = apiInstance.GetHistoricalFeedbackWithHttpInfo(executionId, nextMessageWaitSeconds);
+    ApiResponse<BackgroundQueryProgressResponse> response = apiInstance.GetHistoricalFeedbackWithHttpInfo(executionId, nextMessageWaitSeconds, startedAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1512,7 +1513,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **executionId** | **string** | ExecutionId returned when starting the query |  |
-| **nextMessageWaitSeconds** | **int?** | An override to the internal default as the the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. | [optional]  |
+| **nextMessageWaitSeconds** | **int?** | An override to the internal default for the number of seconds to wait for stream-messages. Meant to help understand 404s that would seem on the surface to be incorrect. | [optional]  |
+| **startedAt** | **DateTimeOffset?** | Performance will be hugely improved if thet time (in UTC) when the query was started is provided. It will also significantly decrease the chances of a 404 where there really is data, as it can help to disambiguate between &#39;there is no query with this executionId&#39; and &#39;there is such a query but we couldn&#39;t wait long enough for it to come back from the Feedback Stream&#39;. | [optional]  |
 
 ### Return type
 
