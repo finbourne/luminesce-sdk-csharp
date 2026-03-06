@@ -39,24 +39,28 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         /// <param name="type">type.</param>
         /// <param name="subtype">subtype.</param>
+        /// <param name="legendText">legendText.</param>
         /// <param name="alias">alias.</param>
         /// <param name="columnTitleTooltip">columnTitleTooltip.</param>
         /// <param name="columnTitleIcon">columnTitleIcon.</param>
         /// <param name="explainTitle">explainTitle.</param>
         /// <param name="explainTooltip">explainTooltip.</param>
+        /// <param name="arrowToParentTooltip">arrowToParentTooltip.</param>
         /// <param name="fullFormula">fullFormula.</param>
         /// <param name="documentationAsHtml">documentationAsHtml.</param>
         /// <param name="documentationAsMarkDown">documentationAsMarkDown.</param>
         /// <param name="children">children.</param>
-        public Lineage(string type = default(string), string subtype = default(string), string alias = default(string), string columnTitleTooltip = default(string), LineageColumnIcon ?columnTitleIcon = default(LineageColumnIcon?), string explainTitle = default(string), string explainTooltip = default(string), string fullFormula = default(string), string documentationAsHtml = default(string), string documentationAsMarkDown = default(string), List<Lineage> children = default(List<Lineage>))
+        public Lineage(string type = default(string), string subtype = default(string), string legendText = default(string), string alias = default(string), string columnTitleTooltip = default(string), LineageColumnIcon ?columnTitleIcon = default(LineageColumnIcon?), string explainTitle = default(string), string explainTooltip = default(string), string arrowToParentTooltip = default(string), string fullFormula = default(string), string documentationAsHtml = default(string), string documentationAsMarkDown = default(string), List<Lineage> children = default(List<Lineage>))
         {
             this.Type = type;
             this.Subtype = subtype;
+            this.LegendText = legendText;
             this.Alias = alias;
             this.ColumnTitleTooltip = columnTitleTooltip;
             this.ColumnTitleIcon = columnTitleIcon;
             this.ExplainTitle = explainTitle;
             this.ExplainTooltip = explainTooltip;
+            this.ArrowToParentTooltip = arrowToParentTooltip;
             this.FullFormula = fullFormula;
             this.DocumentationAsHtml = documentationAsHtml;
             this.DocumentationAsMarkDown = documentationAsMarkDown;
@@ -74,6 +78,12 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [DataMember(Name = "subtype", EmitDefaultValue = true)]
         public string Subtype { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LegendText
+        /// </summary>
+        [DataMember(Name = "legendText", EmitDefaultValue = true)]
+        public string LegendText { get; set; }
 
         /// <summary>
         /// Gets or Sets Alias
@@ -98,6 +108,12 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [DataMember(Name = "explainTooltip", EmitDefaultValue = true)]
         public string ExplainTooltip { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ArrowToParentTooltip
+        /// </summary>
+        [DataMember(Name = "arrowToParentTooltip", EmitDefaultValue = true)]
+        public string ArrowToParentTooltip { get; set; }
 
         /// <summary>
         /// Gets or Sets FullFormula
@@ -133,11 +149,13 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("class Lineage {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Subtype: ").Append(Subtype).Append("\n");
+            sb.Append("  LegendText: ").Append(LegendText).Append("\n");
             sb.Append("  Alias: ").Append(Alias).Append("\n");
             sb.Append("  ColumnTitleTooltip: ").Append(ColumnTitleTooltip).Append("\n");
             sb.Append("  ColumnTitleIcon: ").Append(ColumnTitleIcon).Append("\n");
             sb.Append("  ExplainTitle: ").Append(ExplainTitle).Append("\n");
             sb.Append("  ExplainTooltip: ").Append(ExplainTooltip).Append("\n");
+            sb.Append("  ArrowToParentTooltip: ").Append(ArrowToParentTooltip).Append("\n");
             sb.Append("  FullFormula: ").Append(FullFormula).Append("\n");
             sb.Append("  DocumentationAsHtml: ").Append(DocumentationAsHtml).Append("\n");
             sb.Append("  DocumentationAsMarkDown: ").Append(DocumentationAsMarkDown).Append("\n");
@@ -188,6 +206,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Subtype.Equals(input.Subtype))
                 ) && 
                 (
+                    this.LegendText == input.LegendText ||
+                    (this.LegendText != null &&
+                    this.LegendText.Equals(input.LegendText))
+                ) && 
+                (
                     this.Alias == input.Alias ||
                     (this.Alias != null &&
                     this.Alias.Equals(input.Alias))
@@ -210,6 +233,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.ExplainTooltip == input.ExplainTooltip ||
                     (this.ExplainTooltip != null &&
                     this.ExplainTooltip.Equals(input.ExplainTooltip))
+                ) && 
+                (
+                    this.ArrowToParentTooltip == input.ArrowToParentTooltip ||
+                    (this.ArrowToParentTooltip != null &&
+                    this.ArrowToParentTooltip.Equals(input.ArrowToParentTooltip))
                 ) && 
                 (
                     this.FullFormula == input.FullFormula ||
@@ -251,6 +279,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Subtype.GetHashCode();
                 }
+                if (this.LegendText != null)
+                {
+                    hashCode = (hashCode * 59) + this.LegendText.GetHashCode();
+                }
                 if (this.Alias != null)
                 {
                     hashCode = (hashCode * 59) + this.Alias.GetHashCode();
@@ -267,6 +299,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.ExplainTooltip != null)
                 {
                     hashCode = (hashCode * 59) + this.ExplainTooltip.GetHashCode();
+                }
+                if (this.ArrowToParentTooltip != null)
+                {
+                    hashCode = (hashCode * 59) + this.ArrowToParentTooltip.GetHashCode();
                 }
                 if (this.FullFormula != null)
                 {
