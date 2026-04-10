@@ -57,32 +57,34 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetViewCreationSqlWithHttpInfo(ViewItem? viewItem = default(ViewItem?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListViews: List views which are visible to the current users
+        /// [EXPERIMENTAL] ListViews: List views which are visible to the current user
         /// </summary>
         /// <remarks>
-        ///  Lists all the views which you have access, some limited filtering is available. These come from directly from persisted files in the file system.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        ///  Lists all the views which you have access to see. These come from directly from persisted files in the file system. Some limited filtering is available.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="showAll">Show additional views if permissions allow (optional, default to false)</param>
-        /// <param name="regExFilter">Regular Expression filter to apply to the view content (optional)</param>
+        /// <param name="regExFilter">Regular Expression filter to reduce the number of views returned, it is applied to the view *content* (this filter is applied withing the Filesystem itself.) (optional)</param>
+        /// <param name="nameLikeFilter">SQL Like-style filter on the view name, to reduce the number of views returned (this filter is applied to the Filesystem-returned view list.) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>List&lt;ViewItem&gt;</returns>
-        List<ViewItem> ListViews(bool? showAll = default(bool?), string? regExFilter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        List<ViewItem> ListViews(bool? showAll = default(bool?), string? regExFilter = default(string?), string? nameLikeFilter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListViews: List views which are visible to the current users
+        /// [EXPERIMENTAL] ListViews: List views which are visible to the current user
         /// </summary>
         /// <remarks>
-        ///  Lists all the views which you have access, some limited filtering is available. These come from directly from persisted files in the file system.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        ///  Lists all the views which you have access to see. These come from directly from persisted files in the file system. Some limited filtering is available.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="showAll">Show additional views if permissions allow (optional, default to false)</param>
-        /// <param name="regExFilter">Regular Expression filter to apply to the view content (optional)</param>
+        /// <param name="regExFilter">Regular Expression filter to reduce the number of views returned, it is applied to the view *content* (this filter is applied withing the Filesystem itself.) (optional)</param>
+        /// <param name="nameLikeFilter">SQL Like-style filter on the view name, to reduce the number of views returned (this filter is applied to the Filesystem-returned view list.) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;ViewItem&gt;</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ViewItem>> ListViewsWithHttpInfo(bool? showAll = default(bool?), string? regExFilter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ViewItem>> ListViewsWithHttpInfo(bool? showAll = default(bool?), string? regExFilter = default(string?), string? nameLikeFilter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -120,34 +122,36 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetViewCreationSqlWithHttpInfoAsync(ViewItem? viewItem = default(ViewItem?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListViews: List views which are visible to the current users
+        /// [EXPERIMENTAL] ListViews: List views which are visible to the current user
         /// </summary>
         /// <remarks>
-        ///  Lists all the views which you have access, some limited filtering is available. These come from directly from persisted files in the file system.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        ///  Lists all the views which you have access to see. These come from directly from persisted files in the file system. Some limited filtering is available.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="showAll">Show additional views if permissions allow (optional, default to false)</param>
-        /// <param name="regExFilter">Regular Expression filter to apply to the view content (optional)</param>
+        /// <param name="regExFilter">Regular Expression filter to reduce the number of views returned, it is applied to the view *content* (this filter is applied withing the Filesystem itself.) (optional)</param>
+        /// <param name="nameLikeFilter">SQL Like-style filter on the view name, to reduce the number of views returned (this filter is applied to the Filesystem-returned view list.) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of List&lt;ViewItem&gt;</returns>
-        System.Threading.Tasks.Task<List<ViewItem>> ListViewsAsync(bool? showAll = default(bool?), string? regExFilter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<List<ViewItem>> ListViewsAsync(bool? showAll = default(bool?), string? regExFilter = default(string?), string? nameLikeFilter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListViews: List views which are visible to the current users
+        /// [EXPERIMENTAL] ListViews: List views which are visible to the current user
         /// </summary>
         /// <remarks>
-        ///  Lists all the views which you have access, some limited filtering is available. These come from directly from persisted files in the file system.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        ///  Lists all the views which you have access to see. These come from directly from persisted files in the file system. Some limited filtering is available.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="showAll">Show additional views if permissions allow (optional, default to false)</param>
-        /// <param name="regExFilter">Regular Expression filter to apply to the view content (optional)</param>
+        /// <param name="regExFilter">Regular Expression filter to reduce the number of views returned, it is applied to the view *content* (this filter is applied withing the Filesystem itself.) (optional)</param>
+        /// <param name="nameLikeFilter">SQL Like-style filter on the view name, to reduce the number of views returned (this filter is applied to the Filesystem-returned view list.) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;ViewItem&gt;)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ViewItem>>> ListViewsWithHttpInfoAsync(bool? showAll = default(bool?), string? regExFilter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ViewItem>>> ListViewsWithHttpInfoAsync(bool? showAll = default(bool?), string? regExFilter = default(string?), string? nameLikeFilter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -472,30 +476,32 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListViews: List views which are visible to the current users  Lists all the views which you have access, some limited filtering is available. These come from directly from persisted files in the file system.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] ListViews: List views which are visible to the current user  Lists all the views which you have access to see. These come from directly from persisted files in the file system. Some limited filtering is available.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="showAll">Show additional views if permissions allow (optional, default to false)</param>
-        /// <param name="regExFilter">Regular Expression filter to apply to the view content (optional)</param>
+        /// <param name="regExFilter">Regular Expression filter to reduce the number of views returned, it is applied to the view *content* (this filter is applied withing the Filesystem itself.) (optional)</param>
+        /// <param name="nameLikeFilter">SQL Like-style filter on the view name, to reduce the number of views returned (this filter is applied to the Filesystem-returned view list.) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>List&lt;ViewItem&gt;</returns>
-        public List<ViewItem> ListViews(bool? showAll = default(bool?), string? regExFilter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public List<ViewItem> ListViews(bool? showAll = default(bool?), string? regExFilter = default(string?), string? nameLikeFilter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ViewItem>> localVarResponse = ListViewsWithHttpInfo(showAll, regExFilter, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ViewItem>> localVarResponse = ListViewsWithHttpInfo(showAll, regExFilter, nameLikeFilter, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListViews: List views which are visible to the current users  Lists all the views which you have access, some limited filtering is available. These come from directly from persisted files in the file system.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] ListViews: List views which are visible to the current user  Lists all the views which you have access to see. These come from directly from persisted files in the file system. Some limited filtering is available.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="showAll">Show additional views if permissions allow (optional, default to false)</param>
-        /// <param name="regExFilter">Regular Expression filter to apply to the view content (optional)</param>
+        /// <param name="regExFilter">Regular Expression filter to reduce the number of views returned, it is applied to the view *content* (this filter is applied withing the Filesystem itself.) (optional)</param>
+        /// <param name="nameLikeFilter">SQL Like-style filter on the view name, to reduce the number of views returned (this filter is applied to the Filesystem-returned view list.) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;ViewItem&gt;</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ViewItem>> ListViewsWithHttpInfo(bool? showAll = default(bool?), string? regExFilter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ViewItem>> ListViewsWithHttpInfo(bool? showAll = default(bool?), string? regExFilter = default(string?), string? nameLikeFilter = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
 
@@ -540,6 +546,11 @@ namespace Finbourne.Luminesce.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "regExFilter", regExFilter));
+            }
+            if (nameLikeFilter != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "nameLikeFilter", nameLikeFilter));
             }
 
             localVarRequestOptions.Operation = "ViewManagementApi.ListViews";
@@ -577,32 +588,34 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListViews: List views which are visible to the current users  Lists all the views which you have access, some limited filtering is available. These come from directly from persisted files in the file system.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] ListViews: List views which are visible to the current user  Lists all the views which you have access to see. These come from directly from persisted files in the file system. Some limited filtering is available.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="showAll">Show additional views if permissions allow (optional, default to false)</param>
-        /// <param name="regExFilter">Regular Expression filter to apply to the view content (optional)</param>
+        /// <param name="regExFilter">Regular Expression filter to reduce the number of views returned, it is applied to the view *content* (this filter is applied withing the Filesystem itself.) (optional)</param>
+        /// <param name="nameLikeFilter">SQL Like-style filter on the view name, to reduce the number of views returned (this filter is applied to the Filesystem-returned view list.) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of List&lt;ViewItem&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ViewItem>> ListViewsAsync(bool? showAll = default(bool?), string? regExFilter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<List<ViewItem>> ListViewsAsync(bool? showAll = default(bool?), string? regExFilter = default(string?), string? nameLikeFilter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ViewItem>> localVarResponse = await ListViewsWithHttpInfoAsync(showAll, regExFilter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ViewItem>> localVarResponse = await ListViewsWithHttpInfoAsync(showAll, regExFilter, nameLikeFilter, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListViews: List views which are visible to the current users  Lists all the views which you have access, some limited filtering is available. These come from directly from persisted files in the file system.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+        /// [EXPERIMENTAL] ListViews: List views which are visible to the current user  Lists all the views which you have access to see. These come from directly from persisted files in the file system. Some limited filtering is available.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="showAll">Show additional views if permissions allow (optional, default to false)</param>
-        /// <param name="regExFilter">Regular Expression filter to apply to the view content (optional)</param>
+        /// <param name="regExFilter">Regular Expression filter to reduce the number of views returned, it is applied to the view *content* (this filter is applied withing the Filesystem itself.) (optional)</param>
+        /// <param name="nameLikeFilter">SQL Like-style filter on the view name, to reduce the number of views returned (this filter is applied to the Filesystem-returned view list.) (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;ViewItem&gt;)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ViewItem>>> ListViewsWithHttpInfoAsync(bool? showAll = default(bool?), string? regExFilter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ViewItem>>> ListViewsWithHttpInfoAsync(bool? showAll = default(bool?), string? regExFilter = default(string?), string? nameLikeFilter = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
@@ -646,6 +659,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (regExFilter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "regExFilter", regExFilter));
+            }
+            if (nameLikeFilter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "nameLikeFilter", nameLikeFilter));
             }
 
             localVarRequestOptions.Operation = "ViewManagementApi.ListViews";

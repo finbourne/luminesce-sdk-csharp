@@ -5,7 +5,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**GetViewCreationSql**](ViewManagementApi.md#getviewcreationsql) | **PUT** /api/View/sql | [EXPERIMENTAL] GetViewCreationSql: Gets the original source Sql for a view (if available) |
-| [**ListViews**](ViewManagementApi.md#listviews) | **GET** /api/View/list | [EXPERIMENTAL] ListViews: List views which are visible to the current users |
+| [**ListViews**](ViewManagementApi.md#listviews) | **GET** /api/View/list | [EXPERIMENTAL] ListViews: List views which are visible to the current user |
 
 <a id="getviewcreationsql"></a>
 # **GetViewCreationSql**
@@ -123,11 +123,11 @@ catch (ApiException e)
 
 <a id="listviews"></a>
 # **ListViews**
-> List&lt;ViewItem&gt; ListViews (bool? showAll = null, string? regExFilter = null)
+> List&lt;ViewItem&gt; ListViews (bool? showAll = null, string? regExFilter = null, string? nameLikeFilter = null)
 
-[EXPERIMENTAL] ListViews: List views which are visible to the current users
+[EXPERIMENTAL] ListViews: List views which are visible to the current user
 
- Lists all the views which you have access, some limited filtering is available. These come from directly from persisted files in the file system.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
+ Lists all the views which you have access to see. These come from directly from persisted files in the file system. Some limited filtering is available.  The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden 
 
 ### Example
 ```csharp
@@ -169,15 +169,16 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ViewManagementApi>();
             var showAll = false;  // bool? | Show additional views if permissions allow (optional)  (default to false)
-            var regExFilter = "regExFilter_example";  // string? | Regular Expression filter to apply to the view content (optional) 
+            var regExFilter = "regExFilter_example";  // string? | Regular Expression filter to reduce the number of views returned, it is applied to the view *content* (this filter is applied withing the Filesystem itself.) (optional) 
+            var nameLikeFilter = "nameLikeFilter_example";  // string? | SQL Like-style filter on the view name, to reduce the number of views returned (this filter is applied to the Filesystem-returned view list.) (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // List<ViewItem> result = apiInstance.ListViews(showAll, regExFilter, opts: opts);
+                // List<ViewItem> result = apiInstance.ListViews(showAll, regExFilter, nameLikeFilter, opts: opts);
 
-                // [EXPERIMENTAL] ListViews: List views which are visible to the current users
-                List<ViewItem> result = apiInstance.ListViews(showAll, regExFilter);
+                // [EXPERIMENTAL] ListViews: List views which are visible to the current user
+                List<ViewItem> result = apiInstance.ListViews(showAll, regExFilter, nameLikeFilter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -197,8 +198,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListViews: List views which are visible to the current users
-    ApiResponse<List<ViewItem>> response = apiInstance.ListViewsWithHttpInfo(showAll, regExFilter);
+    // [EXPERIMENTAL] ListViews: List views which are visible to the current user
+    ApiResponse<List<ViewItem>> response = apiInstance.ListViewsWithHttpInfo(showAll, regExFilter, nameLikeFilter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -216,7 +217,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **showAll** | **bool?** | Show additional views if permissions allow | [optional] [default to false] |
-| **regExFilter** | **string?** | Regular Expression filter to apply to the view content | [optional]  |
+| **regExFilter** | **string?** | Regular Expression filter to reduce the number of views returned, it is applied to the view *content* (this filter is applied withing the Filesystem itself.) | [optional]  |
+| **nameLikeFilter** | **string?** | SQL Like-style filter on the view name, to reduce the number of views returned (this filter is applied to the Filesystem-returned view list.) | [optional]  |
 
 ### Return type
 
