@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **LastUpdatedAt** | **DateTimeOffset?** | The last updated at time, needed to get the creating Sql out of the logs | [optional] 
 **LastUpdatedBy** | **string** | The last updated by this user | [optional] 
 **CreatedByUserId** | **string** | Originally created by this user | [optional] 
+**Notes** | **string** | Any notes around saving or whatnot | [optional] 
 
 ```csharp
 using Finbourne.Luminesce.Sdk.Model;
@@ -24,6 +25,7 @@ string fileContent = "example fileContent";
 Guid? lastUpdatedExecutionId = "example lastUpdatedExecutionId";
 string lastUpdatedBy = "example lastUpdatedBy";
 string createdByUserId = "example createdByUserId";
+string notes = "example notes";
 
 ViewItem viewItemInstance = new ViewItem(
     name: name,
@@ -33,7 +35,8 @@ ViewItem viewItemInstance = new ViewItem(
     lastUpdatedExecutionId: lastUpdatedExecutionId,
     lastUpdatedAt: lastUpdatedAt,
     lastUpdatedBy: lastUpdatedBy,
-    createdByUserId: createdByUserId);
+    createdByUserId: createdByUserId,
+    notes: notes);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
