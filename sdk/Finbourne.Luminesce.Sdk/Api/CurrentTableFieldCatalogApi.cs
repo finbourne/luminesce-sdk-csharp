@@ -66,10 +66,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
         /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for column lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string GetFields(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        string GetFields(string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetFields: List field and parameters for providers
@@ -80,10 +81,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
         /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for column lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetFieldsWithHttpInfo(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetFieldsWithHttpInfo(string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetProviders: List available providers
         /// </summary>
@@ -92,11 +94,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
-        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the data for. (optional)</param>
+        /// <param name="addLineage">Adds in any provider lineage which is registered in the catalog to the results (can produce very large responses). (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for provider lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        string GetProviders(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        string GetProviders(string? freeTextSearch = default(string?), string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetProviders: List available providers
@@ -106,11 +110,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
-        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the data for. (optional)</param>
+        /// <param name="addLineage">Adds in any provider lineage which is registered in the catalog to the results (can produce very large responses). (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for provider lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetProvidersWithHttpInfo(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetProvidersWithHttpInfo(string? freeTextSearch = default(string?), string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -158,11 +164,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
         /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for column lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetFieldsAsync(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<string> GetFieldsAsync(string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetFields: List field and parameters for providers
@@ -173,11 +180,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
         /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for column lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetFieldsWithHttpInfoAsync(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetFieldsWithHttpInfoAsync(string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetProviders: List available providers
         /// </summary>
@@ -186,12 +194,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
-        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the data for. (optional)</param>
+        /// <param name="addLineage">Adds in any provider lineage which is registered in the catalog to the results (can produce very large responses). (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for provider lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetProvidersAsync(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<string> GetProvidersAsync(string? freeTextSearch = default(string?), string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetProviders: List available providers
@@ -201,12 +211,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
-        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the data for. (optional)</param>
+        /// <param name="addLineage">Adds in any provider lineage which is registered in the catalog to the results (can produce very large responses). (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for provider lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetProvidersWithHttpInfoAsync(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetProvidersWithHttpInfoAsync(string? freeTextSearch = default(string?), string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -548,12 +560,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
         /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for column lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string GetFields(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public string GetFields(string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetFieldsWithHttpInfo(tableLike, addLineage, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetFieldsWithHttpInfo(tableLike, addLineage, addLineageMarker, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -563,10 +576,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
         /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for column lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetFieldsWithHttpInfo(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetFieldsWithHttpInfo(string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
 
@@ -611,6 +625,11 @@ namespace Finbourne.Luminesce.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "addLineage", addLineage));
+            }
+            if (addLineageMarker != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "addLineageMarker", addLineageMarker));
             }
 
             localVarRequestOptions.Operation = "CurrentTableFieldCatalogApi.GetFields";
@@ -653,13 +672,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
         /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for column lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetFieldsAsync(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<string> GetFieldsAsync(string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetFieldsWithHttpInfoAsync(tableLike, addLineage, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetFieldsWithHttpInfoAsync(tableLike, addLineage, addLineageMarker, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -669,11 +689,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional, default to &quot;%&quot;)</param>
         /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for column lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetFieldsWithHttpInfoAsync(string? tableLike = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetFieldsWithHttpInfoAsync(string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
@@ -718,6 +739,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "addLineage", addLineage));
             }
+            if (addLineageMarker != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "addLineageMarker", addLineageMarker));
+            }
 
             localVarRequestOptions.Operation = "CurrentTableFieldCatalogApi.GetFields";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -759,13 +784,15 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
-        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the data for. (optional)</param>
+        /// <param name="addLineage">Adds in any provider lineage which is registered in the catalog to the results (can produce very large responses). (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for provider lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
-        public string GetProviders(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public string GetProviders(string? freeTextSearch = default(string?), string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetProvidersWithHttpInfo(freeTextSearch, addLineage, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = GetProvidersWithHttpInfo(freeTextSearch, tableLike, addLineage, addLineageMarker, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -774,11 +801,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
-        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the data for. (optional)</param>
+        /// <param name="addLineage">Adds in any provider lineage which is registered in the catalog to the results (can produce very large responses). (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for provider lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetProvidersWithHttpInfo(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> GetProvidersWithHttpInfo(string? freeTextSearch = default(string?), string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
 
@@ -819,10 +848,20 @@ namespace Finbourne.Luminesce.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "freeTextSearch", freeTextSearch));
             }
+            if (tableLike != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "tableLike", tableLike));
+            }
             if (addLineage != null)
             {
 
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "addLineage", addLineage));
+            }
+            if (addLineageMarker != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "addLineageMarker", addLineageMarker));
             }
 
             localVarRequestOptions.Operation = "CurrentTableFieldCatalogApi.GetProviders";
@@ -864,14 +903,16 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
-        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the data for. (optional)</param>
+        /// <param name="addLineage">Adds in any provider lineage which is registered in the catalog to the results (can produce very large responses). (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for provider lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetProvidersAsync(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<string> GetProvidersAsync(string? freeTextSearch = default(string?), string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetProvidersWithHttpInfoAsync(freeTextSearch, addLineage, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await GetProvidersWithHttpInfoAsync(freeTextSearch, tableLike, addLineage, addLineageMarker, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -880,12 +921,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="freeTextSearch">Limit the catalog to only things in some way dealing with the passed in text string (optional)</param>
-        /// <param name="addLineage">Adds in any column lineage which is registered in the catalog to the results. (optional, default to false)</param>
+        /// <param name="tableLike">Allows for SQL-LIKE style filtering of which Providers you want the data for. (optional)</param>
+        /// <param name="addLineage">Adds in any provider lineage which is registered in the catalog to the results (can produce very large responses). (optional, default to false)</param>
+        /// <param name="addLineageMarker">Adds in a marker for provider lineage which is registered in the catalog to the results: hasLineage true/false (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetProvidersWithHttpInfoAsync(string? freeTextSearch = default(string?), bool? addLineage = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> GetProvidersWithHttpInfoAsync(string? freeTextSearch = default(string?), string? tableLike = default(string?), bool? addLineage = default(bool?), bool? addLineageMarker = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
@@ -926,9 +969,17 @@ namespace Finbourne.Luminesce.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "freeTextSearch", freeTextSearch));
             }
+            if (tableLike != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "tableLike", tableLike));
+            }
             if (addLineage != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "addLineage", addLineage));
+            }
+            if (addLineageMarker != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "addLineageMarker", addLineageMarker));
             }
 
             localVarRequestOptions.Operation = "CurrentTableFieldCatalogApi.GetProviders";

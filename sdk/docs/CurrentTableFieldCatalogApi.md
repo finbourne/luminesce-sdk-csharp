@@ -124,7 +124,7 @@ catch (ApiException e)
 
 <a id="getfields"></a>
 # **GetFields**
-> string GetFields (string? tableLike = null, bool? addLineage = null)
+> string GetFields (string? tableLike = null, bool? addLineage = null, bool? addLineageMarker = null)
 
 GetFields: List field and parameters for providers
 
@@ -171,14 +171,15 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CurrentTableFieldCatalogApi>();
             var tableLike = "\"%\"";  // string? | Allows for SQL-LIKE style filtering of which Providers you want the fields for. (optional)  (default to "%")
             var addLineage = false;  // bool? | Adds in any column lineage which is registered in the catalog to the results. (optional)  (default to false)
+            var addLineageMarker = false;  // bool? | Adds in a marker for column lineage which is registered in the catalog to the results: hasLineage true/false (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.GetFields(tableLike, addLineage, opts: opts);
+                // string result = apiInstance.GetFields(tableLike, addLineage, addLineageMarker, opts: opts);
 
                 // GetFields: List field and parameters for providers
-                string result = apiInstance.GetFields(tableLike, addLineage);
+                string result = apiInstance.GetFields(tableLike, addLineage, addLineageMarker);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -199,7 +200,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetFields: List field and parameters for providers
-    ApiResponse<string> response = apiInstance.GetFieldsWithHttpInfo(tableLike, addLineage);
+    ApiResponse<string> response = apiInstance.GetFieldsWithHttpInfo(tableLike, addLineage, addLineageMarker);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -218,6 +219,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **tableLike** | **string?** | Allows for SQL-LIKE style filtering of which Providers you want the fields for. | [optional] [default to &quot;%&quot;] |
 | **addLineage** | **bool?** | Adds in any column lineage which is registered in the catalog to the results. | [optional] [default to false] |
+| **addLineageMarker** | **bool?** | Adds in a marker for column lineage which is registered in the catalog to the results: hasLineage true/false | [optional] [default to false] |
 
 ### Return type
 
@@ -238,7 +240,7 @@ catch (ApiException e)
 
 <a id="getproviders"></a>
 # **GetProviders**
-> string GetProviders (string? freeTextSearch = null, bool? addLineage = null)
+> string GetProviders (string? freeTextSearch = null, string? tableLike = null, bool? addLineage = null, bool? addLineageMarker = null)
 
 GetProviders: List available providers
 
@@ -284,15 +286,17 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<CurrentTableFieldCatalogApi>();
             var freeTextSearch = "freeTextSearch_example";  // string? | Limit the catalog to only things in some way dealing with the passed in text string (optional) 
-            var addLineage = false;  // bool? | Adds in any column lineage which is registered in the catalog to the results. (optional)  (default to false)
+            var tableLike = "tableLike_example";  // string? | Allows for SQL-LIKE style filtering of which Providers you want the data for. (optional) 
+            var addLineage = false;  // bool? | Adds in any provider lineage which is registered in the catalog to the results (can produce very large responses). (optional)  (default to false)
+            var addLineageMarker = false;  // bool? | Adds in a marker for provider lineage which is registered in the catalog to the results: hasLineage true/false (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.GetProviders(freeTextSearch, addLineage, opts: opts);
+                // string result = apiInstance.GetProviders(freeTextSearch, tableLike, addLineage, addLineageMarker, opts: opts);
 
                 // GetProviders: List available providers
-                string result = apiInstance.GetProviders(freeTextSearch, addLineage);
+                string result = apiInstance.GetProviders(freeTextSearch, tableLike, addLineage, addLineageMarker);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -313,7 +317,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetProviders: List available providers
-    ApiResponse<string> response = apiInstance.GetProvidersWithHttpInfo(freeTextSearch, addLineage);
+    ApiResponse<string> response = apiInstance.GetProvidersWithHttpInfo(freeTextSearch, tableLike, addLineage, addLineageMarker);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -331,7 +335,9 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **freeTextSearch** | **string?** | Limit the catalog to only things in some way dealing with the passed in text string | [optional]  |
-| **addLineage** | **bool?** | Adds in any column lineage which is registered in the catalog to the results. | [optional] [default to false] |
+| **tableLike** | **string?** | Allows for SQL-LIKE style filtering of which Providers you want the data for. | [optional]  |
+| **addLineage** | **bool?** | Adds in any provider lineage which is registered in the catalog to the results (can produce very large responses). | [optional] [default to false] |
+| **addLineageMarker** | **bool?** | Adds in a marker for provider lineage which is registered in the catalog to the results: hasLineage true/false | [optional] [default to false] |
 
 ### Return type
 
