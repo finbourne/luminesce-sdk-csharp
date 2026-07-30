@@ -47,7 +47,9 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="value">the default value of the parameter.</param>
         /// <param name="valueOptions">Values of the parameter listed as being available for choosing from..</param>
         /// <param name="valueMustBeFromOptions">Must Value be one of ValueOptions (if any)?.</param>
-        public ScalarParameter(string name = default(string), DataType type = default(DataType), Object value = default(Object), List<Object> valueOptions = default(List<Object>), bool valueMustBeFromOptions = default(bool))
+        /// <param name="parameterValueOptionsQuery">SQL that might have been used for generating the options list.</param>
+        /// <param name="parameterValueOptionsQueryError">Error generated but executing ParameterValueOptionsQuery, if any.</param>
+        public ScalarParameter(string name = default(string), DataType type = default(DataType), Object value = default(Object), List<Object> valueOptions = default(List<Object>), bool valueMustBeFromOptions = default(bool), string parameterValueOptionsQuery = default(string), string parameterValueOptionsQueryError = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -59,6 +61,8 @@ namespace Finbourne.Luminesce.Sdk.Model
             this.Value = value;
             this.ValueOptions = valueOptions;
             this.ValueMustBeFromOptions = valueMustBeFromOptions;
+            this.ParameterValueOptionsQuery = parameterValueOptionsQuery;
+            this.ParameterValueOptionsQueryError = parameterValueOptionsQueryError;
         }
 
         /// <summary>
@@ -90,6 +94,20 @@ namespace Finbourne.Luminesce.Sdk.Model
         public bool ValueMustBeFromOptions { get; set; }
 
         /// <summary>
+        /// SQL that might have been used for generating the options list
+        /// </summary>
+        /// <value>SQL that might have been used for generating the options list</value>
+        [DataMember(Name = "parameterValueOptionsQuery", EmitDefaultValue = true)]
+        public string ParameterValueOptionsQuery { get; set; }
+
+        /// <summary>
+        /// Error generated but executing ParameterValueOptionsQuery, if any
+        /// </summary>
+        /// <value>Error generated but executing ParameterValueOptionsQuery, if any</value>
+        [DataMember(Name = "parameterValueOptionsQueryError", EmitDefaultValue = true)]
+        public string ParameterValueOptionsQueryError { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -102,6 +120,8 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  ValueOptions: ").Append(ValueOptions).Append("\n");
             sb.Append("  ValueMustBeFromOptions: ").Append(ValueMustBeFromOptions).Append("\n");
+            sb.Append("  ParameterValueOptionsQuery: ").Append(ParameterValueOptionsQuery).Append("\n");
+            sb.Append("  ParameterValueOptionsQueryError: ").Append(ParameterValueOptionsQueryError).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -160,6 +180,16 @@ namespace Finbourne.Luminesce.Sdk.Model
                 (
                     this.ValueMustBeFromOptions == input.ValueMustBeFromOptions ||
                     this.ValueMustBeFromOptions.Equals(input.ValueMustBeFromOptions)
+                ) && 
+                (
+                    this.ParameterValueOptionsQuery == input.ParameterValueOptionsQuery ||
+                    (this.ParameterValueOptionsQuery != null &&
+                    this.ParameterValueOptionsQuery.Equals(input.ParameterValueOptionsQuery))
+                ) && 
+                (
+                    this.ParameterValueOptionsQueryError == input.ParameterValueOptionsQueryError ||
+                    (this.ParameterValueOptionsQueryError != null &&
+                    this.ParameterValueOptionsQueryError.Equals(input.ParameterValueOptionsQueryError))
                 );
         }
 
@@ -186,6 +216,14 @@ namespace Finbourne.Luminesce.Sdk.Model
                     hashCode = (hashCode * 59) + this.ValueOptions.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ValueMustBeFromOptions.GetHashCode();
+                if (this.ParameterValueOptionsQuery != null)
+                {
+                    hashCode = (hashCode * 59) + this.ParameterValueOptionsQuery.GetHashCode();
+                }
+                if (this.ParameterValueOptionsQueryError != null)
+                {
+                    hashCode = (hashCode * 59) + this.ParameterValueOptionsQueryError.GetHashCode();
+                }
                 return hashCode;
             }
         }
