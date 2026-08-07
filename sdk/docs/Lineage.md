@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **ExplainTooltip** | **string** |  | [optional] 
 **ArrowToParentTooltip** | **string** |  | [optional] 
 **FullFormula** | **string** |  | [optional] 
+**ActionTemplate** | **string** |  | [optional] 
 **DocumentationAsHtml** | **string** |  | [optional] 
 **DocumentationAsMarkDown** | **string** |  | [optional] 
 **Children** | [**List&lt;Lineage&gt;**](Lineage.md) |  | [optional] 
@@ -31,6 +32,7 @@ string explainTitle = "example explainTitle";
 string explainTooltip = "example explainTooltip";
 string arrowToParentTooltip = "example arrowToParentTooltip";
 string fullFormula = "example fullFormula";
+string actionTemplate = "example actionTemplate";
 string documentationAsHtml = "example documentationAsHtml";
 string documentationAsMarkDown = "example documentationAsMarkDown";
 List<Lineage> children = new List<Lineage>();
@@ -46,6 +48,7 @@ Lineage lineageInstance = new Lineage(
     explainTooltip: explainTooltip,
     arrowToParentTooltip: arrowToParentTooltip,
     fullFormula: fullFormula,
+    actionTemplate: actionTemplate,
     documentationAsHtml: documentationAsHtml,
     documentationAsMarkDown: documentationAsMarkDown,
     children: children);
