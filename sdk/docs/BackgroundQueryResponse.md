@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **FetchExcel** | [**Link**](Link.md) |  | [optional] 
 **FetchSqlite** | [**Link**](Link.md) |  | [optional] 
 **Histogram** | [**Link**](Link.md) |  | [optional] 
+**SaveToDrive** | [**Link**](Link.md) |  | [optional] 
 
 ```csharp
 using Finbourne.Luminesce.Sdk.Model;
@@ -48,6 +49,8 @@ Link? fetchSqlite = new Link();
 
 Link? histogram = new Link();
 
+Link? saveToDrive = new Link();
+
 
 BackgroundQueryResponse backgroundQueryResponseInstance = new BackgroundQueryResponse(
     executionId: executionId,
@@ -62,7 +65,8 @@ BackgroundQueryResponse backgroundQueryResponseInstance = new BackgroundQueryRes
     fetchPipe: fetchPipe,
     fetchExcel: fetchExcel,
     fetchSqlite: fetchSqlite,
-    histogram: histogram);
+    histogram: histogram,
+    saveToDrive: saveToDrive);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -44,7 +44,8 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="fetchExcel">fetchExcel.</param>
         /// <param name="fetchSqlite">fetchSqlite.</param>
         /// <param name="histogram">histogram.</param>
-        public BackgroundQueryResponse(string executionId = default(string), Link progress = default(Link), Link cancel = default(Link), Link fetchJson = default(Link), Link fetchJsonProper = default(Link), Link fetchJsonProperWithLineage = default(Link), Link fetchXml = default(Link), Link fetchParquet = default(Link), Link fetchCsv = default(Link), Link fetchPipe = default(Link), Link fetchExcel = default(Link), Link fetchSqlite = default(Link), Link histogram = default(Link))
+        /// <param name="saveToDrive">saveToDrive.</param>
+        public BackgroundQueryResponse(string executionId = default(string), Link progress = default(Link), Link cancel = default(Link), Link fetchJson = default(Link), Link fetchJsonProper = default(Link), Link fetchJsonProperWithLineage = default(Link), Link fetchXml = default(Link), Link fetchParquet = default(Link), Link fetchCsv = default(Link), Link fetchPipe = default(Link), Link fetchExcel = default(Link), Link fetchSqlite = default(Link), Link histogram = default(Link), Link saveToDrive = default(Link))
         {
             this.ExecutionId = executionId;
             this.Progress = progress;
@@ -59,6 +60,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             this.FetchExcel = fetchExcel;
             this.FetchSqlite = fetchSqlite;
             this.Histogram = histogram;
+            this.SaveToDrive = saveToDrive;
         }
 
         /// <summary>
@@ -141,6 +143,12 @@ namespace Finbourne.Luminesce.Sdk.Model
         public Link Histogram { get; set; }
 
         /// <summary>
+        /// Gets or Sets SaveToDrive
+        /// </summary>
+        [DataMember(Name = "saveToDrive", EmitDefaultValue = false)]
+        public Link SaveToDrive { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -161,6 +169,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  FetchExcel: ").Append(FetchExcel).Append("\n");
             sb.Append("  FetchSqlite: ").Append(FetchSqlite).Append("\n");
             sb.Append("  Histogram: ").Append(Histogram).Append("\n");
+            sb.Append("  SaveToDrive: ").Append(SaveToDrive).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -260,6 +269,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Histogram == input.Histogram ||
                     (this.Histogram != null &&
                     this.Histogram.Equals(input.Histogram))
+                ) && 
+                (
+                    this.SaveToDrive == input.SaveToDrive ||
+                    (this.SaveToDrive != null &&
+                    this.SaveToDrive.Equals(input.SaveToDrive))
                 );
         }
 
@@ -323,6 +337,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.Histogram != null)
                 {
                     hashCode = (hashCode * 59) + this.Histogram.GetHashCode();
+                }
+                if (this.SaveToDrive != null)
+                {
+                    hashCode = (hashCode * 59) + this.SaveToDrive.GetHashCode();
                 }
                 return hashCode;
             }
