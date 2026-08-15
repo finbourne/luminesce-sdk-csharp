@@ -591,10 +591,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
+        /// <param name="externalQuerySource">Optional request to load the query from an external SQL-store. The payload is then a key that means something to the chosen source Currently limited by may grow in time: - SavedQuery : Load from Saved Queries (within the Workspaces API),   Query/Body examples: &#x60;personal/YourUserId/items/queries/SomeQuery&#x60; or &#x60;shared/SomeWorkspace/items/queries/SomeQuery&#x60;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryResponse</returns>
-        BackgroundQueryResponse StartQuery(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        BackgroundQueryResponse StartQuery(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), ExternalQuerySource? externalQuerySource = default(ExternalQuerySource?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// StartQuery: Start to Execute Sql in the background
@@ -610,10 +611,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
+        /// <param name="externalQuerySource">Optional request to load the query from an external SQL-store. The payload is then a key that means something to the chosen source Currently limited by may grow in time: - SavedQuery : Load from Saved Queries (within the Workspaces API),   Query/Body examples: &#x60;personal/YourUserId/items/queries/SomeQuery&#x60; or &#x60;shared/SomeWorkspace/items/queries/SomeQuery&#x60;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
-        Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), ExternalQuerySource? externalQuerySource = default(ExternalQuerySource?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -1211,11 +1213,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
+        /// <param name="externalQuerySource">Optional request to load the query from an external SQL-store. The payload is then a key that means something to the chosen source Currently limited by may grow in time: - SavedQuery : Load from Saved Queries (within the Workspaces API),   Query/Body examples: &#x60;personal/YourUserId/items/queries/SomeQuery&#x60; or &#x60;shared/SomeWorkspace/items/queries/SomeQuery&#x60;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryResponse</returns>
-        System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), ExternalQuerySource? externalQuerySource = default(ExternalQuerySource?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// StartQuery: Start to Execute Sql in the background
@@ -1231,11 +1234,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
+        /// <param name="externalQuerySource">Optional request to load the query from an external SQL-store. The payload is then a key that means something to the chosen source Currently limited by may grow in time: - SavedQuery : Load from Saved Queries (within the Workspaces API),   Query/Body examples: &#x60;personal/YourUserId/items/queries/SomeQuery&#x60; or &#x60;shared/SomeWorkspace/items/queries/SomeQuery&#x60;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryResponse)</returns>
-        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), ExternalQuerySource? externalQuerySource = default(ExternalQuerySource?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -5510,12 +5514,13 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
+        /// <param name="externalQuerySource">Optional request to load the query from an external SQL-store. The payload is then a key that means something to the chosen source Currently limited by may grow in time: - SavedQuery : Load from Saved Queries (within the Workspaces API),   Query/Body examples: &#x60;personal/YourUserId/items/queries/SomeQuery&#x60; or &#x60;shared/SomeWorkspace/items/queries/SomeQuery&#x60;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>BackgroundQueryResponse</returns>
-        public BackgroundQueryResponse StartQuery(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public BackgroundQueryResponse StartQuery(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), ExternalQuerySource? externalQuerySource = default(ExternalQuerySource?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = StartQueryWithHttpInfo(body, executionId, scalarParameters, queryName, timeoutSeconds, keepForSeconds, executionFlags, opts: opts);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = StartQueryWithHttpInfo(body, executionId, scalarParameters, queryName, timeoutSeconds, keepForSeconds, executionFlags, externalQuerySource, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -5530,10 +5535,11 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
+        /// <param name="externalQuerySource">Optional request to load the query from an external SQL-store. The payload is then a key that means something to the chosen source Currently limited by may grow in time: - SavedQuery : Load from Saved Queries (within the Workspaces API),   Query/Body examples: &#x60;personal/YourUserId/items/queries/SomeQuery&#x60; or &#x60;shared/SomeWorkspace/items/queries/SomeQuery&#x60;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundQueryResponse</returns>
-        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> StartQueryWithHttpInfo(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), ExternalQuerySource? externalQuerySource = default(ExternalQuerySource?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -5607,6 +5613,11 @@ namespace Finbourne.Luminesce.Sdk.Api
 
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "executionFlags", executionFlags));
             }
+            if (externalQuerySource != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "externalQuerySource", externalQuerySource));
+            }
             localVarRequestOptions.Data = body;
 
             localVarRequestOptions.Operation = "SqlBackgroundExecutionApi.StartQuery";
@@ -5654,13 +5665,14 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
+        /// <param name="externalQuerySource">Optional request to load the query from an external SQL-store. The payload is then a key that means something to the chosen source Currently limited by may grow in time: - SavedQuery : Load from Saved Queries (within the Workspaces API),   Query/Body examples: &#x60;personal/YourUserId/items/queries/SomeQuery&#x60; or &#x60;shared/SomeWorkspace/items/queries/SomeQuery&#x60;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of BackgroundQueryResponse</returns>
-        public async System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<BackgroundQueryResponse> StartQueryAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), ExternalQuerySource? externalQuerySource = default(ExternalQuerySource?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = await StartQueryWithHttpInfoAsync(body, executionId, scalarParameters, queryName, timeoutSeconds, keepForSeconds, executionFlags, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse> localVarResponse = await StartQueryWithHttpInfoAsync(body, executionId, scalarParameters, queryName, timeoutSeconds, keepForSeconds, executionFlags, externalQuerySource, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5675,11 +5687,12 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="timeoutSeconds">Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) (optional, default to 0)</param>
         /// <param name="keepForSeconds">Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) (optional, default to 0)</param>
         /// <param name="executionFlags">Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional)</param>
+        /// <param name="externalQuerySource">Optional request to load the query from an external SQL-store. The payload is then a key that means something to the chosen source Currently limited by may grow in time: - SavedQuery : Load from Saved Queries (within the Workspaces API),   Query/Body examples: &#x60;personal/YourUserId/items/queries/SomeQuery&#x60; or &#x60;shared/SomeWorkspace/items/queries/SomeQuery&#x60;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryResponse>> StartQueryWithHttpInfoAsync(string body, string? executionId = default(string?), Dictionary<string, string>? scalarParameters = default(Dictionary<string, string>?), string? queryName = default(string?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags? executionFlags = default(SqlExecutionFlags?), ExternalQuerySource? externalQuerySource = default(ExternalQuerySource?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -5746,6 +5759,10 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (executionFlags != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "executionFlags", executionFlags));
+            }
+            if (externalQuerySource != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "externalQuerySource", externalQuerySource));
             }
             localVarRequestOptions.Data = body;
 

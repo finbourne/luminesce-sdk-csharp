@@ -1808,7 +1808,7 @@ catch (ApiException e)
 
 <a id="startquery"></a>
 # **StartQuery**
-> BackgroundQueryResponse StartQuery (string body, string? executionId = null, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeoutSeconds = null, int? keepForSeconds = null, SqlExecutionFlags? executionFlags = null)
+> BackgroundQueryResponse StartQuery (string body, string? executionId = null, Dictionary<string, string>? scalarParameters = null, string? queryName = null, int? timeoutSeconds = null, int? keepForSeconds = null, SqlExecutionFlags? executionFlags = null, ExternalQuerySource? externalQuerySource = null)
 
 StartQuery: Start to Execute Sql in the background
 
@@ -1860,14 +1860,15 @@ namespace Examples
             var timeoutSeconds = 1200;  // int? | Maximum time the query may run for, in seconds: <0 → ∞, 0 → 7200 (2h) (optional)  (default to 0)
             var keepForSeconds = 7200;  // int? | Maximum time the result may be kept for, in seconds: <0 → 1200 (20m), 0 → 28800 (8h), max = 2,678,400 (31d) (optional)  (default to 0)
             var executionFlags = new SqlExecutionFlags?(); // SqlExecutionFlags? | Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. (optional) 
+            var externalQuerySource = new ExternalQuerySource?(); // ExternalQuerySource? | Optional request to load the query from an external SQL-store. The payload is then a key that means something to the chosen source Currently limited by may grow in time: - SavedQuery : Load from Saved Queries (within the Workspaces API),   Query/Body examples: `personal/YourUserId/items/queries/SomeQuery` or `shared/SomeWorkspace/items/queries/SomeQuery`. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // BackgroundQueryResponse result = apiInstance.StartQuery(body, executionId, scalarParameters, queryName, timeoutSeconds, keepForSeconds, executionFlags, opts: opts);
+                // BackgroundQueryResponse result = apiInstance.StartQuery(body, executionId, scalarParameters, queryName, timeoutSeconds, keepForSeconds, executionFlags, externalQuerySource, opts: opts);
 
                 // StartQuery: Start to Execute Sql in the background
-                BackgroundQueryResponse result = apiInstance.StartQuery(body, executionId, scalarParameters, queryName, timeoutSeconds, keepForSeconds, executionFlags);
+                BackgroundQueryResponse result = apiInstance.StartQuery(body, executionId, scalarParameters, queryName, timeoutSeconds, keepForSeconds, executionFlags, externalQuerySource);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1888,7 +1889,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // StartQuery: Start to Execute Sql in the background
-    ApiResponse<BackgroundQueryResponse> response = apiInstance.StartQueryWithHttpInfo(body, executionId, scalarParameters, queryName, timeoutSeconds, keepForSeconds, executionFlags);
+    ApiResponse<BackgroundQueryResponse> response = apiInstance.StartQueryWithHttpInfo(body, executionId, scalarParameters, queryName, timeoutSeconds, keepForSeconds, executionFlags, externalQuerySource);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1912,6 +1913,7 @@ catch (ApiException e)
 | **timeoutSeconds** | **int?** | Maximum time the query may run for, in seconds: &lt;0 → ∞, 0 → 7200 (2h) | [optional] [default to 0] |
 | **keepForSeconds** | **int?** | Maximum time the result may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d) | [optional] [default to 0] |
 | **executionFlags** | [**SqlExecutionFlags?**](SqlExecutionFlags?.md) | Optional request flags for the execution.  Currently limited by may grow in time: - ProvideLineage : Should Lineage be requested when running the query?  This must be set in order to later retrieve Lineage. | [optional]  |
+| **externalQuerySource** | [**ExternalQuerySource?**](ExternalQuerySource?.md) | Optional request to load the query from an external SQL-store. The payload is then a key that means something to the chosen source Currently limited by may grow in time: - SavedQuery : Load from Saved Queries (within the Workspaces API),   Query/Body examples: &#x60;personal/YourUserId/items/queries/SomeQuery&#x60; or &#x60;shared/SomeWorkspace/items/queries/SomeQuery&#x60;. | [optional]  |
 
 ### Return type
 
