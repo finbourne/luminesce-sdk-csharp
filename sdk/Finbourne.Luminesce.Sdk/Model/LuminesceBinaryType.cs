@@ -36,130 +36,136 @@ namespace Finbourne.Luminesce.Sdk.Model
         CommandLineTool = 1,
 
         /// <summary>
+        /// Enum LumiCode for value: LumiCode
+        /// </summary>
+        [EnumMember(Value = "LumiCode")]
+        LumiCode = 2,
+
+        /// <summary>
         /// Enum LocalFileSystemProviders for value: LocalFileSystem_Providers
         /// </summary>
         [EnumMember(Value = "LocalFileSystem_Providers")]
-        LocalFileSystemProviders = 2,
+        LocalFileSystemProviders = 3,
 
         /// <summary>
         /// Enum EmailProviders for value: Email_Providers
         /// </summary>
         [EnumMember(Value = "Email_Providers")]
-        EmailProviders = 3,
+        EmailProviders = 4,
 
         /// <summary>
         /// Enum PythonProviders for value: Python_Providers
         /// </summary>
         [EnumMember(Value = "Python_Providers")]
-        PythonProviders = 4,
+        PythonProviders = 5,
 
         /// <summary>
         /// Enum AwsS3Providers for value: AwsS3_Providers
         /// </summary>
         [EnumMember(Value = "AwsS3_Providers")]
-        AwsS3Providers = 5,
+        AwsS3Providers = 6,
 
         /// <summary>
         /// Enum AzureProviders for value: Azure_Providers
         /// </summary>
         [EnumMember(Value = "Azure_Providers")]
-        AzureProviders = 6,
+        AzureProviders = 7,
 
         /// <summary>
         /// Enum GcsProviders for value: Gcs_Providers
         /// </summary>
         [EnumMember(Value = "Gcs_Providers")]
-        GcsProviders = 7,
+        GcsProviders = 8,
 
         /// <summary>
         /// Enum SqlDbProvidersDb2Linux for value: SqlDb_Providers_Db2Linux
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_Db2Linux")]
-        SqlDbProvidersDb2Linux = 8,
+        SqlDbProvidersDb2Linux = 9,
 
         /// <summary>
         /// Enum SqlDbProvidersMySql for value: SqlDb_Providers_MySql
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_MySql")]
-        SqlDbProvidersMySql = 9,
+        SqlDbProvidersMySql = 10,
 
         /// <summary>
         /// Enum SqlDbProvidersOracle for value: SqlDb_Providers_Oracle
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_Oracle")]
-        SqlDbProvidersOracle = 10,
+        SqlDbProvidersOracle = 11,
 
         /// <summary>
         /// Enum SqlDbProvidersOracleSnowflake for value: SqlDb_Providers_Oracle_Snowflake
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_Oracle_Snowflake")]
-        SqlDbProvidersOracleSnowflake = 11,
+        SqlDbProvidersOracleSnowflake = 12,
 
         /// <summary>
         /// Enum SqlDbProvidersPostgresql for value: SqlDb_Providers_Postgresql
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_Postgresql")]
-        SqlDbProvidersPostgresql = 12,
+        SqlDbProvidersPostgresql = 13,
 
         /// <summary>
         /// Enum SqlDbProvidersSnowflake for value: SqlDb_Providers_Snowflake
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_Snowflake")]
-        SqlDbProvidersSnowflake = 13,
+        SqlDbProvidersSnowflake = 14,
 
         /// <summary>
         /// Enum SqlDbProvidersSqlServer for value: SqlDb_Providers_SqlServer
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_SqlServer")]
-        SqlDbProvidersSqlServer = 14,
+        SqlDbProvidersSqlServer = 15,
 
         /// <summary>
         /// Enum SqlDbProvidersSybaseAse for value: SqlDb_Providers_SybaseAse
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_SybaseAse")]
-        SqlDbProvidersSybaseAse = 15,
+        SqlDbProvidersSybaseAse = 16,
 
         /// <summary>
         /// Enum SqlDbProvidersSqLite for value: SqlDb_Providers_SqLite
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_SqLite")]
-        SqlDbProvidersSqLite = 16,
+        SqlDbProvidersSqLite = 17,
 
         /// <summary>
         /// Enum SqlDbProvidersDuckDb for value: SqlDb_Providers_DuckDb
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_DuckDb")]
-        SqlDbProvidersDuckDb = 17,
+        SqlDbProvidersDuckDb = 18,
 
         /// <summary>
         /// Enum SqlDbProvidersAwsDynamoDb for value: SqlDb_Providers_AwsDynamoDb
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_AwsDynamoDb")]
-        SqlDbProvidersAwsDynamoDb = 18,
+        SqlDbProvidersAwsDynamoDb = 19,
 
         /// <summary>
         /// Enum SqlDbProvidersSqlServerOracle for value: SqlDb_Providers_SqlServer_Oracle
         /// </summary>
         [EnumMember(Value = "SqlDb_Providers_SqlServer_Oracle")]
-        SqlDbProvidersSqlServerOracle = 19,
+        SqlDbProvidersSqlServerOracle = 20,
 
         /// <summary>
         /// Enum JdbcDriver for value: Jdbc_Driver
         /// </summary>
         [EnumMember(Value = "Jdbc_Driver")]
-        JdbcDriver = 20,
+        JdbcDriver = 21,
 
         /// <summary>
         /// Enum PowerBiConnector for value: PowerBi_Connector
         /// </summary>
         [EnumMember(Value = "PowerBi_Connector")]
-        PowerBiConnector = 21,
+        PowerBiConnector = 22,
 
         /// <summary>
         /// Enum OdbcWin64Driver for value: Odbc_Win64_Driver
         /// </summary>
         [EnumMember(Value = "Odbc_Win64_Driver")]
-        OdbcWin64Driver = 22
+        OdbcWin64Driver = 23
     }
 
 }
