@@ -1173,7 +1173,7 @@ catch (ApiException e)
 
 PutQueryToFormat: Format SQL into a more readable form
 
- This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. ```sql select x,y,z from a inner join b on a.x=b.x where x>y or y!=z ``` becomes ```sql select x, y, z from a inner join b    on a.x = b.x where x > y    or y != z ``` 
+ This formats SQL, a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. Of the options only `maxLineWidth` has any effect, the rest are retained for compatibility. e.g. ```sql select x,y,z from a inner join b on a.x=b.x where x>y or y!=z ``` becomes ```sql select x, y, z from a inner join b on a.x = b.x where x > y   or y != z ``` 
 
 ### Example
 ```csharp
@@ -1215,19 +1215,19 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
             var body = select * from sys.field;  // string | LuminesceSql to Pretty-Print. Even if it doesn't parse an attempt will be made to format it
-            var trailingCommas = true;  // bool? | Should commas be after an expression (as opposed to before) (optional)  (default to true)
-            var uppercaseKeywords = false;  // bool? | Should key words be capitalized (optional)  (default to false)
-            var breakJoinOnSections = true;  // bool? | Should clauses on joins be given line breaks? (optional)  (default to true)
-            var spaceAfterExpandedComma = true;  // bool? | Should comma-lists have spaces after the commas? (optional)  (default to true)
-            var keywordStandardization = true;  // bool? | Should the \"nicest\" key words be used? (e.g. JOIN -> INNER JOIN) (optional)  (default to true)
-            var expandCommaLists = false;  // bool? | Should comma-lists (e.g. select a,b,c) have line breaks added? (optional)  (default to false)
-            var expandInLists = false;  // bool? | Should IN-lists have line breaks added? (optional)  (default to false)
-            var expandBooleanExpressions = true;  // bool? | Should boolean expressions have line breaks added? (optional)  (default to true)
-            var expandBetweenConditions = true;  // bool? | Should between conditions have line breaks added? (optional)  (default to true)
-            var expandCaseStatements = true;  // bool? | Should case-statements have line breaks added? (optional)  (default to true)
+            var trailingCommas = true;  // bool? | No longer has any effect, retained only for compatibility (optional)  (default to true)
+            var uppercaseKeywords = false;  // bool? | No longer has any effect, retained only for compatibility (optional)  (default to false)
+            var breakJoinOnSections = true;  // bool? | No longer has any effect, retained only for compatibility (optional)  (default to true)
+            var spaceAfterExpandedComma = true;  // bool? | No longer has any effect, retained only for compatibility (optional)  (default to true)
+            var keywordStandardization = true;  // bool? | No longer has any effect, retained only for compatibility (optional)  (default to true)
+            var expandCommaLists = false;  // bool? | No longer has any effect, retained only for compatibility (optional)  (default to false)
+            var expandInLists = false;  // bool? | No longer has any effect, retained only for compatibility (optional)  (default to false)
+            var expandBooleanExpressions = true;  // bool? | No longer has any effect, retained only for compatibility (optional)  (default to true)
+            var expandBetweenConditions = true;  // bool? | No longer has any effect, retained only for compatibility (optional)  (default to true)
+            var expandCaseStatements = true;  // bool? | No longer has any effect, retained only for compatibility (optional)  (default to true)
             var maxLineWidth = 120;  // int? | Maximum number of characters to allow on one line (if possible) (optional)  (default to 120)
-            var spaceBeforeTrailingSingleLineComments = true;  // bool? | Should the be a space before trailing single line comments? (optional)  (default to true)
-            var multilineCommentExtraLineBreak = false;  // bool? | Should an additional line break be added after multi-line comments? (optional)  (default to false)
+            var spaceBeforeTrailingSingleLineComments = true;  // bool? | No longer has any effect, retained only for compatibility (optional)  (default to true)
+            var multilineCommentExtraLineBreak = false;  // bool? | No longer has any effect, retained only for compatibility (optional)  (default to false)
 
             try
             {
@@ -1274,19 +1274,19 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **body** | **string** | LuminesceSql to Pretty-Print. Even if it doesn&#39;t parse an attempt will be made to format it |  |
-| **trailingCommas** | **bool?** | Should commas be after an expression (as opposed to before) | [optional] [default to true] |
-| **uppercaseKeywords** | **bool?** | Should key words be capitalized | [optional] [default to false] |
-| **breakJoinOnSections** | **bool?** | Should clauses on joins be given line breaks? | [optional] [default to true] |
-| **spaceAfterExpandedComma** | **bool?** | Should comma-lists have spaces after the commas? | [optional] [default to true] |
-| **keywordStandardization** | **bool?** | Should the \&quot;nicest\&quot; key words be used? (e.g. JOIN -&gt; INNER JOIN) | [optional] [default to true] |
-| **expandCommaLists** | **bool?** | Should comma-lists (e.g. select a,b,c) have line breaks added? | [optional] [default to false] |
-| **expandInLists** | **bool?** | Should IN-lists have line breaks added? | [optional] [default to false] |
-| **expandBooleanExpressions** | **bool?** | Should boolean expressions have line breaks added? | [optional] [default to true] |
-| **expandBetweenConditions** | **bool?** | Should between conditions have line breaks added? | [optional] [default to true] |
-| **expandCaseStatements** | **bool?** | Should case-statements have line breaks added? | [optional] [default to true] |
+| **trailingCommas** | **bool?** | No longer has any effect, retained only for compatibility | [optional] [default to true] |
+| **uppercaseKeywords** | **bool?** | No longer has any effect, retained only for compatibility | [optional] [default to false] |
+| **breakJoinOnSections** | **bool?** | No longer has any effect, retained only for compatibility | [optional] [default to true] |
+| **spaceAfterExpandedComma** | **bool?** | No longer has any effect, retained only for compatibility | [optional] [default to true] |
+| **keywordStandardization** | **bool?** | No longer has any effect, retained only for compatibility | [optional] [default to true] |
+| **expandCommaLists** | **bool?** | No longer has any effect, retained only for compatibility | [optional] [default to false] |
+| **expandInLists** | **bool?** | No longer has any effect, retained only for compatibility | [optional] [default to false] |
+| **expandBooleanExpressions** | **bool?** | No longer has any effect, retained only for compatibility | [optional] [default to true] |
+| **expandBetweenConditions** | **bool?** | No longer has any effect, retained only for compatibility | [optional] [default to true] |
+| **expandCaseStatements** | **bool?** | No longer has any effect, retained only for compatibility | [optional] [default to true] |
 | **maxLineWidth** | **int?** | Maximum number of characters to allow on one line (if possible) | [optional] [default to 120] |
-| **spaceBeforeTrailingSingleLineComments** | **bool?** | Should the be a space before trailing single line comments? | [optional] [default to true] |
-| **multilineCommentExtraLineBreak** | **bool?** | Should an additional line break be added after multi-line comments? | [optional] [default to false] |
+| **spaceBeforeTrailingSingleLineComments** | **bool?** | No longer has any effect, retained only for compatibility | [optional] [default to true] |
+| **multilineCommentExtraLineBreak** | **bool?** | No longer has any effect, retained only for compatibility | [optional] [default to false] |
 
 ### Return type
 

@@ -289,23 +289,23 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// PutQueryToFormat: Format SQL into a more readable form
         /// </summary>
         /// <remarks>
-        ///  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
+        ///  This formats SQL, a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. Of the options only &#x60;maxLineWidth&#x60; has any effect, the rest are retained for compatibility. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b on a.x &#x3D; b.x where x &gt; y   or y !&#x3D; z &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Pretty-Print. Even if it doesn&#39;t parse an attempt will be made to format it</param>
-        /// <param name="trailingCommas">Should commas be after an expression (as opposed to before) (optional, default to true)</param>
-        /// <param name="uppercaseKeywords">Should key words be capitalized (optional, default to false)</param>
-        /// <param name="breakJoinOnSections">Should clauses on joins be given line breaks? (optional, default to true)</param>
-        /// <param name="spaceAfterExpandedComma">Should comma-lists have spaces after the commas? (optional, default to true)</param>
-        /// <param name="keywordStandardization">Should the \&quot;nicest\&quot; key words be used? (e.g. JOIN -&gt; INNER JOIN) (optional, default to true)</param>
-        /// <param name="expandCommaLists">Should comma-lists (e.g. select a,b,c) have line breaks added? (optional, default to false)</param>
-        /// <param name="expandInLists">Should IN-lists have line breaks added? (optional, default to false)</param>
-        /// <param name="expandBooleanExpressions">Should boolean expressions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandBetweenConditions">Should between conditions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandCaseStatements">Should case-statements have line breaks added? (optional, default to true)</param>
+        /// <param name="trailingCommas">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="uppercaseKeywords">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="breakJoinOnSections">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="spaceAfterExpandedComma">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="keywordStandardization">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCommaLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandInLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandBooleanExpressions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandBetweenConditions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCaseStatements">No longer has any effect, retained only for compatibility (optional, default to true)</param>
         /// <param name="maxLineWidth">Maximum number of characters to allow on one line (if possible) (optional, default to 120)</param>
-        /// <param name="spaceBeforeTrailingSingleLineComments">Should the be a space before trailing single line comments? (optional, default to true)</param>
-        /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
+        /// <param name="spaceBeforeTrailingSingleLineComments">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="multilineCommentExtraLineBreak">No longer has any effect, retained only for compatibility (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
@@ -315,23 +315,23 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// PutQueryToFormat: Format SQL into a more readable form
         /// </summary>
         /// <remarks>
-        ///  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
+        ///  This formats SQL, a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. Of the options only &#x60;maxLineWidth&#x60; has any effect, the rest are retained for compatibility. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b on a.x &#x3D; b.x where x &gt; y   or y !&#x3D; z &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Pretty-Print. Even if it doesn&#39;t parse an attempt will be made to format it</param>
-        /// <param name="trailingCommas">Should commas be after an expression (as opposed to before) (optional, default to true)</param>
-        /// <param name="uppercaseKeywords">Should key words be capitalized (optional, default to false)</param>
-        /// <param name="breakJoinOnSections">Should clauses on joins be given line breaks? (optional, default to true)</param>
-        /// <param name="spaceAfterExpandedComma">Should comma-lists have spaces after the commas? (optional, default to true)</param>
-        /// <param name="keywordStandardization">Should the \&quot;nicest\&quot; key words be used? (e.g. JOIN -&gt; INNER JOIN) (optional, default to true)</param>
-        /// <param name="expandCommaLists">Should comma-lists (e.g. select a,b,c) have line breaks added? (optional, default to false)</param>
-        /// <param name="expandInLists">Should IN-lists have line breaks added? (optional, default to false)</param>
-        /// <param name="expandBooleanExpressions">Should boolean expressions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandBetweenConditions">Should between conditions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandCaseStatements">Should case-statements have line breaks added? (optional, default to true)</param>
+        /// <param name="trailingCommas">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="uppercaseKeywords">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="breakJoinOnSections">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="spaceAfterExpandedComma">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="keywordStandardization">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCommaLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandInLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandBooleanExpressions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandBetweenConditions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCaseStatements">No longer has any effect, retained only for compatibility (optional, default to true)</param>
         /// <param name="maxLineWidth">Maximum number of characters to allow on one line (if possible) (optional, default to 120)</param>
-        /// <param name="spaceBeforeTrailingSingleLineComments">Should the be a space before trailing single line comments? (optional, default to true)</param>
-        /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
+        /// <param name="spaceBeforeTrailingSingleLineComments">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="multilineCommentExtraLineBreak">No longer has any effect, retained only for compatibility (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
@@ -806,23 +806,23 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// PutQueryToFormat: Format SQL into a more readable form
         /// </summary>
         /// <remarks>
-        ///  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
+        ///  This formats SQL, a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. Of the options only &#x60;maxLineWidth&#x60; has any effect, the rest are retained for compatibility. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b on a.x &#x3D; b.x where x &gt; y   or y !&#x3D; z &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Pretty-Print. Even if it doesn&#39;t parse an attempt will be made to format it</param>
-        /// <param name="trailingCommas">Should commas be after an expression (as opposed to before) (optional, default to true)</param>
-        /// <param name="uppercaseKeywords">Should key words be capitalized (optional, default to false)</param>
-        /// <param name="breakJoinOnSections">Should clauses on joins be given line breaks? (optional, default to true)</param>
-        /// <param name="spaceAfterExpandedComma">Should comma-lists have spaces after the commas? (optional, default to true)</param>
-        /// <param name="keywordStandardization">Should the \&quot;nicest\&quot; key words be used? (e.g. JOIN -&gt; INNER JOIN) (optional, default to true)</param>
-        /// <param name="expandCommaLists">Should comma-lists (e.g. select a,b,c) have line breaks added? (optional, default to false)</param>
-        /// <param name="expandInLists">Should IN-lists have line breaks added? (optional, default to false)</param>
-        /// <param name="expandBooleanExpressions">Should boolean expressions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandBetweenConditions">Should between conditions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandCaseStatements">Should case-statements have line breaks added? (optional, default to true)</param>
+        /// <param name="trailingCommas">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="uppercaseKeywords">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="breakJoinOnSections">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="spaceAfterExpandedComma">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="keywordStandardization">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCommaLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandInLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandBooleanExpressions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandBetweenConditions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCaseStatements">No longer has any effect, retained only for compatibility (optional, default to true)</param>
         /// <param name="maxLineWidth">Maximum number of characters to allow on one line (if possible) (optional, default to 120)</param>
-        /// <param name="spaceBeforeTrailingSingleLineComments">Should the be a space before trailing single line comments? (optional, default to true)</param>
-        /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
+        /// <param name="spaceBeforeTrailingSingleLineComments">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="multilineCommentExtraLineBreak">No longer has any effect, retained only for compatibility (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -833,23 +833,23 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// PutQueryToFormat: Format SQL into a more readable form
         /// </summary>
         /// <remarks>
-        ///  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
+        ///  This formats SQL, a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. Of the options only &#x60;maxLineWidth&#x60; has any effect, the rest are retained for compatibility. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b on a.x &#x3D; b.x where x &gt; y   or y !&#x3D; z &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Pretty-Print. Even if it doesn&#39;t parse an attempt will be made to format it</param>
-        /// <param name="trailingCommas">Should commas be after an expression (as opposed to before) (optional, default to true)</param>
-        /// <param name="uppercaseKeywords">Should key words be capitalized (optional, default to false)</param>
-        /// <param name="breakJoinOnSections">Should clauses on joins be given line breaks? (optional, default to true)</param>
-        /// <param name="spaceAfterExpandedComma">Should comma-lists have spaces after the commas? (optional, default to true)</param>
-        /// <param name="keywordStandardization">Should the \&quot;nicest\&quot; key words be used? (e.g. JOIN -&gt; INNER JOIN) (optional, default to true)</param>
-        /// <param name="expandCommaLists">Should comma-lists (e.g. select a,b,c) have line breaks added? (optional, default to false)</param>
-        /// <param name="expandInLists">Should IN-lists have line breaks added? (optional, default to false)</param>
-        /// <param name="expandBooleanExpressions">Should boolean expressions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandBetweenConditions">Should between conditions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandCaseStatements">Should case-statements have line breaks added? (optional, default to true)</param>
+        /// <param name="trailingCommas">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="uppercaseKeywords">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="breakJoinOnSections">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="spaceAfterExpandedComma">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="keywordStandardization">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCommaLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandInLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandBooleanExpressions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandBetweenConditions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCaseStatements">No longer has any effect, retained only for compatibility (optional, default to true)</param>
         /// <param name="maxLineWidth">Maximum number of characters to allow on one line (if possible) (optional, default to 120)</param>
-        /// <param name="spaceBeforeTrailingSingleLineComments">Should the be a space before trailing single line comments? (optional, default to true)</param>
-        /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
+        /// <param name="spaceBeforeTrailingSingleLineComments">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="multilineCommentExtraLineBreak">No longer has any effect, retained only for compatibility (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3283,23 +3283,23 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutQueryToFormat: Format SQL into a more readable form  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
+        /// PutQueryToFormat: Format SQL into a more readable form  This formats SQL, a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. Of the options only &#x60;maxLineWidth&#x60; has any effect, the rest are retained for compatibility. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b on a.x &#x3D; b.x where x &gt; y   or y !&#x3D; z &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Pretty-Print. Even if it doesn&#39;t parse an attempt will be made to format it</param>
-        /// <param name="trailingCommas">Should commas be after an expression (as opposed to before) (optional, default to true)</param>
-        /// <param name="uppercaseKeywords">Should key words be capitalized (optional, default to false)</param>
-        /// <param name="breakJoinOnSections">Should clauses on joins be given line breaks? (optional, default to true)</param>
-        /// <param name="spaceAfterExpandedComma">Should comma-lists have spaces after the commas? (optional, default to true)</param>
-        /// <param name="keywordStandardization">Should the \&quot;nicest\&quot; key words be used? (e.g. JOIN -&gt; INNER JOIN) (optional, default to true)</param>
-        /// <param name="expandCommaLists">Should comma-lists (e.g. select a,b,c) have line breaks added? (optional, default to false)</param>
-        /// <param name="expandInLists">Should IN-lists have line breaks added? (optional, default to false)</param>
-        /// <param name="expandBooleanExpressions">Should boolean expressions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandBetweenConditions">Should between conditions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandCaseStatements">Should case-statements have line breaks added? (optional, default to true)</param>
+        /// <param name="trailingCommas">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="uppercaseKeywords">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="breakJoinOnSections">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="spaceAfterExpandedComma">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="keywordStandardization">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCommaLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandInLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandBooleanExpressions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandBetweenConditions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCaseStatements">No longer has any effect, retained only for compatibility (optional, default to true)</param>
         /// <param name="maxLineWidth">Maximum number of characters to allow on one line (if possible) (optional, default to 120)</param>
-        /// <param name="spaceBeforeTrailingSingleLineComments">Should the be a space before trailing single line comments? (optional, default to true)</param>
-        /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
+        /// <param name="spaceBeforeTrailingSingleLineComments">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="multilineCommentExtraLineBreak">No longer has any effect, retained only for compatibility (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>string</returns>
@@ -3310,23 +3310,23 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutQueryToFormat: Format SQL into a more readable form  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
+        /// PutQueryToFormat: Format SQL into a more readable form  This formats SQL, a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. Of the options only &#x60;maxLineWidth&#x60; has any effect, the rest are retained for compatibility. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b on a.x &#x3D; b.x where x &gt; y   or y !&#x3D; z &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Pretty-Print. Even if it doesn&#39;t parse an attempt will be made to format it</param>
-        /// <param name="trailingCommas">Should commas be after an expression (as opposed to before) (optional, default to true)</param>
-        /// <param name="uppercaseKeywords">Should key words be capitalized (optional, default to false)</param>
-        /// <param name="breakJoinOnSections">Should clauses on joins be given line breaks? (optional, default to true)</param>
-        /// <param name="spaceAfterExpandedComma">Should comma-lists have spaces after the commas? (optional, default to true)</param>
-        /// <param name="keywordStandardization">Should the \&quot;nicest\&quot; key words be used? (e.g. JOIN -&gt; INNER JOIN) (optional, default to true)</param>
-        /// <param name="expandCommaLists">Should comma-lists (e.g. select a,b,c) have line breaks added? (optional, default to false)</param>
-        /// <param name="expandInLists">Should IN-lists have line breaks added? (optional, default to false)</param>
-        /// <param name="expandBooleanExpressions">Should boolean expressions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandBetweenConditions">Should between conditions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandCaseStatements">Should case-statements have line breaks added? (optional, default to true)</param>
+        /// <param name="trailingCommas">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="uppercaseKeywords">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="breakJoinOnSections">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="spaceAfterExpandedComma">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="keywordStandardization">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCommaLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandInLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandBooleanExpressions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandBetweenConditions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCaseStatements">No longer has any effect, retained only for compatibility (optional, default to true)</param>
         /// <param name="maxLineWidth">Maximum number of characters to allow on one line (if possible) (optional, default to 120)</param>
-        /// <param name="spaceBeforeTrailingSingleLineComments">Should the be a space before trailing single line comments? (optional, default to true)</param>
-        /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
+        /// <param name="spaceBeforeTrailingSingleLineComments">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="multilineCommentExtraLineBreak">No longer has any effect, retained only for compatibility (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of string</returns>
@@ -3475,23 +3475,23 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutQueryToFormat: Format SQL into a more readable form  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
+        /// PutQueryToFormat: Format SQL into a more readable form  This formats SQL, a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. Of the options only &#x60;maxLineWidth&#x60; has any effect, the rest are retained for compatibility. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b on a.x &#x3D; b.x where x &gt; y   or y !&#x3D; z &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Pretty-Print. Even if it doesn&#39;t parse an attempt will be made to format it</param>
-        /// <param name="trailingCommas">Should commas be after an expression (as opposed to before) (optional, default to true)</param>
-        /// <param name="uppercaseKeywords">Should key words be capitalized (optional, default to false)</param>
-        /// <param name="breakJoinOnSections">Should clauses on joins be given line breaks? (optional, default to true)</param>
-        /// <param name="spaceAfterExpandedComma">Should comma-lists have spaces after the commas? (optional, default to true)</param>
-        /// <param name="keywordStandardization">Should the \&quot;nicest\&quot; key words be used? (e.g. JOIN -&gt; INNER JOIN) (optional, default to true)</param>
-        /// <param name="expandCommaLists">Should comma-lists (e.g. select a,b,c) have line breaks added? (optional, default to false)</param>
-        /// <param name="expandInLists">Should IN-lists have line breaks added? (optional, default to false)</param>
-        /// <param name="expandBooleanExpressions">Should boolean expressions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandBetweenConditions">Should between conditions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandCaseStatements">Should case-statements have line breaks added? (optional, default to true)</param>
+        /// <param name="trailingCommas">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="uppercaseKeywords">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="breakJoinOnSections">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="spaceAfterExpandedComma">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="keywordStandardization">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCommaLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandInLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandBooleanExpressions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandBetweenConditions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCaseStatements">No longer has any effect, retained only for compatibility (optional, default to true)</param>
         /// <param name="maxLineWidth">Maximum number of characters to allow on one line (if possible) (optional, default to 120)</param>
-        /// <param name="spaceBeforeTrailingSingleLineComments">Should the be a space before trailing single line comments? (optional, default to true)</param>
-        /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
+        /// <param name="spaceBeforeTrailingSingleLineComments">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="multilineCommentExtraLineBreak">No longer has any effect, retained only for compatibility (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -3503,23 +3503,23 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutQueryToFormat: Format SQL into a more readable form  This formats SQL (given a set of options as to how to do so), a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b    on a.x &#x3D; b.x where x &gt; y    or y !&#x3D; z &#x60;&#x60;&#x60; 
+        /// PutQueryToFormat: Format SQL into a more readable form  This formats SQL, a.k.a. Pretty-Print the SQL. It takes some SQL (or a fragment thereof, it need not fully parse as yet and certainly need not execute correctly) and returns the reformatted version. Of the options only &#x60;maxLineWidth&#x60; has any effect, the rest are retained for compatibility. e.g. &#x60;&#x60;&#x60;sql select x,y,z from a inner join b on a.x&#x3D;b.x where x&gt;y or y!&#x3D;z &#x60;&#x60;&#x60; becomes &#x60;&#x60;&#x60;sql select x, y, z from a inner join b on a.x &#x3D; b.x where x &gt; y   or y !&#x3D; z &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">LuminesceSql to Pretty-Print. Even if it doesn&#39;t parse an attempt will be made to format it</param>
-        /// <param name="trailingCommas">Should commas be after an expression (as opposed to before) (optional, default to true)</param>
-        /// <param name="uppercaseKeywords">Should key words be capitalized (optional, default to false)</param>
-        /// <param name="breakJoinOnSections">Should clauses on joins be given line breaks? (optional, default to true)</param>
-        /// <param name="spaceAfterExpandedComma">Should comma-lists have spaces after the commas? (optional, default to true)</param>
-        /// <param name="keywordStandardization">Should the \&quot;nicest\&quot; key words be used? (e.g. JOIN -&gt; INNER JOIN) (optional, default to true)</param>
-        /// <param name="expandCommaLists">Should comma-lists (e.g. select a,b,c) have line breaks added? (optional, default to false)</param>
-        /// <param name="expandInLists">Should IN-lists have line breaks added? (optional, default to false)</param>
-        /// <param name="expandBooleanExpressions">Should boolean expressions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandBetweenConditions">Should between conditions have line breaks added? (optional, default to true)</param>
-        /// <param name="expandCaseStatements">Should case-statements have line breaks added? (optional, default to true)</param>
+        /// <param name="trailingCommas">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="uppercaseKeywords">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="breakJoinOnSections">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="spaceAfterExpandedComma">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="keywordStandardization">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCommaLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandInLists">No longer has any effect, retained only for compatibility (optional, default to false)</param>
+        /// <param name="expandBooleanExpressions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandBetweenConditions">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="expandCaseStatements">No longer has any effect, retained only for compatibility (optional, default to true)</param>
         /// <param name="maxLineWidth">Maximum number of characters to allow on one line (if possible) (optional, default to 120)</param>
-        /// <param name="spaceBeforeTrailingSingleLineComments">Should the be a space before trailing single line comments? (optional, default to true)</param>
-        /// <param name="multilineCommentExtraLineBreak">Should an additional line break be added after multi-line comments? (optional, default to false)</param>
+        /// <param name="spaceBeforeTrailingSingleLineComments">No longer has any effect, retained only for compatibility (optional, default to true)</param>
+        /// <param name="multilineCommentExtraLineBreak">No longer has any effect, retained only for compatibility (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
