@@ -17,6 +17,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 | [**FetchQueryResultXml**](SqlBackgroundExecutionApi.md#fetchqueryresultxml) | **GET** /api/SqlBackground/{executionId}/xml | FetchQueryResultXml: Fetch the result of a query as XML |
 | [**GetHistoricalFeedback**](SqlBackgroundExecutionApi.md#gethistoricalfeedback) | **GET** /api/SqlBackground/{executionId}/historicalFeedback | GetHistoricalFeedback: View historical query progress (for older queries) |
 | [**GetProgressOf**](SqlBackgroundExecutionApi.md#getprogressof) | **GET** /api/SqlBackground/{executionId} | GetProgressOf: View query progress up to this point. |
+| [**ListQueries**](SqlBackgroundExecutionApi.md#listqueries) | **GET** /api/SqlBackground | [EXPERIMENTAL] ListQueries: List the background queries available to the calling user |
 | [**SaveQueryResultToDrive**](SqlBackgroundExecutionApi.md#savequeryresulttodrive) | **GET** /api/SqlBackground/{executionId}/drive | [EXPERIMENTAL] SaveQueryResultToDrive: Saves the query results directly to Drive |
 | [**StartQuery**](SqlBackgroundExecutionApi.md#startquery) | **PUT** /api/SqlBackground | StartQuery: Start to Execute Sql in the background |
 
@@ -1654,6 +1655,118 @@ catch (ApiException e)
 ### Return type
 
 [**BackgroundQueryProgressResponse**](BackgroundQueryProgressResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="listqueries"></a>
+# **ListQueries**
+> List&lt;BackgroundQueryListItem&gt; ListQueries (string? sqlLike = null)
+
+[EXPERIMENTAL] ListQueries: List the background queries available to the calling user
+
+Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their `keepForSeconds` time, most recent first. Multi-queries themselves are not included, though the individual queries they started are.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Luminesce.Sdk.Api;
+using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
+using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlBackgroundExecutionApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlBackgroundExecutionApi>();
+            var sqlLike = "sqlLike_example";  // string? | An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired). (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // List<BackgroundQueryListItem> result = apiInstance.ListQueries(sqlLike, opts: opts);
+
+                // [EXPERIMENTAL] ListQueries: List the background queries available to the calling user
+                List<BackgroundQueryListItem> result = apiInstance.ListQueries(sqlLike);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.ListQueries: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListQueriesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ListQueries: List the background queries available to the calling user
+    ApiResponse<List<BackgroundQueryListItem>> response = apiInstance.ListQueriesWithHttpInfo(sqlLike);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling SqlBackgroundExecutionApi.ListQueriesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **sqlLike** | **string?** | An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired). | [optional]  |
+
+### Return type
+
+[**List&lt;BackgroundQueryListItem&gt;**](BackgroundQueryListItem.md)
 
 ### HTTP request headers
 
