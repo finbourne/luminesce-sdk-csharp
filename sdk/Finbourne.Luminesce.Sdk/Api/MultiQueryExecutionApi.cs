@@ -57,6 +57,39 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of BackgroundQueryCancelResponse</returns>
         Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> CancelMultiQueryWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] DownloadMultiQueryResults: Downloads the results of a custom query-set as one file
+        /// </summary>
+        /// <remarks>
+        /// Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="format">Format to download in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="fileName">Name of the file (without extension).  Defaults to &#x60;{executionId}&#x60;. May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter). (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream DownloadMultiQueryResults(string executionId, ExportType? format = default(ExportType?), string? fileName = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadMultiQueryResults: Downloads the results of a custom query-set as one file
+        /// </summary>
+        /// <remarks>
+        /// Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="format">Format to download in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="fileName">Name of the file (without extension).  Defaults to &#x60;{executionId}&#x60;. May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter). (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> DownloadMultiQueryResultsWithHttpInfo(string executionId, ExportType? format = default(ExportType?), string? fileName = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// GetProgressOfMultiQuery: View progress of the entire query-set load
         /// </summary>
         /// <remarks>
@@ -81,6 +114,93 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of BackgroundMultiQueryProgressResponse</returns>
         Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryProgressResponse> GetProgressOfMultiQueryWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] ListCustomQueries: List the custom query-sets available to the calling user
+        /// </summary>
+        /// <remarks>
+        /// Lists the custom query-sets (started by the calling user via &#x60;custom&#x60;) that have finished with at least one result which may be fetched,  and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first.  Each lists its queries that are external results, and which of those have results. Those that errored are included, as some of their queries may still have succeeded.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired), a query-set matching should any of its queries. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>List&lt;CustomMultiQueryListItem&gt;</returns>
+        List<CustomMultiQueryListItem> ListCustomQueries(string? sqlLike = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListCustomQueries: List the custom query-sets available to the calling user
+        /// </summary>
+        /// <remarks>
+        /// Lists the custom query-sets (started by the calling user via &#x60;custom&#x60;) that have finished with at least one result which may be fetched,  and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first.  Each lists its queries that are external results, and which of those have results. Those that errored are included, as some of their queries may still have succeeded.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired), a query-set matching should any of its queries. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of List&lt;CustomMultiQueryListItem&gt;</returns>
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CustomMultiQueryListItem>> ListCustomQueriesWithHttpInfo(string? sqlLike = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file
+        /// </summary>
+        /// <remarks>
+        /// Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="driveLocationAndFileName">Location and file name within drive where this should be saved to. Missing paths will be created, and extension (if given) will be ignored and inferred from the chosen format (zip where several results are zipped). May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter).</param>
+        /// <param name="mayOverwrite">If there is an existing file at the requested location with the same name should this be overridden, or an error returned? (optional, default to false)</param>
+        /// <param name="format">Format to save in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="driveTemplateLocation">Drive path and full file name including extension to be used for the export. Only some export types support templates, such as Excel and Pdf, and this will need to match the format type, if given. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>string</returns>
+        string SaveMultiQueryResultsToDrive(string executionId, string driveLocationAndFileName, bool? mayOverwrite = default(bool?), ExportType? format = default(ExportType?), string? driveTemplateLocation = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file
+        /// </summary>
+        /// <remarks>
+        /// Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="driveLocationAndFileName">Location and file name within drive where this should be saved to. Missing paths will be created, and extension (if given) will be ignored and inferred from the chosen format (zip where several results are zipped). May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter).</param>
+        /// <param name="mayOverwrite">If there is an existing file at the requested location with the same name should this be overridden, or an error returned? (optional, default to false)</param>
+        /// <param name="format">Format to save in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="driveTemplateLocation">Drive path and full file name including extension to be used for the export. Only some export types support templates, such as Excel and Pdf, and this will need to match the format type, if given. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of string</returns>
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> SaveMultiQueryResultsToDriveWithHttpInfo(string executionId, string driveLocationAndFileName, bool? mayOverwrite = default(bool?), ExportType? format = default(ExportType?), string? driveTemplateLocation = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] StartCustomQueries: Run a caller-supplied set of Sql queries in the background
+        /// </summary>
+        /// <remarks>
+        ///  Starts a caller-supplied set of named queries in the background, getting back an immediate response with how to - fetch the data of each (external) query in various formats, view progress information and cancel / clear them, as for any multi-query - download, or save to Drive, the results of all the (external) queries that succeeded as one file  The queries are started in the order given, at most &#x60;maxInParallel&#x60; at a time (1 by default, null for as many as possible). A query may use the results of an earlier one as a table variable of its name, e.g. &#x60;select * from @Holdings&#x60;, and is then only started once that has succeeded (and is skipped if it does not).  The scalar parameters are given to every query.  The multi-query as a whole is reported as failed if any of its queries fails or is skipped.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The queries to run (as LuminesceSql or Saved Query references), the scalar parameters for them all, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>BackgroundMultiQueryResponse</returns>
+        BackgroundMultiQueryResponse StartCustomQueries(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] StartCustomQueries: Run a caller-supplied set of Sql queries in the background
+        /// </summary>
+        /// <remarks>
+        ///  Starts a caller-supplied set of named queries in the background, getting back an immediate response with how to - fetch the data of each (external) query in various formats, view progress information and cancel / clear them, as for any multi-query - download, or save to Drive, the results of all the (external) queries that succeeded as one file  The queries are started in the order given, at most &#x60;maxInParallel&#x60; at a time (1 by default, null for as many as possible). A query may use the results of an earlier one as a table variable of its name, e.g. &#x60;select * from @Holdings&#x60;, and is then only started once that has succeeded (and is skipped if it does not).  The scalar parameters are given to every query.  The multi-query as a whole is reported as failed if any of its queries fails or is skipped.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The queries to run (as LuminesceSql or Saved Query references), the scalar parameters for them all, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of BackgroundMultiQueryResponse</returns>
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryResponse> StartCustomQueriesWithHttpInfo(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// StartQueries: Run a given set of Sql queries in the background
         /// </summary>
@@ -163,6 +283,41 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (BackgroundQueryCancelResponse)</returns>
         System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse>> CancelMultiQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] DownloadMultiQueryResults: Downloads the results of a custom query-set as one file
+        /// </summary>
+        /// <remarks>
+        /// Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="format">Format to download in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="fileName">Name of the file (without extension).  Defaults to &#x60;{executionId}&#x60;. May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter). (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> DownloadMultiQueryResultsAsync(string executionId, ExportType? format = default(ExportType?), string? fileName = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadMultiQueryResults: Downloads the results of a custom query-set as one file
+        /// </summary>
+        /// <remarks>
+        /// Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="format">Format to download in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="fileName">Name of the file (without extension).  Defaults to &#x60;{executionId}&#x60;. May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter). (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> DownloadMultiQueryResultsWithHttpInfoAsync(string executionId, ExportType? format = default(ExportType?), string? fileName = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// GetProgressOfMultiQuery: View progress of the entire query-set load
         /// </summary>
         /// <remarks>
@@ -189,6 +344,99 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundMultiQueryProgressResponse)</returns>
         System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryProgressResponse>> GetProgressOfMultiQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] ListCustomQueries: List the custom query-sets available to the calling user
+        /// </summary>
+        /// <remarks>
+        /// Lists the custom query-sets (started by the calling user via &#x60;custom&#x60;) that have finished with at least one result which may be fetched,  and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first.  Each lists its queries that are external results, and which of those have results. Those that errored are included, as some of their queries may still have succeeded.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired), a query-set matching should any of its queries. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of List&lt;CustomMultiQueryListItem&gt;</returns>
+        System.Threading.Tasks.Task<List<CustomMultiQueryListItem>> ListCustomQueriesAsync(string? sqlLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListCustomQueries: List the custom query-sets available to the calling user
+        /// </summary>
+        /// <remarks>
+        /// Lists the custom query-sets (started by the calling user via &#x60;custom&#x60;) that have finished with at least one result which may be fetched,  and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first.  Each lists its queries that are external results, and which of those have results. Those that errored are included, as some of their queries may still have succeeded.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired), a query-set matching should any of its queries. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (List&lt;CustomMultiQueryListItem&gt;)</returns>
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CustomMultiQueryListItem>>> ListCustomQueriesWithHttpInfoAsync(string? sqlLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file
+        /// </summary>
+        /// <remarks>
+        /// Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="driveLocationAndFileName">Location and file name within drive where this should be saved to. Missing paths will be created, and extension (if given) will be ignored and inferred from the chosen format (zip where several results are zipped). May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter).</param>
+        /// <param name="mayOverwrite">If there is an existing file at the requested location with the same name should this be overridden, or an error returned? (optional, default to false)</param>
+        /// <param name="format">Format to save in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="driveTemplateLocation">Drive path and full file name including extension to be used for the export. Only some export types support templates, such as Excel and Pdf, and this will need to match the format type, if given. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> SaveMultiQueryResultsToDriveAsync(string executionId, string driveLocationAndFileName, bool? mayOverwrite = default(bool?), ExportType? format = default(ExportType?), string? driveTemplateLocation = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file
+        /// </summary>
+        /// <remarks>
+        /// Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="driveLocationAndFileName">Location and file name within drive where this should be saved to. Missing paths will be created, and extension (if given) will be ignored and inferred from the chosen format (zip where several results are zipped). May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter).</param>
+        /// <param name="mayOverwrite">If there is an existing file at the requested location with the same name should this be overridden, or an error returned? (optional, default to false)</param>
+        /// <param name="format">Format to save in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="driveTemplateLocation">Drive path and full file name including extension to be used for the export. Only some export types support templates, such as Excel and Pdf, and this will need to match the format type, if given. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> SaveMultiQueryResultsToDriveWithHttpInfoAsync(string executionId, string driveLocationAndFileName, bool? mayOverwrite = default(bool?), ExportType? format = default(ExportType?), string? driveTemplateLocation = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] StartCustomQueries: Run a caller-supplied set of Sql queries in the background
+        /// </summary>
+        /// <remarks>
+        ///  Starts a caller-supplied set of named queries in the background, getting back an immediate response with how to - fetch the data of each (external) query in various formats, view progress information and cancel / clear them, as for any multi-query - download, or save to Drive, the results of all the (external) queries that succeeded as one file  The queries are started in the order given, at most &#x60;maxInParallel&#x60; at a time (1 by default, null for as many as possible). A query may use the results of an earlier one as a table variable of its name, e.g. &#x60;select * from @Holdings&#x60;, and is then only started once that has succeeded (and is skipped if it does not).  The scalar parameters are given to every query.  The multi-query as a whole is reported as failed if any of its queries fails or is skipped.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The queries to run (as LuminesceSql or Saved Query references), the scalar parameters for them all, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of BackgroundMultiQueryResponse</returns>
+        System.Threading.Tasks.Task<BackgroundMultiQueryResponse> StartCustomQueriesAsync(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] StartCustomQueries: Run a caller-supplied set of Sql queries in the background
+        /// </summary>
+        /// <remarks>
+        ///  Starts a caller-supplied set of named queries in the background, getting back an immediate response with how to - fetch the data of each (external) query in various formats, view progress information and cancel / clear them, as for any multi-query - download, or save to Drive, the results of all the (external) queries that succeeded as one file  The queries are started in the order given, at most &#x60;maxInParallel&#x60; at a time (1 by default, null for as many as possible). A query may use the results of an earlier one as a table variable of its name, e.g. &#x60;select * from @Holdings&#x60;, and is then only started once that has succeeded (and is skipped if it does not).  The scalar parameters are given to every query.  The multi-query as a whole is reported as failed if any of its queries fails or is skipped.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The queries to run (as LuminesceSql or Saved Query references), the scalar parameters for them all, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (BackgroundMultiQueryResponse)</returns>
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryResponse>> StartCustomQueriesWithHttpInfoAsync(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// StartQueries: Run a given set of Sql queries in the background
         /// </summary>
@@ -564,6 +812,262 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
+        /// [EXPERIMENTAL] DownloadMultiQueryResults: Downloads the results of a custom query-set as one file Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="format">Format to download in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="fileName">Name of the file (without extension).  Defaults to &#x60;{executionId}&#x60;. May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter). (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream DownloadMultiQueryResults(string executionId, ExportType? format = default(ExportType?), string? fileName = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = DownloadMultiQueryResultsWithHttpInfo(executionId, format, fileName, dateTimeFormat, loadWaitMilliseconds, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadMultiQueryResults: Downloads the results of a custom query-set as one file Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="format">Format to download in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="fileName">Name of the file (without extension).  Defaults to &#x60;{executionId}&#x60;. May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter). (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> DownloadMultiQueryResultsWithHttpInfo(string executionId, ExportType? format = default(ExportType?), string? fileName = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'executionId' is set
+            if (executionId == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'executionId' when calling MultiQueryExecutionApi->DownloadMultiQueryResults");
+            }
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("executionId", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(executionId)); // path parameter
+            if (format != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "format", format));
+            }
+            if (fileName != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "fileName", fileName));
+            }
+            if (dateTimeFormat != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
+            }
+            if (loadWaitMilliseconds != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "loadWaitMilliseconds", loadWaitMilliseconds));
+            }
+
+            localVarRequestOptions.Operation = "MultiQueryExecutionApi.DownloadMultiQueryResults";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<System.IO.Stream>("/api/MultiQueryBackground/{executionId}/download", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DownloadMultiQueryResults", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadMultiQueryResults: Downloads the results of a custom query-set as one file Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="format">Format to download in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="fileName">Name of the file (without extension).  Defaults to &#x60;{executionId}&#x60;. May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter). (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> DownloadMultiQueryResultsAsync(string executionId, ExportType? format = default(ExportType?), string? fileName = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream> localVarResponse = await DownloadMultiQueryResultsWithHttpInfoAsync(executionId, format, fileName, dateTimeFormat, loadWaitMilliseconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadMultiQueryResults: Downloads the results of a custom query-set as one file Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="format">Format to download in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="fileName">Name of the file (without extension).  Defaults to &#x60;{executionId}&#x60;. May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter). (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<System.IO.Stream>> DownloadMultiQueryResultsWithHttpInfoAsync(string executionId, ExportType? format = default(ExportType?), string? fileName = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'executionId' is set
+            if (executionId == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'executionId' when calling MultiQueryExecutionApi->DownloadMultiQueryResults");
+            }
+
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("executionId", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(executionId)); // path parameter
+            if (format != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "format", format));
+            }
+            if (fileName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "fileName", fileName));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
+            }
+            if (loadWaitMilliseconds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "loadWaitMilliseconds", loadWaitMilliseconds));
+            }
+
+            localVarRequestOptions.Operation = "MultiQueryExecutionApi.DownloadMultiQueryResults";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/api/MultiQueryBackground/{executionId}/download", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DownloadMultiQueryResults", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// GetProgressOfMultiQuery: View progress of the entire query-set load View progress information (up until this point) for the entire query-set The following error codes are to be anticipated with standard Problem Detail reports: - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t exist and is not running. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -758,6 +1262,698 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetProgressOfMultiQuery", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListCustomQueries: List the custom query-sets available to the calling user Lists the custom query-sets (started by the calling user via &#x60;custom&#x60;) that have finished with at least one result which may be fetched,  and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first.  Each lists its queries that are external results, and which of those have results. Those that errored are included, as some of their queries may still have succeeded.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired), a query-set matching should any of its queries. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>List&lt;CustomMultiQueryListItem&gt;</returns>
+        public List<CustomMultiQueryListItem> ListCustomQueries(string? sqlLike = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CustomMultiQueryListItem>> localVarResponse = ListCustomQueriesWithHttpInfo(sqlLike, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListCustomQueries: List the custom query-sets available to the calling user Lists the custom query-sets (started by the calling user via &#x60;custom&#x60;) that have finished with at least one result which may be fetched,  and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first.  Each lists its queries that are external results, and which of those have results. Those that errored are included, as some of their queries may still have succeeded.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired), a query-set matching should any of its queries. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of List&lt;CustomMultiQueryListItem&gt;</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CustomMultiQueryListItem>> ListCustomQueriesWithHttpInfo(string? sqlLike = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (sqlLike != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sqlLike", sqlLike));
+            }
+
+            localVarRequestOptions.Operation = "MultiQueryExecutionApi.ListCustomQueries";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<CustomMultiQueryListItem>>("/api/MultiQueryBackground", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCustomQueries", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListCustomQueries: List the custom query-sets available to the calling user Lists the custom query-sets (started by the calling user via &#x60;custom&#x60;) that have finished with at least one result which may be fetched,  and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first.  Each lists its queries that are external results, and which of those have results. Those that errored are included, as some of their queries may still have succeeded.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired), a query-set matching should any of its queries. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of List&lt;CustomMultiQueryListItem&gt;</returns>
+        public async System.Threading.Tasks.Task<List<CustomMultiQueryListItem>> ListCustomQueriesAsync(string? sqlLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CustomMultiQueryListItem>> localVarResponse = await ListCustomQueriesWithHttpInfoAsync(sqlLike, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListCustomQueries: List the custom query-sets available to the calling user Lists the custom query-sets (started by the calling user via &#x60;custom&#x60;) that have finished with at least one result which may be fetched,  and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first.  Each lists its queries that are external results, and which of those have results. Those that errored are included, as some of their queries may still have succeeded.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired), a query-set matching should any of its queries. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (List&lt;CustomMultiQueryListItem&gt;)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CustomMultiQueryListItem>>> ListCustomQueriesWithHttpInfoAsync(string? sqlLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (sqlLike != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sqlLike", sqlLike));
+            }
+
+            localVarRequestOptions.Operation = "MultiQueryExecutionApi.ListCustomQueries";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<CustomMultiQueryListItem>>("/api/MultiQueryBackground", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCustomQueries", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="driveLocationAndFileName">Location and file name within drive where this should be saved to. Missing paths will be created, and extension (if given) will be ignored and inferred from the chosen format (zip where several results are zipped). May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter).</param>
+        /// <param name="mayOverwrite">If there is an existing file at the requested location with the same name should this be overridden, or an error returned? (optional, default to false)</param>
+        /// <param name="format">Format to save in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="driveTemplateLocation">Drive path and full file name including extension to be used for the export. Only some export types support templates, such as Excel and Pdf, and this will need to match the format type, if given. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>string</returns>
+        public string SaveMultiQueryResultsToDrive(string executionId, string driveLocationAndFileName, bool? mayOverwrite = default(bool?), ExportType? format = default(ExportType?), string? driveTemplateLocation = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = SaveMultiQueryResultsToDriveWithHttpInfo(executionId, driveLocationAndFileName, mayOverwrite, format, driveTemplateLocation, dateTimeFormat, loadWaitMilliseconds, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="driveLocationAndFileName">Location and file name within drive where this should be saved to. Missing paths will be created, and extension (if given) will be ignored and inferred from the chosen format (zip where several results are zipped). May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter).</param>
+        /// <param name="mayOverwrite">If there is an existing file at the requested location with the same name should this be overridden, or an error returned? (optional, default to false)</param>
+        /// <param name="format">Format to save in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="driveTemplateLocation">Drive path and full file name including extension to be used for the export. Only some export types support templates, such as Excel and Pdf, and this will need to match the format type, if given. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of string</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> SaveMultiQueryResultsToDriveWithHttpInfo(string executionId, string driveLocationAndFileName, bool? mayOverwrite = default(bool?), ExportType? format = default(ExportType?), string? driveTemplateLocation = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'executionId' is set
+            if (executionId == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'executionId' when calling MultiQueryExecutionApi->SaveMultiQueryResultsToDrive");
+            }
+
+            // verify the required parameter 'driveLocationAndFileName' is set
+            if (driveLocationAndFileName == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'driveLocationAndFileName' when calling MultiQueryExecutionApi->SaveMultiQueryResultsToDrive");
+            }
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("executionId", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(executionId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "driveLocationAndFileName", driveLocationAndFileName));
+            if (mayOverwrite != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "mayOverwrite", mayOverwrite));
+            }
+            if (format != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "format", format));
+            }
+            if (driveTemplateLocation != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "driveTemplateLocation", driveTemplateLocation));
+            }
+            if (dateTimeFormat != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
+            }
+            if (loadWaitMilliseconds != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "loadWaitMilliseconds", loadWaitMilliseconds));
+            }
+
+            localVarRequestOptions.Operation = "MultiQueryExecutionApi.SaveMultiQueryResultsToDrive";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<string>("/api/MultiQueryBackground/{executionId}/drive", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SaveMultiQueryResultsToDrive", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="driveLocationAndFileName">Location and file name within drive where this should be saved to. Missing paths will be created, and extension (if given) will be ignored and inferred from the chosen format (zip where several results are zipped). May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter).</param>
+        /// <param name="mayOverwrite">If there is an existing file at the requested location with the same name should this be overridden, or an error returned? (optional, default to false)</param>
+        /// <param name="format">Format to save in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="driveTemplateLocation">Drive path and full file name including extension to be used for the export. Only some export types support templates, such as Excel and Pdf, and this will need to match the format type, if given. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> SaveMultiQueryResultsToDriveAsync(string executionId, string driveLocationAndFileName, bool? mayOverwrite = default(bool?), ExportType? format = default(ExportType?), string? driveTemplateLocation = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await SaveMultiQueryResultsToDriveWithHttpInfoAsync(executionId, driveLocationAndFileName, mayOverwrite, format, driveTemplateLocation, dateTimeFormat, loadWaitMilliseconds, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn&#39;t exist, isn&#39;t a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query-set</param>
+        /// <param name="driveLocationAndFileName">Location and file name within drive where this should be saved to. Missing paths will be created, and extension (if given) will be ignored and inferred from the chosen format (zip where several results are zipped). May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter).</param>
+        /// <param name="mayOverwrite">If there is an existing file at the requested location with the same name should this be overridden, or an error returned? (optional, default to false)</param>
+        /// <param name="format">Format to save in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional)</param>
+        /// <param name="driveTemplateLocation">Drive path and full file name including extension to be used for the export. Only some export types support templates, such as Excel and Pdf, and this will need to match the format type, if given. (optional)</param>
+        /// <param name="dateTimeFormat">Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; (optional)</param>
+        /// <param name="loadWaitMilliseconds">Optional maximum additional wait period for post execution platform processing. (optional, default to 0)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> SaveMultiQueryResultsToDriveWithHttpInfoAsync(string executionId, string driveLocationAndFileName, bool? mayOverwrite = default(bool?), ExportType? format = default(ExportType?), string? driveTemplateLocation = default(string?), string? dateTimeFormat = default(string?), int? loadWaitMilliseconds = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'executionId' is set
+            if (executionId == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'executionId' when calling MultiQueryExecutionApi->SaveMultiQueryResultsToDrive");
+            }
+
+            // verify the required parameter 'driveLocationAndFileName' is set
+            if (driveLocationAndFileName == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'driveLocationAndFileName' when calling MultiQueryExecutionApi->SaveMultiQueryResultsToDrive");
+            }
+
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("executionId", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(executionId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "driveLocationAndFileName", driveLocationAndFileName));
+            if (mayOverwrite != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "mayOverwrite", mayOverwrite));
+            }
+            if (format != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "format", format));
+            }
+            if (driveTemplateLocation != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "driveTemplateLocation", driveTemplateLocation));
+            }
+            if (dateTimeFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTimeFormat", dateTimeFormat));
+            }
+            if (loadWaitMilliseconds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "loadWaitMilliseconds", loadWaitMilliseconds));
+            }
+
+            localVarRequestOptions.Operation = "MultiQueryExecutionApi.SaveMultiQueryResultsToDrive";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/api/MultiQueryBackground/{executionId}/drive", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SaveMultiQueryResultsToDrive", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] StartCustomQueries: Run a caller-supplied set of Sql queries in the background  Starts a caller-supplied set of named queries in the background, getting back an immediate response with how to - fetch the data of each (external) query in various formats, view progress information and cancel / clear them, as for any multi-query - download, or save to Drive, the results of all the (external) queries that succeeded as one file  The queries are started in the order given, at most &#x60;maxInParallel&#x60; at a time (1 by default, null for as many as possible). A query may use the results of an earlier one as a table variable of its name, e.g. &#x60;select * from @Holdings&#x60;, and is then only started once that has succeeded (and is skipped if it does not).  The scalar parameters are given to every query.  The multi-query as a whole is reported as failed if any of its queries fails or is skipped.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The queries to run (as LuminesceSql or Saved Query references), the scalar parameters for them all, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>BackgroundMultiQueryResponse</returns>
+        public BackgroundMultiQueryResponse StartCustomQueries(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryResponse> localVarResponse = StartCustomQueriesWithHttpInfo(customMultiQueryRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] StartCustomQueries: Run a caller-supplied set of Sql queries in the background  Starts a caller-supplied set of named queries in the background, getting back an immediate response with how to - fetch the data of each (external) query in various formats, view progress information and cancel / clear them, as for any multi-query - download, or save to Drive, the results of all the (external) queries that succeeded as one file  The queries are started in the order given, at most &#x60;maxInParallel&#x60; at a time (1 by default, null for as many as possible). A query may use the results of an earlier one as a table variable of its name, e.g. &#x60;select * from @Holdings&#x60;, and is then only started once that has succeeded (and is skipped if it does not).  The scalar parameters are given to every query.  The multi-query as a whole is reported as failed if any of its queries fails or is skipped.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The queries to run (as LuminesceSql or Saved Query references), the scalar parameters for them all, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of BackgroundMultiQueryResponse</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryResponse> StartCustomQueriesWithHttpInfo(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'customMultiQueryRequest' is set
+            if (customMultiQueryRequest == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'customMultiQueryRequest' when calling MultiQueryExecutionApi->StartCustomQueries");
+            }
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = customMultiQueryRequest;
+
+            localVarRequestOptions.Operation = "MultiQueryExecutionApi.StartCustomQueries";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<BackgroundMultiQueryResponse>("/api/MultiQueryBackground/custom", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("StartCustomQueries", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] StartCustomQueries: Run a caller-supplied set of Sql queries in the background  Starts a caller-supplied set of named queries in the background, getting back an immediate response with how to - fetch the data of each (external) query in various formats, view progress information and cancel / clear them, as for any multi-query - download, or save to Drive, the results of all the (external) queries that succeeded as one file  The queries are started in the order given, at most &#x60;maxInParallel&#x60; at a time (1 by default, null for as many as possible). A query may use the results of an earlier one as a table variable of its name, e.g. &#x60;select * from @Holdings&#x60;, and is then only started once that has succeeded (and is skipped if it does not).  The scalar parameters are given to every query.  The multi-query as a whole is reported as failed if any of its queries fails or is skipped.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The queries to run (as LuminesceSql or Saved Query references), the scalar parameters for them all, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of BackgroundMultiQueryResponse</returns>
+        public async System.Threading.Tasks.Task<BackgroundMultiQueryResponse> StartCustomQueriesAsync(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryResponse> localVarResponse = await StartCustomQueriesWithHttpInfoAsync(customMultiQueryRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] StartCustomQueries: Run a caller-supplied set of Sql queries in the background  Starts a caller-supplied set of named queries in the background, getting back an immediate response with how to - fetch the data of each (external) query in various formats, view progress information and cancel / clear them, as for any multi-query - download, or save to Drive, the results of all the (external) queries that succeeded as one file  The queries are started in the order given, at most &#x60;maxInParallel&#x60; at a time (1 by default, null for as many as possible). A query may use the results of an earlier one as a table variable of its name, e.g. &#x60;select * from @Holdings&#x60;, and is then only started once that has succeeded (and is skipped if it does not).  The scalar parameters are given to every query.  The multi-query as a whole is reported as failed if any of its queries fails or is skipped.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The queries to run (as LuminesceSql or Saved Query references), the scalar parameters for them all, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (BackgroundMultiQueryResponse)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundMultiQueryResponse>> StartCustomQueriesWithHttpInfoAsync(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'customMultiQueryRequest' is set
+            if (customMultiQueryRequest == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'customMultiQueryRequest' when calling MultiQueryExecutionApi->StartCustomQueries");
+            }
+
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = customMultiQueryRequest;
+
+            localVarRequestOptions.Operation = "MultiQueryExecutionApi.StartCustomQueries";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<BackgroundMultiQueryResponse>("/api/MultiQueryBackground/custom", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("StartCustomQueries", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

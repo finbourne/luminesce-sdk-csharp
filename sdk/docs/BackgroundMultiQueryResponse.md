@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **ExecutionId** | **Guid** |  | [optional] [readonly] 
 **Progress** | [**Link**](Link.md) |  | [optional] 
 **Cancel** | [**Link**](Link.md) |  | [optional] 
+**Download** | [**Link**](Link.md) |  | [optional] 
+**SaveToDrive** | [**Link**](Link.md) |  | [optional] 
 **FetchJson** | [**List&lt;Link&gt;**](Link.md) | Json (as a string) data request links for all of the child queries | [optional] [readonly] 
 **FetchJsonProper** | [**List&lt;Link&gt;**](Link.md) | Json-proper data request links for all of the child queries | [optional] [readonly] 
 **FetchJsonProperWithLineage** | [**List&lt;Link&gt;**](Link.md) | Json-proper-with-lineage data request links for all of the child queries | [optional] [readonly] 
@@ -27,6 +29,10 @@ Link? progress = new Link();
 
 Link? cancel = new Link();
 
+Link? download = new Link();
+
+Link? saveToDrive = new Link();
+
 List<Link> fetchJson = new List<Link>();
 List<Link> fetchJsonProper = new List<Link>();
 List<Link> fetchJsonProperWithLineage = new List<Link>();
@@ -42,6 +48,8 @@ BackgroundMultiQueryResponse backgroundMultiQueryResponseInstance = new Backgrou
     executionId: executionId,
     progress: progress,
     cancel: cancel,
+    download: download,
+    saveToDrive: saveToDrive,
     fetchJson: fetchJson,
     fetchJsonProper: fetchJsonProper,
     fetchJsonProperWithLineage: fetchJsonProperWithLineage,

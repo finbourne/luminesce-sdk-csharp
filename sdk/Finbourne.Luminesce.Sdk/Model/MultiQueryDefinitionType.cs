@@ -110,7 +110,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// Enum CandelaTraceEventLogs for value: CandelaTraceEventLogs
         /// </summary>
         [EnumMember(Value = "CandelaTraceEventLogs")]
-        CandelaTraceEventLogs = 14
+        CandelaTraceEventLogs = 14,
+
+        /// <summary>
+        /// Enum Custom for value: Custom
+        /// </summary>
+        [EnumMember(Value = "Custom")]
+        Custom = 15
     }
 
 }

@@ -532,7 +532,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// [EXPERIMENTAL] ListQueries: List the background queries available to the calling user
         /// </summary>
         /// <remarks>
-        /// Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are (other than those marked as not being external results).  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired). (optional)</param>
@@ -545,7 +545,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// [EXPERIMENTAL] ListQueries: List the background queries available to the calling user
         /// </summary>
         /// <remarks>
-        /// Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are (other than those marked as not being external results).  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired). (optional)</param>
@@ -1177,7 +1177,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// [EXPERIMENTAL] ListQueries: List the background queries available to the calling user
         /// </summary>
         /// <remarks>
-        /// Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are (other than those marked as not being external results).  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired). (optional)</param>
@@ -1191,7 +1191,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// [EXPERIMENTAL] ListQueries: List the background queries available to the calling user
         /// </summary>
         /// <remarks>
-        /// Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are (other than those marked as not being external results).  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired). (optional)</param>
@@ -5191,7 +5191,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListQueries: List the background queries available to the calling user Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// [EXPERIMENTAL] ListQueries: List the background queries available to the calling user Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are (other than those marked as not being external results).  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired). (optional)</param>
@@ -5205,7 +5205,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListQueries: List the background queries available to the calling user Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// [EXPERIMENTAL] ListQueries: List the background queries available to the calling user Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are (other than those marked as not being external results).  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired). (optional)</param>
@@ -5289,7 +5289,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListQueries: List the background queries available to the calling user Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// [EXPERIMENTAL] ListQueries: List the background queries available to the calling user Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are (other than those marked as not being external results).  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired). (optional)</param>
@@ -5304,7 +5304,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListQueries: List the background queries available to the calling user Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
+        /// [EXPERIMENTAL] ListQueries: List the background queries available to the calling user Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their &#x60;keepForSeconds&#x60; time, most recent first. Multi-queries themselves are not included, though the individual queries they started are (other than those marked as not being external results).  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sqlLike">An optional SQL-LIKE style filter on the LuminesceSql of the queries (manually include wildcards if desired). (optional)</param>

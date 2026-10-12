@@ -33,10 +33,14 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         /// <param name="progress">progress.</param>
         /// <param name="cancel">cancel.</param>
-        public BackgroundMultiQueryResponse(Link progress = default(Link), Link cancel = default(Link))
+        /// <param name="download">download.</param>
+        /// <param name="saveToDrive">saveToDrive.</param>
+        public BackgroundMultiQueryResponse(Link progress = default(Link), Link cancel = default(Link), Link download = default(Link), Link saveToDrive = default(Link))
         {
             this.Progress = progress;
             this.Cancel = cancel;
+            this.Download = download;
+            this.SaveToDrive = saveToDrive;
         }
 
         /// <summary>
@@ -64,6 +68,18 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// </summary>
         [DataMember(Name = "cancel", EmitDefaultValue = false)]
         public Link Cancel { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Download
+        /// </summary>
+        [DataMember(Name = "download", EmitDefaultValue = false)]
+        public Link Download { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SaveToDrive
+        /// </summary>
+        [DataMember(Name = "saveToDrive", EmitDefaultValue = false)]
+        public Link SaveToDrive { get; set; }
 
         /// <summary>
         /// Json (as a string) data request links for all of the child queries
@@ -226,6 +242,8 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  ExecutionId: ").Append(ExecutionId).Append("\n");
             sb.Append("  Progress: ").Append(Progress).Append("\n");
             sb.Append("  Cancel: ").Append(Cancel).Append("\n");
+            sb.Append("  Download: ").Append(Download).Append("\n");
+            sb.Append("  SaveToDrive: ").Append(SaveToDrive).Append("\n");
             sb.Append("  FetchJson: ").Append(FetchJson).Append("\n");
             sb.Append("  FetchJsonProper: ").Append(FetchJsonProper).Append("\n");
             sb.Append("  FetchJsonProperWithLineage: ").Append(FetchJsonProperWithLineage).Append("\n");
@@ -285,6 +303,16 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Cancel == input.Cancel ||
                     (this.Cancel != null &&
                     this.Cancel.Equals(input.Cancel))
+                ) && 
+                (
+                    this.Download == input.Download ||
+                    (this.Download != null &&
+                    this.Download.Equals(input.Download))
+                ) && 
+                (
+                    this.SaveToDrive == input.SaveToDrive ||
+                    (this.SaveToDrive != null &&
+                    this.SaveToDrive.Equals(input.SaveToDrive))
                 ) && 
                 (
                     this.FetchJson == input.FetchJson ||
@@ -368,6 +396,14 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.Cancel != null)
                 {
                     hashCode = (hashCode * 59) + this.Cancel.GetHashCode();
+                }
+                if (this.Download != null)
+                {
+                    hashCode = (hashCode * 59) + this.Download.GetHashCode();
+                }
+                if (this.SaveToDrive != null)
+                {
+                    hashCode = (hashCode * 59) + this.SaveToDrive.GetHashCode();
                 }
                 if (this.FetchJson != null)
                 {
