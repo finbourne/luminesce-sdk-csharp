@@ -109,6 +109,31 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutCaseStatementDesignToSqlWithHttpInfo(CaseStatementDesign caseStatementDesign, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query
+        /// </summary>
+        /// <remarks>
+        ///  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>List&lt;ScalarParameter&gt;</returns>
+        List<ScalarParameter> PutCustomQueriesToExtractScalarParameters(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query
+        /// </summary>
+        /// <remarks>
+        ///  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of List&lt;ScalarParameter&gt;</returns>
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>> PutCustomQueriesToExtractScalarParametersWithHttpInfo(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// PutFileReadDesignToSql: Make file read SQL from a design object
         /// </summary>
         /// <remarks>
@@ -611,6 +636,33 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutCaseStatementDesignToSqlWithHttpInfoAsync(CaseStatementDesign caseStatementDesign, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query
+        /// </summary>
+        /// <remarks>
+        ///  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of List&lt;ScalarParameter&gt;</returns>
+        System.Threading.Tasks.Task<List<ScalarParameter>> PutCustomQueriesToExtractScalarParametersAsync(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query
+        /// </summary>
+        /// <remarks>
+        ///  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (List&lt;ScalarParameter&gt;)</returns>
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>>> PutCustomQueriesToExtractScalarParametersWithHttpInfoAsync(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// PutFileReadDesignToSql: Make file read SQL from a design object
         /// </summary>
@@ -1794,6 +1846,212 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PutCaseStatementDesignToSql", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>List&lt;ScalarParameter&gt;</returns>
+        public List<ScalarParameter> PutCustomQueriesToExtractScalarParameters(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>> localVarResponse = PutCustomQueriesToExtractScalarParametersWithHttpInfo(customMultiQueryRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of List&lt;ScalarParameter&gt;</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>> PutCustomQueriesToExtractScalarParametersWithHttpInfo(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'customMultiQueryRequest' is set
+            if (customMultiQueryRequest == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'customMultiQueryRequest' when calling SqlDesignApi->PutCustomQueriesToExtractScalarParameters");
+            }
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = customMultiQueryRequest;
+
+            localVarRequestOptions.Operation = "SqlDesignApi.PutCustomQueriesToExtractScalarParameters";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<List<ScalarParameter>>("/api/Sql/extractscalarparameters/custom", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PutCustomQueriesToExtractScalarParameters", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of List&lt;ScalarParameter&gt;</returns>
+        public async System.Threading.Tasks.Task<List<ScalarParameter>> PutCustomQueriesToExtractScalarParametersAsync(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>> localVarResponse = await PutCustomQueriesToExtractScalarParametersWithHttpInfoAsync(customMultiQueryRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (List&lt;ScalarParameter&gt;)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>>> PutCustomQueriesToExtractScalarParametersWithHttpInfoAsync(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'customMultiQueryRequest' is set
+            if (customMultiQueryRequest == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'customMultiQueryRequest' when calling SqlDesignApi->PutCustomQueriesToExtractScalarParameters");
+            }
+
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = customMultiQueryRequest;
+
+            localVarRequestOptions.Operation = "SqlDesignApi.PutCustomQueriesToExtractScalarParameters";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<List<ScalarParameter>>("/api/Sql/extractscalarparameters/custom", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PutCustomQueriesToExtractScalarParameters", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

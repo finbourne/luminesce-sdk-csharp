@@ -7,6 +7,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 | [**GetProviderTemplateForExport**](SqlDesignApi.md#getprovidertemplateforexport) | **GET** /api/Sql/providertemplateforexport | GetProviderTemplateForExport: Makes a fields template for file importing via a writer |
 | [**PutCaseStatementDesignSqlToDesign**](SqlDesignApi.md#putcasestatementdesignsqltodesign) | **PUT** /api/Sql/tocasestatementdesign | PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object |
 | [**PutCaseStatementDesignToSql**](SqlDesignApi.md#putcasestatementdesigntosql) | **PUT** /api/Sql/fromcasestatementdesign | PutCaseStatementDesignToSql: Convert a case statement design object to SQL |
+| [**PutCustomQueriesToExtractScalarParameters**](SqlDesignApi.md#putcustomqueriestoextractscalarparameters) | **PUT** /api/Sql/extractscalarparameters/custom | PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query |
 | [**PutFileReadDesignToSql**](SqlDesignApi.md#putfilereaddesigntosql) | **PUT** /api/Sql/fromfilereaddesign | PutFileReadDesignToSql: Make file read SQL from a design object |
 | [**PutInlinedPropertiesDesignSqlToDesign**](SqlDesignApi.md#putinlinedpropertiesdesignsqltodesign) | **PUT** /api/Sql/toinlinedpropertiesdesign | PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL |
 | [**PutInlinedPropertiesDesignToSql**](SqlDesignApi.md#putinlinedpropertiesdesigntosql) | **PUT** /api/Sql/frominlinedpropertiesdesign | PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object |
@@ -355,6 +356,120 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="putcustomqueriestoextractscalarparameters"></a>
+# **PutCustomQueriesToExtractScalarParameters**
+> List&lt;ScalarParameter&gt; PutCustomQueriesToExtractScalarParameters (CustomMultiQueryRequest customMultiQueryRequest)
+
+PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query
+
+ Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request's own `scalarParameters` are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Luminesce.Sdk.Api;
+using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
+using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
+            var customMultiQueryRequest = new CustomMultiQueryRequest(); // CustomMultiQueryRequest | The same set of queries as would be given to start them via `api/MultiQueryBackground/custom`
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // List<ScalarParameter> result = apiInstance.PutCustomQueriesToExtractScalarParameters(customMultiQueryRequest, opts: opts);
+
+                // PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query
+                List<ScalarParameter> result = apiInstance.PutCustomQueriesToExtractScalarParameters(customMultiQueryRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling SqlDesignApi.PutCustomQueriesToExtractScalarParameters: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the PutCustomQueriesToExtractScalarParametersWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query
+    ApiResponse<List<ScalarParameter>> response = apiInstance.PutCustomQueriesToExtractScalarParametersWithHttpInfo(customMultiQueryRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling SqlDesignApi.PutCustomQueriesToExtractScalarParametersWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **customMultiQueryRequest** | [**CustomMultiQueryRequest**](CustomMultiQueryRequest.md) | The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60; |  |
+
+### Return type
+
+[**List&lt;ScalarParameter&gt;**](ScalarParameter.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: text/plain, application/json, text/json
 
 
