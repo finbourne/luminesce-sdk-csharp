@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **StartedAt** | **DateTimeOffset?** | When it was started (UTC) | [optional] 
 **When** | **DateTimeOffset** | When the state of it was last updated (UTC) | [optional] 
 **ExpiresAt** | **DateTimeOffset** | When it (and the data of its queries) may be removed (UTC) | [optional] 
+**ExportedTo** | **string** | The Drive path its results were saved to once done, if it was started with an &#x60;export&#x60; and they were | [optional] 
 **Queries** | [**List&lt;CustomMultiQueryListItemQuery&gt;**](CustomMultiQueryListItemQuery.md) | Its queries whose results may be fetched (those that are external results), in request order | [optional] 
 
 ```csharp
@@ -19,6 +20,7 @@ using System;
 
 string executionId = "example executionId";
 string queryName = "example queryName";
+string exportedTo = "example exportedTo";
 List<CustomMultiQueryListItemQuery> queries = new List<CustomMultiQueryListItemQuery>();
 
 CustomMultiQueryListItem customMultiQueryListItemInstance = new CustomMultiQueryListItem(
@@ -28,6 +30,7 @@ CustomMultiQueryListItem customMultiQueryListItemInstance = new CustomMultiQuery
     startedAt: startedAt,
     when: when,
     expiresAt: expiresAt,
+    exportedTo: exportedTo,
     queries: queries);
 ```
 

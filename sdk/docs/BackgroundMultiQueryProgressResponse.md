@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Feedback** | [**List&lt;FeedbackEventArgs&gt;**](FeedbackEventArgs.md) | Individual Feedback Messages (to replace Progress).  A given message will be returned from only one call. | [optional] 
 **Status** | **TaskStatus** |  | [optional] 
 **Queries** | [**List&lt;BackgroundQueryProgressResponse&gt;**](BackgroundQueryProgressResponse.md) |  | [optional] 
+**Export** | [**MultiQueryExportState**](MultiQueryExportState.md) |  | [optional] 
 
 ```csharp
 using Finbourne.Luminesce.Sdk.Model;
@@ -16,12 +17,15 @@ using System;
 string progress = "example progress";
 List<FeedbackEventArgs> feedback = new List<FeedbackEventArgs>();
 List<BackgroundQueryProgressResponse> queries = new List<BackgroundQueryProgressResponse>();
+MultiQueryExportState? export = new MultiQueryExportState();
+
 
 BackgroundMultiQueryProgressResponse backgroundMultiQueryProgressResponseInstance = new BackgroundMultiQueryProgressResponse(
     progress: progress,
     feedback: feedback,
     status: status,
-    queries: queries);
+    queries: queries,
+    export: export);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

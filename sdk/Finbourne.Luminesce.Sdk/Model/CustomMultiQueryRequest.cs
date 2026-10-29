@@ -28,6 +28,12 @@ namespace Finbourne.Luminesce.Sdk.Model
     [DataContract(Name = "CustomMultiQueryRequest")]
     public partial class CustomMultiQueryRequest : IEquatable<CustomMultiQueryRequest>, IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets ExecutionFlags
+        /// </summary>
+        [DataMember(Name = "executionFlags", EmitDefaultValue = false)]
+        public SqlExecutionFlags? ExecutionFlags { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomMultiQueryRequest" /> class.
         /// </summary>
@@ -39,11 +45,14 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="executionId">An explicit ExecutionId to use.  This must be blank OR assigned to a valid GUID-as-a-string..</param>
         /// <param name="scalarParameters">Scalar parameter values, handed to every query that runs (e.g. filling in &#x60;:someParameter:defaultValue&#x60; style references). At most 100, each named as an identifier of at most 256 characters, with a value of at most 4096..</param>
         /// <param name="queries">The queries to run.  Those ready are started in the order given here (one still waiting on those it refers to does not hold up a later one), and each may only refer to queries earlier in the list. (required).</param>
+        /// <param name="queriesFromWorkspace">A custom multi-query saved in the Workspaces API to take the queries from, rather than giving them in &#x60;Queries&#x60; (exactly one of which must be given), e.g. &#x60;shared/SomeWorkspace/items/sets/SomeSet&#x60;. What this request leaves unspecified of &#x60;maxInParallel&#x60;, &#x60;timeoutSeconds&#x60;, &#x60;keepForSeconds&#x60; and &#x60;queryName&#x60; is taken from it too, and its saved scalar parameter values are used for any this request does not give. It may instead be a Saved Query, e.g. &#x60;shared/SomeWorkspace/items/queries/SomeQuery&#x60;, run as the one query, named &#x60;Result&#x60;..</param>
         /// <param name="maxInParallel">Maximum number of the queries that may run concurrently.  Defaults to 1, meaning they run one after another. Explicitly null means as many as their dependencies allow..</param>
-        /// <param name="timeoutSeconds">Maximum time each query may run for, in seconds, timed from when it starts: &lt;0 → ∞, 0 → 1200s (20m). There is no limit on the set as a whole..</param>
-        /// <param name="keepForSeconds">Maximum time the results may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d).</param>
+        /// <param name="timeoutSeconds">Maximum time each query may run for, in seconds, timed from when it starts: &lt;0 → ∞, 0 or null → 1200s (20m). There is no limit on the set as a whole.  Null (or absent) with &#x60;queriesFromWorkspace&#x60; is that saved with it..</param>
+        /// <param name="keepForSeconds">Maximum time the results may be kept for, in seconds: &lt;0 → 1200 (20m), 0 or null → 28800 (8h), max &#x3D; 2,678,400 (31d). Null (or absent) with &#x60;queriesFromWorkspace&#x60; is that saved with it..</param>
+        /// <param name="executionFlags">executionFlags.</param>
         /// <param name="queryName">A name for this set of queries.  This goes into logs and is returned when listing the sets of queries..</param>
-        public CustomMultiQueryRequest(string executionId = default(string), Dictionary<string, string> scalarParameters = default(Dictionary<string, string>), List<CustomMultiQueryItem> queries = default(List<CustomMultiQueryItem>), int? maxInParallel = default(int?), int timeoutSeconds = default(int), int keepForSeconds = default(int), string queryName = default(string))
+        /// <param name="export">export.</param>
+        public CustomMultiQueryRequest(string executionId = default(string), Dictionary<string, string> scalarParameters = default(Dictionary<string, string>), List<CustomMultiQueryItem> queries = default(List<CustomMultiQueryItem>), string queriesFromWorkspace = default(string), int? maxInParallel = default(int?), int? timeoutSeconds = default(int?), int? keepForSeconds = default(int?), SqlExecutionFlags ?executionFlags = default(SqlExecutionFlags?), string queryName = default(string), CustomMultiQueryExport export = default(CustomMultiQueryExport))
         {
             // to ensure "queries" is required (not null)
             if (queries == null)
@@ -53,10 +62,13 @@ namespace Finbourne.Luminesce.Sdk.Model
             this.Queries = queries;
             this.ExecutionId = executionId;
             this.ScalarParameters = scalarParameters;
+            this.QueriesFromWorkspace = queriesFromWorkspace;
             this.MaxInParallel = maxInParallel;
             this.TimeoutSeconds = timeoutSeconds;
             this.KeepForSeconds = keepForSeconds;
+            this.ExecutionFlags = executionFlags;
             this.QueryName = queryName;
+            this.Export = export;
         }
 
         /// <summary>
@@ -81,6 +93,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         public List<CustomMultiQueryItem> Queries { get; set; }
 
         /// <summary>
+        /// A custom multi-query saved in the Workspaces API to take the queries from, rather than giving them in &#x60;Queries&#x60; (exactly one of which must be given), e.g. &#x60;shared/SomeWorkspace/items/sets/SomeSet&#x60;. What this request leaves unspecified of &#x60;maxInParallel&#x60;, &#x60;timeoutSeconds&#x60;, &#x60;keepForSeconds&#x60; and &#x60;queryName&#x60; is taken from it too, and its saved scalar parameter values are used for any this request does not give. It may instead be a Saved Query, e.g. &#x60;shared/SomeWorkspace/items/queries/SomeQuery&#x60;, run as the one query, named &#x60;Result&#x60;.
+        /// </summary>
+        /// <value>A custom multi-query saved in the Workspaces API to take the queries from, rather than giving them in &#x60;Queries&#x60; (exactly one of which must be given), e.g. &#x60;shared/SomeWorkspace/items/sets/SomeSet&#x60;. What this request leaves unspecified of &#x60;maxInParallel&#x60;, &#x60;timeoutSeconds&#x60;, &#x60;keepForSeconds&#x60; and &#x60;queryName&#x60; is taken from it too, and its saved scalar parameter values are used for any this request does not give. It may instead be a Saved Query, e.g. &#x60;shared/SomeWorkspace/items/queries/SomeQuery&#x60;, run as the one query, named &#x60;Result&#x60;.</value>
+        [DataMember(Name = "queriesFromWorkspace", EmitDefaultValue = true)]
+        public string QueriesFromWorkspace { get; set; }
+
+        /// <summary>
         /// Maximum number of the queries that may run concurrently.  Defaults to 1, meaning they run one after another. Explicitly null means as many as their dependencies allow.
         /// </summary>
         /// <value>Maximum number of the queries that may run concurrently.  Defaults to 1, meaning they run one after another. Explicitly null means as many as their dependencies allow.</value>
@@ -88,18 +107,18 @@ namespace Finbourne.Luminesce.Sdk.Model
         public int? MaxInParallel { get; set; }
 
         /// <summary>
-        /// Maximum time each query may run for, in seconds, timed from when it starts: &lt;0 → ∞, 0 → 1200s (20m). There is no limit on the set as a whole.
+        /// Maximum time each query may run for, in seconds, timed from when it starts: &lt;0 → ∞, 0 or null → 1200s (20m). There is no limit on the set as a whole.  Null (or absent) with &#x60;queriesFromWorkspace&#x60; is that saved with it.
         /// </summary>
-        /// <value>Maximum time each query may run for, in seconds, timed from when it starts: &lt;0 → ∞, 0 → 1200s (20m). There is no limit on the set as a whole.</value>
+        /// <value>Maximum time each query may run for, in seconds, timed from when it starts: &lt;0 → ∞, 0 or null → 1200s (20m). There is no limit on the set as a whole.  Null (or absent) with &#x60;queriesFromWorkspace&#x60; is that saved with it.</value>
         [DataMember(Name = "timeoutSeconds", EmitDefaultValue = true)]
-        public int TimeoutSeconds { get; set; }
+        public int? TimeoutSeconds { get; set; }
 
         /// <summary>
-        /// Maximum time the results may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d)
+        /// Maximum time the results may be kept for, in seconds: &lt;0 → 1200 (20m), 0 or null → 28800 (8h), max &#x3D; 2,678,400 (31d). Null (or absent) with &#x60;queriesFromWorkspace&#x60; is that saved with it.
         /// </summary>
-        /// <value>Maximum time the results may be kept for, in seconds: &lt;0 → 1200 (20m), 0 → 28800 (8h), max &#x3D; 2,678,400 (31d)</value>
+        /// <value>Maximum time the results may be kept for, in seconds: &lt;0 → 1200 (20m), 0 or null → 28800 (8h), max &#x3D; 2,678,400 (31d). Null (or absent) with &#x60;queriesFromWorkspace&#x60; is that saved with it.</value>
         [DataMember(Name = "keepForSeconds", EmitDefaultValue = true)]
-        public int KeepForSeconds { get; set; }
+        public int? KeepForSeconds { get; set; }
 
         /// <summary>
         /// A name for this set of queries.  This goes into logs and is returned when listing the sets of queries.
@@ -107,6 +126,12 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <value>A name for this set of queries.  This goes into logs and is returned when listing the sets of queries.</value>
         [DataMember(Name = "queryName", EmitDefaultValue = true)]
         public string QueryName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Export
+        /// </summary>
+        [DataMember(Name = "export", EmitDefaultValue = false)]
+        public CustomMultiQueryExport Export { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -119,10 +144,13 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  ExecutionId: ").Append(ExecutionId).Append("\n");
             sb.Append("  ScalarParameters: ").Append(ScalarParameters).Append("\n");
             sb.Append("  Queries: ").Append(Queries).Append("\n");
+            sb.Append("  QueriesFromWorkspace: ").Append(QueriesFromWorkspace).Append("\n");
             sb.Append("  MaxInParallel: ").Append(MaxInParallel).Append("\n");
             sb.Append("  TimeoutSeconds: ").Append(TimeoutSeconds).Append("\n");
             sb.Append("  KeepForSeconds: ").Append(KeepForSeconds).Append("\n");
+            sb.Append("  ExecutionFlags: ").Append(ExecutionFlags).Append("\n");
             sb.Append("  QueryName: ").Append(QueryName).Append("\n");
+            sb.Append("  Export: ").Append(Export).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -176,22 +204,38 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.Queries.SequenceEqual(input.Queries)
                 ) && 
                 (
+                    this.QueriesFromWorkspace == input.QueriesFromWorkspace ||
+                    (this.QueriesFromWorkspace != null &&
+                    this.QueriesFromWorkspace.Equals(input.QueriesFromWorkspace))
+                ) && 
+                (
                     this.MaxInParallel == input.MaxInParallel ||
                     (this.MaxInParallel != null &&
                     this.MaxInParallel.Equals(input.MaxInParallel))
                 ) && 
                 (
                     this.TimeoutSeconds == input.TimeoutSeconds ||
-                    this.TimeoutSeconds.Equals(input.TimeoutSeconds)
+                    (this.TimeoutSeconds != null &&
+                    this.TimeoutSeconds.Equals(input.TimeoutSeconds))
                 ) && 
                 (
                     this.KeepForSeconds == input.KeepForSeconds ||
-                    this.KeepForSeconds.Equals(input.KeepForSeconds)
+                    (this.KeepForSeconds != null &&
+                    this.KeepForSeconds.Equals(input.KeepForSeconds))
+                ) && 
+                (
+                    this.ExecutionFlags == input.ExecutionFlags ||
+                    this.ExecutionFlags.Equals(input.ExecutionFlags)
                 ) && 
                 (
                     this.QueryName == input.QueryName ||
                     (this.QueryName != null &&
                     this.QueryName.Equals(input.QueryName))
+                ) && 
+                (
+                    this.Export == input.Export ||
+                    (this.Export != null &&
+                    this.Export.Equals(input.Export))
                 );
         }
 
@@ -216,15 +260,30 @@ namespace Finbourne.Luminesce.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Queries.GetHashCode();
                 }
+                if (this.QueriesFromWorkspace != null)
+                {
+                    hashCode = (hashCode * 59) + this.QueriesFromWorkspace.GetHashCode();
+                }
                 if (this.MaxInParallel != null)
                 {
                     hashCode = (hashCode * 59) + this.MaxInParallel.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.TimeoutSeconds.GetHashCode();
-                hashCode = (hashCode * 59) + this.KeepForSeconds.GetHashCode();
+                if (this.TimeoutSeconds != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeoutSeconds.GetHashCode();
+                }
+                if (this.KeepForSeconds != null)
+                {
+                    hashCode = (hashCode * 59) + this.KeepForSeconds.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ExecutionFlags.GetHashCode();
                 if (this.QueryName != null)
                 {
                     hashCode = (hashCode * 59) + this.QueryName.GetHashCode();
+                }
+                if (this.Export != null)
+                {
+                    hashCode = (hashCode * 59) + this.Export.GetHashCode();
                 }
                 return hashCode;
             }
@@ -247,6 +306,18 @@ namespace Finbourne.Luminesce.Sdk.Model
             if (this.ExecutionId != null && this.ExecutionId.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExecutionId, length must be greater than 0.", new [] { "ExecutionId" });
+            }
+
+            // QueriesFromWorkspace (string) maxLength
+            if (this.QueriesFromWorkspace != null && this.QueriesFromWorkspace.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for QueriesFromWorkspace, length must be less than 1024.", new [] { "QueriesFromWorkspace" });
+            }
+
+            // QueriesFromWorkspace (string) minLength
+            if (this.QueriesFromWorkspace != null && this.QueriesFromWorkspace.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for QueriesFromWorkspace, length must be greater than 0.", new [] { "QueriesFromWorkspace" });
             }
 
             // QueryName (string) maxLength

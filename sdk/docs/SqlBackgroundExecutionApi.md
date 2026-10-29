@@ -17,8 +17,8 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 | [**FetchQueryResultXml**](SqlBackgroundExecutionApi.md#fetchqueryresultxml) | **GET** /api/SqlBackground/{executionId}/xml | FetchQueryResultXml: Fetch the result of a query as XML |
 | [**GetHistoricalFeedback**](SqlBackgroundExecutionApi.md#gethistoricalfeedback) | **GET** /api/SqlBackground/{executionId}/historicalFeedback | GetHistoricalFeedback: View historical query progress (for older queries) |
 | [**GetProgressOf**](SqlBackgroundExecutionApi.md#getprogressof) | **GET** /api/SqlBackground/{executionId} | GetProgressOf: View query progress up to this point. |
-| [**ListQueries**](SqlBackgroundExecutionApi.md#listqueries) | **GET** /api/SqlBackground | [EXPERIMENTAL] ListQueries: List the background queries available to the calling user |
-| [**SaveQueryResultToDrive**](SqlBackgroundExecutionApi.md#savequeryresulttodrive) | **GET** /api/SqlBackground/{executionId}/drive | [EXPERIMENTAL] SaveQueryResultToDrive: Saves the query results directly to Drive |
+| [**ListQueries**](SqlBackgroundExecutionApi.md#listqueries) | **GET** /api/SqlBackground | ListQueries: List the background queries available to the calling user |
+| [**SaveQueryResultToDrive**](SqlBackgroundExecutionApi.md#savequeryresulttodrive) | **GET** /api/SqlBackground/{executionId}/drive | SaveQueryResultToDrive: Saves the query results directly to Drive |
 | [**StartQuery**](SqlBackgroundExecutionApi.md#startquery) | **PUT** /api/SqlBackground | StartQuery: Start to Execute Sql in the background |
 
 <a id="cancelquery"></a>
@@ -1673,7 +1673,7 @@ catch (ApiException e)
 # **ListQueries**
 > List&lt;BackgroundQueryListItem&gt; ListQueries (string? sqlLike = null)
 
-[EXPERIMENTAL] ListQueries: List the background queries available to the calling user
+ListQueries: List the background queries available to the calling user
 
 Lists the background queries (started by the calling user) whose results may be fetched, and which have not yet passed their `keepForSeconds` time, most recent first. Multi-queries themselves are not included, though the individual queries they started are (other than those marked as not being external results).  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
 
@@ -1723,7 +1723,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // List<BackgroundQueryListItem> result = apiInstance.ListQueries(sqlLike, opts: opts);
 
-                // [EXPERIMENTAL] ListQueries: List the background queries available to the calling user
+                // ListQueries: List the background queries available to the calling user
                 List<BackgroundQueryListItem> result = apiInstance.ListQueries(sqlLike);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1744,7 +1744,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListQueries: List the background queries available to the calling user
+    // ListQueries: List the background queries available to the calling user
     ApiResponse<List<BackgroundQueryListItem>> response = apiInstance.ListQueriesWithHttpInfo(sqlLike);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1785,7 +1785,7 @@ catch (ApiException e)
 # **SaveQueryResultToDrive**
 > string SaveQueryResultToDrive (string executionId, string driveLocationAndFileName, bool? mayOverwrite = null, ExportType? format = null, string? driveTemplateLocation = null, string? tableNameReference = null, string? sortBy = null, string? filter = null, string? sqlFilter = null, string? select = null, string? groupBy = null, string? dateTimeFormat = null, int? loadWaitMilliseconds = null)
 
-[EXPERIMENTAL] SaveQueryResultToDrive: Saves the query results directly to Drive
+SaveQueryResultToDrive: Saves the query results directly to Drive
 
 Saves the results directly to Drive.  This can be useful for sharing results with others, keeping persistent reports, etc.      Of course always consider data visibility and security as who can see these depends on users' permissions to the chosen location within Drive.  Template support is provided, for the export types that allow this, but unlike using the `Drive.SaveAs` provider within the SQL itself, only one data set can be be saved  (the full query result set, optionally manipulated with the various parameters to this method).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query or drive parameters were incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn't (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -1847,7 +1847,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.SaveQueryResultToDrive(executionId, driveLocationAndFileName, mayOverwrite, format, driveTemplateLocation, tableNameReference, sortBy, filter, sqlFilter, select, groupBy, dateTimeFormat, loadWaitMilliseconds, opts: opts);
 
-                // [EXPERIMENTAL] SaveQueryResultToDrive: Saves the query results directly to Drive
+                // SaveQueryResultToDrive: Saves the query results directly to Drive
                 string result = apiInstance.SaveQueryResultToDrive(executionId, driveLocationAndFileName, mayOverwrite, format, driveTemplateLocation, tableNameReference, sortBy, filter, sqlFilter, select, groupBy, dateTimeFormat, loadWaitMilliseconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1868,7 +1868,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] SaveQueryResultToDrive: Saves the query results directly to Drive
+    // SaveQueryResultToDrive: Saves the query results directly to Drive
     ApiResponse<string> response = apiInstance.SaveQueryResultToDriveWithHttpInfo(executionId, driveLocationAndFileName, mayOverwrite, format, driveTemplateLocation, tableNameReference, sortBy, filter, sqlFilter, select, groupBy, dateTimeFormat, loadWaitMilliseconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

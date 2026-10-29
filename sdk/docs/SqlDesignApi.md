@@ -8,6 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 | [**PutCaseStatementDesignSqlToDesign**](SqlDesignApi.md#putcasestatementdesignsqltodesign) | **PUT** /api/Sql/tocasestatementdesign | PutCaseStatementDesignSqlToDesign: Convert SQL to a case statement design object |
 | [**PutCaseStatementDesignToSql**](SqlDesignApi.md#putcasestatementdesigntosql) | **PUT** /api/Sql/fromcasestatementdesign | PutCaseStatementDesignToSql: Convert a case statement design object to SQL |
 | [**PutCustomQueriesToExtractScalarParameters**](SqlDesignApi.md#putcustomqueriestoextractscalarparameters) | **PUT** /api/Sql/extractscalarparameters/custom | PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query |
+| [**PutCustomQueriesToText**](SqlDesignApi.md#putcustomqueriestotext) | **PUT** /api/Sql/customqueries/totext | PutCustomQueriesToText: Convert the queries of a custom multi-query into its text |
 | [**PutFileReadDesignToSql**](SqlDesignApi.md#putfilereaddesigntosql) | **PUT** /api/Sql/fromfilereaddesign | PutFileReadDesignToSql: Make file read SQL from a design object |
 | [**PutInlinedPropertiesDesignSqlToDesign**](SqlDesignApi.md#putinlinedpropertiesdesignsqltodesign) | **PUT** /api/Sql/toinlinedpropertiesdesign | PutInlinedPropertiesDesignSqlToDesign: Make an inlined properties design from SQL |
 | [**PutInlinedPropertiesDesignToSql**](SqlDesignApi.md#putinlinedpropertiesdesigntosql) | **PUT** /api/Sql/frominlinedpropertiesdesign | PutInlinedPropertiesDesignToSql: Make inlined properties SQL from a design object |
@@ -21,6 +22,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 | [**PutSqlToQueryDesign**](SqlDesignApi.md#putsqltoquerydesign) | **PUT** /api/Sql/todesign | PutSqlToQueryDesign: Make a SQL-design object from SQL if possible |
 | [**PutSqlToViewDesign**](SqlDesignApi.md#putsqltoviewdesign) | **PUT** /api/Sql/toviewdesign | PutSqlToViewDesign: Make a view-design from view creation SQL |
 | [**PutSqlToWriterDesign**](SqlDesignApi.md#putsqltowriterdesign) | **PUT** /api/Sql/towriterdesign | PutSqlToWriterDesign: Make a SQL-writer-design object from SQL |
+| [**PutTextToCustomQueries**](SqlDesignApi.md#puttexttocustomqueries) | **PUT** /api/Sql/customqueries/fromtext | PutTextToCustomQueries: Convert the text of a custom multi-query into its queries |
 | [**PutViewDesignToSql**](SqlDesignApi.md#putviewdesigntosql) | **PUT** /api/Sql/fromviewdesign | PutViewDesignToSql: Make view creation sql from a view-design |
 | [**PutWriterDesignToSql**](SqlDesignApi.md#putwriterdesigntosql) | **PUT** /api/Sql/fromwriterdesign | PutWriterDesignToSql: Make writer SQL from a writer-design object |
 
@@ -374,7 +376,7 @@ catch (ApiException e)
 
 PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query
 
- Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request's own `scalarParameters` are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+ Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request's own `scalarParameters` are ignored.  Given `queriesFromWorkspace` rather than `queries`, the queries are those of the custom multi-query saved there, and the `value` of each scalar parameter is that saved with it (where there is one, and it is allowed) rather than the default in the SQL: the value a run of it without one of its own is given.  A Saved Query there is the one query, named `Result`.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
 
 ### Example
 ```csharp
@@ -479,6 +481,119 @@ catch (ApiException e)
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="putcustomqueriestotext"></a>
+# **PutCustomQueriesToText**
+> string PutCustomQueriesToText (CustomMultiQueryRequest customMultiQueryRequest)
+
+PutCustomQueriesToText: Convert the queries of a custom multi-query into its text
+
+ Converts the queries of a custom multi-query into its text, which `api/Sql/customqueries/fromtext` reads back as the same queries. Only the request's `queries` are used (or those of the custom multi-query saved at its `queriesFromWorkspace`, or a Saved Query there as the one query, named `Result`): its other properties (e.g. `scalarParameters`) are ignored.  The text of a custom multi-query starts each query with a `- -- @Name` line, which may be followed by `(internal)` (its result only feeds the queries below it) and/or `= {visibility}/{workspace}/items/{group}/{name}` (a Saved Query, with nothing under it). A query reads the result of one above it as `@Name`. e.g. ```sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 = 0 ```  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, or a query cannot be written as text   (its SQL holds a line that would itself start a query, `- -- @...`, or a `\\` line) - 401 Unauthorized   > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Luminesce.Sdk.Api;
+using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
+using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
+            var customMultiQueryRequest = new CustomMultiQueryRequest(); // CustomMultiQueryRequest | The same set of queries as would be given to start them via `api/MultiQueryBackground/custom`
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.PutCustomQueriesToText(customMultiQueryRequest, opts: opts);
+
+                // PutCustomQueriesToText: Convert the queries of a custom multi-query into its text
+                string result = apiInstance.PutCustomQueriesToText(customMultiQueryRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling SqlDesignApi.PutCustomQueriesToText: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the PutCustomQueriesToTextWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // PutCustomQueriesToText: Convert the queries of a custom multi-query into its text
+    ApiResponse<string> response = apiInstance.PutCustomQueriesToTextWithHttpInfo(customMultiQueryRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling SqlDesignApi.PutCustomQueriesToTextWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **customMultiQueryRequest** | [**CustomMultiQueryRequest**](CustomMultiQueryRequest.md) | The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60; |  |
+
+### Return type
+
+**string**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
@@ -1997,6 +2112,119 @@ catch (ApiException e)
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="puttexttocustomqueries"></a>
+# **PutTextToCustomQueries**
+> List&lt;CustomMultiQueryItem&gt; PutTextToCustomQueries (string body)
+
+PutTextToCustomQueries: Convert the text of a custom multi-query into its queries
+
+ Converts the text of a custom multi-query into the queries to give to `api/MultiQueryBackground/custom` (or `api/Sql/extractscalarparameters/custom`). Nothing is run and no Saved Query is loaded: only the text itself is checked, so a query that reads a Saved Query's result is not.  The text of a custom multi-query starts each query with a `- -- @Name` line, which may be followed by `(internal)` (its result only feeds the queries below it) and/or `= {visibility}/{workspace}/items/{group}/{name}` (a Saved Query, with nothing under it). A query reads the result of one above it as `@Name`. e.g. ```sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 = 0 ```  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the text is not a valid set of queries: `errorDetails` then has one entry per problem, giving its (1-based) `line` and `message` - 401 Unauthorized   > This method is generally only intended for IDE generation purposes.  > It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Luminesce.Sdk.Api;
+using Finbourne.Luminesce.Sdk.Client;
+using Finbourne.Luminesce.Sdk.Extensions;
+using Finbourne.Luminesce.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""luminesceUrl"": ""https://<your-domain>.lusid.com/honeycomb"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<SqlDesignApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<SqlDesignApi>();
+            var body = "body_example";  // string | The text of the queries, each started by a `- -- @Name` line
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // List<CustomMultiQueryItem> result = apiInstance.PutTextToCustomQueries(body, opts: opts);
+
+                // PutTextToCustomQueries: Convert the text of a custom multi-query into its queries
+                List<CustomMultiQueryItem> result = apiInstance.PutTextToCustomQueries(body);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling SqlDesignApi.PutTextToCustomQueries: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the PutTextToCustomQueriesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // PutTextToCustomQueries: Convert the text of a custom multi-query into its queries
+    ApiResponse<List<CustomMultiQueryItem>> response = apiInstance.PutTextToCustomQueriesWithHttpInfo(body);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling SqlDesignApi.PutTextToCustomQueriesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **body** | **string** | The text of the queries, each started by a &#x60;- -- @Name&#x60; line |  |
+
+### Return type
+
+[**List&lt;CustomMultiQueryItem&gt;**](CustomMultiQueryItem.md)
+
+### HTTP request headers
+
+ - **Content-Type**: text/plain
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 

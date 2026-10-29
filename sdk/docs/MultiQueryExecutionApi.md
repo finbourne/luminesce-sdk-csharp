@@ -5,11 +5,11 @@ All URIs are relative to *https://fbn-prd.lusid.com/honeycomb*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CancelMultiQuery**](MultiQueryExecutionApi.md#cancelmultiquery) | **DELETE** /api/MultiQueryBackground/{executionId} | CancelMultiQuery: Cancel / Clear a previously started query-set |
-| [**DownloadMultiQueryResults**](MultiQueryExecutionApi.md#downloadmultiqueryresults) | **GET** /api/MultiQueryBackground/{executionId}/download | [EXPERIMENTAL] DownloadMultiQueryResults: Downloads the results of a custom query-set as one file |
+| [**DownloadMultiQueryResults**](MultiQueryExecutionApi.md#downloadmultiqueryresults) | **GET** /api/MultiQueryBackground/{executionId}/download | DownloadMultiQueryResults: Downloads the results of a custom query-set as one file |
 | [**GetProgressOfMultiQuery**](MultiQueryExecutionApi.md#getprogressofmultiquery) | **GET** /api/MultiQueryBackground/{executionId} | GetProgressOfMultiQuery: View progress of the entire query-set load |
-| [**ListCustomQueries**](MultiQueryExecutionApi.md#listcustomqueries) | **GET** /api/MultiQueryBackground | [EXPERIMENTAL] ListCustomQueries: List the custom query-sets available to the calling user |
-| [**SaveMultiQueryResultsToDrive**](MultiQueryExecutionApi.md#savemultiqueryresultstodrive) | **GET** /api/MultiQueryBackground/{executionId}/drive | [EXPERIMENTAL] SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file |
-| [**StartCustomQueries**](MultiQueryExecutionApi.md#startcustomqueries) | **PUT** /api/MultiQueryBackground/custom | [EXPERIMENTAL] StartCustomQueries: Run a caller-supplied set of Sql queries in the background |
+| [**ListCustomQueries**](MultiQueryExecutionApi.md#listcustomqueries) | **GET** /api/MultiQueryBackground | ListCustomQueries: List the custom query-sets available to the calling user |
+| [**SaveMultiQueryResultsToDrive**](MultiQueryExecutionApi.md#savemultiqueryresultstodrive) | **GET** /api/MultiQueryBackground/{executionId}/drive | SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file |
+| [**StartCustomQueries**](MultiQueryExecutionApi.md#startcustomqueries) | **PUT** /api/MultiQueryBackground/custom | StartCustomQueries: Run a caller-supplied set of Sql queries in the background |
 | [**StartQueries**](MultiQueryExecutionApi.md#startqueries) | **PUT** /api/MultiQueryBackground | StartQueries: Run a given set of Sql queries in the background |
 
 <a id="cancelmultiquery"></a>
@@ -128,7 +128,7 @@ catch (ApiException e)
 # **DownloadMultiQueryResults**
 > System.IO.Stream DownloadMultiQueryResults (string executionId, ExportType? format = null, string? fileName = null, string? dateTimeFormat = null, int? loadWaitMilliseconds = null)
 
-[EXPERIMENTAL] DownloadMultiQueryResults: Downloads the results of a custom query-set as one file
+DownloadMultiQueryResults: Downloads the results of a custom query-set as one file
 
 Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn't exist, isn't a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -172,7 +172,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<MultiQueryExecutionApi>();
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query-set
-            var format = new ExportType?(); // ExportType? | Format to download in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional) 
+            var format = new ExportType?(); // ExportType? | Format to download in.  Several results are one worksheet each for Excel, one table each for Sqlite, one key each for JsonProperByTable, and otherwise one file each within a zip. (optional) 
             var fileName = "fileName_example";  // string? | Name of the file (without extension).  Defaults to `{executionId}`. May contain the placeholders `{executionId}`, `{date:format}` (when the queries started, UTC, e.g. `{date:yyyyMMdd}`) and `{param:name}` (the value of a scalar parameter). (optional) 
             var dateTimeFormat = "dateTimeFormat_example";  // string? | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently `yyyy-MM-dd HH:mm:ss.fff` (optional) 
             var loadWaitMilliseconds = 0;  // int? | Optional maximum additional wait period for post execution platform processing. (optional)  (default to 0)
@@ -182,7 +182,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // System.IO.Stream result = apiInstance.DownloadMultiQueryResults(executionId, format, fileName, dateTimeFormat, loadWaitMilliseconds, opts: opts);
 
-                // [EXPERIMENTAL] DownloadMultiQueryResults: Downloads the results of a custom query-set as one file
+                // DownloadMultiQueryResults: Downloads the results of a custom query-set as one file
                 System.IO.Stream result = apiInstance.DownloadMultiQueryResults(executionId, format, fileName, dateTimeFormat, loadWaitMilliseconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -203,7 +203,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DownloadMultiQueryResults: Downloads the results of a custom query-set as one file
+    // DownloadMultiQueryResults: Downloads the results of a custom query-set as one file
     ApiResponse<System.IO.Stream> response = apiInstance.DownloadMultiQueryResultsWithHttpInfo(executionId, format, fileName, dateTimeFormat, loadWaitMilliseconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -222,7 +222,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **executionId** | **string** | ExecutionId returned when starting the query-set |  |
-| **format** | [**ExportType?**](ExportType?.md) | Format to download in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. | [optional]  |
+| **format** | [**ExportType?**](ExportType?.md) | Format to download in.  Several results are one worksheet each for Excel, one table each for Sqlite, one key each for JsonProperByTable, and otherwise one file each within a zip. | [optional]  |
 | **fileName** | **string?** | Name of the file (without extension).  Defaults to &#x60;{executionId}&#x60;. May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter). | [optional]  |
 | **dateTimeFormat** | **string?** | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; | [optional]  |
 | **loadWaitMilliseconds** | **int?** | Optional maximum additional wait period for post execution platform processing. | [optional] [default to 0] |
@@ -362,7 +362,7 @@ catch (ApiException e)
 # **ListCustomQueries**
 > List&lt;CustomMultiQueryListItem&gt; ListCustomQueries (string? sqlLike = null)
 
-[EXPERIMENTAL] ListCustomQueries: List the custom query-sets available to the calling user
+ListCustomQueries: List the custom query-sets available to the calling user
 
 Lists the custom query-sets (started by the calling user via `custom`) that have finished with at least one result which may be fetched,  and which have not yet passed their `keepForSeconds` time, most recent first.  Each lists its queries that are external results, and which of those have results. Those that errored are included, as some of their queries may still have succeeded.  The following error codes are to be anticipated most with standard Problem Detail reports: - 401 Unauthorized
 
@@ -412,7 +412,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // List<CustomMultiQueryListItem> result = apiInstance.ListCustomQueries(sqlLike, opts: opts);
 
-                // [EXPERIMENTAL] ListCustomQueries: List the custom query-sets available to the calling user
+                // ListCustomQueries: List the custom query-sets available to the calling user
                 List<CustomMultiQueryListItem> result = apiInstance.ListCustomQueries(sqlLike);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -433,7 +433,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListCustomQueries: List the custom query-sets available to the calling user
+    // ListCustomQueries: List the custom query-sets available to the calling user
     ApiResponse<List<CustomMultiQueryListItem>> response = apiInstance.ListCustomQueriesWithHttpInfo(sqlLike);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -474,7 +474,7 @@ catch (ApiException e)
 # **SaveMultiQueryResultsToDrive**
 > string SaveMultiQueryResultsToDrive (string executionId, string driveLocationAndFileName, bool? mayOverwrite = null, ExportType? format = null, string? driveTemplateLocation = null, string? dateTimeFormat = null, int? loadWaitMilliseconds = null)
 
-[EXPERIMENTAL] SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file
+SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file
 
 Exports the results of all the queries of a custom query-set (other than those which are not external results) as one file. Queries that failed, or were skipped as a query they depend on failed, are left out - though if none succeeded there is nothing to export.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : no query succeeded, or a placeholder or Drive parameter was incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query-set doesn't exist, isn't a custom one, or the calling user did not run it. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn't yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
 
@@ -520,7 +520,7 @@ namespace Examples
             var executionId = "executionId_example";  // string | ExecutionId returned when starting the query-set
             var driveLocationAndFileName = "driveLocationAndFileName_example";  // string | Location and file name within drive where this should be saved to. Missing paths will be created, and extension (if given) will be ignored and inferred from the chosen format (zip where several results are zipped). May contain the placeholders `{executionId}`, `{date:format}` (when the queries started, UTC, e.g. `{date:yyyyMMdd}`) and `{param:name}` (the value of a scalar parameter).
             var mayOverwrite = false;  // bool? | If there is an existing file at the requested location with the same name should this be overridden, or an error returned? (optional)  (default to false)
-            var format = new ExportType?(); // ExportType? | Format to save in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. (optional) 
+            var format = new ExportType?(); // ExportType? | Format to save in.  Several results are one worksheet each for Excel, one table each for Sqlite, one key each for JsonProperByTable, and otherwise one file each within a zip. (optional) 
             var driveTemplateLocation = "driveTemplateLocation_example";  // string? | Drive path and full file name including extension to be used for the export. Only some export types support templates, such as Excel and Pdf, and this will need to match the format type, if given. (optional) 
             var dateTimeFormat = "dateTimeFormat_example";  // string? | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently `yyyy-MM-dd HH:mm:ss.fff` (optional) 
             var loadWaitMilliseconds = 0;  // int? | Optional maximum additional wait period for post execution platform processing. (optional)  (default to 0)
@@ -530,7 +530,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // string result = apiInstance.SaveMultiQueryResultsToDrive(executionId, driveLocationAndFileName, mayOverwrite, format, driveTemplateLocation, dateTimeFormat, loadWaitMilliseconds, opts: opts);
 
-                // [EXPERIMENTAL] SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file
+                // SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file
                 string result = apiInstance.SaveMultiQueryResultsToDrive(executionId, driveLocationAndFileName, mayOverwrite, format, driveTemplateLocation, dateTimeFormat, loadWaitMilliseconds);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -551,7 +551,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file
+    // SaveMultiQueryResultsToDrive: Saves the results of a custom query-set directly to Drive, as one file
     ApiResponse<string> response = apiInstance.SaveMultiQueryResultsToDriveWithHttpInfo(executionId, driveLocationAndFileName, mayOverwrite, format, driveTemplateLocation, dateTimeFormat, loadWaitMilliseconds);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -572,7 +572,7 @@ catch (ApiException e)
 | **executionId** | **string** | ExecutionId returned when starting the query-set |  |
 | **driveLocationAndFileName** | **string** | Location and file name within drive where this should be saved to. Missing paths will be created, and extension (if given) will be ignored and inferred from the chosen format (zip where several results are zipped). May contain the placeholders &#x60;{executionId}&#x60;, &#x60;{date:format}&#x60; (when the queries started, UTC, e.g. &#x60;{date:yyyyMMdd}&#x60;) and &#x60;{param:name}&#x60; (the value of a scalar parameter). |  |
 | **mayOverwrite** | **bool?** | If there is an existing file at the requested location with the same name should this be overridden, or an error returned? | [optional] [default to false] |
-| **format** | [**ExportType?**](ExportType?.md) | Format to save in.  Several results are one worksheet each for Excel, one table each for Sqlite, and otherwise one file each within a zip. | [optional]  |
+| **format** | [**ExportType?**](ExportType?.md) | Format to save in.  Several results are one worksheet each for Excel, one table each for Sqlite, one key each for JsonProperByTable, and otherwise one file each within a zip. | [optional]  |
 | **driveTemplateLocation** | **string?** | Drive path and full file name including extension to be used for the export. Only some export types support templates, such as Excel and Pdf, and this will need to match the format type, if given. | [optional]  |
 | **dateTimeFormat** | **string?** | Format to apply for DateTime data, leaving blank gives the Luminesce Exporter default, currently &#x60;yyyy-MM-dd HH:mm:ss.fff&#x60; | [optional]  |
 | **loadWaitMilliseconds** | **int?** | Optional maximum additional wait period for post execution platform processing. | [optional] [default to 0] |
@@ -600,9 +600,9 @@ catch (ApiException e)
 # **StartCustomQueries**
 > BackgroundMultiQueryResponse StartCustomQueries (CustomMultiQueryRequest customMultiQueryRequest)
 
-[EXPERIMENTAL] StartCustomQueries: Run a caller-supplied set of Sql queries in the background
+StartCustomQueries: Run a caller-supplied set of Sql queries in the background
 
- Starts a caller-supplied set of named queries in the background, getting back an immediate response with how to - fetch the data of each (external) query in various formats, view progress information and cancel / clear them, as for any multi-query - download, or save to Drive, the results of all the (external) queries that succeeded as one file  The queries are started in the order given, at most `maxInParallel` at a time (1 by default, null for as many as possible). A query may use the results of an earlier one as a table variable of its name, e.g. `select * from @Holdings`, and is then only started once that has succeeded (and is skipped if it does not).  The scalar parameters are given to every query.  The multi-query as a whole is reported as failed if any of its queries fails or is skipped.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden 
+ Starts a caller-supplied set of named queries in the background, getting back an immediate response with how to - fetch the data of each (external) query in various formats, view progress information and cancel / clear them, as for any multi-query - download, or save to Drive, the results of all the (external) queries that succeeded as one file  The queries are started in the order given, at most `maxInParallel` at a time (1 by default, null for as many as possible). A query may use the results of an earlier one as a table variable of its name, e.g. `select * from @Holdings`, and is then only started once that has succeeded (and is skipped if it does not).  The scalar parameters are given to every query.  The multi-query as a whole is reported as failed if any of its queries fails or is skipped.  Rather than giving the `queries`, `queriesFromWorkspace` may name a custom multi-query saved in the Workspaces API to take them from, e.g. `shared/SomeWorkspace/items/sets/SomeSet`. It is read when the request is made, so it runs as it is saved at that time. It may instead name a Saved Query, e.g. `shared/SomeWorkspace/items/queries/SomeQuery`, which is then run as the one query, named `Result`. Whichever of `maxInParallel`, `timeoutSeconds`, `keepForSeconds` and `queryName` the request does not give are taken from it, as are the scalar parameter values saved with it for any the request does not give.  Given an `export`, the results of the (external) queries are saved to Drive as one file once they are done, as by `{executionId}/drive`, before the multi-query is reported as done: the progress's `export.savedTo` is then the Drive path of the file (or `export.error` why it was not saved). By default nothing is saved if any query did not succeed, unless `export.whenSomeFail` is set (the multi-query is reported as failed either way), and the multi-query is reported as failed if the file could not be saved. Its results may still be saved via `{executionId}/drive` too, as often as wanted. With `queriesFromWorkspace`, whatever the `export` leaves unspecified is taken from the export settings saved with it. Specify `executionFlags` of `ProvideLineage` to have the lineage calculated for each result.  An explicit `executionId` already in use (by a multi-query of the caller's that is running, or whose results are still kept) is a conflict, rather than it being started again: so a caller may rejoin one it started by its `executionId`, e.g. after it was itself restarted.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden - 409 Conflict - the `executionId` given is already in use (not a Problem Detail report) 
 
 ### Example
 ```csharp
@@ -650,7 +650,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BackgroundMultiQueryResponse result = apiInstance.StartCustomQueries(customMultiQueryRequest, opts: opts);
 
-                // [EXPERIMENTAL] StartCustomQueries: Run a caller-supplied set of Sql queries in the background
+                // StartCustomQueries: Run a caller-supplied set of Sql queries in the background
                 BackgroundMultiQueryResponse result = apiInstance.StartCustomQueries(customMultiQueryRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -671,7 +671,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] StartCustomQueries: Run a caller-supplied set of Sql queries in the background
+    // StartCustomQueries: Run a caller-supplied set of Sql queries in the background
     ApiResponse<BackgroundMultiQueryResponse> response = apiInstance.StartCustomQueriesWithHttpInfo(customMultiQueryRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -707,6 +707,7 @@ catch (ApiException e)
 | **202** | Accepted |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 

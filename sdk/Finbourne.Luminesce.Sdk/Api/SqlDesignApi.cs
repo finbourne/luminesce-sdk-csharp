@@ -112,7 +112,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query
         /// </summary>
         /// <remarks>
-        ///  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        ///  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  Given &#x60;queriesFromWorkspace&#x60; rather than &#x60;queries&#x60;, the queries are those of the custom multi-query saved there, and the &#x60;value&#x60; of each scalar parameter is that saved with it (where there is one, and it is allowed) rather than the default in the SQL: the value a run of it without one of its own is given.  A Saved Query there is the one query, named &#x60;Result&#x60;.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
@@ -125,7 +125,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query
         /// </summary>
         /// <remarks>
-        ///  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        ///  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  Given &#x60;queriesFromWorkspace&#x60; rather than &#x60;queries&#x60;, the queries are those of the custom multi-query saved there, and the &#x60;value&#x60; of each scalar parameter is that saved with it (where there is one, and it is allowed) rather than the default in the SQL: the value a run of it without one of its own is given.  A Saved Query there is the one query, named &#x60;Result&#x60;.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
@@ -133,6 +133,31 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;ScalarParameter&gt;</returns>
         Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>> PutCustomQueriesToExtractScalarParametersWithHttpInfo(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// PutCustomQueriesToText: Convert the queries of a custom multi-query into its text
+        /// </summary>
+        /// <remarks>
+        ///  Converts the queries of a custom multi-query into its text, which &#x60;api/Sql/customqueries/fromtext&#x60; reads back as the same queries. Only the request&#39;s &#x60;queries&#x60; are used (or those of the custom multi-query saved at its &#x60;queriesFromWorkspace&#x60;, or a Saved Query there as the one query, named &#x60;Result&#x60;): its other properties (e.g. &#x60;scalarParameters&#x60;) are ignored.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, or a query cannot be written as text   (its SQL holds a line that would itself start a query, &#x60;- -- @...&#x60;, or a &#x60;\\&#x60; line) - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>string</returns>
+        string PutCustomQueriesToText(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// PutCustomQueriesToText: Convert the queries of a custom multi-query into its text
+        /// </summary>
+        /// <remarks>
+        ///  Converts the queries of a custom multi-query into its text, which &#x60;api/Sql/customqueries/fromtext&#x60; reads back as the same queries. Only the request&#39;s &#x60;queries&#x60; are used (or those of the custom multi-query saved at its &#x60;queriesFromWorkspace&#x60;, or a Saved Query there as the one query, named &#x60;Result&#x60;): its other properties (e.g. &#x60;scalarParameters&#x60;) are ignored.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, or a query cannot be written as text   (its SQL holds a line that would itself start a query, &#x60;- -- @...&#x60;, or a &#x60;\\&#x60; line) - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of string</returns>
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutCustomQueriesToTextWithHttpInfo(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// PutFileReadDesignToSql: Make file read SQL from a design object
         /// </summary>
@@ -495,6 +520,31 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of WriterDesign</returns>
         Finbourne.Luminesce.Sdk.Client.ApiResponse<WriterDesign> PutSqlToWriterDesignWithHttpInfo(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// PutTextToCustomQueries: Convert the text of a custom multi-query into its queries
+        /// </summary>
+        /// <remarks>
+        ///  Converts the text of a custom multi-query into the queries to give to &#x60;api/MultiQueryBackground/custom&#x60; (or &#x60;api/Sql/extractscalarparameters/custom&#x60;). Nothing is run and no Saved Query is loaded: only the text itself is checked, so a query that reads a Saved Query&#39;s result is not.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the text is not a valid set of queries: &#x60;errorDetails&#x60; then has one entry per problem, giving its (1-based) &#x60;line&#x60; and &#x60;message&#x60; - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The text of the queries, each started by a &#x60;- -- @Name&#x60; line</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>List&lt;CustomMultiQueryItem&gt;</returns>
+        List<CustomMultiQueryItem> PutTextToCustomQueries(string body, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// PutTextToCustomQueries: Convert the text of a custom multi-query into its queries
+        /// </summary>
+        /// <remarks>
+        ///  Converts the text of a custom multi-query into the queries to give to &#x60;api/MultiQueryBackground/custom&#x60; (or &#x60;api/Sql/extractscalarparameters/custom&#x60;). Nothing is run and no Saved Query is loaded: only the text itself is checked, so a query that reads a Saved Query&#39;s result is not.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the text is not a valid set of queries: &#x60;errorDetails&#x60; then has one entry per problem, giving its (1-based) &#x60;line&#x60; and &#x60;message&#x60; - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The text of the queries, each started by a &#x60;- -- @Name&#x60; line</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of List&lt;CustomMultiQueryItem&gt;</returns>
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CustomMultiQueryItem>> PutTextToCustomQueriesWithHttpInfo(string body, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// PutViewDesignToSql: Make view creation sql from a view-design
         /// </summary>
         /// <remarks>
@@ -640,7 +690,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query
         /// </summary>
         /// <remarks>
-        ///  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        ///  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  Given &#x60;queriesFromWorkspace&#x60; rather than &#x60;queries&#x60;, the queries are those of the custom multi-query saved there, and the &#x60;value&#x60; of each scalar parameter is that saved with it (where there is one, and it is allowed) rather than the default in the SQL: the value a run of it without one of its own is given.  A Saved Query there is the one query, named &#x60;Result&#x60;.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
@@ -654,7 +704,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query
         /// </summary>
         /// <remarks>
-        ///  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        ///  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  Given &#x60;queriesFromWorkspace&#x60; rather than &#x60;queries&#x60;, the queries are those of the custom multi-query saved there, and the &#x60;value&#x60; of each scalar parameter is that saved with it (where there is one, and it is allowed) rather than the default in the SQL: the value a run of it without one of its own is given.  A Saved Query there is the one query, named &#x60;Result&#x60;.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </remarks>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
@@ -663,6 +713,33 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;ScalarParameter&gt;)</returns>
         System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<ScalarParameter>>> PutCustomQueriesToExtractScalarParametersWithHttpInfoAsync(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// PutCustomQueriesToText: Convert the queries of a custom multi-query into its text
+        /// </summary>
+        /// <remarks>
+        ///  Converts the queries of a custom multi-query into its text, which &#x60;api/Sql/customqueries/fromtext&#x60; reads back as the same queries. Only the request&#39;s &#x60;queries&#x60; are used (or those of the custom multi-query saved at its &#x60;queriesFromWorkspace&#x60;, or a Saved Query there as the one query, named &#x60;Result&#x60;): its other properties (e.g. &#x60;scalarParameters&#x60;) are ignored.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, or a query cannot be written as text   (its SQL holds a line that would itself start a query, &#x60;- -- @...&#x60;, or a &#x60;\\&#x60; line) - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> PutCustomQueriesToTextAsync(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// PutCustomQueriesToText: Convert the queries of a custom multi-query into its text
+        /// </summary>
+        /// <remarks>
+        ///  Converts the queries of a custom multi-query into its text, which &#x60;api/Sql/customqueries/fromtext&#x60; reads back as the same queries. Only the request&#39;s &#x60;queries&#x60; are used (or those of the custom multi-query saved at its &#x60;queriesFromWorkspace&#x60;, or a Saved Query there as the one query, named &#x60;Result&#x60;): its other properties (e.g. &#x60;scalarParameters&#x60;) are ignored.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, or a query cannot be written as text   (its SQL holds a line that would itself start a query, &#x60;- -- @...&#x60;, or a &#x60;\\&#x60; line) - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutCustomQueriesToTextWithHttpInfoAsync(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// PutFileReadDesignToSql: Make file read SQL from a design object
         /// </summary>
@@ -1050,6 +1127,33 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (WriterDesign)</returns>
         System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<WriterDesign>> PutSqlToWriterDesignWithHttpInfoAsync(string body, bool? mergeAdditionalMappingFields = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// PutTextToCustomQueries: Convert the text of a custom multi-query into its queries
+        /// </summary>
+        /// <remarks>
+        ///  Converts the text of a custom multi-query into the queries to give to &#x60;api/MultiQueryBackground/custom&#x60; (or &#x60;api/Sql/extractscalarparameters/custom&#x60;). Nothing is run and no Saved Query is loaded: only the text itself is checked, so a query that reads a Saved Query&#39;s result is not.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the text is not a valid set of queries: &#x60;errorDetails&#x60; then has one entry per problem, giving its (1-based) &#x60;line&#x60; and &#x60;message&#x60; - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The text of the queries, each started by a &#x60;- -- @Name&#x60; line</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of List&lt;CustomMultiQueryItem&gt;</returns>
+        System.Threading.Tasks.Task<List<CustomMultiQueryItem>> PutTextToCustomQueriesAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// PutTextToCustomQueries: Convert the text of a custom multi-query into its queries
+        /// </summary>
+        /// <remarks>
+        ///  Converts the text of a custom multi-query into the queries to give to &#x60;api/MultiQueryBackground/custom&#x60; (or &#x60;api/Sql/extractscalarparameters/custom&#x60;). Nothing is run and no Saved Query is loaded: only the text itself is checked, so a query that reads a Saved Query&#39;s result is not.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the text is not a valid set of queries: &#x60;errorDetails&#x60; then has one entry per problem, giving its (1-based) &#x60;line&#x60; and &#x60;message&#x60; - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The text of the queries, each started by a &#x60;- -- @Name&#x60; line</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (List&lt;CustomMultiQueryItem&gt;)</returns>
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CustomMultiQueryItem>>> PutTextToCustomQueriesWithHttpInfoAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// PutViewDesignToSql: Make view creation sql from a view-design
         /// </summary>
@@ -1856,7 +1960,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  Given &#x60;queriesFromWorkspace&#x60; rather than &#x60;queries&#x60;, the queries are those of the custom multi-query saved there, and the &#x60;value&#x60; of each scalar parameter is that saved with it (where there is one, and it is allowed) rather than the default in the SQL: the value a run of it without one of its own is given.  A Saved Query there is the one query, named &#x60;Result&#x60;.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
@@ -1870,7 +1974,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  Given &#x60;queriesFromWorkspace&#x60; rather than &#x60;queries&#x60;, the queries are those of the custom multi-query saved there, and the &#x60;value&#x60; of each scalar parameter is that saved with it (where there is one, and it is allowed) rather than the default in the SQL: the value a run of it without one of its own is given.  A Saved Query there is the one query, named &#x60;Result&#x60;.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
@@ -1957,7 +2061,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  Given &#x60;queriesFromWorkspace&#x60; rather than &#x60;queries&#x60;, the queries are those of the custom multi-query saved there, and the &#x60;value&#x60; of each scalar parameter is that saved with it (where there is one, and it is allowed) rather than the default in the SQL: the value a run of it without one of its own is given.  A Saved Query there is the one query, named &#x60;Result&#x60;.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
@@ -1972,7 +2076,7 @@ namespace Finbourne.Luminesce.Sdk.Api
         }
 
         /// <summary>
-        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// PutCustomQueriesToExtractScalarParameters: Extract scalar parameter information from all the queries of a custom multi-query  Extracts information about all the scalar parameters defined across the queries of a custom multi-query, loading the SQL of any given as Saved Queries. Each name is given only once (the first found of it, in query order), as the same value of it is given to every query that is run. The request&#39;s own &#x60;scalarParameters&#x60; are ignored.  Given &#x60;queriesFromWorkspace&#x60; rather than &#x60;queries&#x60;, the queries are those of the custom multi-query saved there, and the &#x60;value&#x60; of each scalar parameter is that saved with it (where there is one, and it is allowed) rather than the default in the SQL: the value a run of it without one of its own is given.  A Saved Query there is the one query, named &#x60;Result&#x60;.  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, a Saved Query could not be loaded, or there was something wrong with the syntax of a query - 401 Unauthorized - 403 Forbidden   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
         /// </summary>
         /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
@@ -2052,6 +2156,212 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PutCustomQueriesToExtractScalarParameters", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// PutCustomQueriesToText: Convert the queries of a custom multi-query into its text  Converts the queries of a custom multi-query into its text, which &#x60;api/Sql/customqueries/fromtext&#x60; reads back as the same queries. Only the request&#39;s &#x60;queries&#x60; are used (or those of the custom multi-query saved at its &#x60;queriesFromWorkspace&#x60;, or a Saved Query there as the one query, named &#x60;Result&#x60;): its other properties (e.g. &#x60;scalarParameters&#x60;) are ignored.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, or a query cannot be written as text   (its SQL holds a line that would itself start a query, &#x60;- -- @...&#x60;, or a &#x60;\\&#x60; line) - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>string</returns>
+        public string PutCustomQueriesToText(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = PutCustomQueriesToTextWithHttpInfo(customMultiQueryRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// PutCustomQueriesToText: Convert the queries of a custom multi-query into its text  Converts the queries of a custom multi-query into its text, which &#x60;api/Sql/customqueries/fromtext&#x60; reads back as the same queries. Only the request&#39;s &#x60;queries&#x60; are used (or those of the custom multi-query saved at its &#x60;queriesFromWorkspace&#x60;, or a Saved Query there as the one query, named &#x60;Result&#x60;): its other properties (e.g. &#x60;scalarParameters&#x60;) are ignored.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, or a query cannot be written as text   (its SQL holds a line that would itself start a query, &#x60;- -- @...&#x60;, or a &#x60;\\&#x60; line) - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of string</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> PutCustomQueriesToTextWithHttpInfo(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'customMultiQueryRequest' is set
+            if (customMultiQueryRequest == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'customMultiQueryRequest' when calling SqlDesignApi->PutCustomQueriesToText");
+            }
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = customMultiQueryRequest;
+
+            localVarRequestOptions.Operation = "SqlDesignApi.PutCustomQueriesToText";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<string>("/api/Sql/customqueries/totext", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PutCustomQueriesToText", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// PutCustomQueriesToText: Convert the queries of a custom multi-query into its text  Converts the queries of a custom multi-query into its text, which &#x60;api/Sql/customqueries/fromtext&#x60; reads back as the same queries. Only the request&#39;s &#x60;queries&#x60; are used (or those of the custom multi-query saved at its &#x60;queriesFromWorkspace&#x60;, or a Saved Query there as the one query, named &#x60;Result&#x60;): its other properties (e.g. &#x60;scalarParameters&#x60;) are ignored.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, or a query cannot be written as text   (its SQL holds a line that would itself start a query, &#x60;- -- @...&#x60;, or a &#x60;\\&#x60; line) - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> PutCustomQueriesToTextAsync(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await PutCustomQueriesToTextWithHttpInfoAsync(customMultiQueryRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// PutCustomQueriesToText: Convert the queries of a custom multi-query into its text  Converts the queries of a custom multi-query into its text, which &#x60;api/Sql/customqueries/fromtext&#x60; reads back as the same queries. Only the request&#39;s &#x60;queries&#x60; are used (or those of the custom multi-query saved at its &#x60;queriesFromWorkspace&#x60;, or a Saved Query there as the one query, named &#x60;Result&#x60;): its other properties (e.g. &#x60;scalarParameters&#x60;) are ignored.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the request was invalid, its queries could not be loaded from Workspaces, or a query cannot be written as text   (its SQL holds a line that would itself start a query, &#x60;- -- @...&#x60;, or a &#x60;\\&#x60; line) - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customMultiQueryRequest">The same set of queries as would be given to start them via &#x60;api/MultiQueryBackground/custom&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> PutCustomQueriesToTextWithHttpInfoAsync(CustomMultiQueryRequest customMultiQueryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'customMultiQueryRequest' is set
+            if (customMultiQueryRequest == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'customMultiQueryRequest' when calling SqlDesignApi->PutCustomQueriesToText");
+            }
+
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = customMultiQueryRequest;
+
+            localVarRequestOptions.Operation = "SqlDesignApi.PutCustomQueriesToText";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<string>("/api/Sql/customqueries/totext", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PutCustomQueriesToText", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -4976,6 +5286,212 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PutSqlToWriterDesign", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// PutTextToCustomQueries: Convert the text of a custom multi-query into its queries  Converts the text of a custom multi-query into the queries to give to &#x60;api/MultiQueryBackground/custom&#x60; (or &#x60;api/Sql/extractscalarparameters/custom&#x60;). Nothing is run and no Saved Query is loaded: only the text itself is checked, so a query that reads a Saved Query&#39;s result is not.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the text is not a valid set of queries: &#x60;errorDetails&#x60; then has one entry per problem, giving its (1-based) &#x60;line&#x60; and &#x60;message&#x60; - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The text of the queries, each started by a &#x60;- -- @Name&#x60; line</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>List&lt;CustomMultiQueryItem&gt;</returns>
+        public List<CustomMultiQueryItem> PutTextToCustomQueries(string body, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CustomMultiQueryItem>> localVarResponse = PutTextToCustomQueriesWithHttpInfo(body, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// PutTextToCustomQueries: Convert the text of a custom multi-query into its queries  Converts the text of a custom multi-query into the queries to give to &#x60;api/MultiQueryBackground/custom&#x60; (or &#x60;api/Sql/extractscalarparameters/custom&#x60;). Nothing is run and no Saved Query is loaded: only the text itself is checked, so a query that reads a Saved Query&#39;s result is not.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the text is not a valid set of queries: &#x60;errorDetails&#x60; then has one entry per problem, giving its (1-based) &#x60;line&#x60; and &#x60;message&#x60; - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The text of the queries, each started by a &#x60;- -- @Name&#x60; line</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of List&lt;CustomMultiQueryItem&gt;</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CustomMultiQueryItem>> PutTextToCustomQueriesWithHttpInfo(string body, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'body' when calling SqlDesignApi->PutTextToCustomQueries");
+            }
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "text/plain"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "SqlDesignApi.PutTextToCustomQueries";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<List<CustomMultiQueryItem>>("/api/Sql/customqueries/fromtext", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PutTextToCustomQueries", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// PutTextToCustomQueries: Convert the text of a custom multi-query into its queries  Converts the text of a custom multi-query into the queries to give to &#x60;api/MultiQueryBackground/custom&#x60; (or &#x60;api/Sql/extractscalarparameters/custom&#x60;). Nothing is run and no Saved Query is loaded: only the text itself is checked, so a query that reads a Saved Query&#39;s result is not.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the text is not a valid set of queries: &#x60;errorDetails&#x60; then has one entry per problem, giving its (1-based) &#x60;line&#x60; and &#x60;message&#x60; - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The text of the queries, each started by a &#x60;- -- @Name&#x60; line</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of List&lt;CustomMultiQueryItem&gt;</returns>
+        public async System.Threading.Tasks.Task<List<CustomMultiQueryItem>> PutTextToCustomQueriesAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CustomMultiQueryItem>> localVarResponse = await PutTextToCustomQueriesWithHttpInfoAsync(body, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// PutTextToCustomQueries: Convert the text of a custom multi-query into its queries  Converts the text of a custom multi-query into the queries to give to &#x60;api/MultiQueryBackground/custom&#x60; (or &#x60;api/Sql/extractscalarparameters/custom&#x60;). Nothing is run and no Saved Query is loaded: only the text itself is checked, so a query that reads a Saved Query&#39;s result is not.  The text of a custom multi-query starts each query with a &#x60;- -- @Name&#x60; line, which may be followed by &#x60;(internal)&#x60; (its result only feeds the queries below it) and/or &#x60;&#x3D; {visibility}/{workspace}/items/{group}/{name}&#x60; (a Saved Query, with nothing under it). A query reads the result of one above it as &#x60;@Name&#x60;. e.g. &#x60;&#x60;&#x60;sql - -- @Ten (internal) select [Int], Str from Testing10  - -- @Evens select * from @Ten where [Int] % 2 &#x3D; 0 &#x60;&#x60;&#x60;  The following error codes are to be anticipated with standard Problem Detail reports: - 400 BadRequest - the text is not a valid set of queries: &#x60;errorDetails&#x60; then has one entry per problem, giving its (1-based) &#x60;line&#x60; and &#x60;message&#x60; - 401 Unauthorized   &gt; This method is generally only intended for IDE generation purposes.  &gt; It is largely internal to the Finbourne web user interfaces and subject to change without notice. 
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">The text of the queries, each started by a &#x60;- -- @Name&#x60; line</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (List&lt;CustomMultiQueryItem&gt;)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<CustomMultiQueryItem>>> PutTextToCustomQueriesWithHttpInfoAsync(string body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'body' when calling SqlDesignApi->PutTextToCustomQueries");
+            }
+
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "text/plain"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "SqlDesignApi.PutTextToCustomQueries";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<List<CustomMultiQueryItem>>("/api/Sql/customqueries/fromtext", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PutTextToCustomQueries", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

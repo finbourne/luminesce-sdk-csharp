@@ -43,8 +43,9 @@ namespace Finbourne.Luminesce.Sdk.Model
         /// <param name="startedAt">When it was started (UTC).</param>
         /// <param name="when">When the state of it was last updated (UTC).</param>
         /// <param name="expiresAt">When it (and the data of its queries) may be removed (UTC).</param>
+        /// <param name="exportedTo">The Drive path its results were saved to once done, if it was started with an &#x60;export&#x60; and they were.</param>
         /// <param name="queries">Its queries whose results may be fetched (those that are external results), in request order.</param>
-        public CustomMultiQueryListItem(string executionId = default(string), string queryName = default(string), BackgroundQueryState ?state = default(BackgroundQueryState?), DateTimeOffset? startedAt = default(DateTimeOffset?), DateTimeOffset when = default(DateTimeOffset), DateTimeOffset expiresAt = default(DateTimeOffset), List<CustomMultiQueryListItemQuery> queries = default(List<CustomMultiQueryListItemQuery>))
+        public CustomMultiQueryListItem(string executionId = default(string), string queryName = default(string), BackgroundQueryState ?state = default(BackgroundQueryState?), DateTimeOffset? startedAt = default(DateTimeOffset?), DateTimeOffset when = default(DateTimeOffset), DateTimeOffset expiresAt = default(DateTimeOffset), string exportedTo = default(string), List<CustomMultiQueryListItemQuery> queries = default(List<CustomMultiQueryListItemQuery>))
         {
             this.ExecutionId = executionId;
             this.QueryName = queryName;
@@ -52,6 +53,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             this.StartedAt = startedAt;
             this.When = when;
             this.ExpiresAt = expiresAt;
+            this.ExportedTo = exportedTo;
             this.Queries = queries;
         }
 
@@ -91,6 +93,13 @@ namespace Finbourne.Luminesce.Sdk.Model
         public DateTimeOffset ExpiresAt { get; set; }
 
         /// <summary>
+        /// The Drive path its results were saved to once done, if it was started with an &#x60;export&#x60; and they were
+        /// </summary>
+        /// <value>The Drive path its results were saved to once done, if it was started with an &#x60;export&#x60; and they were</value>
+        [DataMember(Name = "exportedTo", EmitDefaultValue = true)]
+        public string ExportedTo { get; set; }
+
+        /// <summary>
         /// Its queries whose results may be fetched (those that are external results), in request order
         /// </summary>
         /// <value>Its queries whose results may be fetched (those that are external results), in request order</value>
@@ -111,6 +120,7 @@ namespace Finbourne.Luminesce.Sdk.Model
             sb.Append("  StartedAt: ").Append(StartedAt).Append("\n");
             sb.Append("  When: ").Append(When).Append("\n");
             sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
+            sb.Append("  ExportedTo: ").Append(ExportedTo).Append("\n");
             sb.Append("  Queries: ").Append(Queries).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -177,6 +187,11 @@ namespace Finbourne.Luminesce.Sdk.Model
                     this.ExpiresAt.Equals(input.ExpiresAt))
                 ) && 
                 (
+                    this.ExportedTo == input.ExportedTo ||
+                    (this.ExportedTo != null &&
+                    this.ExportedTo.Equals(input.ExportedTo))
+                ) && 
+                (
                     this.Queries == input.Queries ||
                     this.Queries != null &&
                     input.Queries != null &&
@@ -213,6 +228,10 @@ namespace Finbourne.Luminesce.Sdk.Model
                 if (this.ExpiresAt != null)
                 {
                     hashCode = (hashCode * 59) + this.ExpiresAt.GetHashCode();
+                }
+                if (this.ExportedTo != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExportedTo.GetHashCode();
                 }
                 if (this.Queries != null)
                 {
