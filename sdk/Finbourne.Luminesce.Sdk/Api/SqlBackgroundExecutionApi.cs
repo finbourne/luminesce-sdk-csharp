@@ -57,6 +57,35 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of BackgroundQueryCancelResponse</returns>
         Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse> CancelQueryWithHttpInfo(string executionId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] DownloadQueryResult: Downloads the query results in the format specified in the body, optionally formatted as the grid shows them
+        /// </summary>
+        /// <remarks>
+        /// Downloads the results as a file in the requested format, as the endpoint of that format (e.g. &#x60;{executionId}/csv&#x60;) does, but specified by a JSON body rather than query parameters. Given &#x60;?download&#x3D;false&#x60;, the data is returned in the response-body instead.  Given &#x60;formatting&#x60;, the results are exported as the grid shows them: only the columns given, in their order and with their headers, their numbers and dates shown as given (in the given locale and timezone), and their conditional rules applied. So far only a csv download may be formatted, in which colours and wrapping cannot be shown (so are ignored), nor is it grouped (so &#x60;grouping&#x60; is ignored), as csv is for passing data on rather than reporting.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query, or the request was invalid - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="downloadQueryResultRequest">The format to download in, which of the results, and how they are to be formatted</param>
+        /// <param name="download">Makes this a file-download request (the default), or else returns the data in the response-body (as &#x60;{executionId}/csv&#x60; does unless asked to download), though binary formats (e.g. excel and parquet) are always downloaded. (optional, default to true)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>string</returns>
+        string DownloadQueryResult(string executionId, DownloadQueryResultRequest downloadQueryResultRequest, bool? download = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadQueryResult: Downloads the query results in the format specified in the body, optionally formatted as the grid shows them
+        /// </summary>
+        /// <remarks>
+        /// Downloads the results as a file in the requested format, as the endpoint of that format (e.g. &#x60;{executionId}/csv&#x60;) does, but specified by a JSON body rather than query parameters. Given &#x60;?download&#x3D;false&#x60;, the data is returned in the response-body instead.  Given &#x60;formatting&#x60;, the results are exported as the grid shows them: only the columns given, in their order and with their headers, their numbers and dates shown as given (in the given locale and timezone), and their conditional rules applied. So far only a csv download may be formatted, in which colours and wrapping cannot be shown (so are ignored), nor is it grouped (so &#x60;grouping&#x60; is ignored), as csv is for passing data on rather than reporting.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query, or the request was invalid - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="downloadQueryResultRequest">The format to download in, which of the results, and how they are to be formatted</param>
+        /// <param name="download">Makes this a file-download request (the default), or else returns the data in the response-body (as &#x60;{executionId}/csv&#x60; does unless asked to download), though binary formats (e.g. excel and parquet) are always downloaded. (optional, default to true)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of string</returns>
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> DownloadQueryResultWithHttpInfo(string executionId, DownloadQueryResultRequest downloadQueryResultRequest, bool? download = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// FetchQueryResultCsv: Fetch the result of a query as CSV
         /// </summary>
         /// <remarks>
@@ -554,6 +583,33 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>ApiResponse of List&lt;BackgroundQueryListItem&gt;</returns>
         Finbourne.Luminesce.Sdk.Client.ApiResponse<List<BackgroundQueryListItem>> ListQueriesWithHttpInfo(string? sqlLike = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] SaveFormattedQueryResultToDrive: Saves the query results directly to Drive, as specified in the body
+        /// </summary>
+        /// <remarks>
+        /// Saves the results directly to Drive, as &#x60;GET {executionId}/drive&#x60; does, but specified by a JSON body rather than query parameters.  Given &#x60;formatting&#x60;, the results are saved as the grid shows them, as &#x60;PUT {executionId}/download&#x60; downloads them (so far for csv only).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query or drive parameters were incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="saveQueryResultToDriveRequest">Where (and how) to save the results, as the query parameters of &#x60;GET {executionId}/drive&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>string</returns>
+        string SaveFormattedQueryResultToDrive(string executionId, SaveQueryResultToDriveRequest saveQueryResultToDriveRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] SaveFormattedQueryResultToDrive: Saves the query results directly to Drive, as specified in the body
+        /// </summary>
+        /// <remarks>
+        /// Saves the results directly to Drive, as &#x60;GET {executionId}/drive&#x60; does, but specified by a JSON body rather than query parameters.  Given &#x60;formatting&#x60;, the results are saved as the grid shows them, as &#x60;PUT {executionId}/download&#x60; downloads them (so far for csv only).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query or drive parameters were incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="saveQueryResultToDriveRequest">Where (and how) to save the results, as the query parameters of &#x60;GET {executionId}/drive&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of string</returns>
+        Finbourne.Luminesce.Sdk.Client.ApiResponse<string> SaveFormattedQueryResultToDriveWithHttpInfo(string executionId, SaveQueryResultToDriveRequest saveQueryResultToDriveRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// SaveQueryResultToDrive: Saves the query results directly to Drive
         /// </summary>
         /// <remarks>
@@ -677,6 +733,37 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (BackgroundQueryCancelResponse)</returns>
         System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<BackgroundQueryCancelResponse>> CancelQueryWithHttpInfoAsync(string executionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadQueryResult: Downloads the query results in the format specified in the body, optionally formatted as the grid shows them
+        /// </summary>
+        /// <remarks>
+        /// Downloads the results as a file in the requested format, as the endpoint of that format (e.g. &#x60;{executionId}/csv&#x60;) does, but specified by a JSON body rather than query parameters. Given &#x60;?download&#x3D;false&#x60;, the data is returned in the response-body instead.  Given &#x60;formatting&#x60;, the results are exported as the grid shows them: only the columns given, in their order and with their headers, their numbers and dates shown as given (in the given locale and timezone), and their conditional rules applied. So far only a csv download may be formatted, in which colours and wrapping cannot be shown (so are ignored), nor is it grouped (so &#x60;grouping&#x60; is ignored), as csv is for passing data on rather than reporting.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query, or the request was invalid - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="downloadQueryResultRequest">The format to download in, which of the results, and how they are to be formatted</param>
+        /// <param name="download">Makes this a file-download request (the default), or else returns the data in the response-body (as &#x60;{executionId}/csv&#x60; does unless asked to download), though binary formats (e.g. excel and parquet) are always downloaded. (optional, default to true)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> DownloadQueryResultAsync(string executionId, DownloadQueryResultRequest downloadQueryResultRequest, bool? download = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadQueryResult: Downloads the query results in the format specified in the body, optionally formatted as the grid shows them
+        /// </summary>
+        /// <remarks>
+        /// Downloads the results as a file in the requested format, as the endpoint of that format (e.g. &#x60;{executionId}/csv&#x60;) does, but specified by a JSON body rather than query parameters. Given &#x60;?download&#x3D;false&#x60;, the data is returned in the response-body instead.  Given &#x60;formatting&#x60;, the results are exported as the grid shows them: only the columns given, in their order and with their headers, their numbers and dates shown as given (in the given locale and timezone), and their conditional rules applied. So far only a csv download may be formatted, in which colours and wrapping cannot be shown (so are ignored), nor is it grouped (so &#x60;grouping&#x60; is ignored), as csv is for passing data on rather than reporting.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query, or the request was invalid - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="downloadQueryResultRequest">The format to download in, which of the results, and how they are to be formatted</param>
+        /// <param name="download">Makes this a file-download request (the default), or else returns the data in the response-body (as &#x60;{executionId}/csv&#x60; does unless asked to download), though binary formats (e.g. excel and parquet) are always downloaded. (optional, default to true)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> DownloadQueryResultWithHttpInfoAsync(string executionId, DownloadQueryResultRequest downloadQueryResultRequest, bool? download = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// FetchQueryResultCsv: Fetch the result of a query as CSV
         /// </summary>
@@ -1201,6 +1288,35 @@ namespace Finbourne.Luminesce.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;BackgroundQueryListItem&gt;)</returns>
         System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<List<BackgroundQueryListItem>>> ListQueriesWithHttpInfoAsync(string? sqlLike = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] SaveFormattedQueryResultToDrive: Saves the query results directly to Drive, as specified in the body
+        /// </summary>
+        /// <remarks>
+        /// Saves the results directly to Drive, as &#x60;GET {executionId}/drive&#x60; does, but specified by a JSON body rather than query parameters.  Given &#x60;formatting&#x60;, the results are saved as the grid shows them, as &#x60;PUT {executionId}/download&#x60; downloads them (so far for csv only).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query or drive parameters were incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="saveQueryResultToDriveRequest">Where (and how) to save the results, as the query parameters of &#x60;GET {executionId}/drive&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> SaveFormattedQueryResultToDriveAsync(string executionId, SaveQueryResultToDriveRequest saveQueryResultToDriveRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] SaveFormattedQueryResultToDrive: Saves the query results directly to Drive, as specified in the body
+        /// </summary>
+        /// <remarks>
+        /// Saves the results directly to Drive, as &#x60;GET {executionId}/drive&#x60; does, but specified by a JSON body rather than query parameters.  Given &#x60;formatting&#x60;, the results are saved as the grid shows them, as &#x60;PUT {executionId}/download&#x60; downloads them (so far for csv only).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query or drive parameters were incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </remarks>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="saveQueryResultToDriveRequest">Where (and how) to save the results, as the query parameters of &#x60;GET {executionId}/drive&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> SaveFormattedQueryResultToDriveWithHttpInfoAsync(string executionId, SaveQueryResultToDriveRequest saveQueryResultToDriveRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// SaveQueryResultToDrive: Saves the query results directly to Drive
         /// </summary>
         /// <remarks>
@@ -1610,6 +1726,249 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelQuery", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadQueryResult: Downloads the query results in the format specified in the body, optionally formatted as the grid shows them Downloads the results as a file in the requested format, as the endpoint of that format (e.g. &#x60;{executionId}/csv&#x60;) does, but specified by a JSON body rather than query parameters. Given &#x60;?download&#x3D;false&#x60;, the data is returned in the response-body instead.  Given &#x60;formatting&#x60;, the results are exported as the grid shows them: only the columns given, in their order and with their headers, their numbers and dates shown as given (in the given locale and timezone), and their conditional rules applied. So far only a csv download may be formatted, in which colours and wrapping cannot be shown (so are ignored), nor is it grouped (so &#x60;grouping&#x60; is ignored), as csv is for passing data on rather than reporting.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query, or the request was invalid - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="downloadQueryResultRequest">The format to download in, which of the results, and how they are to be formatted</param>
+        /// <param name="download">Makes this a file-download request (the default), or else returns the data in the response-body (as &#x60;{executionId}/csv&#x60; does unless asked to download), though binary formats (e.g. excel and parquet) are always downloaded. (optional, default to true)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>string</returns>
+        public string DownloadQueryResult(string executionId, DownloadQueryResultRequest downloadQueryResultRequest, bool? download = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = DownloadQueryResultWithHttpInfo(executionId, downloadQueryResultRequest, download, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadQueryResult: Downloads the query results in the format specified in the body, optionally formatted as the grid shows them Downloads the results as a file in the requested format, as the endpoint of that format (e.g. &#x60;{executionId}/csv&#x60;) does, but specified by a JSON body rather than query parameters. Given &#x60;?download&#x3D;false&#x60;, the data is returned in the response-body instead.  Given &#x60;formatting&#x60;, the results are exported as the grid shows them: only the columns given, in their order and with their headers, their numbers and dates shown as given (in the given locale and timezone), and their conditional rules applied. So far only a csv download may be formatted, in which colours and wrapping cannot be shown (so are ignored), nor is it grouped (so &#x60;grouping&#x60; is ignored), as csv is for passing data on rather than reporting.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query, or the request was invalid - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="downloadQueryResultRequest">The format to download in, which of the results, and how they are to be formatted</param>
+        /// <param name="download">Makes this a file-download request (the default), or else returns the data in the response-body (as &#x60;{executionId}/csv&#x60; does unless asked to download), though binary formats (e.g. excel and parquet) are always downloaded. (optional, default to true)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of string</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> DownloadQueryResultWithHttpInfo(string executionId, DownloadQueryResultRequest downloadQueryResultRequest, bool? download = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'executionId' is set
+            if (executionId == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'executionId' when calling SqlBackgroundExecutionApi->DownloadQueryResult");
+            }
+
+            // verify the required parameter 'downloadQueryResultRequest' is set
+            if (downloadQueryResultRequest == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'downloadQueryResultRequest' when calling SqlBackgroundExecutionApi->DownloadQueryResult");
+            }
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("executionId", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(executionId)); // path parameter
+            if (download != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "download", download));
+            }
+            localVarRequestOptions.Data = downloadQueryResultRequest;
+
+            localVarRequestOptions.Operation = "SqlBackgroundExecutionApi.DownloadQueryResult";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<string>("/api/SqlBackground/{executionId}/download", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DownloadQueryResult", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadQueryResult: Downloads the query results in the format specified in the body, optionally formatted as the grid shows them Downloads the results as a file in the requested format, as the endpoint of that format (e.g. &#x60;{executionId}/csv&#x60;) does, but specified by a JSON body rather than query parameters. Given &#x60;?download&#x3D;false&#x60;, the data is returned in the response-body instead.  Given &#x60;formatting&#x60;, the results are exported as the grid shows them: only the columns given, in their order and with their headers, their numbers and dates shown as given (in the given locale and timezone), and their conditional rules applied. So far only a csv download may be formatted, in which colours and wrapping cannot be shown (so are ignored), nor is it grouped (so &#x60;grouping&#x60; is ignored), as csv is for passing data on rather than reporting.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query, or the request was invalid - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="downloadQueryResultRequest">The format to download in, which of the results, and how they are to be formatted</param>
+        /// <param name="download">Makes this a file-download request (the default), or else returns the data in the response-body (as &#x60;{executionId}/csv&#x60; does unless asked to download), though binary formats (e.g. excel and parquet) are always downloaded. (optional, default to true)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> DownloadQueryResultAsync(string executionId, DownloadQueryResultRequest downloadQueryResultRequest, bool? download = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await DownloadQueryResultWithHttpInfoAsync(executionId, downloadQueryResultRequest, download, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] DownloadQueryResult: Downloads the query results in the format specified in the body, optionally formatted as the grid shows them Downloads the results as a file in the requested format, as the endpoint of that format (e.g. &#x60;{executionId}/csv&#x60;) does, but specified by a JSON body rather than query parameters. Given &#x60;?download&#x3D;false&#x60;, the data is returned in the response-body instead.  Given &#x60;formatting&#x60;, the results are exported as the grid shows them: only the columns given, in their order and with their headers, their numbers and dates shown as given (in the given locale and timezone), and their conditional rules applied. So far only a csv download may be formatted, in which colours and wrapping cannot be shown (so are ignored), nor is it grouped (so &#x60;grouping&#x60; is ignored), as csv is for passing data on rather than reporting.  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query, or the request was invalid - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="downloadQueryResultRequest">The format to download in, which of the results, and how they are to be formatted</param>
+        /// <param name="download">Makes this a file-download request (the default), or else returns the data in the response-body (as &#x60;{executionId}/csv&#x60; does unless asked to download), though binary formats (e.g. excel and parquet) are always downloaded. (optional, default to true)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> DownloadQueryResultWithHttpInfoAsync(string executionId, DownloadQueryResultRequest downloadQueryResultRequest, bool? download = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'executionId' is set
+            if (executionId == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'executionId' when calling SqlBackgroundExecutionApi->DownloadQueryResult");
+            }
+
+            // verify the required parameter 'downloadQueryResultRequest' is set
+            if (downloadQueryResultRequest == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'downloadQueryResultRequest' when calling SqlBackgroundExecutionApi->DownloadQueryResult");
+            }
+
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("executionId", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(executionId)); // path parameter
+            if (download != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToMultiMap("", "download", download));
+            }
+            localVarRequestOptions.Data = downloadQueryResultRequest;
+
+            localVarRequestOptions.Operation = "SqlBackgroundExecutionApi.DownloadQueryResult";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<string>("/api/SqlBackground/{executionId}/download", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DownloadQueryResult", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -5380,6 +5739,236 @@ namespace Finbourne.Luminesce.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListQueries", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SaveFormattedQueryResultToDrive: Saves the query results directly to Drive, as specified in the body Saves the results directly to Drive, as &#x60;GET {executionId}/drive&#x60; does, but specified by a JSON body rather than query parameters.  Given &#x60;formatting&#x60;, the results are saved as the grid shows them, as &#x60;PUT {executionId}/download&#x60; downloads them (so far for csv only).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query or drive parameters were incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="saveQueryResultToDriveRequest">Where (and how) to save the results, as the query parameters of &#x60;GET {executionId}/drive&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>string</returns>
+        public string SaveFormattedQueryResultToDrive(string executionId, SaveQueryResultToDriveRequest saveQueryResultToDriveRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = SaveFormattedQueryResultToDriveWithHttpInfo(executionId, saveQueryResultToDriveRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SaveFormattedQueryResultToDrive: Saves the query results directly to Drive, as specified in the body Saves the results directly to Drive, as &#x60;GET {executionId}/drive&#x60; does, but specified by a JSON body rather than query parameters.  Given &#x60;formatting&#x60;, the results are saved as the grid shows them, as &#x60;PUT {executionId}/download&#x60; downloads them (so far for csv only).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query or drive parameters were incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="saveQueryResultToDriveRequest">Where (and how) to save the results, as the query parameters of &#x60;GET {executionId}/drive&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of string</returns>
+        public Finbourne.Luminesce.Sdk.Client.ApiResponse<string> SaveFormattedQueryResultToDriveWithHttpInfo(string executionId, SaveQueryResultToDriveRequest saveQueryResultToDriveRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'executionId' is set
+            if (executionId == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'executionId' when calling SqlBackgroundExecutionApi->SaveFormattedQueryResultToDrive");
+            }
+
+            // verify the required parameter 'saveQueryResultToDriveRequest' is set
+            if (saveQueryResultToDriveRequest == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'saveQueryResultToDriveRequest' when calling SqlBackgroundExecutionApi->SaveFormattedQueryResultToDrive");
+            }
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("executionId", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(executionId)); // path parameter
+            localVarRequestOptions.Data = saveQueryResultToDriveRequest;
+
+            localVarRequestOptions.Operation = "SqlBackgroundExecutionApi.SaveFormattedQueryResultToDrive";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<string>("/api/SqlBackground/{executionId}/drive", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SaveFormattedQueryResultToDrive", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SaveFormattedQueryResultToDrive: Saves the query results directly to Drive, as specified in the body Saves the results directly to Drive, as &#x60;GET {executionId}/drive&#x60; does, but specified by a JSON body rather than query parameters.  Given &#x60;formatting&#x60;, the results are saved as the grid shows them, as &#x60;PUT {executionId}/download&#x60; downloads them (so far for csv only).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query or drive parameters were incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="saveQueryResultToDriveRequest">Where (and how) to save the results, as the query parameters of &#x60;GET {executionId}/drive&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> SaveFormattedQueryResultToDriveAsync(string executionId, SaveQueryResultToDriveRequest saveQueryResultToDriveRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Luminesce.Sdk.Client.ApiResponse<string> localVarResponse = await SaveFormattedQueryResultToDriveWithHttpInfoAsync(executionId, saveQueryResultToDriveRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SaveFormattedQueryResultToDrive: Saves the query results directly to Drive, as specified in the body Saves the results directly to Drive, as &#x60;GET {executionId}/drive&#x60; does, but specified by a JSON body rather than query parameters.  Given &#x60;formatting&#x60;, the results are saved as the grid shows them, as &#x60;PUT {executionId}/download&#x60; downloads them (so far for csv only).  The following error codes are to be anticipated most with standard Problem Detail reports: - 400 BadRequest : Something failed with the execution of your query or drive parameters were incorrect in some way - 401 Unauthorized - 403 Forbidden - 404 Not Found : The requested query result doesn&#39;t (yet) exist or the calling user did not run the query. - 429 Too Many Requests : Please try your request again soon   1. The query has been executed successfully in the past yet the server-instance receiving this request (e.g. from a load balancer) doesn&#39;t yet have this data available.   1. By virtue of the request you have just placed this will have started to load from the persisted cache and will soon be available.   1. It is also the case that the original server-instance to process the original query is likely to already be able to service this request.
+        /// </summary>
+        /// <exception cref="Finbourne.Luminesce.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="executionId">ExecutionId returned when starting the query</param>
+        /// <param name="saveQueryResultToDriveRequest">Where (and how) to save the results, as the query parameters of &#x60;GET {executionId}/drive&#x60;</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Luminesce.Sdk.Client.ApiResponse<string>> SaveFormattedQueryResultToDriveWithHttpInfoAsync(string executionId, SaveQueryResultToDriveRequest saveQueryResultToDriveRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'executionId' is set
+            if (executionId == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'executionId' when calling SqlBackgroundExecutionApi->SaveFormattedQueryResultToDrive");
+            }
+
+            // verify the required parameter 'saveQueryResultToDriveRequest' is set
+            if (saveQueryResultToDriveRequest == null)
+            {
+                throw new Finbourne.Luminesce.Sdk.Client.ApiException(400, "Missing required parameter 'saveQueryResultToDriveRequest' when calling SqlBackgroundExecutionApi->SaveFormattedQueryResultToDrive");
+            }
+
+
+            Finbourne.Luminesce.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Luminesce.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Luminesce.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("executionId", Finbourne.Luminesce.Sdk.Client.ClientUtils.ParameterToString(executionId)); // path parameter
+            localVarRequestOptions.Data = saveQueryResultToDriveRequest;
+
+            localVarRequestOptions.Operation = "SqlBackgroundExecutionApi.SaveFormattedQueryResultToDrive";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<string>("/api/SqlBackground/{executionId}/drive", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SaveFormattedQueryResultToDrive", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
