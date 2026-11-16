@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DownloadCertificateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -193,7 +192,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCertificatesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -308,7 +306,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ManageCertificateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

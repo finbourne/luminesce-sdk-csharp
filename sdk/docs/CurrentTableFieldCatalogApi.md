@@ -77,7 +77,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCatalogWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -192,7 +191,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetFieldsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -309,7 +307,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetProvidersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

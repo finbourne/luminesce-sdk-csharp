@@ -76,7 +76,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DownloadBinaryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -191,7 +190,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetBinaryVersionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

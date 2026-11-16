@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CancelHistoryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -193,7 +192,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the FetchHistoryResultHistogramWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -317,7 +315,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the FetchHistoryResultJsonWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -441,7 +438,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetHistoryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -556,7 +552,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetProgressOfHistoryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

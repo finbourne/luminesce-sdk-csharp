@@ -77,7 +77,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteViewWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -191,7 +190,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetViewCreationSqlWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -307,7 +305,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListViewsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -425,7 +422,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertViewWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

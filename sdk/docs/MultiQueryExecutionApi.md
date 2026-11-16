@@ -80,7 +80,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CancelMultiQueryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -196,7 +195,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DownloadMultiQueryResultsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -314,7 +312,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetProgressOfMultiQueryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -426,7 +423,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListCustomQueriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -544,7 +540,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SaveMultiQueryResultsToDriveWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -664,7 +659,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the StartCustomQueriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -789,7 +783,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the StartQueriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

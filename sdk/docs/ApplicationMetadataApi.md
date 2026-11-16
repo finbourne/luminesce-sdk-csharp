@@ -74,7 +74,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetServicesAsAccessControlledResourcesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -181,7 +180,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListApiEndpointsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

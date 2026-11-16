@@ -95,7 +95,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetProviderTemplateForExportWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -210,7 +209,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutCaseStatementDesignSqlToDesignWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -324,7 +322,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutCaseStatementDesignToSqlWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -438,7 +435,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutCustomQueriesToExtractScalarParametersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -552,7 +548,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutCustomQueriesToTextWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -666,7 +661,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutFileReadDesignToSqlWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -781,7 +775,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutInlinedPropertiesDesignSqlToDesignWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -895,7 +888,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutInlinedPropertiesDesignToSqlWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1009,7 +1001,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutIntellisenseWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1123,7 +1114,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutIntellisenseErrorWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1237,7 +1227,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutLusidGridToQueryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1351,7 +1340,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutQueryDesignToSqlWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1478,7 +1466,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutQueryToFormatWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1605,7 +1592,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutSqlToExtractScalarParametersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1720,7 +1706,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutSqlToFileReadDesignWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1837,7 +1822,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutSqlToQueryDesignWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1953,7 +1937,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutSqlToViewDesignWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2068,7 +2051,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutSqlToWriterDesignWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2183,7 +2165,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutTextToCustomQueriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2296,7 +2277,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutViewDesignToSqlWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2410,7 +2390,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutWriterDesignToSqlWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

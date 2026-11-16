@@ -94,7 +94,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetByQueryCsvWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -219,7 +218,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetByQueryExcelWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -342,7 +340,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetByQueryJsonWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -464,7 +461,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetByQueryParquetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -586,7 +582,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetByQueryPipeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -708,7 +703,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetByQuerySqliteWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -829,7 +823,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetByQueryXmlWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -954,7 +947,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutByQueryCsvWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1079,7 +1071,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutByQueryExcelWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1202,7 +1193,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutByQueryJsonWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1324,7 +1314,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutByQueryParquetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1446,7 +1435,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutByQueryPipeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1568,7 +1556,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutByQuerySqliteWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1689,7 +1676,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the PutByQueryXmlWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

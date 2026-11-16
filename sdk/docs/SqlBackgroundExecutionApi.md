@@ -91,7 +91,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CancelQueryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -205,7 +204,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DownloadQueryResultWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -333,7 +331,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the FetchQueryResultCsvWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -466,7 +463,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the FetchQueryResultExcelWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -593,7 +589,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the FetchQueryResultHistogramWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -721,7 +716,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the FetchQueryResultJsonWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -852,7 +846,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the FetchQueryResultJsonProperWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -984,7 +977,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the FetchQueryResultJsonProperWithLineageWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1113,7 +1105,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the FetchQueryResultParquetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1243,7 +1234,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the FetchQueryResultPipeWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1373,7 +1363,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the FetchQueryResultSqliteWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1502,7 +1491,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the FetchQueryResultXmlWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1627,7 +1615,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetHistoricalFeedbackWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1743,7 +1730,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetProgressOfWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1857,7 +1843,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListQueriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1970,7 +1955,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SaveFormattedQueryResultToDriveWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2097,7 +2081,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SaveQueryResultToDriveWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2230,7 +2213,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the StartQueryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
